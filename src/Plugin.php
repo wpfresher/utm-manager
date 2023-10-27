@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package EssentialElements
  */
-class Plugin {
+class Plugin extends Lib\Plugin {
     /**
      * Plugin constructor.
      *
@@ -29,7 +29,7 @@ class Plugin {
      * @since 1.0.0
      * @return null
      */
-    public static function create( $data ): null {
+    public static function create( array $data ): null {
         return null;
     }
 }

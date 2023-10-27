@@ -46,7 +46,7 @@ spl_autoload_register(
 
         // Look for the file in the inc and lib directories.
         $file_paths = array(
-            __DIR__ . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . $file,
+            __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $file,
             __DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $file,
         );
 
