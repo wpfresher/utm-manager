@@ -30,34 +30,46 @@ defined( 'ABSPATH' ) || exit();
 
 // Autoload function.
 spl_autoload_register(
-    function ( $class ) {
+    function ( $class_name ) {
+
         $prefix = 'EssentialElements\\';
         $len    = strlen( $prefix );
 
         // Bail out if the class name doesn't start with our prefix.
-        if ( strncmp( $prefix, $class, $len ) !== 0 ) {
+        if ( strncmp( $prefix, $class_name, $len ) !== 0 ) {
             return;
         }
 
         // Remove the prefix from the class name.
-        $relative_class = substr( $class, $len );
-        // Replace the namespace separator with the directory separator.
+        $relative_class = substr( $class_name, $len );
+//        // Replace the namespace separator with the directory separator.
         $file = str_replace( '\\', DIRECTORY_SEPARATOR, $relative_class ) . '.php';
 
-        // Look for the file in the inc and lib directories.
-        $file_paths = array(
-            __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $file,
-            __DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $file,
-        );
+        require_once( __DIR__ . DIRECTORY_SEPARATOR .'src' . DIRECTORY_SEPARATOR . $file );
 
-        foreach ( $file_paths as $file_path ) {
-            if ( file_exists( $file_path ) ) {
-                require_once $file_path;
-                break;
-            }
-        }
+
+//        wp_die();
+
+//        var_dump($class_name);
+//        wp_die();
+//
+//        // Look for the file in the inc and lib directories.
+//        $file_paths = array(
+//            __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $file,
+//            __DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $file,
+//        );
+//
+//        foreach ( $file_paths as $file_path ) {
+//            if ( file_exists( $file_path ) ) {
+//                require_once $file_path;
+//                break;
+//            }
+//        }
     }
 );
+
+
+
 
 /**
  * Get the plugin instance.
@@ -72,8 +84,7 @@ function essential_elements() { // phpcs:ignore
         'support_url'  => 'https://wpfresher.com/support/',
         'docs_url'     => 'https://wpfresher.com/docs/essential-elements/',
     );
-
-    return Plugin::create( $data );
+    return new Plugin;
 }
 
 // Initialize the plugin.

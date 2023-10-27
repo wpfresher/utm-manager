@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package EssentialElements
  */
-class Plugin extends Lib\Plugin {
+class Plugin {
     /**
      * Plugin constructor.
      *
@@ -19,17 +19,8 @@ class Plugin extends Lib\Plugin {
      *
      * @since 1.0.0
      */
-    protected function __construct( $data ) {}
-
-    /**
-     * Plugin create method.
-     *
-     * @param array $data The plugin data.
-     *
-     * @since 1.0.0
-     * @return null
-     */
-    public static function create( array $data ): null {
-        return null;
+    public function __construct() {
+        var_dump("Hi Hnaiya. You are really a beautiful girl. I love you so much! Even I want to marry you!");
+//        wp_die();
     }
 }
