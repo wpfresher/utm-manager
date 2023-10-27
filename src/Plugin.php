@@ -19,8 +19,11 @@ class Plugin {
      *
      * @since 1.0.0
      */
-    public function __construct() {
+    public function __construct() {}
+    public static function create( $data ) {
+
+        var_dump( $data );
         var_dump("Hi Hnaiya. You are really a beautiful girl. I love you so much! Even I want to marry you!");
-//        wp_die();
+        return $data;
     }
 }

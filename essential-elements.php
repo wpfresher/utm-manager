@@ -68,9 +68,6 @@ spl_autoload_register(
     }
 );
 
-
-
-
 /**
  * Get the plugin instance.
  *
@@ -84,7 +81,7 @@ function essential_elements() { // phpcs:ignore
         'support_url'  => 'https://wpfresher.com/support/',
         'docs_url'     => 'https://wpfresher.com/docs/essential-elements/',
     );
-    return new Plugin;
+    return Plugin::create( $data );
 }
 
 // Initialize the plugin.
