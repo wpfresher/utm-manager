@@ -5,7 +5,7 @@ namespace EssentialElements\Lib;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Template for encapsulating some of the most often required abilities of a plugin instance.
+ * Describes a plugin instance.
  *
  * @since   1.0.0
  * @version 1.0.1
@@ -13,4 +13,4 @@ defined( 'ABSPATH' ) || exit;
  * @package EssentialElements\Lib
  * @subpackage Lib/Plugin
  */
-abstract class Plugin implements PluginInterface {}
+interface PluginInterface {}
