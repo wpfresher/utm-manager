@@ -25,8 +25,7 @@
 
 use EssentialElements\Plugin;
 
-// don't call the file directly.
-defined( 'ABSPATH' ) || exit();
+defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
 // Autoload function.
 spl_autoload_register(
