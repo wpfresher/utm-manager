@@ -58,6 +58,6 @@ class Plugin extends Lib\Plugin {
 	 * @return void
 	 */
 	public function init() {
-		var_dump($this->data);
+//		var_dump($this->data);
 	}
 }
