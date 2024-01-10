@@ -4,4 +4,4 @@ lib
 # Build
 assets/dist
 
-uninstall.php
+src/test.php
