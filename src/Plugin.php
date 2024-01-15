@@ -31,7 +31,9 @@ class Plugin extends Lib\Plugin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function define_constants() {}
+	public function define_constants() {
+		define( 'WCDM_VERSION', $this->data['version'] );
+	}
 
 	/**
 	 * Include required files.
