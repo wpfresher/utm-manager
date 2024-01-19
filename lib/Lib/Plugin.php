@@ -2,6 +2,8 @@
 
 namespace EssentialElements\Lib;
 
+use function EDD\Blocks\Checkout\cart;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -13,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  * @package EssentialElements\Lib
  * @subpackage Lib/Plugin
  */
-abstract class Plugin implements PluginInterface {
+abstract class Plugin {
 
 	/**
 	 * The plugin data store.
@@ -112,5 +114,224 @@ abstract class Plugin implements PluginInterface {
 		if ( ! isset( $this->data['prefix'] ) ) {
 			$this->data['prefix'] = str_replace( '-', '_', $this->data['slug'] );
 		}
+
+		// Register hooks.
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+
+		// Admin hooks.
+		if ( is_admin() ) {
+			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+			add_filter( 'plugin_action_links_' . plugin_basename( $this->data['file'] ), array( $this, 'plugin_action_links' ) );
+		}
+	}
+
+	/**
+	 * Check if the plugin is active.
+	 *
+	 * @param string $plugin The plugin slug or basename.
+	 *
+	 * @since 1.0.0
+	 * @return bool
+	 */
+	public function is_plugin_active( $plugin ) {
+		// Check if the $plugin is a basename or a slug. If it's a slug, convert it to a basename.
+		if ( false === strpos( $plugin, '/' ) ) {
+			$plugin = $plugin . '/' . $plugin . '.php';
+		}
+
+		$active_plugins = (array) get_option( 'active_plugins', array() );
+		if ( is_multisite() ) {
+			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
+		}
+
+		return in_array( $plugin, $active_plugins, true ) || array_key_exists( $plugin, $active_plugins );
+	}
+
+	/**
+	 * What type of request is this?
+	 *
+	 * @param string $type admin, ajax, cron or frontend.
+	 *
+	 * @since  1.1.0
+	 * @return bool
+	 */
+	protected function is_request( $type ) {
+		switch ( $type ) {
+			case 'admin':
+				return is_admin() || ( defined( 'WP_CLI' ) && WP_CLI );
+			case 'ajax':
+				return defined( 'DOING_AJAX' );
+			case 'cron':
+				return defined( 'DOING_CRON' );
+			case 'frontend':
+				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
+			case 'rest':
+				return defined( 'REST_REQUEST' );
+		}
+
+		return false;
+	}
+
+	/**
+	 * Register plugin textdomain.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain( $this->data['textdomain'], false, $this->data['domainpath'] );
+	}
+
+	/**
+	 * Add plugin meta links.
+	 *
+	 * @param array  $links Plugin meta links.
+	 * @param string $file Plugin file.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public function plugin_row_meta( $links, $file ) {
+		if ( plugin_basename( $this->data['file'] ) !== $file ) {
+			return $links;
+		}
+		foreach ( $this->get_meta_links() as $key => $link ) {
+			$links[ $key ] = sprintf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( $link['url'] ), esc_html( $link['label'] ) );
+		}
+
+		return $links;
+	}
+
+	/**
+	 * Add plugin action links.
+	 *
+	 * @param array $links Plugin action links.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		$actions = array();
+		foreach ( $this->get_action_links() as $key => $link ) {
+			$actions[ $key ] = sprintf( '<a href="%1$s">%2$s</a>', esc_url( $link['url'] ), wp_kses_post( $link['label'] ) );
+		}
+
+		// Add the actions to beginning of the links.
+		$links = array_merge( $actions, $links );
+		if ( $this->has_premium() && ! $this->is_premium_active() ) {
+			// Add UTM parameters to the URL.
+			$pro_link        = add_query_arg(
+				array(
+					'utm_source'   => 'plugins-page',
+					'utm_medium'   => 'plugin-action-link',
+					'utm_campaign' => 'plugins-page',
+					'utm_term'     => 'go-pro',
+					'utm_id'       => $this->data['slug'],
+				),
+				$this->data['premium_url'],
+			);
+			$links['go_pro'] = sprintf( '<a href="%1$s" target="_blank" style="color: #39b54a; font-weight: bold;">%2$s</a>', esc_url( $pro_link ), esc_html__( 'Go Pro', 'essential-elements' ) );
+		}
+
+		return $links;
+	}
+
+	/*
+	|----------------------------
+	| PLUGIN DATA
+	|----------------------------
+	|
+	| Methods to get plugin data.
+	|
+	*/
+
+	/**
+	 * Get meta links.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public function get_meta_links() {
+		$links = array();
+		if ( ! empty( $this->data['docs_url'] ) ) {
+			$links['docs'] = array(
+				'label' => __( 'Documentation', 'essential-elements' ),
+				'url'   => $this->data['docs_url'],
+			);
+		}
+
+		if ( ! empty( $this->data['support_url'] ) ) {
+			$links['support'] = array(
+				'label' => __( 'Support', 'essential-elements' ),
+				'url'   => $this->data['support_url'],
+			);
+		}
+
+		if ( ! empty( $this->data['review_url'] ) ) {
+			$links['review'] = array(
+				'label' => __( 'Review', 'essential-elements' ),
+				'url'   => $this->data['review_url'],
+			);
+		}
+
+		$links['plugins'] = array(
+			'label' => __( 'More Plugins', 'essential-elements' ),
+			'url'   => $this->data['store_url'],
+		);
+
+		return $links;
+	}
+
+	/**
+	 * Get action links.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public function get_action_links() {
+		$links = array();
+		if ( ! empty( $this->data['settings_url'] ) ) {
+			$links['settings'] = array(
+				'label' => __( 'Settings', 'essential-elements' ),
+				'url'   => $this->data['settings_url'],
+			);
+		}
+
+		return $links;
+	}
+
+	/**
+	 * Get premium plugin basename.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public function get_premium_basename() {
+		$basename = $this->data['premium_basename'];
+		if ( ! empty( $basename ) && false === strpos( $basename, '/' ) ) {
+			$basename = $basename . '/' . $basename . '.php';
+		}
+
+		return $basename;
+	}
+
+	/**
+	 * Has premium plugin.
+	 *
+	 * @since 1.0.0
+	 * @return bool
+	 */
+	public function has_premium() {
+		return $this->get_premium_basename() && $this->data['premium_url'];
+	}
+
+	/**
+	 * Is premium plugin active.
+	 *
+	 * @since 1.0.0
+	 * @return bool
+	 */
+	public function is_premium_active() {
+		return $this->has_premium() && $this->is_plugin_active( $this->get_premium_basename() );
 	}
 }

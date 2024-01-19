@@ -50,7 +50,28 @@ class Plugin extends Lib\Plugin {
 	 * @return void
 	 */
 	public function init_hooks() {
+		add_action( 'admin_notices', array( $this, 'dependencies_notices' ) );
 		add_action( 'init', array( $this, 'init' ) );
+	}
+
+	/**
+	 * Missing dependencies notice.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function dependencies_notices() {
+		if ( $this->is_plugin_active( 'woocommerce' ) ) {
+			return;
+		}
+		$notice = sprintf(
+		/* translators: 1: plugin name 2: WooCommerce */
+			__( '%1$s requires %2$s to be installed and active.', 'kuyjftffhgjh-yfy', 'essential-elements' ),
+			'<strong>' . esc_html( $this->data['name'] ) . '</strong>',
+			'<strong>' . esc_html__( 'WooCommerce', 'essential-elements' ) . '</strong>'
+		);
+
+		echo '<div class="notice notice-error"><p>' . wp_kses_post( $notice ) . '</p></div>';
 	}
 
 	/**
@@ -61,5 +82,9 @@ class Plugin extends Lib\Plugin {
 	 */
 	public function init() {
 //		var_dump($this->data);
+//		wp_die();
+
+		// Init action.
+		do_action( 'essential_elements' );
 	}
 }

@@ -67,10 +67,13 @@ spl_autoload_register(
  */
 function essential_elements() { // phpcs:ignore
 	$data = array(
-		'file'         => __FILE__,
-		'settings_url' => admin_url( 'admin.php?page=essential-elements' ),
-		'support_url'  => 'https://wpfresher.com/support/',
-		'docs_url'     => 'https://wpfresher.com/docs/essential-elements/',
+		'file'             => __FILE__,
+		'settings_url'     => admin_url( 'admin.php?page=essential-elements' ),
+		'support_url'      => 'https://wpfresher.com/support/',
+		'docs_url'         => 'https://wpfresher.com/docs/essential-elements/',
+		'premium_url'      => 'https://wpfresher.com/plugins/essential-elements/',
+		'premium_basename' => 'essential-elements-pro',
+		'review_url'       => 'https://wordpress.org/support/plugin/essential-elements/reviews/?filter=5#new-post',
 	);
 	return Plugin::create( $data );
 }
