@@ -2,8 +2,6 @@
 
 namespace EssentialElementsPro\Lib;
 
-use function EDD\Blocks\Checkout\cart;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -15,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * @package EssentialElementsPro\Lib
  * @subpackage Lib/Plugin
  */
-abstract class Plugin {
+abstract class Plugin implements PluginInterface {
 
 	/**
 	 * The plugin data store.
@@ -24,9 +22,10 @@ abstract class Plugin {
 	 * @var array
 	 */
 	protected $data = array(
-		'api_url'   => 'https://urldev.com',
-		'store_url' => 'https://urldev.com',
-		'notices'   => array(),
+		'api_url'           => 'https://urldev.com',
+		'store_url'         => 'https://urldev.com',
+		'framework_version' => '1.0.0',
+		'notices'           => array(),
 	);
 
 	/**
@@ -298,6 +297,16 @@ abstract class Plugin {
 		}
 
 		return $links;
+	}
+
+	/**
+	 * Get the 'basename' for the plugin (e.g. my-plugin/my-plugin.php).
+	 *
+	 * @since  1.0.0
+	 * @return string The plugin basename.
+	 */
+	public function get_basename() {
+		return plugin_basename( $this->data['file'] );
 	}
 
 	/**

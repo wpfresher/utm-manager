@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package EssentialElementsPro
  */
-class Plugin extends Lib\Plugin {
+class Plugin extends Lib\PremiumPlugin {
 	/**
 	 * Plugin constructor.
 	 *
@@ -31,9 +31,7 @@ class Plugin extends Lib\Plugin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function define_constants() {
-		define( 'WCDM_VERSION', $this->data['version'] );
-	}
+	public function define_constants() {}
 
 	/**
 	 * Include required files.

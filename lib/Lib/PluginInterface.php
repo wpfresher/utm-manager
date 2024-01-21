@@ -41,6 +41,14 @@ interface PluginInterface {
 	public function get_action_links();
 
 	/**
+	 * Get plugin basename.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public function get_basename();
+
+	/**
 	 * Get premium plugin basename.
 	 *
 	 * @since 1.0.0

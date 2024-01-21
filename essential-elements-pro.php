@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:  Essential Elements for WordPress
+ * Plugin Name:  Essential Elements for WordPress Pro.
  * Description:  Essential elements for WordPress website.
  * Version:      1.0.0
  * Plugin URI:   https://urldev.com/plugins/essential-elements-pro/
- * Author:       WpFresher
+ * Author:       UrlDev
  * Author URI:   https://urldev.com/
  * Text Domain:  essential-elements-pro
  * Domain Path: /languages/
@@ -68,7 +68,7 @@ spl_autoload_register(
 function essential_elements_pro() { // phpcs:ignore
 	$data = array(
 		'file'             => __FILE__,
-		'item_id'          => 64738,
+		'item_id'          => 129,
 		'settings_url'     => admin_url( 'admin.php?page=essential-elements-pro' ),
 		'support_url'      => 'https://urldev.com/support/',
 		'docs_url'         => 'https://urldev.com/docs/essential-elements-pro/',

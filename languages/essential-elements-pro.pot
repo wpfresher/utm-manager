@@ -1,10 +1,10 @@
-# Copyright (C) 2024 WpFresher
-# This file is distributed under the same license as the Essential Elements for WordPress package.
+# Copyright (C) 2024 UrlDev
+# This file is distributed under the same license as the Essential Elements for WordPress Pro. package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Essential Elements Pro 1.0.0\n"
 "Report-Msgid-Bugs-To: https://urldev.com/plugins/essential-elements-pro/\n"
-"POT-Creation-Date: 2024-01-21 04:14:15+00:00\n"
+"POT-Creation-Date: 2024-01-21 09:48:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,41 +24,224 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: lib/Lib/Plugin.php:233
+#: lib/Lib/Plugin.php:232
 msgid "Go Pro"
 msgstr ""
 
-#: lib/Lib/Plugin.php:258
+#: lib/Lib/Plugin.php:257
 msgid "Documentation"
 msgstr ""
 
-#: lib/Lib/Plugin.php:265
+#: lib/Lib/Plugin.php:264
 msgid "Support"
 msgstr ""
 
-#: lib/Lib/Plugin.php:272
+#: lib/Lib/Plugin.php:271
 msgid "Review"
 msgstr ""
 
-#: lib/Lib/Plugin.php:278
+#: lib/Lib/Plugin.php:277
 msgid "More Plugins"
 msgstr ""
 
-#: lib/Lib/Plugin.php:295
+#: lib/Lib/Plugin.php:294
 msgid "Settings"
 msgstr ""
 
-#: src/Plugin.php:69
+#: lib/Lib/PremiumPlugin.php:31
+#. translators: %s is the plugin name.
+msgid "The item_id is missing for %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:204
+#. translators: %s: plugin name.
+msgid "Thanks for installing \"%s\"!"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:212
+#. translators: %1$s is the plugin name, %2$s is the license key, %3$s is the
+#. license status.
+msgid ""
+"Please activate your license to get updates and support. You can find your "
+"license key in your account on %1$spluginever.com%2$s and in the email you "
+"received after purchase."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:223 lib/Lib/PremiumPlugin.php:335
+msgid "Enter your license key"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:224
+msgid "Activate"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:225 lib/Lib/PremiumPlugin.php:383
+msgid "Buy License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:226 lib/Lib/PremiumPlugin.php:377
+msgid "Contact Support"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:292
+msgid "license"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:293
+msgid "License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:320
+msgid "License is valid."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:323
+msgid "License is expired."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:326
+msgid "Please activate your license."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:330
+#. translators: %s: license status
+msgid "License is %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:345
+msgid "Activate License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:355
+msgid "Deactivate License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:365
+msgid "Check License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:371
+msgid "Renew License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:466
+msgid "Invalid nonce"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:470
+msgid "Invalid operation"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:476
+msgid "License key is required"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:482
+msgid "License key is already activated"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:495
+#. translators: %s: error message
+msgid "License activation failed. %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:509
+msgid "License activated successfully."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:517
+msgid "License activation failed."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:530
+#. translators: %s: error message
+msgid "License deactivation failed. %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:543
+msgid "License deactivated successfully"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:551
+msgid "License deactivation failed"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:564
+#. translators: %s: error message
+msgid "License check was failed. %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:575
+msgid "Your license key is valid."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:579
+#. translators: %s: number of activations left
+msgid "You have %s activations left."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:584
+#. translators: %s: expiration date
+msgid "Your license key expires on %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:595
+msgid "License is invalid"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:604
+msgid "Invalid action"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:694
+msgid "Please activate your license key to get the latest updates and changelog."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:787
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:795
+#. translators: %s: license key
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:801
+msgid "Your license key has been disabled. Please contact support."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:804
+msgid "Invalid license."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:808
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:813
+#. translators: %s: plugin name
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:816
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:819
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: src/Plugin.php:67
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
-#: src/Plugin.php:71
+#: src/Plugin.php:69
 msgid "WooCommerce"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Essential Elements for WordPress"
+msgid "Essential Elements for WordPress Pro."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -70,7 +253,7 @@ msgid "Essential elements for WordPress website."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "WpFresher"
+msgid "UrlDev"
 msgstr ""
 
 #. Author URI of the plugin/theme
