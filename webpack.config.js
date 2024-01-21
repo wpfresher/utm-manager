@@ -6,8 +6,8 @@ module.exports = [
         ...defaultConfig,
         entry: {
             ...defaultConfig.entry(),
-            'css/wpee-admin': './assets/src/css/admin.scss',
-            // 'js/wpee-admin': './assets/src/js/admin.js',
+            'css/wpeep-admin': './assets/src/css/admin.scss',
+            // 'js/wpeep-admin': './assets/src/js/admin.js',
         },
         output: {
             ...defaultConfig.output,

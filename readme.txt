@@ -1,5 +1,5 @@
 === Wpfirstblock ===
-Contributors:      The WordPress Contributors
+Contributors:      urldev
 Tags:              block
 Tested up to:      6.1
 Stable tag:        0.1.0

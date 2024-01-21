@@ -3,14 +3,14 @@
  * Plugin Name:  Essential Elements for WordPress
  * Description:  Essential elements for WordPress website.
  * Version:      1.0.0
- * Plugin URI:   https://wpfresher.com/plugins/essential-elements/
+ * Plugin URI:   https://urldev.com/plugins/essential-elements-pro/
  * Author:       WpFresher
- * Author URI:   https://wpfresher.com/
- * Text Domain:  essential-elements
+ * Author URI:   https://urldev.com/
+ * Text Domain:  essential-elements-pro
  * Domain Path: /languages/
  * Requires PHP: 5.6
  *
- * @package EssentialElements
+ * @package EssentialElementsPro
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
  * GNU General Public License for more details.
  */
 
-use EssentialElements\Plugin;
+use EssentialElementsPro\Plugin;
 
 defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 spl_autoload_register(
 	function ( $class_name ) {
 
-		$prefix = 'EssentialElements\\';
+		$prefix = 'EssentialElementsPro\\';
 		$len    = strlen( $prefix );
 
 		// Bail out if the class name doesn't start with our prefix.
@@ -65,18 +65,18 @@ spl_autoload_register(
  * @since 1.0.0
  * @return Plugin plugin initialize class.
  */
-function essential_elements() { // phpcs:ignore
+function essential_elements_pro() { // phpcs:ignore
 	$data = array(
 		'file'             => __FILE__,
-		'settings_url'     => admin_url( 'admin.php?page=essential-elements' ),
-		'support_url'      => 'https://wpfresher.com/support/',
-		'docs_url'         => 'https://wpfresher.com/docs/essential-elements/',
-		'premium_url'      => 'https://wpfresher.com/plugins/essential-elements/',
+		'item_id'          => 64738,
+		'settings_url'     => admin_url( 'admin.php?page=essential-elements-pro' ),
+		'support_url'      => 'https://urldev.com/support/',
+		'docs_url'         => 'https://urldev.com/docs/essential-elements-pro/',
+		'premium_url'      => 'https://urldev.com/plugins/essential-elements-pro/',
 		'premium_basename' => 'essential-elements-pro',
-		'review_url'       => 'https://wordpress.org/support/plugin/essential-elements/reviews/?filter=5#new-post',
 	);
 	return Plugin::create( $data );
 }
 
 // Initialize the plugin.
-essential_elements();
+essential_elements_pro();

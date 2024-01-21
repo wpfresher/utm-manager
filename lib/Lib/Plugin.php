@@ -1,6 +1,6 @@
 <?php
 
-namespace EssentialElements\Lib;
+namespace EssentialElementsPro\Lib;
 
 use function EDD\Blocks\Checkout\cart;
 
@@ -11,8 +11,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since   1.0.0
  * @version 1.0.1
- * @author  Kawsar Ahmed <kawsarahmed@wpfresher.com>
- * @package EssentialElements\Lib
+ * @author  Kawsar Ahmed <kawsarahmed@urldev.com>
+ * @package EssentialElementsPro\Lib
  * @subpackage Lib/Plugin
  */
 abstract class Plugin {
@@ -24,8 +24,8 @@ abstract class Plugin {
 	 * @var array
 	 */
 	protected $data = array(
-		'api_url'   => 'https://wpfresher.com',
-		'store_url' => 'https://wpfresher.com',
+		'api_url'   => 'https://urldev.com',
+		'store_url' => 'https://urldev.com',
 		'notices'   => array(),
 	);
 
@@ -230,7 +230,7 @@ abstract class Plugin {
 				),
 				$this->data['premium_url'],
 			);
-			$links['go_pro'] = sprintf( '<a href="%1$s" target="_blank" style="color: #39b54a; font-weight: bold;">%2$s</a>', esc_url( $pro_link ), esc_html__( 'Go Pro', 'essential-elements' ) );
+			$links['go_pro'] = sprintf( '<a href="%1$s" target="_blank" style="color: #39b54a; font-weight: bold;">%2$s</a>', esc_url( $pro_link ), esc_html__( 'Go Pro', 'essential-elements-pro' ) );
 		}
 
 		return $links;
@@ -255,27 +255,27 @@ abstract class Plugin {
 		$links = array();
 		if ( ! empty( $this->data['docs_url'] ) ) {
 			$links['docs'] = array(
-				'label' => __( 'Documentation', 'essential-elements' ),
+				'label' => __( 'Documentation', 'essential-elements-pro' ),
 				'url'   => $this->data['docs_url'],
 			);
 		}
 
 		if ( ! empty( $this->data['support_url'] ) ) {
 			$links['support'] = array(
-				'label' => __( 'Support', 'essential-elements' ),
+				'label' => __( 'Support', 'essential-elements-pro' ),
 				'url'   => $this->data['support_url'],
 			);
 		}
 
 		if ( ! empty( $this->data['review_url'] ) ) {
 			$links['review'] = array(
-				'label' => __( 'Review', 'essential-elements' ),
+				'label' => __( 'Review', 'essential-elements-pro' ),
 				'url'   => $this->data['review_url'],
 			);
 		}
 
 		$links['plugins'] = array(
-			'label' => __( 'More Plugins', 'essential-elements' ),
+			'label' => __( 'More Plugins', 'essential-elements-pro' ),
 			'url'   => $this->data['store_url'],
 		);
 
@@ -292,7 +292,7 @@ abstract class Plugin {
 		$links = array();
 		if ( ! empty( $this->data['settings_url'] ) ) {
 			$links['settings'] = array(
-				'label' => __( 'Settings', 'essential-elements' ),
+				'label' => __( 'Settings', 'essential-elements-pro' ),
 				'url'   => $this->data['settings_url'],
 			);
 		}

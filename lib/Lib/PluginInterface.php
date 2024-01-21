@@ -1,6 +1,6 @@
 <?php
 
-namespace EssentialElements\Lib;
+namespace EssentialElementsPro\Lib;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,8 +9,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since   1.0.0
  * @version 1.0.1
- * @author  Kawsar Ahmed <kawsarahmed@wpfresher.com>
- * @package EssentialElements\Lib
+ * @author  Kawsar Ahmed <kawsarahmed@urldev.com>
+ * @package EssentialElementsPro\Lib
  * @subpackage Lib/Plugin
  */
 interface PluginInterface {

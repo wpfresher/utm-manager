@@ -14,8 +14,8 @@ module.exports = function( grunt ) {
             addtextdomain: {
                 options: {
                     expand: true,
-                    text_domain: 'essential-elements',
-                    updateDomains: [ 'framework-text-domain' ],
+                    text_domain: 'essential-elements-pro',
+                    updateDomains: [ 'framework-text-domain', 'essential-elements' ],
                 },
                 plugin: {
                     files: {
@@ -30,7 +30,7 @@ module.exports = function( grunt ) {
             },
             checktextdomain: {
                 options: {
-                    text_domain: 'essential-elements',
+                    text_domain: 'essential-elements-pro',
                     keywords: [
                         '__:1,2d',
                         '_e:1,2d',
