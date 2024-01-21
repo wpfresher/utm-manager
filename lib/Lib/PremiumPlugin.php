@@ -209,8 +209,8 @@ abstract class PremiumPlugin extends Plugin {
 						wp_kses_post(
 							sprintf(
 							// translators: %1$s is the plugin name, %2$s is the license key, %3$s is the license status.
-								__( 'Please activate your license to get updates and support. You can find your license key in your account on %1$spluginever.com%2$s and in the email you received after purchase.', 'essential-elements-pro' ),
-								'<a href="https://pluginever.com/my-account/" target="_blank">',
+								__( 'Please activate your license to get updates and support. You can find your license key in your account on %1$surldev.com%2$s and in the email you received after purchase.', 'essential-elements-pro' ),
+								'<a href="https://urldev.com/my-account/" target="_blank">',
 								'</a>'
 							)
 						)
@@ -222,8 +222,8 @@ abstract class PremiumPlugin extends Plugin {
 						<input type="hidden" name="action" value="<?php echo esc_attr( $this->get_basename() ); ?>_license_action">
 						<input class="regular-text" type="text" name="key" placeholder="<?php echo esc_attr__( 'Enter your license key', 'essential-elements-pro' ); ?>" required value="<?php echo esc_attr( $license ); ?>" style="margin-right:-10px; border-top-right-radius:0; border-bottom-right-radius:0; border-right:0;">
 						<button type="submit" class="button button-secondary" style="border-top-left-radius:0; border-bottom-left-radius:0;line-height: 20px;"><span class="dashicons dashicons-admin-network"></span>&nbsp;<?php echo esc_html__( 'Activate', 'essential-elements-pro' ); ?></button>
-						<?php echo sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $this->get_data( 'pluginuri' ) ), esc_html__( 'Buy License', 'essential-elements-pro' ) ); ?>
-						<?php echo sprintf( '<a href="https://pluginever.com/support/" target="_blank">%s</a>', esc_html__( 'Contact Support', 'essential-elements-pro' ) ); ?>
+						<?php echo sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $this->data['pluginuri'] ), esc_html__( 'Buy License', 'essential-elements-pro' ) ); ?>
+						<?php echo sprintf( '<a href="https://urldev.com/support/" target="_blank">%s</a>', esc_html__( 'Contact Support', 'essential-elements-pro' ) ); ?>
 						<span class="spinner"></span>
 					</form>
 				</div>
@@ -367,19 +367,19 @@ abstract class PremiumPlugin extends Plugin {
 					} elseif ( 'expired' === $this->get_license_status() ) {
 						echo sprintf(
 							'<a href="%s" target="_blank">%s</a>',
-							esc_url( 'https://pluginever.com/checkouts/' . $this->get_item_id() . '?edd_license_key=' . $this->get_license_key() ),
+							esc_url( 'https://urldev.com/checkouts/' . $this->get_item_id() . '?edd_license_key=' . $this->get_license_key() ),
 							esc_html__( 'Renew License', 'essential-elements-pro' )
 						);
 					} elseif ( in_array( $this->get_license_status(), array( 'revoked', 'disabled' ), true ) ) {
 						echo sprintf(
 							'<a href="%s" target="_blank">%s</a>',
-							esc_url( 'https://pluginever.com/my-account/' ),
+							esc_url( 'https://urldev.com/my-account/' ),
 							esc_html__( 'Contact Support', 'essential-elements-pro' )
 						);
 					} else {
 						echo sprintf(
 							'<a href="%s" target="_blank">%s</a>',
-							esc_url( 'https://pluginever.com/checkouts?edd_action=add_to_cart&download_id=' . $this->get_item_id() ),
+							esc_url( 'https://urldev.com/checkouts?edd_action=add_to_cart&download_id=' . $this->get_item_id() ),
 							esc_html__( 'Buy License', 'essential-elements-pro' )
 						);
 					}
