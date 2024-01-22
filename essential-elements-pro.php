@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:  Essential Elements for WordPress Pro.
+ * Plugin Name:  Essential Elements for WordPress Pro
  * Description:  Essential elements for WordPress website.
  * Version:      1.0.0
  * Plugin URI:   https://urldev.com/plugins/essential-elements-pro/
