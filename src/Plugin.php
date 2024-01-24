@@ -79,8 +79,8 @@ class Plugin extends Lib\PremiumPlugin {
 	 * @return void
 	 */
 	public function init() {
-		var_dump($this->data);
-		wp_die();
+//		var_dump($this->data);
+//		wp_die();
 
 		// Init action.
 		do_action( 'wp_starter_plugin' );
