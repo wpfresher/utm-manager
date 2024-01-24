@@ -1,6 +1,6 @@
 <?php
 
-namespace EssentialElementsPro;
+namespace WpStarterPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package EssentialElementsPro
+ * @package WpStarterPlugin
  */
 class Plugin extends Lib\PremiumPlugin {
 	/**
@@ -64,9 +64,9 @@ class Plugin extends Lib\PremiumPlugin {
 		}
 		$notice = sprintf(
 		/* translators: 1: plugin name 2: WooCommerce */
-			__( '%1$s requires %2$s to be installed and active.', 'essential-elements-pro' ),
+			__( '%1$s requires %2$s to be installed and active.', 'wp-starter-plugin' ),
 			'<strong>' . esc_html( $this->data['name'] ) . '</strong>',
-			'<strong>' . esc_html__( 'WooCommerce', 'essential-elements-pro' ) . '</strong>'
+			'<strong>' . esc_html__( 'WooCommerce', 'wp-starter-plugin' ) . '</strong>'
 		);
 
 		echo '<div class="notice notice-error"><p>' . wp_kses_post( $notice ) . '</p></div>';
@@ -79,10 +79,10 @@ class Plugin extends Lib\PremiumPlugin {
 	 * @return void
 	 */
 	public function init() {
-//		var_dump($this->data);
-//		wp_die();
+		var_dump($this->data);
+		wp_die();
 
 		// Init action.
-		do_action( 'essential_elements_pro' );
+		do_action( 'wp_starter_plugin' );
 	}
 }

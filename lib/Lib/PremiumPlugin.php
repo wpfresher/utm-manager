@@ -1,6 +1,6 @@
 <?php
 
-namespace EssentialElementsPro\Lib;
+namespace WpStarterPlugin\Lib;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
  * @license   GPL-3.0
  *
  * @version   1.0.0
- * @package  EssentialElementsPro\Lib
+ * @package  WpStarterPlugin\Lib
  */
 abstract class PremiumPlugin extends Plugin {
 	/**
@@ -28,7 +28,7 @@ abstract class PremiumPlugin extends Plugin {
 
 		if ( empty( $this->get_item_id() ) ) {
 			// translators: %s is the plugin name.
-			wp_die( esc_html( sprintf( __( 'The item_id is missing for %s', 'essential-elements-pro' ), $this->data['name'] ) ) );
+			wp_die( esc_html( sprintf( __( 'The item_id is missing for %s', 'wp-starter-plugin' ), $this->data['name'] ) ) );
 		}
 
 		add_action( 'admin_footer', array( $this, 'license_notices' ), PHP_INT_MAX );
@@ -98,7 +98,7 @@ abstract class PremiumPlugin extends Plugin {
 				<div class="license-notice__text">
 					<h2 style="margin:0 0 10px;padding: 0;">
 						<?php // translators: %s: plugin name. ?>
-						<?php printf( esc_html__( 'Thanks for installing "%s"!', 'essential-elements-pro' ), esc_html( $this->data['name'] ) ); ?>
+						<?php printf( esc_html__( 'Thanks for installing "%s"!', 'wp-starter-plugin' ), esc_html( $this->data['name'] ) ); ?>
 					</h2>
 					<?php
 					printf(
@@ -106,7 +106,7 @@ abstract class PremiumPlugin extends Plugin {
 						wp_kses_post(
 							sprintf(
 							// translators: %1$s is the plugin name, %2$s is the license key, %3$s is the license status.
-								__( 'Please activate your license to get updates and support. You can find your license key in your account on %1$surldev.com%2$s and in the email you received after purchase.', 'essential-elements-pro' ),
+								__( 'Please activate your license to get updates and support. You can find your license key in your account on %1$surldev.com%2$s and in the email you received after purchase.', 'wp-starter-plugin' ),
 								'<a href="https://urldev.com/my-account/" target="_blank">',
 								'</a>'
 							)
@@ -117,10 +117,10 @@ abstract class PremiumPlugin extends Plugin {
 						<?php wp_nonce_field( $this->get_basename() . '_license_action', 'nonce' ); ?>
 						<input type="hidden" name="operation" value="activate_license">
 						<input type="hidden" name="action" value="<?php echo esc_attr( $this->get_basename() ); ?>_license_action">
-						<input class="regular-text" type="text" name="key" placeholder="<?php echo esc_attr__( 'Enter your license key', 'essential-elements-pro' ); ?>" required value="<?php echo esc_attr( $license ); ?>" style="margin-right:-10px; border-top-right-radius:0; border-bottom-right-radius:0; border-right:0;">
-						<button type="submit" class="button button-secondary" style="border-top-left-radius:0; border-bottom-left-radius:0;line-height: 20px;"><span class="dashicons dashicons-admin-network"></span>&nbsp;<?php echo esc_html__( 'Activate', 'essential-elements-pro' ); ?></button>
-						<?php printf( '<a href="%s" target="_blank">%s</a>', esc_url( $this->data['pluginuri'] ), esc_html__( 'Buy License', 'essential-elements-pro' ) ); ?>
-						<?php printf( '<a href="https://urldev.com/support/" target="_blank">%s</a>', esc_html__( 'Contact Support', 'essential-elements-pro' ) ); ?>
+						<input class="regular-text" type="text" name="key" placeholder="<?php echo esc_attr__( 'Enter your license key', 'wp-starter-plugin' ); ?>" required value="<?php echo esc_attr( $license ); ?>" style="margin-right:-10px; border-top-right-radius:0; border-bottom-right-radius:0; border-right:0;">
+						<button type="submit" class="button button-secondary" style="border-top-left-radius:0; border-bottom-left-radius:0;line-height: 20px;"><span class="dashicons dashicons-admin-network"></span>&nbsp;<?php echo esc_html__( 'Activate', 'wp-starter-plugin' ); ?></button>
+						<?php printf( '<a href="%s" target="_blank">%s</a>', esc_url( $this->data['pluginuri'] ), esc_html__( 'Buy License', 'wp-starter-plugin' ) ); ?>
+						<?php printf( '<a href="https://urldev.com/support/" target="_blank">%s</a>', esc_html__( 'Contact Support', 'wp-starter-plugin' ) ); ?>
 						<span class="spinner"></span>
 					</form>
 				</div>
@@ -186,8 +186,8 @@ abstract class PremiumPlugin extends Plugin {
 		$action_links = array(
 			'license' => sprintf(
 				'<a href="javascript:void(0);" class="license-manage-link" aria-label="%s">%s</a>',
-				esc_attr__( 'license', 'essential-elements-pro' ),
-				esc_html__( 'License', 'essential-elements-pro' )
+				esc_attr__( 'license', 'wp-starter-plugin' ),
+				esc_html__( 'License', 'wp-starter-plugin' )
 			),
 		);
 
@@ -214,22 +214,22 @@ abstract class PremiumPlugin extends Plugin {
 				<div class="update-message" style="margin-top: 15px;display: flex;flex-direction: row;align-items: center;flex-wrap: wrap;gap: 10px;">
 					<?php if ( 'valid' === $this->get_license_status() ) : ?>
 						<span class="dashicons dashicons-yes-alt" style="color: #46b450;"></span>
-						<span><?php esc_html_e( 'License is valid.', 'essential-elements-pro' ); ?></span>
+						<span><?php esc_html_e( 'License is valid.', 'wp-starter-plugin' ); ?></span>
 					<?php elseif ( 'expired' === $this->get_license_status() ) : ?>
 						<span class="dashicons dashicons-warning" style="color: #dc3232;"></span>
-						<span><?php esc_html_e( 'License is expired.', 'essential-elements-pro' ); ?></span>
+						<span><?php esc_html_e( 'License is expired.', 'wp-starter-plugin' ); ?></span>
 					<?php elseif ( '' === $this->get_license_status() ) : ?>
 						<span class="dashicons dashicons-warning" style="color: #dc3232;"></span>
-						<span><?php esc_html_e( 'Please activate your license.', 'essential-elements-pro' ); ?></span>
+						<span><?php esc_html_e( 'Please activate your license.', 'wp-starter-plugin' ); ?></span>
 					<?php else : ?>
 						<span class="dashicons dashicons-warning" style="color: #dc3232;"></span>
 						<?php /* translators: %s: license status */ ?>
-						<span><?php printf( esc_html__( 'License is %s.', 'essential-elements-pro' ), esc_html( $this->get_license_status() ) ); ?></span>
+						<span><?php printf( esc_html__( 'License is %s.', 'wp-starter-plugin' ), esc_html( $this->get_license_status() ) ); ?></span>
 					<?php endif; ?>
 					<?php
 					printf(
 						'<input class="regular-text license-key" type="text" placeholder="%s" value="%s" style="margin-right:-10px; border-top-right-radius:0; border-bottom-right-radius:0; border-right:0;" />',
-						esc_attr__( 'Enter your license key', 'essential-elements-pro' ),
+						esc_attr__( 'Enter your license key', 'wp-starter-plugin' ),
 						esc_attr( $this->get_license_key() )
 					);
 					printf(
@@ -239,7 +239,7 @@ abstract class PremiumPlugin extends Plugin {
 						esc_attr( $nonce ),
 						esc_attr( 'border-top-left-radius:0; border-bottom-left-radius:0;' ),
 						esc_attr( 'dashicons-admin-network' ),
-						esc_html__( 'Activate License', 'essential-elements-pro' )
+						esc_html__( 'Activate License', 'wp-starter-plugin' )
 					);
 					if ( 'valid' === $this->get_license_status() ) {
 						printf(
@@ -249,7 +249,7 @@ abstract class PremiumPlugin extends Plugin {
 							esc_attr( $nonce ),
 							esc_attr( '' ),
 							esc_attr( 'dashicons-no-alt' ),
-							esc_html__( 'Deactivate License', 'essential-elements-pro' )
+							esc_html__( 'Deactivate License', 'wp-starter-plugin' )
 						);
 
 						printf(
@@ -259,25 +259,25 @@ abstract class PremiumPlugin extends Plugin {
 							esc_attr( $nonce ),
 							esc_attr( '' ),
 							esc_attr( 'dashicons-update' ),
-							esc_html__( 'Check License', 'essential-elements-pro' )
+							esc_html__( 'Check License', 'wp-starter-plugin' )
 						);
 					} elseif ( 'expired' === $this->get_license_status() ) {
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
 							esc_url( 'https://urldev.com/checkouts/' . $this->get_item_id() . '?edd_license_key=' . $this->get_license_key() ),
-							esc_html__( 'Renew License', 'essential-elements-pro' )
+							esc_html__( 'Renew License', 'wp-starter-plugin' )
 						);
 					} elseif ( in_array( $this->get_license_status(), array( 'revoked', 'disabled' ), true ) ) {
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
 							esc_url( 'https://urldev.com/my-account/' ),
-							esc_html__( 'Contact Support', 'essential-elements-pro' )
+							esc_html__( 'Contact Support', 'wp-starter-plugin' )
 						);
 					} else {
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
 							esc_url( 'https://urldev.com/checkouts?edd_action=add_to_cart&download_id=' . $this->get_item_id() ),
-							esc_html__( 'Buy License', 'essential-elements-pro' )
+							esc_html__( 'Buy License', 'wp-starter-plugin' )
 						);
 					}
 					?>
@@ -360,23 +360,23 @@ abstract class PremiumPlugin extends Plugin {
 		}
 
 		if ( isset( $_POST['nonce'] ) && ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), $this->get_basename() . '_license_action' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			wp_send_json_error( __( 'Invalid nonce', 'essential-elements-pro' ) );
+			wp_send_json_error( __( 'Invalid nonce', 'wp-starter-plugin' ) );
 		}
 
 		if ( ! isset( $_POST['operation'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid operation', 'essential-elements-pro' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid operation', 'wp-starter-plugin' ) ) );
 		}
 
 		$operation = sanitize_text_field( wp_unslash( $_POST['operation'] ) );
 		$license   = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
 		if ( empty( $license ) ) {
-			wp_send_json_error( array( 'message' => __( 'License key is required', 'essential-elements-pro' ) ) );
+			wp_send_json_error( array( 'message' => __( 'License key is required', 'wp-starter-plugin' ) ) );
 		}
 
 		switch ( $operation ) {
 			case 'activate_license':
 				if ( $this->is_license_valid() && $license === $this->get_license_key() ) {
-					wp_send_json_error( array( 'message' => __( 'License key is already activated', 'essential-elements-pro' ) ) );
+					wp_send_json_error( array( 'message' => __( 'License key is already activated', 'wp-starter-plugin' ) ) );
 				}
 
 				if ( ! empty( $this->get_license_key() ) && $this->get_license_key() !== $license && $this->get_license_status() ) {
@@ -389,7 +389,7 @@ abstract class PremiumPlugin extends Plugin {
 						array(
 							'message' => sprintf(
 							/* translators: %s: error message */
-								__( 'License activation failed. %s', 'essential-elements-pro' ),
+								__( 'License activation failed. %s', 'wp-starter-plugin' ),
 								esc_html( is_wp_error( $api_data ) ? $api_data->get_error_message() : $api_data->error_message )
 							),
 							'data'    => $api_data,
@@ -403,7 +403,7 @@ abstract class PremiumPlugin extends Plugin {
 					delete_site_transient( 'update_plugins' );
 					wp_send_json_success(
 						array(
-							'message' => __( 'License activated successfully.', 'essential-elements-pro' ),
+							'message' => __( 'License activated successfully.', 'wp-starter-plugin' ),
 							'code'    => $api_data->license,
 							'reload'  => true,
 						)
@@ -411,7 +411,7 @@ abstract class PremiumPlugin extends Plugin {
 				} else {
 					wp_send_json_error(
 						array(
-							'message' => __( 'License activation failed.', 'essential-elements-pro' ),
+							'message' => __( 'License activation failed.', 'wp-starter-plugin' ),
 							'data'    => $api_data,
 						)
 					);
@@ -424,7 +424,7 @@ abstract class PremiumPlugin extends Plugin {
 						array(
 							'message' => sprintf(
 							/* translators: %s: error message */
-								__( 'License deactivation failed. %s', 'essential-elements-pro' ),
+								__( 'License deactivation failed. %s', 'wp-starter-plugin' ),
 								esc_html( is_wp_error( $api_data ) ? $api_data->get_error_message() : $api_data->error_message )
 							),
 							'data'    => $api_data,
@@ -437,7 +437,7 @@ abstract class PremiumPlugin extends Plugin {
 					delete_site_transient( 'update_plugins' );
 					wp_send_json_success(
 						array(
-							'message' => __( 'License deactivated successfully', 'essential-elements-pro' ),
+							'message' => __( 'License deactivated successfully', 'wp-starter-plugin' ),
 							'code'    => $api_data->license,
 							'reload'  => true,
 						)
@@ -445,7 +445,7 @@ abstract class PremiumPlugin extends Plugin {
 				} else {
 					wp_send_json_error(
 						array(
-							'message' => __( 'License deactivation failed', 'essential-elements-pro' ),
+							'message' => __( 'License deactivation failed', 'wp-starter-plugin' ),
 							'code'    => $api_data->license,
 						)
 					);
@@ -458,7 +458,7 @@ abstract class PremiumPlugin extends Plugin {
 						array(
 							'message' => sprintf(
 							/* translators: %s: error message */
-								__( 'License check was failed. %s', 'essential-elements-pro' ),
+								__( 'License check was failed. %s', 'wp-starter-plugin' ),
 								esc_html( is_wp_error( $api_data ) ? $api_data->get_error_message() : $api_data->error_message )
 							),
 							'data'    => $api_data,
@@ -469,16 +469,16 @@ abstract class PremiumPlugin extends Plugin {
 					update_option( $this->data['prefix'] . '_license_status', $api_data->license );
 					delete_transient( $this->data['prefix'] . '_latest_version' );
 					delete_site_transient( 'update_plugins' );
-					$message = __( 'Your license key is valid.', 'essential-elements-pro' );
+					$message = __( 'Your license key is valid.', 'wp-starter-plugin' );
 					// if set activation limit.
 					if ( isset( $api_data->activations_left ) && $api_data->activations_left > 0 ) {
 						/* translators: %s: number of activations left */
-						$message .= ' ' . sprintf( __( 'You have %s activations left.', 'essential-elements-pro' ), number_format( $api_data->activations_left ) );
+						$message .= ' ' . sprintf( __( 'You have %s activations left.', 'wp-starter-plugin' ), number_format( $api_data->activations_left ) );
 					}
 					// if set expiration date.
 					if ( isset( $api_data->expires ) && 'lifetime' !== $api_data->expires ) {
 						/* translators: %s: expiration date */
-						$message .= ' ' . sprintf( __( 'Your license key expires on %s.', 'essential-elements-pro' ), date_i18n( get_option( 'date_format' ), strtotime( $api_data->expires ) ) );
+						$message .= ' ' . sprintf( __( 'Your license key expires on %s.', 'wp-starter-plugin' ), date_i18n( get_option( 'date_format' ), strtotime( $api_data->expires ) ) );
 					}
 					wp_send_json_success(
 						array(
@@ -489,7 +489,7 @@ abstract class PremiumPlugin extends Plugin {
 				} else {
 					wp_send_json_error(
 						array(
-							'message' => __( 'License is invalid', 'essential-elements-pro' ),
+							'message' => __( 'License is invalid', 'wp-starter-plugin' ),
 							'code'    => $api_data->license,
 						)
 					);
@@ -498,7 +498,7 @@ abstract class PremiumPlugin extends Plugin {
 			default:
 				wp_send_json_error(
 					array(
-						'message' => __( 'Invalid action', 'essential-elements-pro' ),
+						'message' => __( 'Invalid action', 'wp-starter-plugin' ),
 						'code'    => 'invalid_action',
 					)
 				);
@@ -588,7 +588,7 @@ abstract class PremiumPlugin extends Plugin {
 
 		if ( ! $this->is_license_valid() ) {
 			$request->package               = '';
-			$request->sections['changelog'] = sprintf( esc_html__( 'Please activate your license key to get the latest updates and changelog.', 'essential-elements-pro' ), $this->data['name'] );
+			$request->sections['changelog'] = sprintf( esc_html__( 'Please activate your license key to get the latest updates and changelog.', 'wp-starter-plugin' ), $this->data['name'] );
 		}
 
 		return $request;
@@ -680,7 +680,7 @@ abstract class PremiumPlugin extends Plugin {
 
 		$api_data = json_decode( wp_remote_retrieve_body( $response ) );
 		if ( ! is_object( $api_data ) ) {
-			return new \WP_Error( 'error', __( 'Something went wrong. Please try again.', 'essential-elements-pro' ) );
+			return new \WP_Error( 'error', __( 'Something went wrong. Please try again.', 'wp-starter-plugin' ) );
 		}
 
 		if ( isset( $api_data->success ) && false === $api_data->success ) {
@@ -688,31 +688,31 @@ abstract class PremiumPlugin extends Plugin {
 				case 'expired':
 					$message = sprintf(
 					/* translators: %s: license key */
-						__( 'Your license key expired on %s.', 'essential-elements-pro' ),
+						__( 'Your license key expired on %s.', 'wp-starter-plugin' ),
 						date_i18n( get_option( 'date_format' ), strtotime( $api_data->expires ) )
 					);
 					break;
 				case 'revoked':
 				case 'disabled':
-					$message = __( 'Your license key has been disabled. Please contact support.', 'essential-elements-pro' );
+					$message = __( 'Your license key has been disabled. Please contact support.', 'wp-starter-plugin' );
 					break;
 				case 'missing':
-					$message = __( 'Invalid license.', 'essential-elements-pro' );
+					$message = __( 'Invalid license.', 'wp-starter-plugin' );
 					break;
 				case 'invalid':
 				case 'site_inactive':
-					$message = __( 'Your license is not active for this URL.', 'essential-elements-pro' );
+					$message = __( 'Your license is not active for this URL.', 'wp-starter-plugin' );
 					break;
 				case 'item_name_mismatch':
 				case 'invalid_item_id':
 					/* translators: %s: plugin name */
-					$message = sprintf( __( 'This appears to be an invalid license key for %s.', 'essential-elements-pro' ), esc_html( $this->data['name'] ) );
+					$message = sprintf( __( 'This appears to be an invalid license key for %s.', 'wp-starter-plugin' ), esc_html( $this->data['name'] ) );
 					break;
 				case 'no_activations_left':
-					$message = __( 'Your license key has reached its activation limit.', 'essential-elements-pro' );
+					$message = __( 'Your license key has reached its activation limit.', 'wp-starter-plugin' );
 					break;
 				default:
-					$message = __( 'An error occurred, please try again.', 'essential-elements-pro' );
+					$message = __( 'An error occurred, please try again.', 'wp-starter-plugin' );
 					break;
 			}
 

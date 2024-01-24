@@ -14,8 +14,8 @@ module.exports = function( grunt ) {
             addtextdomain: {
                 options: {
                     expand: true,
-                    text_domain: 'essential-elements-pro',
-                    updateDomains: [ 'framework-text-domain', 'essential-elements' ],
+                    text_domain: 'wp-starter-plugin',
+                    updateDomains: [ 'framework-text-domain' ],
                 },
                 plugin: {
                     files: {
@@ -30,7 +30,7 @@ module.exports = function( grunt ) {
             },
             checktextdomain: {
                 options: {
-                    text_domain: 'essential-elements-pro',
+                    text_domain: 'wp-starter-plugin',
                     keywords: [
                         '__:1,2d',
                         '_e:1,2d',

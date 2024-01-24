@@ -1,6 +1,6 @@
 <?php
 
-namespace EssentialElementsPro\Lib;
+namespace WpStarterPlugin\Lib;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * @since   1.0.0
  * @version 1.0.1
  * @author  Kawsar Ahmed <kawsarahmed@urldev.com>
- * @package EssentialElementsPro\Lib
+ * @package WpStarterPlugin\Lib
  * @subpackage Lib/Plugin
  */
 interface PluginInterface {

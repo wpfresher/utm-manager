@@ -1,4 +1,4 @@
-=== EssentialElementsPro ===
+=== WpStarterPlugin ===
 Contributors:      urldev
 Tags:              block
 Tested up to:      6.4

@@ -1,11 +1,11 @@
 {
-  "name": "essential-elements-pro",
-  "title": "Essential Elements Pro",
+  "name": "wp-starter-plugin",
+  "title": "WP Starter Plugin",
   "version": "1.0.0",
-  "description": "Essential elements for WordPress.",
+  "description": "WP Starter Plugin",
   "author": "WpFresher",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://urldev.com/plugins/essential-elements-pro/",
+  "homepage": "https://urldev.com/plugins/wp-starter-plugin/",
   "prettier": "@wordpress/prettier-config",
   "scripts": {
     "build": "wp-scripts build && grunt build",

@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:  Essential Elements for WordPress Pro
- * Description:  Essential elements for WordPress website.
+ * Plugin Name:  WP Starter Plugin
+ * Description:  WP Starter Plugin.
  * Version:      1.0.0
- * Plugin URI:   https://urldev.com/plugins/essential-elements-pro/
+ * Plugin URI:   https://urldev.com/plugins/wp-starter-plugin/
  * Author:       UrlDev
  * Author URI:   https://urldev.com/
- * Text Domain:  essential-elements-pro
+ * Text Domain:  wp-starter-plugin
  * Domain Path: /languages/
  * Requires PHP: 5.6
  *
- * @package EssentialElementsPro
+ * @package WpStarterPlugin
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
  * GNU General Public License for more details.
  */
 
-use EssentialElementsPro\Plugin;
+use WpStarterPlugin\Plugin;
 
 defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 spl_autoload_register(
 	function ( $class_name ) {
 
-		$prefix = 'EssentialElementsPro\\';
+		$prefix = 'WpStarterPlugin\\';
 		$len    = strlen( $prefix );
 
 		// Bail out if the class name doesn't start with our prefix.
@@ -65,18 +65,18 @@ spl_autoload_register(
  * @since 1.0.0
  * @return Plugin plugin initialize class.
  */
-function essential_elements_pro() { // phpcs:ignore
+function wp_starter_plugin() { // phpcs:ignore
 	$data = array(
 		'file'             => __FILE__,
-		'item_id'          => 129,
-		'settings_url'     => admin_url( 'admin.php?page=essential-elements-pro' ),
+		'item_id'          => 123456789,
+		'settings_url'     => admin_url( 'admin.php?page=wp-starter-plugin' ),
 		'support_url'      => 'https://urldev.com/support/',
-		'docs_url'         => 'https://urldev.com/docs/essential-elements-pro/',
-		'premium_url'      => 'https://urldev.com/plugins/essential-elements-pro/',
-		'premium_basename' => 'essential-elements-pro',
+		'docs_url'         => 'https://urldev.com/docs/wp-starter-plugin/',
+		'premium_url'      => 'https://urldev.com/plugins/wp-starter-plugin/',
+		'premium_basename' => 'wp-starter-plugin',
 	);
 	return Plugin::create( $data );
 }
 
 // Initialize the plugin.
-essential_elements_pro();
+wp_starter_plugin();
