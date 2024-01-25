@@ -134,6 +134,26 @@ abstract class Plugin implements PluginInterface {
 	}
 
 	/**
+	 * Prevents cloning.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function __clone() {
+		_doing_it_wrong( __FUNCTION__, 'Cloning this is completely forbidden.', '1.0.0' );
+	}
+
+	/**
+	 * Prevents un-serializing.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function __wakeup() {
+		_doing_it_wrong( __FUNCTION__, 'Un-serializing instances of this class is forbidden.', '1.0.0' );
+	}
+
+	/**
 	 * Magic method to get the plugin data.
 	 *
 	 * @param string $key The data key.

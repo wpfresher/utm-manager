@@ -84,8 +84,8 @@ class Plugin extends Lib\PremiumPlugin {
 			$this->services->add( Admin\Admin::class );
 		}
 
-		var_dump($this->services);
-		wp_die();
+//		var_dump($this->services);
+//		wp_die();
 
 		// Init action.
 		do_action( 'wp_starter_plugin_init' );
