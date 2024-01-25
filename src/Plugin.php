@@ -49,7 +49,7 @@ class Plugin extends Lib\PremiumPlugin {
 	 */
 	public function init_hooks() {
 		add_action( 'admin_notices', array( $this, 'dependencies_notices' ) );
-		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'init', array( $this, 'init' ), 0 );
 	}
 
 	/**
@@ -79,10 +79,15 @@ class Plugin extends Lib\PremiumPlugin {
 	 * @return void
 	 */
 	public function init() {
-//		var_dump($this->data);
-//		wp_die();
+
+		if ( self::is_request( 'admin' ) ) {
+			$this->services->add( Admin\Admin::class );
+		}
+
+		var_dump($this->services);
+		wp_die();
 
 		// Init action.
-		do_action( 'wp_starter_plugin' );
+		do_action( 'wp_starter_plugin_init' );
 	}
 }

@@ -29,6 +29,14 @@ abstract class Plugin implements PluginInterface {
 	);
 
 	/**
+	 * The plugin services.
+	 *
+	 * @since 1.0.0
+	 * @var Container
+	 */
+	public $services;
+
+	/**
 	 * The single instance of the class.
 	 *
 	 * @since 1.0.0
@@ -99,6 +107,7 @@ abstract class Plugin implements PluginInterface {
 	 * @since 1.0.0
 	 */
 	protected function __construct( $data ) {
+		$this->services = new Container();
 		// Only set the data keys that are not already set.
 		$this->data = array_merge( $this->data, $data );
 		// If the slug is not set, then set it.
@@ -122,6 +131,53 @@ abstract class Plugin implements PluginInterface {
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 			add_filter( 'plugin_action_links_' . plugin_basename( $this->data['file'] ), array( $this, 'plugin_action_links' ) );
 		}
+	}
+
+	/**
+	 * Magic method to get the plugin data.
+	 *
+	 * @param string $key The data key.
+	 *
+	 * @since 1.0.0
+	 * @return mixed
+	 */
+	public function __get( $key ) {
+		if ( isset( $this->data[ $key ] ) ) {
+			return $this->data[ $key ];
+		} elseif ( isset( $this->services[ $key ] ) ) {
+			return $this->services[ $key ];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Magic method to set the plugin data.
+	 *
+	 * @param string $key The data key.
+	 * @param mixed  $value The data value.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function __set( $key, $value ) {
+		if ( ! isset( $this->data[ $key ] ) ) {
+			$this->data[ $key ] = $value;
+		} elseif ( ! isset( $this->services[ $key ] ) ) {
+			$this->services[ $key ] = $value;
+		}
+	}
+
+	/**
+	 * Magic method to check if a property is set.
+	 *
+	 * @param string $key The data key.
+	 *
+	 * @since 1.0.0
+	 * @return bool
+	 */
+	public function __isset( $key ) {
+		return isset( $this->data[ $key ] ) || isset( $this->services[ $key ] );
 	}
 
 	/**
@@ -243,6 +299,19 @@ abstract class Plugin implements PluginInterface {
 	| Methods to get plugin data.
 	|
 	*/
+
+	/**
+	 * Gets the plugin data.
+	 *
+	 * @param string $key The data key.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return mixed
+	 */
+	public function get_data( $key ) {
+		return $this->data[ $key ] ?? null;
+	}
 
 	/**
 	 * Get meta links.
