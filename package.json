@@ -1,11 +1,11 @@
 {
-  "name": "wp-starter-plugin",
-  "title": "WP Starter Plugin",
+  "name": "utm-source-tracker",
+  "title": "UTM Source Tracker",
   "version": "1.0.0",
-  "description": "WP Starter Plugin",
+  "description": "UTM Source Tracker",
   "author": "WpFresher",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://urldev.com/plugins/wp-starter-plugin/",
+  "homepage": "https://urldev.com/plugins/utm-source-tracker/",
   "prettier": "@wordpress/prettier-config",
   "scripts": {
     "build": "wp-scripts build && grunt build",

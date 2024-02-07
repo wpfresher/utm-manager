@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:  WP Starter Plugin
- * Description:  WP Starter Plugin.
+ * Plugin Name:  UTM Source Tracker
+ * Description:  UTM Source Tracker.
  * Version:      1.0.0
- * Plugin URI:   https://urldev.com/plugins/wp-starter-plugin/
+ * Plugin URI:   https://urldev.com/plugins/utm-source-tracker/
  * Author:       UrlDev
  * Author URI:   https://urldev.com/
- * Text Domain:  wp-starter-plugin
+ * Text Domain:  utm-source-tracker
  * Domain Path: /languages/
  * Requires PHP: 5.6
  *
- * @package WpStarterPlugin
+ * @package UTMSourceTracker
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
  * GNU General Public License for more details.
  */
 
-use WpStarterPlugin\Plugin;
+use UTMSourceTracker\Plugin;
 
 defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 spl_autoload_register(
 	function ( $class_name ) {
 
-		$prefix = 'WpStarterPlugin\\';
+		$prefix = 'UTMSourceTracker\\';
 		$len    = strlen( $prefix );
 
 		// Bail out if the class name doesn't start with our prefix.
@@ -65,18 +65,18 @@ spl_autoload_register(
  * @since 1.0.0
  * @return Plugin plugin initialize class.
  */
-function wp_starter_plugin() { // phpcs:ignore
+function utm_source_tracker() { // phpcs:ignore
 	$data = array(
 		'file'             => __FILE__,
 		'item_id'          => 123456789,
-		'settings_url'     => admin_url( 'admin.php?page=wp-starter-plugin' ),
+		'settings_url'     => admin_url( 'admin.php?page=utm-source-tracker' ),
 		'support_url'      => 'https://urldev.com/support/',
-		'docs_url'         => 'https://urldev.com/docs/wp-starter-plugin/',
-		'premium_url'      => 'https://urldev.com/plugins/wp-starter-plugin/',
-		'premium_basename' => 'wp-starter-plugin',
+		'docs_url'         => 'https://urldev.com/docs/utm-source-tracker/',
+		'premium_url'      => 'https://urldev.com/plugins/utm-source-tracker/',
+		'premium_basename' => 'utm-source-tracker',
 	);
 	return Plugin::create( $data );
 }
 
 // Initialize the plugin.
-wp_starter_plugin();
+utm_source_tracker();

@@ -6,8 +6,8 @@ module.exports = [
         ...defaultConfig,
         entry: {
             ...defaultConfig.entry(),
-            'css/wpsp-admin': './assets/src/css/admin.scss',
-            // 'js/wpsp-admin': './assets/src/js/admin.js',
+            'css/utmst-admin': './assets/src/css/admin.scss',
+            // 'js/utmst-admin': './assets/src/js/admin.js',
         },
         output: {
             ...defaultConfig.output,

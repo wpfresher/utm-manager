@@ -1,6 +1,6 @@
 <?php
 
-namespace WpStarterPlugin\Admin;
+namespace UTMSourceTracker\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Admin class.
  *
  * @since 1.0.0
- * @package WpStarterPlugin
+ * @package UTMSourceTracker
  */
 class Admin {
 
@@ -27,7 +27,7 @@ class Admin {
 	 * @since 1.0.0
 	 */
 	public function init() {
-		// var_dump(wp_starter_plugin()->get_data('version'));
-		// wp_die();
+		utm_source_tracker()->services->add( Settings::instance() );
+		utm_source_tracker()->services->add( Menus::class );
 	}
 }

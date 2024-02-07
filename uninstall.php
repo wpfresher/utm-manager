@@ -1,10 +1,10 @@
 <?php
 /**
- * WP Starter Plugin Uninstall
+ * UTM Source Tracker Uninstall
  *
- * Uninstalling WP Starter Plugin deletes user roles, pages, tables, and options.
+ * Uninstalling UTM Source Tracker deletes user roles, pages, tables, and options.
  *
- * @package WpStarterPlugin
+ * @package UTMSourceTracker
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

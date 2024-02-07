@@ -1,9 +1,9 @@
 # Copyright (C) 2024 UrlDev
-# This file is distributed under the same license as the WP Starter Plugin. package.
+# This file is distributed under the same license as the UTM Source Tracker. package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wp Starter Plugin 1.0.0\n"
-"Report-Msgid-Bugs-To: https://urldev.com/plugins/wp-starter-plugin/\n"
+"Project-Id-Version: UTM Source Tracker 1.0.0\n"
+"Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-source-tracker/\n"
 "POT-Creation-Date: 2024-01-22 16:53:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -241,15 +241,15 @@ msgid "WooCommerce"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WP Starter Plugin."
+msgid "UTM Source Tracker."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://urldev.com/plugins/wp-starter-plugin/"
+msgid "https://urldev.com/plugins/utm-source-tracker/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "WP Starter Plugin."
+msgid "UTM Source Tracker."
 msgstr ""
 
 #. Author of the plugin/theme

@@ -1,6 +1,6 @@
 <?php
 
-namespace WpStarterPlugin\Lib;
+namespace UTMSourceTracker\Lib;
 
 use ReturnTypeWillChange;
 

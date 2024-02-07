@@ -1,6 +1,6 @@
 <?php
 
-namespace WpStarterPlugin;
+namespace UTMSourceTracker;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,9 +9,9 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package WpStarterPlugin
+ * @package UTMSourceTracker
  */
-class Plugin extends Lib\PremiumPlugin {
+class Plugin extends Lib\Plugin {
 	/**
 	 * Plugin constructor.
 	 *
@@ -59,14 +59,14 @@ class Plugin extends Lib\PremiumPlugin {
 	 * @return void
 	 */
 	public function dependencies_notices() {
-		if ( $this->is_plugin_active( 'woocommerce' ) ) {
+		if ( ! $this->is_plugin_active( 'woocommerce' ) ) {
 			return;
 		}
 		$notice = sprintf(
 		/* translators: 1: plugin name 2: WooCommerce */
-			__( '%1$s requires %2$s to be installed and active.', 'wp-starter-plugin' ),
+			__( '%1$s requires %2$s to be installed and active.', 'utm-source-tracker' ),
 			'<strong>' . esc_html( $this->data['name'] ) . '</strong>',
-			'<strong>' . esc_html__( 'WooCommerce', 'wp-starter-plugin' ) . '</strong>'
+			'<strong>' . esc_html__( 'WooCommerce', 'utm-source-tracker' ) . '</strong>'
 		);
 
 		echo '<div class="notice notice-error"><p>' . wp_kses_post( $notice ) . '</p></div>';
@@ -84,10 +84,7 @@ class Plugin extends Lib\PremiumPlugin {
 			$this->services->add( Admin\Admin::class );
 		}
 
-//		var_dump($this->services);
-//		wp_die();
-
 		// Init action.
-		do_action( 'wp_starter_plugin_init' );
+		do_action( 'utm_source_tracker_init' );
 	}
 }
