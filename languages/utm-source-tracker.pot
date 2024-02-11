@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UTM Source Tracker 1.0.0\n"
 "Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-source-tracker/\n"
-"POT-Creation-Date: 2024-02-07 17:27:19+00:00\n"
+"POT-Creation-Date: 2024-02-11 14:48:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Go Pro"
 msgstr ""
 
-#: lib/Lib/Plugin.php:346 src/Admin/Settings.php:202
+#: lib/Lib/Plugin.php:346 src/Admin/Settings.php:295
 msgid "Documentation"
 msgstr ""
 
@@ -231,92 +231,90 @@ msgstr ""
 msgid "An error occurred, please try again."
 msgstr ""
 
-#: lib/Lib/Settings.php:97
+#: lib/Lib/Settings.php:96
 msgid "Settings saved."
 msgstr ""
 
-#: lib/Lib/Settings.php:311 lib/Lib/Settings.php:399 lib/Lib/Settings.php:407
-#: lib/Lib/Settings.php:415
+#: lib/Lib/Settings.php:306 lib/Lib/Settings.php:394
 msgid "Recommended"
 msgstr ""
 
-#: lib/Lib/Settings.php:312 lib/Lib/Settings.php:400 lib/Lib/Settings.php:408
-#: lib/Lib/Settings.php:416
+#: lib/Lib/Settings.php:307 lib/Lib/Settings.php:395
 msgid "Install Now"
 msgstr ""
 
-#: lib/Lib/Settings.php:371
+#: lib/Lib/Settings.php:366
 msgid "Need Help?"
 msgstr ""
 
-#: lib/Lib/Settings.php:430
+#: lib/Lib/Settings.php:409
 msgid "Join our Community"
 msgstr ""
 
-#: lib/Lib/Settings.php:434
+#: lib/Lib/Settings.php:413
 msgid "Request a Feature"
 msgstr ""
 
-#: lib/Lib/Settings.php:438
+#: lib/Lib/Settings.php:417
 msgid "Report a Bug"
 msgstr ""
 
-#: lib/Lib/Settings.php:885
+#: lib/Lib/Settings.php:865
 msgid ""
 "The settings of this image size have been disabled because its values are "
 "being overwritten by a filter."
 msgstr ""
 
-#: lib/Lib/Settings.php:897
+#: lib/Lib/Settings.php:877
 msgid "Hard crop?"
 msgstr ""
 
-#: lib/Lib/Settings.php:928
+#: lib/Lib/Settings.php:908
 msgid "Select a page&hellip;"
 msgstr ""
 
-#: lib/Lib/Settings.php:942
+#: lib/Lib/Settings.php:922
 #. translators: 1: page name 2: page ID
 msgid "%1$s (ID: %2$s)"
 msgstr ""
 
-#: lib/Lib/Settings.php:959
+#: lib/Lib/Settings.php:939
 msgid "Search for a page&hellip;"
 msgstr ""
 
-#: lib/Lib/Settings.php:992
+#: lib/Lib/Settings.php:972
 msgid "Choose a country / region&hellip;"
 msgstr ""
 
-#: lib/Lib/Settings.php:992 lib/Lib/Settings.php:1017
+#: lib/Lib/Settings.php:972 lib/Lib/Settings.php:997
 msgid "Country / Region"
 msgstr ""
 
-#: lib/Lib/Settings.php:1017
+#: lib/Lib/Settings.php:997
 msgid "Choose countries / regions&hellip;"
 msgstr ""
 
-#: lib/Lib/Settings.php:1025
+#: lib/Lib/Settings.php:1005
 msgid "Select all"
 msgstr ""
 
-#: lib/Lib/Settings.php:1025
+#: lib/Lib/Settings.php:1005
 msgid "Select none"
 msgstr ""
 
-#: lib/Lib/Settings.php:1034
+#: lib/Lib/Settings.php:1014
 msgid "Day(s)"
 msgstr ""
 
-#: lib/Lib/Settings.php:1035
+#: lib/Lib/Settings.php:1015
 msgid "Week(s)"
 msgstr ""
 
-#: lib/Lib/Settings.php:1036
+#: lib/Lib/Settings.php:1016
 msgid "Month(s)"
 msgstr ""
 
-#: lib/Lib/Settings.php:1037
+#: lib/Lib/Settings.php:1017
 msgid "Year(s)"
 msgstr ""
 
@@ -346,139 +344,245 @@ msgid ""
 "affect how the plugin will work."
 msgstr ""
 
-#: src/Admin/Settings.php:53
-msgid "Add to cart button text"
+#: src/Admin/Settings.php:54
+msgid "Text field"
 msgstr ""
 
-#: src/Admin/Settings.php:55 src/Admin/Settings.php:56
-msgid ""
-"Enter the add to cart button text. This will be applicable only for "
-"campaigns or donation product types."
+#: src/Admin/Settings.php:56
+msgid "This is the text field description"
 msgstr ""
 
-#: src/Admin/Settings.php:61
-msgid "Skip cart"
+#: src/Admin/Settings.php:57
+msgid "This is the text field description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:62
-msgid "Skip cart."
+#: src/Admin/Settings.php:73
+msgid "Password"
 msgstr ""
 
-#: src/Admin/Settings.php:63
-msgid ""
-"This will redirect donors to the cart page after adding a donation product "
-"to the cart item."
+#: src/Admin/Settings.php:75
+msgid "This is the password description"
 msgstr ""
 
-#: src/Admin/Settings.php:69
-msgid "Enable fast checkout"
+#: src/Admin/Settings.php:76
+msgid "This is the password description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:70
-msgid "Enable fast checkout."
+#: src/Admin/Settings.php:82
+msgid "Datetime"
 msgstr ""
 
-#: src/Admin/Settings.php:71
-msgid ""
-"This will redirect donors to the checkout page after adding a donation "
-"product to the cart item."
-msgstr ""
-
-#: src/Admin/Settings.php:77
-msgid "Editable cart item price"
-msgstr ""
-
-#: src/Admin/Settings.php:78
-msgid "Editable cart item price."
-msgstr ""
-
-#: src/Admin/Settings.php:79
-msgid "This will make the cart item price editable for the donation products only."
+#: src/Admin/Settings.php:84
+msgid "This is the datetime description"
 msgstr ""
 
 #: src/Admin/Settings.php:85
-msgid "Disabled coupon field"
+msgid "This is the datetime description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:86
-msgid "Disabled coupon field."
-msgstr ""
-
-#: src/Admin/Settings.php:87
-msgid ""
-"This will disabled coupon fields from cart and checkout page if cart has at "
-"least a donation product."
+#: src/Admin/Settings.php:91
+msgid "Datetime-local"
 msgstr ""
 
 #: src/Admin/Settings.php:93
-msgid "Disabled order note"
+msgid "This is the datetime-local description"
 msgstr ""
 
 #: src/Admin/Settings.php:94
-msgid "Disabled order note."
+msgid "This is the datetime-local description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:100
-msgid "Disabled tax"
+#: src/Admin/Settings.php:99
+msgid "Date"
 msgstr ""
 
 #: src/Admin/Settings.php:101
-msgid "Disabled tax for donation."
+msgid "This is the date description"
 msgstr ""
 
 #: src/Admin/Settings.php:102
-msgid ""
-"Disabled the tax for donation product. This will hide tax status and tax "
-"class from product edit page as well if product type selected as donation."
+msgid "This is the date description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:108
-msgid "Campaign expired text"
+#: src/Admin/Settings.php:107
+msgid "Month"
 msgstr ""
 
-#: src/Admin/Settings.php:109 src/Admin/Settings.php:110
-msgid ""
-"Enter the campaign expired text. This will be visible to the donation "
-"products if the campaign end date is exceeded."
+#: src/Admin/Settings.php:109
+msgid "This is the month description"
 msgstr ""
 
-#: src/Admin/Settings.php:124
-msgid "Advanced Settings"
+#: src/Admin/Settings.php:110
+msgid "This is the month description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:115
+msgid "Time"
+msgstr ""
+
+#: src/Admin/Settings.php:117
+msgid "This is the time description"
+msgstr ""
+
+#: src/Admin/Settings.php:118
+msgid "This is the time description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:123
+msgid "Week"
+msgstr ""
+
+#: src/Admin/Settings.php:125
+msgid "This is the week description"
 msgstr ""
 
 #: src/Admin/Settings.php:126
+msgid "This is the week description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:131
+msgid "Number"
+msgstr ""
+
+#: src/Admin/Settings.php:133
+msgid "This is the number description"
+msgstr ""
+
+#: src/Admin/Settings.php:134
+msgid "This is the number description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:140
+msgid "Email"
+msgstr ""
+
+#: src/Admin/Settings.php:142
+msgid "This is the email description"
+msgstr ""
+
+#: src/Admin/Settings.php:143
+msgid "This is the email description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:149
+msgid "URL"
+msgstr ""
+
+#: src/Admin/Settings.php:151
+msgid "This is the url description"
+msgstr ""
+
+#: src/Admin/Settings.php:152
+msgid "This is the url description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:158
+msgid "Tel"
+msgstr ""
+
+#: src/Admin/Settings.php:160
+msgid "This is the tel description"
+msgstr ""
+
+#: src/Admin/Settings.php:161
+msgid "This is the tel description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:168
+msgid "Checkbox"
+msgstr ""
+
+#: src/Admin/Settings.php:169
+msgid "Enable checkbox"
+msgstr ""
+
+#: src/Admin/Settings.php:170
+msgid "Enable checkbox description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:176
+msgid "Image Effect"
+msgstr ""
+
+#: src/Admin/Settings.php:177
+msgid "Choose the effect for the products images."
+msgstr ""
+
+#: src/Admin/Settings.php:181
+msgid "Flip"
+msgstr ""
+
+#: src/Admin/Settings.php:182
+msgid "Fade on Hover"
+msgstr ""
+
+#: src/Admin/Settings.php:183
+msgid "Enlarge"
+msgstr ""
+
+#: src/Admin/Settings.php:184
+msgid "Picture in Picture"
+msgstr ""
+
+#: src/Admin/Settings.php:185
+msgid "Slide"
+msgstr ""
+
+#: src/Admin/Settings.php:190
+msgid "Image Count"
+msgstr ""
+
+#: src/Admin/Settings.php:191
+msgid "Enter how many images should be displayed. Use -1 to display all available."
+msgstr ""
+
+#: src/Admin/Settings.php:201
+msgid "Autoplay"
+msgstr ""
+
+#: src/Admin/Settings.php:202
+msgid "Select the slider autoplay setting."
+msgstr ""
+
+#: src/Admin/Settings.php:206
+msgid "Autoplay on Hover"
+msgstr ""
+
+#: src/Admin/Settings.php:207
+msgid "Forced Autoplay"
+msgstr ""
+
+#: src/Admin/Settings.php:217
+msgid "Skip cart"
+msgstr ""
+
+#: src/Admin/Settings.php:218
+msgid "Skip cart."
+msgstr ""
+
+#: src/Admin/Settings.php:219
+msgid ""
+"This will redirect donors to the cart page after adding a UTM source "
+"tracker product to the cart item."
+msgstr ""
+
+#: src/Admin/Settings.php:233
+msgid "Advanced Settings"
+msgstr ""
+
+#: src/Admin/Settings.php:235
 msgid "The following options are the plugin advanced settings."
 msgstr ""
 
-#: src/Admin/Settings.php:130
-msgid "Minimum amount"
-msgstr ""
-
-#: src/Admin/Settings.php:131 src/Admin/Settings.php:132
-msgid ""
-"Enter the minimum amount. This will be apply globally if didn't set the "
-"minimum amount while creating campaigns."
-msgstr ""
-
-#: src/Admin/Settings.php:138
-msgid "Maximum amount"
-msgstr ""
-
-#: src/Admin/Settings.php:139 src/Admin/Settings.php:140
-msgid ""
-"Enter the maximum amount. This will be apply globally if didn't set the "
-"maximum amount while creating campaigns."
-msgstr ""
-
-#: src/Admin/Settings.php:146
+#: src/Admin/Settings.php:239
 msgid "Delete plugin data"
 msgstr ""
 
-#: src/Admin/Settings.php:147
+#: src/Admin/Settings.php:240
 msgid "Delete plugin data."
 msgstr ""
 
-#: src/Admin/Settings.php:148
+#: src/Admin/Settings.php:241
 msgid "Enabling this will delete all the data while uninstalling the plugin."
 msgstr ""
 

@@ -92,8 +92,7 @@ abstract class Settings {
 		check_admin_referer( $class_name );
 		$current_tab = $this->get_current_tab();
 		$settings    = $this->get_settings( $current_tab );
-		//if ( class_exists( '\WC_Admin_Settings' ) && ! empty( $settings ) && \WC_Admin_Settings::save_fields( $settings ) ) {
-		if (  ! empty( $settings ) && self::save_fields( $settings ) ) {
+		if ( ! empty( $settings ) && self::save_fields( $settings ) ) {
 			add_settings_error( $class_name, 'response', __( 'Settings saved.', 'utm-source-tracker' ), 'updated' );
 
 			return true;
@@ -169,12 +168,12 @@ abstract class Settings {
 					$conditional_field.dispatchEvent(new Event('change'));
 				});
 
-				// if Jquery is not loaded, return.
+				// If Jquery is not loaded, return.
 				if (typeof jQuery === 'undefined') {
 					return;
 				}
 
-				// trigger change event on load.
+				// Trigger change event on load.
 				jQuery(document).ready(function ($) {
 					// check if iris is loaded.
 					if (typeof $.fn.iris !== 'undefined') {
@@ -256,11 +255,7 @@ abstract class Settings {
 			settings_errors( $class_name );
 			?>
 			<form method="post" id="mainform" action="" enctype="multipart/form-data">
-				<?php
-//				if ( function_exists( 'woocommerce_admin_fields' ) ) {
-					self::output_fields( $settings );
-//				}
-				?>
+				<?php self::output_fields( $settings ); ?>
 				<?php wp_nonce_field( $class_name ); ?>
 				<?php submit_button( null, 'primary', $class_name ); ?>
 			</form>
@@ -275,9 +270,9 @@ abstract class Settings {
 	 * @return void
 	 */
 	protected function output_widgets() {
-//		$this->output_premium_widget();
-//		$this->output_plugins_widget();
-//		$this->output_support_widget();
+		$this->output_premium_widget();
+		$this->output_plugins_widget();
+		$this->output_support_widget();
 	}
 
 	/**
@@ -325,7 +320,7 @@ abstract class Settings {
 				if ( isset( $installed[ $basename ] ) ) {
 					continue;
 				}
-				// get file name from basename.
+				// Get file name from basename.
 				$basename_parts = explode( '/', $basename );
 				$slug           = current( $basename_parts );
 				$install_url    = add_query_arg(
@@ -484,9 +479,6 @@ abstract class Settings {
 		self::instance()->output_settings();
 	}
 
-
-	// Settings fields.
-
 	/**
 	 * Output admin fields.
 	 *
@@ -548,7 +540,7 @@ abstract class Settings {
 
 			if ( ! empty( $value['custom_attributes'] ) && is_array( $value['custom_attributes'] ) ) {
 				foreach ( $value['custom_attributes'] as $attribute => $attribute_value ) {
-					$custom_attributes[] = esc_attr( $attribute ) . '="' . esc_attr( $attribute_value ) . '"';
+					$custom_attributes[] = esc_attr( $attribute ) . '=' . esc_attr( $attribute_value );
 				}
 			}
 
@@ -577,7 +569,8 @@ abstract class Settings {
 					break;
 
 				case 'info':
-					?><tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					?>
+					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc"></th><td style="<?php echo esc_attr( $value['css'] ); ?>">
 					<?php
 					echo wp_kses_post( wpautop( wptexturize( $value['text'] ) ) );
@@ -595,8 +588,6 @@ abstract class Settings {
 					}
 					break;
 
-				// TODO: Need to check bellow lines.
-
 				// Standard text inputs and subtypes like 'number'.
 				case 'text':
 				case 'password':
@@ -613,9 +604,9 @@ abstract class Settings {
 					$option_value = $value['value'];
 
 					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<input
@@ -626,19 +617,21 @@ abstract class Settings {
 								value="<?php echo esc_attr( $option_value ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
-								<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
-								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; // WPCS: XSS ok. ?>
+								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
+								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
 					break;
+
+				// TODO: Need to check bellow lines.
 
 				// Color picker.
 				case 'color':
 					$option_value = $value['value'];
 
 					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
 						</th>
