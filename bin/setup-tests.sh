@@ -51,7 +51,7 @@ if [ ! -f "$PLUGIN_DIR/tests/_data/dump.sql" ]; then
     wp core download --path="$TEST_DIR" --version=latest >> /dev/null || exit 1
     wp config create --dbname=acceptance_tests --dbuser="$DB_USER" --dbpass="$DB_PASSWORD" --path="$TEST_DIR" >> /dev/null || exit 1
     wp db create --path="$TEST_DIR" >> /dev/null || exit 1
-    wp core install --url=acceptance-tests.test --title="Acceptance Tests" --admin_user=admin --admin_password=password --admin_email='manik@pluginever.com' --skip-email --path="$TEST_DIR"  >> /dev/null || exit 1
+    wp core install --url=acceptance-tests.test --title="Acceptance Tests" --admin_user=admin --admin_password=password --admin_email='admin@wpplugins.com' --skip-email --path="$TEST_DIR"  >> /dev/null || exit 1
     wp rewrite structure '/%postname%/' --hard --path="$TEST_DIR" >> /dev/null || exit 1
     wp core update-db --path="$TEST_DIR" >> /dev/null || exit 1
     wp plugin uninstall --all --deactivate --path="$TEST_DIR" >> /dev/null || exit 1

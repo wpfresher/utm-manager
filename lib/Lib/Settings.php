@@ -118,7 +118,7 @@ abstract class Settings {
 			exit();
 		}
 		?>
-		<div class="wrap pev-wrap woocommerce">
+		<div class="wrap pev-wrap">
 			<nav class="nav-tab-wrapper pev-navbar">
 				<?php $this->output_tabs( $tabs ); ?>
 			</nav>
@@ -392,26 +392,10 @@ abstract class Settings {
 	public function get_promo_plugins() {
 		return array(
 			array(
-				'name'        => 'WC Min Max Quantities',
-				'slug'        => 'wc-min-max-quantities',
-				'description' => 'Set minimum and maximum price or quantity for WooCommerce products.',
-				'link'        => 'https://wordpress.org/plugins/wc-min-max-quantities/',
-				'badge'       => esc_html__( 'Recommended', 'utm-source-tracker' ),
-				'button'      => esc_html__( 'Install Now', 'utm-source-tracker' ),
-			),
-			array(
-				'name'        => 'Product Category Showcase for WooCommerce',
-				'slug'        => 'wc-category-showcase',
-				'description' => 'Display WooCommerce categories in a beautiful way.',
-				'link'        => 'https://wordpress.org/plugins/wc-category-showcase/',
-				'badge'       => esc_html__( 'Recommended', 'utm-source-tracker' ),
-				'button'      => esc_html__( 'Install Now', 'utm-source-tracker' ),
-			),
-			array(
-				'name'        => 'Product Category Slider for WooCommerce',
-				'basename'    => 'woo-category-slider-by-pluginever/woo-category-slider.php',
-				'description' => 'Display WooCommerce categories in a beautiful way.',
-				'link'        => 'https://wordpress.org/plugins/woo-category-slider-by-pluginever/',
+				'name'        => 'Plugin name',
+				'slug'        => 'plugin-slug',
+				'description' => 'Plugin description.',
+				'link'        => 'https://wordpress.org/plugins/plugin-slug/',
 				'badge'       => esc_html__( 'Recommended', 'utm-source-tracker' ),
 				'button'      => esc_html__( 'Install Now', 'utm-source-tracker' ),
 			),
@@ -428,15 +412,15 @@ abstract class Settings {
 		return array(
 			'facebook'        => array(
 				'label' => __( 'Join our Community', 'utm-source-tracker' ),
-				'url'   => 'https://www.facebook.com/groups/pluginever',
+				'url'   => 'https://www.facebook.com/groups/wpfresher',
 			),
 			'feature-request' => array(
 				'label' => __( 'Request a Feature', 'utm-source-tracker' ),
-				'url'   => 'https://www.pluginever.com/contact/',
+				'url'   => 'https://www.wpfresher.com/contact/',
 			),
 			'bug-report'      => array(
 				'label' => __( 'Report a Bug', 'utm-source-tracker' ),
-				'url'   => 'https://www.pluginever.com/contact/',
+				'url'   => 'https://www.wpfresher.com/contact/',
 			),
 		);
 	}
@@ -631,7 +615,7 @@ abstract class Settings {
 					?>
 					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<input

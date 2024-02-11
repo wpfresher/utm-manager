@@ -51,12 +51,71 @@ class Settings extends Lib\Settings {
 						'row_class' => 'settings-row-class'
 					),
 					array(
-						'title'    => __( 'Add to cart button text', 'utm-source-tracker' ),
-						'id'       => 'utmst_add_to_cart_btn_text',
-						'desc'     => __( 'Enter the add to cart button text. This will be applicable only for campaigns or UTM source tracker product types.', 'utm-source-tracker' ),
-						'desc_tip' => __( 'Enter the add to cart button text. This will be applicable only for campaigns or UTM source tracker product types.', 'utm-source-tracker' ),
+						'title'    => __( 'Text field', 'utm-source-tracker' ),
+						'id'       => 'utmst_text_field',
+						'desc'     => __( 'This is the text field description', 'utm-source-tracker' ),
+						'desc_tip' => __( 'This is the text field description tip', 'utm-source-tracker' ),
 						'type'     => 'text',
-						'default'  => 'UTM Source Tracker Now',
+						'placeholder'  => 'Text field (Placeholder)',
+						'default'  => 'Text field (Default)',
+						'row_class' => 'utmst-text-field',
+					),
+					array(
+						'title'    => __( 'Password', 'utm-source-tracker' ),
+						'id'       => 'utmst_password',
+						'desc'     => __( 'This is the password description', 'utm-source-tracker' ),
+						'desc_tip' => __( 'This is the password description tip', 'utm-source-tracker' ),
+						'type'     => 'password',
+						'placeholder'  => 'Password (Placeholder)',
+						//'default'  => 'Password (Default)',
+					),
+					array(
+						'title'   => __( 'Checkbox', 'utm-source-tracker' ),
+						'desc'    => __( 'Enable checkbox', 'utm-source-tracker' ),
+						'desc_tip'    => __( 'Enable checkbox description tip', 'utm-source-tracker' ),
+						'id'      => 'utmst_checkbox',
+						'default' => 'yes', // Or use 'no' instead.
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'Image Effect', 'utm-source-tracker' ),
+						'desc'    => __( 'Choose the effect for the products images.', 'utm-source-tracker' ),
+						'id'      => 'utmst_image_effect',
+						'type'    => 'select',
+						'options' => array(
+							'flip'               => __( 'Flip', 'utm-source-tracker' ),
+							'fade'               => __( 'Fade on Hover', 'utm-source-tracker' ),
+							'enlarge'            => __( 'Enlarge', 'utm-source-tracker' ),
+							'picture_in_picture' => __( 'Picture in Picture', 'utm-source-tracker' ),
+							'slide'              => __( 'Slide', 'utm-source-tracker' ),
+						),
+						'default' => 'flip',
+					),
+					array(
+						'title'             => __( 'Image Count', 'utm-source-tracker' ),
+						'desc'              => __( 'Enter how many images should be displayed. Use -1 to display all available.', 'utm-source-tracker' ),
+						'id'                => 'utmst_slide_img_count',
+						'default'           => '-1',
+						'type'              => 'number',
+						'custom_attributes' => array(
+							'data-cond-id'    => 'utmst_image_effect',
+							'data-cond-value' => 'slide',
+						),
+					),
+					array(
+						'title'             => __( 'Autoplay', 'utm-source-tracker' ),
+						'desc'              => __( 'Select the slider autoplay setting.', 'utm-source-tracker' ),
+						'id'                => 'utmst_slide_img_autoplay',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Autoplay on Hover', 'utm-source-tracker' ),
+							'no'  => __( 'Forced Autoplay', 'utm-source-tracker' ),
+						),
+						'default'           => 'yes',
+						'custom_attributes' => array(
+							'data-cond-id'    => 'utmst_image_effect',
+							'data-cond-value' => 'slide',
+						),
 					),
 
 					array(
