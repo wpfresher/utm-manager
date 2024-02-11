@@ -828,7 +828,7 @@ abstract class Settings {
 								<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?></th>
 								<td class="forminp forminp-checkbox <?php echo esc_html( $tooltip_container_class ); ?>">
 									<?php if ( $has_tooltip ) : ?>
-										<span class="help-tooltip"><?php //echo field_help_tip( esc_html( $value['tooltip'] ) ); ?></span>
+										<span class="help-tooltip"><?php echo self::field_help_tip( esc_html( $value['tooltip'] ) ); ?></span>
 									<?php endif; ?>
 									<fieldset>
 						<?php
@@ -1176,6 +1176,7 @@ abstract class Settings {
 	 * @return string
 	 */
 	public static function field_help_tip( $tip, $allow_html = false ) {
+
 		if ( $allow_html ) {
 			$sanitized_tip = self::sanitize_tooltip( $tip );
 		} else {
