@@ -51,14 +51,23 @@ class Settings extends Lib\Settings {
 						'row_class' => 'settings-row-class'
 					),
 					array(
-						'title'    => __( 'Text field', 'utm-source-tracker' ),
-						'id'       => 'utmst_text_field',
+						'title'    => __( 'Text field', 'utm-source-tracker' ), // Required if visible directly.
+						'id'       => 'utmst_text_field', // Required.
 						'desc'     => __( 'This is the text field description', 'utm-source-tracker' ),
 						'desc_tip' => __( 'This is the text field description tip', 'utm-source-tracker' ),
-						'type'     => 'text',
+						'type'     => 'text', // Required.
 						'placeholder'  => 'Text field (Placeholder)',
 						'default'  => 'Text field (Default)',
 						'row_class' => 'utmst-text-field',
+						// 'field_name' => 'field_name', // Empty/Nothing will be overridden by 'id'.
+						'css' => 'width:300px;', // Style for the input field.
+						// 'value' => 'Text field (Value)', // Nothing will be overridden by 'default'. Note: Empty not applicable for overridden.
+						'class' => 'input-field-class',
+						'suffix' => 'Field suffix text.',
+						'custom_attributes' => array(
+							'data-cond-id'    => 'field_data_condition_id',
+							'data-cond-value' => 'field_data_condition_value',
+						),
 					),
 					array(
 						'title'    => __( 'Password', 'utm-source-tracker' ),
