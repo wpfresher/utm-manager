@@ -31,7 +31,14 @@ class Plugin extends Lib\Plugin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function define_constants() {}
+	public function define_constants() {
+		$this->define( 'WCSP_VERSION', $this->get_data( 'version' ) );
+		$this->define( 'WCSP_FILE', $this->get_data( 'file' ) );
+		$this->define( 'WCSP_PATH', $this->get_data( 'dir_path' ) );
+		$this->define( 'WCSP_URL', $this->get_data( 'dir_url' ) );
+		$this->define( 'WCSP_ASSETS_URL', $this->get_data( 'assets_url' ) );
+		$this->define( 'WCSP_ASSETS_PATH', $this->get_data( 'assets_path' ) );
+	}
 
 	/**
 	 * Include required files.

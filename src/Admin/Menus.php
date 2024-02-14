@@ -22,6 +22,12 @@ class Menus {
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
 		// add_action( 'wc_donation_manager_campaigns_content', array( $this, 'render_campaigns_content' ) );
 		// add_action( 'wc_donation_manager_donors_content', array( $this, 'render_donors_content' ) );
+
+		add_action( utm_source_tracker()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
+	}
+
+	public function render_custom_field_type( $value ){
+		echo $value['title'];
 	}
 
 	/**

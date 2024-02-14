@@ -163,69 +163,98 @@ class Settings extends Lib\Settings {
 						'type'     => 'tel',
 						'css' => 'width:300px;',
 					),
+					// Color filed only works with WordPress iris color picker.
 					array(
 						'title'   => __( 'Color Picker', 'utm-source-tracker' ),
 						'desc'    => __( 'Choose the color.', 'utm-source-tracker' ),
 						'id'      => 'utmst_color',
 						'type'    => 'color',
 						'default' => '#cccccc',
+						'css' => 'width:280px;',
 					),
+					array(
+						'title'    => __( 'Text field', 'utm-source-tracker' ),
+						'id'       => 'utmst_textarea',
+						'desc'     => __( 'This is the text field description', 'utm-source-tracker' ),
+						'desc_tip' => __( 'This is the text field description tip', 'utm-source-tracker' ),
+						'type'     => 'textarea',
+						'placeholder'  => 'Textarea field (Placeholder)',
+						'css' => 'width:300px;',
+					),
+					// Select input.
+					array(
+						'title'   => __( 'Select', 'utm-source-tracker' ),
+						'desc'    => __( 'Chose an option from the list.', 'utm-source-tracker' ),
+						'id'      => 'utmst_select',
+						'type'    => 'select',
+						'options' => array(
+							'default'               => __( 'Select an option', 'utm-source-tracker' ),
+							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
+							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
+							'item_3'            => __( 'Item 3 (It will display the conditional field)', 'utm-source-tracker' ),
+						),
+						'default' => 'default',
+						'css' => 'width:300px;',
+					),
+					// Bellow is the data condition field for the above select field. This only be visible if the above select field has selected value to item_3.
+					// Requirements: data-cond-id must be the dependent field id and data-cond-value must be equal to the option value.
+					array(
+						'title'             => __( 'Image Count', 'utm-source-tracker' ),
+						'desc'              => __( 'Enter the text. This field is visible only for "Item 3".', 'utm-source-tracker' ),
+						'id'                => 'utmst_conditional_field_for_select',
+						'default'           => 'This field is visible only for "Item 3"',
+						'type'              => 'text',
+						'css' => 'width:300px;',
+						'custom_attributes' => array(
+							'data-cond-id'    => 'utmst_select',
+							'data-cond-value' => 'item_3',
+						),
+					),
+					// Multiselect input.
+					array(
+						'title'   => __( 'Multiselect', 'utm-source-tracker' ),
+						'desc'    => __( 'Chose multiple options from the list. Tip: Use control/command then click to select multiple options.', 'utm-source-tracker' ),
+						'id'      => 'utmst_multiselect',
+						'type'    => 'multiselect',
+						'options' => array(
+							'default'               => __( 'Select multiple options', 'utm-source-tracker' ),
+							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
+							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
+							'item_3'            => __( 'Item 3', 'utm-source-tracker' ),
+						),
+						'css' => 'width:300px;',
+					),
+					// Radio input.
+					array(
+						'title'   => __( 'Radio', 'utm-source-tracker' ),
+						'desc'    => __( 'Select radio fields.', 'utm-source-tracker' ),
+						'desc_tip'    => __( 'Select radio fields', 'utm-source-tracker' ),
+						'id'      => 'utmst_radio',
+						'type'    => 'radio',
+						'options' => array(
+							'default'               => __( 'Default options', 'utm-source-tracker' ),
+							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
+							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
+						),
+						'default' => 'default',
+						'disabled' => array(
+							'item_1',
+						),
+						'desc_at_end' => false, // Boolean & Default is false.
+					),
+					// Checkbox input.
 					array(
 						'title'   => __( 'Checkbox', 'utm-source-tracker' ),
 						'desc'    => __( 'Enable checkbox', 'utm-source-tracker' ),
-						'desc_tip'    => __( 'Enable checkbox description tip', 'utm-source-tracker' ),
+						'desc_tip'    => __( 'Enable checkbox description tip.', 'utm-source-tracker' ),
 						'id'      => 'utmst_checkbox',
 						'default' => 'yes', // Or use 'no' instead.
 						'type'    => 'checkbox',
 					),
+					// Create custom fields by using do_action.
 					array(
-						'title'   => __( 'Image Effect', 'utm-source-tracker' ),
-						'desc'    => __( 'Choose the effect for the products images.', 'utm-source-tracker' ),
-						'id'      => 'utmst_image_effect',
-						'type'    => 'select',
-						'options' => array(
-							'flip'               => __( 'Flip', 'utm-source-tracker' ),
-							'fade'               => __( 'Fade on Hover', 'utm-source-tracker' ),
-							'enlarge'            => __( 'Enlarge', 'utm-source-tracker' ),
-							'picture_in_picture' => __( 'Picture in Picture', 'utm-source-tracker' ),
-							'slide'              => __( 'Slide', 'utm-source-tracker' ),
-						),
-						'default' => 'flip',
-					),
-					array(
-						'title'             => __( 'Image Count', 'utm-source-tracker' ),
-						'desc'              => __( 'Enter how many images should be displayed. Use -1 to display all available.', 'utm-source-tracker' ),
-						'id'                => 'utmst_slide_img_count',
-						'default'           => '-1',
-						'type'              => 'number',
-						'custom_attributes' => array(
-							'data-cond-id'    => 'utmst_image_effect',
-							'data-cond-value' => 'slide',
-						),
-					),
-					array(
-						'title'             => __( 'Autoplay', 'utm-source-tracker' ),
-						'desc'              => __( 'Select the slider autoplay setting.', 'utm-source-tracker' ),
-						'id'                => 'utmst_slide_img_autoplay',
-						'type'              => 'select',
-						'options'           => array(
-							'yes' => __( 'Autoplay on Hover', 'utm-source-tracker' ),
-							'no'  => __( 'Forced Autoplay', 'utm-source-tracker' ),
-						),
-						'default'           => 'yes',
-						'custom_attributes' => array(
-							'data-cond-id'    => 'utmst_image_effect',
-							'data-cond-value' => 'slide',
-						),
-					),
-
-					array(
-						'title'    => __( 'Skip cart', 'utm-source-tracker' ),
-						'desc'     => __( 'Skip cart.', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This will redirect donors to the cart page after adding a UTM source tracker product to the cart item.', 'utm-source-tracker' ),
-						'id'       => 'utmst_skip_cart',
-						'default'  => 'yes',
-						'type'     => 'checkbox',
+						'title'   => __( 'Custom field', 'utm-source-tracker' ),
+						'type'    => 'custom_field_type',
 					),
 					array(
 						'type' => 'sectionend',

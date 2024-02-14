@@ -13,10 +13,11 @@ defined( 'ABSPATH' ) || exit;
  * @package Lib
  */
 abstract class Settings {
+
 	/**
 	 * Init settings.
 	 *
-	 * @since 1.0.3
+	 * @since 1.0.0
 	 * @return self
 	 */
 	public static function instance() {
@@ -33,7 +34,6 @@ abstract class Settings {
 	 * Init settings.
 	 *
 	 * @since 1.0.0
-	 * @depecated 1.0.3
 	 * @return self
 	 */
 	public static function get_instance() {
@@ -49,6 +49,16 @@ abstract class Settings {
 	protected function __construct() {
 		add_action( 'init', array( $this, 'buffer_start' ) );
 		add_action( 'admin_init', array( $this, 'save_settings' ), 1 );
+	}
+
+	/**
+	 * Get the plugin prefix.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public static function get_prefix() {
+		return utm_source_tracker()->get_data( 'prefix' ) ?? '';
 	}
 
 	/**
@@ -487,6 +497,7 @@ abstract class Settings {
 	 * @param array[] $options Opens array to output.
 	 */
 	public static function output_fields( $options ) {
+
 		foreach ( $options as $value ) {
 			if ( ! isset( $value['type'] ) ) {
 				continue;
@@ -624,8 +635,6 @@ abstract class Settings {
 					<?php
 					break;
 
-				// TODO: Need to check bellow lines.
-
 				// Color picker.
 				case 'color':
 					$option_value = $value['value'];
@@ -633,7 +642,7 @@ abstract class Settings {
 					?>
 					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">&lrm;
 							<span class="colorpickpreview" style="background: <?php echo esc_attr( $option_value ); ?>">&nbsp;</span>
@@ -646,8 +655,8 @@ abstract class Settings {
 								value="<?php echo esc_attr( $option_value ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>colorpick"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
-								<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
-								/>&lrm; <?php echo $description; // WPCS: XSS ok. ?>
+								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
+								/>&lrm; <?php echo wp_kses_post( $description ); ?>
 								<div id="colorPickerDiv_<?php echo esc_attr( $value['id'] ); ?>" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
 						</td>
 					</tr>
@@ -657,23 +666,21 @@ abstract class Settings {
 				// Textarea.
 				case 'textarea':
 					$option_value = $value['value'];
-
 					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-							<?php echo $description; // WPCS: XSS ok. ?>
-
+							<?php echo wp_kses_post( $description ); ?>
 							<textarea
 								name="<?php echo esc_attr( $value['field_name'] ); ?>"
 								id="<?php echo esc_attr( $value['id'] ); ?>"
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
-								<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
-								><?php echo esc_textarea( $option_value ); // WPCS: XSS ok. ?></textarea>
+								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
+								><?php echo esc_textarea( $option_value ); ?></textarea>
 						</td>
 					</tr>
 					<?php
@@ -683,11 +690,10 @@ abstract class Settings {
 				case 'select':
 				case 'multiselect':
 					$option_value = $value['value'];
-
 					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<select
@@ -695,7 +701,7 @@ abstract class Settings {
 								id="<?php echo esc_attr( $value['id'] ); ?>"
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
-								<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
+								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
 								<?php echo 'multiselect' === $value['type'] ? 'multiple="multiple"' : ''; ?>
 								>
 								<?php
@@ -715,7 +721,7 @@ abstract class Settings {
 									<?php
 								}
 								?>
-							</select> <?php echo $description; // WPCS: XSS ok. ?>
+							</select> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
@@ -728,9 +734,9 @@ abstract class Settings {
 					$show_desc_at_end = $value['desc_at_end'] ?? false;
 
 					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<fieldset>
@@ -754,7 +760,7 @@ abstract class Settings {
 											?>
 											style="<?php echo esc_attr( $value['css'] ); ?>"
 											class="<?php echo esc_attr( $value['class'] ); ?>"
-											<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
+											<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
 											<?php checked( $key, $option_value ); ?>
 											/> <?php echo esc_html( $val ); ?></label>
 									</li>
@@ -805,7 +811,7 @@ abstract class Settings {
 								<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?></th>
 								<td class="forminp forminp-checkbox <?php echo esc_html( $tooltip_container_class ); ?>">
 									<?php if ( $has_tooltip ) : ?>
-										<span class="help-tooltip"><?php echo self::field_help_tip( esc_html( $value['tooltip'] ) ); ?></span>
+										<span class="help-tooltip"><?php echo wp_kses_post( self::field_help_tip( esc_html( $value['tooltip'] ) ) ); ?></span>
 									<?php endif; ?>
 									<fieldset>
 						<?php
@@ -832,9 +838,9 @@ abstract class Settings {
 								value="1"
 								<?php disabled( $value['disabled'] ?? false ); ?>
 								<?php checked( $option_value, 'yes' ); ?>
-								<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
-							/> <?php echo $description; // WPCS: XSS ok. ?>
-						</label> <?php echo $tooltip_html; // WPCS: XSS ok. ?>
+								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
+							/> <?php echo wp_kses_post( $description ); ?>
+						</label> <?php echo wp_kses_post( $tooltip_html ); ?>
 					<?php
 
 					if ( ! isset( $value['checkboxgroup'] ) || 'end' === $value['checkboxgroup'] ) {
@@ -850,36 +856,7 @@ abstract class Settings {
 					}
 					break;
 
-				// Image width settings. @todo deprecate and remove in 4.0. No longer needed by core.
-				case 'image_width':
-					$image_size       = str_replace( '_image_size', '', $value['id'] );
-					$size             = wc_get_image_size( $image_size );
-					$width            = isset( $size['width'] ) ? $size['width'] : $value['default']['width'];
-					$height           = isset( $size['height'] ) ? $size['height'] : $value['default']['height'];
-					$crop             = isset( $size['crop'] ) ? $size['crop'] : $value['default']['crop'];
-					$disabled_attr    = '';
-					$disabled_message = '';
-
-					if ( has_filter( 'woocommerce_get_image_size_' . $image_size ) ) {
-						$disabled_attr    = 'disabled="disabled"';
-						$disabled_message = '<p><small>' . esc_html__( 'The settings of this image size have been disabled because its values are being overwritten by a filter.', 'utm-source-tracker' ) . '</small></p>';
-					}
-
-					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
-						<th scope="row" class="titledesc">
-						<label><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html . $disabled_message; // WPCS: XSS ok. ?></label>
-					</th>
-						<td class="forminp image_width_settings">
-
-							<input name="<?php echo esc_attr( $value['field_name'] ); ?>[width]" <?php echo $disabled_attr; // WPCS: XSS ok. ?> id="<?php echo esc_attr( $value['id'] ); ?>-width" type="text" size="3" value="<?php echo esc_attr( $width ); ?>" /> &times; <input name="<?php echo esc_attr( $value['id'] ); ?>[height]" <?php echo $disabled_attr; // WPCS: XSS ok. ?> id="<?php echo esc_attr( $value['id'] ); ?>-height" type="text" size="3" value="<?php echo esc_attr( $height ); ?>" />px
-
-							<label><input name="<?php echo esc_attr( $value['field_name'] ); ?>[crop]" <?php echo $disabled_attr; // WPCS: XSS ok. ?> id="<?php echo esc_attr( $value['id'] ); ?>-crop" type="checkbox" value="1" <?php checked( 1, $crop ); ?> /> <?php esc_html_e( 'Hard crop?', 'utm-source-tracker' ); ?></label>
-
-							</td>
-					</tr>
-					<?php
-					break;
+				// TODO: Need to check bellow lines.
 
 				// Single page selects.
 				case 'single_select_page':
@@ -887,7 +864,7 @@ abstract class Settings {
 						'name'             => $value['field_name'],
 						'id'               => $value['id'],
 						'sort_column'      => 'menu_order',
-						'sort_order'        => 'ASC',
+						'sort_order'       => 'ASC',
 						'show_option_none' => ' ',
 						'class'            => $value['class'],
 						'echo'             => false,
@@ -900,12 +877,12 @@ abstract class Settings {
 					}
 
 					?>
-					<tr valign="top" class="single_select_page"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top" class="single_select_page"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
+							<label><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp">
-							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'utm-source-tracker' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); // WPCS: XSS ok. ?> <?php echo $description; // WPCS: XSS ok. ?>
+							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'utm-source-tracker' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); // WPCS: XSS ok. ?> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
@@ -925,9 +902,9 @@ abstract class Settings {
 						);
 					}
 					?>
-					<tr valign="top" class="single_select_page"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
+					<tr valign="top" class="single_select_page"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : ''; ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<select
@@ -935,113 +912,18 @@ abstract class Settings {
 								id="<?php echo esc_attr( $value['id'] ); ?>"
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
-								<?php echo implode( ' ', $custom_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
 								data-placeholder="<?php esc_attr_e( 'Search for a page&hellip;', 'utm-source-tracker' ); ?>"
 								data-allow_clear="true"
-								data-exclude="<?php echo wc_esc_json( wp_json_encode( $value['args']['exclude'] ) ); ?>"
+								data-exclude="<?php // echo wc_esce_json( wp_json_encode( $value['args']['exclude'] ) ); ?>"
 								>
 								<option value=""></option>
 								<?php if ( ! is_null( $page ) ) { ?>
 									<option value="<?php echo esc_attr( $option_value ); ?>" selected="selected">
-									<?php echo wp_strip_all_tags( $option_display_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									<?php echo wp_strip_all_tags( $option_display_name ); ?>
 									</option>
 								<?php } ?>
-							</select> <?php echo $description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</td>
-					</tr>
-					<?php
-					break;
-
-				// Single country selects.
-				case 'single_select_country':
-					$country_setting = (string) $value['value'];
-
-					if ( strstr( $country_setting, ':' ) ) {
-						$country_setting = explode( ':', $country_setting );
-						$country         = current( $country_setting );
-						$state           = end( $country_setting );
-					} else {
-						$country = $country_setting;
-						$state   = '*';
-					}
-					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
-						</th>
-						<td class="forminp"><select name="<?php echo esc_attr( $value['field_name'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php esc_attr_e( 'Choose a country / region&hellip;', 'utm-source-tracker' ); ?>" aria-label="<?php esc_attr_e( 'Country / Region', 'utm-source-tracker' ); ?>" class="wc-enhanced-select">
-							<?php WC()->countries->country_dropdown_options( $country, $state ); ?>
-						</select> <?php echo $description; // WPCS: XSS ok. ?>
-						</td>
-					</tr>
-					<?php
-					break;
-
-				// Country multiselects.
-				case 'multi_select_countries':
-					$selections = (array) $value['value'];
-
-					if ( ! empty( $value['options'] ) ) {
-						$countries = $value['options'];
-					} else {
-						$countries = WC()->countries->countries;
-					}
-
-					asort( $countries );
-					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
-						</th>
-						<td class="forminp">
-							<select multiple="multiple" name="<?php echo esc_attr( $value['field_name'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose countries / regions&hellip;', 'utm-source-tracker' ); ?>" aria-label="<?php esc_attr_e( 'Country / Region', 'utm-source-tracker' ); ?>" class="wc-enhanced-select">
-								<?php
-								if ( ! empty( $countries ) ) {
-									foreach ( $countries as $key => $val ) {
-										echo '<option value="' . esc_attr( $key ) . '"' . wc_selected( $key, $selections ) . '>' . esc_html( $val ) . '</option>'; // WPCS: XSS ok.
-									}
-								}
-								?>
-							</select> <?php echo ( $description ) ? $description : ''; // WPCS: XSS ok. ?> <br /><a class="select_all button" href="#"><?php esc_html_e( 'Select all', 'utm-source-tracker' ); ?></a> <a class="select_none button" href="#"><?php esc_html_e( 'Select none', 'utm-source-tracker' ); ?></a>
-						</td>
-					</tr>
-					<?php
-					break;
-
-				// Days/months/years selector.
-				case 'relative_date_selector':
-					$periods      = array(
-						'days'   => __( 'Day(s)', 'utm-source-tracker' ),
-						'weeks'  => __( 'Week(s)', 'utm-source-tracker' ),
-						'months' => __( 'Month(s)', 'utm-source-tracker' ),
-						'years'  => __( 'Year(s)', 'utm-source-tracker' ),
-					);
-					$option_value = wc_parse_relative_date_option( $value['value'] );
-					?>
-					<tr valign="top"<?php echo $value['row_class'] ? ' class="' . esc_attr( $value['row_class'] ) . '"' : '' ?>">
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; // WPCS: XSS ok. ?></label>
-						</th>
-						<td class="forminp">
-						<input
-								name="<?php echo esc_attr( $value['field_name'] ); ?>[number]"
-								id="<?php echo esc_attr( $value['id'] ); ?>"
-								type="number"
-								style="width: 80px;"
-								value="<?php echo esc_attr( $option_value['number'] ); ?>"
-								class="<?php echo esc_attr( $value['class'] ); ?>"
-								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
-								step="1"
-								min="1"
-								<?php echo implode( ' ', $custom_attributes ); // WPCS: XSS ok. ?>
-							/>&nbsp;
-							<select name="<?php echo esc_attr( $value['field_name'] ); ?>[unit]" style="width: auto;">
-								<?php
-								foreach ( $periods as $value => $label ) {
-									echo '<option value="' . esc_attr( $value ) . '"' . selected( $option_value['unit'], $value, false ) . '>' . esc_html( $label ) . '</option>';
-								}
-								?>
-							</select> <?php echo ( $description ) ? $description : ''; // WPCS: XSS ok. ?>
+							</select> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
@@ -1049,7 +931,7 @@ abstract class Settings {
 
 				// Default: run an action.
 				default:
-					do_action( 'woocommerce_admin_field_' . $value['type'], $value );
+					do_action( self::get_prefix() . '_admin_field_' . $value['type'], $value );
 					break;
 			}
 		}
@@ -1059,12 +941,12 @@ abstract class Settings {
 	 * Get a setting from the settings API.
 	 *
 	 * @param string $option_name Option name.
-	 * @param mixed  $default     Default value.
+	 * @param mixed  $default_value Default value.
 	 * @return mixed
 	 */
-	public static function get_option( $option_name, $default = '' ) {
+	public static function get_option( $option_name, $default_value = '' ) {
 		if ( ! $option_name ) {
-			return $default;
+			return $default_value;
 		}
 
 		// Array value.
@@ -1096,7 +978,7 @@ abstract class Settings {
 			$option_value = stripslashes( $option_value );
 		}
 
-		return ( null === $option_value ) ? $default : $option_value;
+		return ( null === $option_value ) ? $default_value : $option_value;
 	}
 
 	/**
@@ -1172,20 +1054,20 @@ abstract class Settings {
 		 *
 		 * @return string
 		 */
-		return apply_filters( 'field_help_tip', '<span class="field-help-tip" tabindex="0" aria-label="' . $sanitized_tip . '" data-tip="' . $sanitized_tip . '"></span>', $sanitized_tip, $tip, $allow_html );
+		return apply_filters( self::get_prefix() . '_field_help_tip', '<span class="field-help-tip" tabindex="0" aria-label="' . $sanitized_tip . '" data-tip="' . $sanitized_tip . '"></span>', $sanitized_tip, $tip, $allow_html );
 	}
 
 	/**
 	 * Sanitize a string destined to be a tooltip.
 	 *
 	 * @since  1.0.0 Tooltips are encoded with htmlspecialchars to prevent XSS. Should not be used in conjunction with esc_attr()
-	 * @param  string $var Data to sanitize.
+	 * @param  string $data Data to sanitize.
 	 * @return string
 	 */
-	public static function sanitize_tooltip( $var ) {
+	public static function sanitize_tooltip( $data ) {
 		return htmlspecialchars(
 			wp_kses(
-				html_entity_decode( $var ?? '' ),
+				html_entity_decode( $data ?? '' ),
 				array(
 					'br'     => array(),
 					'em'     => array(),
@@ -1204,7 +1086,7 @@ abstract class Settings {
 	/**
 	 * Save admin fields.
 	 *
-	 * Loops through the woocommerce options array and outputs each field.
+	 * Loops through the admin settings options array and outputs each field.
 	 *
 	 * @param array $options Options array to output.
 	 * @param array $data    Optional. Data to use for saving. Defaults to $_POST.
@@ -1250,23 +1132,7 @@ abstract class Settings {
 					$value = wp_kses_post( trim( $raw_value ) );
 					break;
 				case 'multiselect':
-				case 'multi_select_countries':
-					// $value = array_filter( array_map( 'wc_clean', (array) $raw_value ) );
 					$value = array_filter( array_map( 'map_deep', (array) $raw_value ) );
-					break;
-				case 'image_width':
-					$value = array();
-					if ( isset( $raw_value['width'] ) ) {
-						//$value['width']  = wc_clean( $raw_value['width'] );
-						$value['width']  = $raw_value['width'];
-						// $value['height'] = wc_clean( $raw_value['height'] );
-						$value['height'] = $raw_value['height'];
-						$value['crop']   = isset( $raw_value['crop'] ) ? 1 : 0;
-					} else {
-						$value['width']  = $option['default']['width'];
-						$value['height'] = $option['default']['height'];
-						$value['crop']   = $option['default']['crop'];
-					}
 					break;
 				case 'select':
 					$allowed_values = empty( $option['options'] ) ? array() : array_map( 'strval', array_keys( $option['options'] ) );
@@ -1274,15 +1140,10 @@ abstract class Settings {
 						$value = null;
 						break;
 					}
-					$default = ( empty( $option['default'] ) ? $allowed_values[0] : $option['default'] );
-					$value   = in_array( $raw_value, $allowed_values, true ) ? $raw_value : $default;
-					break;
-				case 'relative_date_selector':
-					// $value = wc_parse_relative_date_option( $raw_value );
-					$value = $raw_value;
+					$default_value = ( empty( $option['default'] ) ? $allowed_values[0] : $option['default'] );
+					$value   = in_array( $raw_value, $allowed_values, true ) ? $raw_value : $default_value;
 					break;
 				default:
-					// $value = wc_clean( $raw_value );
 					$value = $raw_value;
 					break;
 			}
@@ -1292,25 +1153,25 @@ abstract class Settings {
 			 *
 			 * @deprecated 2.4.0 - doesn't allow manipulation of values!
 			 */
-			if ( has_action( 'woocommerce_update_option_' . sanitize_title( $option['type'] ) ) ) {
+			// if ( has_action( 'woocommerce_update_option_' . sanitize_title( $option['type'] ) ) ) {
 				// wc_deprecated_function( 'The woocommerce_update_option_X action', '2.4.0', 'woocommerce_admin_settings_sanitize_option filter' );
-				do_action( 'woocommerce_update_option_' . sanitize_title( $option['type'] ), $option );
-				continue;
-			}
+				// do_action( 'woocommerce_update_option_' . sanitize_title( $option['type'] ), $option );
+				// continue;
+			// }
 
 			/**
 			 * Sanitize the value of an option.
 			 *
 			 * @since 2.4.0
 			 */
-			$value = apply_filters( 'woocommerce_admin_settings_sanitize_option', $value, $option, $raw_value );
+			$value = apply_filters( self::get_prefix() . '_admin_settings_sanitize_option', $value, $option, $raw_value );
 
 			/**
 			 * Sanitize the value of an option by option name.
 			 *
 			 * @since 2.4.0
 			 */
-			$value = apply_filters( "woocommerce_admin_settings_sanitize_option_$option_name", $value, $option, $raw_value );
+			$value = apply_filters( self::get_prefix() . "_admin_settings_sanitize_option_$option_name", $value, $option, $raw_value );
 
 			if ( is_null( $value ) ) {
 				continue;
@@ -1336,7 +1197,7 @@ abstract class Settings {
 			 *
 			 * @deprecated 2.4.0 - doesn't allow manipulation of values!
 			 */
-			do_action( 'woocommerce_update_option', $option );
+			do_action( self::get_prefix() . '_update_option', $option );
 		}
 
 		// Save all options in our array.
@@ -1346,5 +1207,4 @@ abstract class Settings {
 
 		return true;
 	}
-
 }

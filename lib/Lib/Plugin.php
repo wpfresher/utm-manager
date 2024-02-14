@@ -432,4 +432,18 @@ abstract class Plugin implements PluginInterface {
 	public function is_premium_active() {
 		return $this->has_premium() && $this->is_plugin_active( $this->get_premium_basename() );
 	}
+
+	/**
+	 * Define constant if not already set.
+	 *
+	 * @param string      $name  Constant name.
+	 * @param string|bool $value Constant value.
+	 * @since 1.0.0
+	 * @return void
+	 */
+	protected function define( $name, $value ) {
+		if ( ! defined( $name ) ) {
+			define( $name, $value );
+		}
+	}
 }
