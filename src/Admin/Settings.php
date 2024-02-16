@@ -199,7 +199,7 @@ class Settings extends Lib\Settings {
 					// Bellow is the data condition field for the above select field. This only be visible if the above select field has selected value to item_3.
 					// Requirements: data-cond-id must be the dependent field id and data-cond-value must be equal to the option value.
 					array(
-						'title'             => __( 'Image Count', 'utm-source-tracker' ),
+						'title'             => __( 'Select conditional field', 'utm-source-tracker' ),
 						'desc'              => __( 'Enter the text. This field is visible only for "Item 3".', 'utm-source-tracker' ),
 						'id'                => 'utmst_conditional_field_for_select',
 						'default'           => 'This field is visible only for "Item 3"',
@@ -235,6 +235,7 @@ class Settings extends Lib\Settings {
 							'default'               => __( 'Default options', 'utm-source-tracker' ),
 							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
 							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
+							'item_3'               => __( 'Item 3', 'utm-source-tracker' ),
 						),
 						'default' => 'default',
 						'disabled' => array(
@@ -251,6 +252,19 @@ class Settings extends Lib\Settings {
 						'default' => 'yes', // Or use 'no' instead.
 						'type'    => 'checkbox',
 					),
+					// Conditional field for the above Checkbox input field.
+					array(
+						'title'             => __( 'Checkbox conditional field', 'utm-source-tracker' ),
+						'desc'              => __( 'Enter the text. This field is visible only if the above checkbox is checked.', 'utm-source-tracker' ),
+						'id'                => 'utmst_conditional_field_for_checkbox',
+						'default'           => 'This field is visible only for "Item 3"',
+						'type'              => 'text',
+						'css' => 'width:300px;',
+						'custom_attributes' => array(
+							'data-cond-id'    => 'utmst_checkbox',
+							'data-cond-value' => 'yes',
+						),
+					),
 					// Create custom fields by using do_action.
 					array(
 						'title'   => __( 'Custom field', 'utm-source-tracker' ),
@@ -262,6 +276,7 @@ class Settings extends Lib\Settings {
 					),
 				);
 				break;
+
 			case 'advanced':
 				$settings = array(
 					array(

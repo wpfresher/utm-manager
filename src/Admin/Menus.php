@@ -27,7 +27,7 @@ class Menus {
 	}
 
 	public function render_custom_field_type( $value ){
-		echo $value['title'];
+		echo 'Title: ' . $value['title'] . ', Type: ' . $value['type'];
 	}
 
 	/**

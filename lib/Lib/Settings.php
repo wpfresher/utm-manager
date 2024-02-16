@@ -55,10 +55,14 @@ abstract class Settings {
 	 * Get the plugin prefix.
 	 *
 	 * @since 1.0.0
-	 * @return string
+	 * @return string|null
 	 */
 	public static function get_prefix() {
-		return utm_source_tracker()->get_data( 'prefix' ) ?? '';
+		if ( Plugin::instance()->get_data('prefix' ) ) {
+			return Plugin::instance()->get_data('prefix' );
+		}
+
+		return null;
 	}
 
 	/**
