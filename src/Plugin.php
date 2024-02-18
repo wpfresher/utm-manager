@@ -46,7 +46,9 @@ class Plugin extends Lib\Plugin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function includes() {}
+	public function includes() {
+		require_once __DIR__ . '/Functions.php';
+	}
 
 	/**
 	 * Hook into actions and filters.

@@ -20,7 +20,8 @@ class Menus {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'main_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
-		// add_action( 'wc_donation_manager_campaigns_content', array( $this, 'render_campaigns_content' ) );
+		add_action( 'utm_source_tracker_leads_content', array( $this, 'output_leads_content' ) );
+		// add_action( 'wc_donation_manager_leads_content', array( $this, 'render_leads_content' ) );
 		// add_action( 'wc_donation_manager_donors_content', array( $this, 'render_donors_content' ) );
 
 		add_action( utm_source_tracker()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
@@ -80,39 +81,39 @@ class Menus {
 	 * @return void
 	 */
 	public function output_main_page() {
-		$page_hook = 'utm-logs';
+		$page_hook = 'leads';
 		include __DIR__ . '/views/admin-page.php';
 	}
 
 	/**
-	 * Render campaigns content.
+	 * Render leads content.
 	 *
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function render_campaigns_content() {
-		$add_campaign  = isset( $_GET['new'] ) ? true : false;
-		$edit_campaign = isset( $_GET['edit_campaign'] ) ? absint( wp_unslash( $_GET['edit_campaign'] ) ) : '';
-		$view_campaign = isset( $_GET['view_campaign'] ) ? absint( wp_unslash( $_GET['view_campaign'] ) ) : '';
+	public function output_leads_content() {
+		$add_lead  = isset( $_GET['new'] ) ? true : false;
+		$edit_lead = isset( $_GET['edit_lead'] ) ? absint( wp_unslash( $_GET['edit_lead'] ) ) : '';
+		$view_lead = isset( $_GET['view_lead'] ) ? absint( wp_unslash( $_GET['view_lead'] ) ) : '';
 
-		if ( $edit_campaign && ! wcdm_get_campaign( $edit_campaign ) ) {
-			wp_safe_redirect( admin_url( 'admin.php?page=utm-source-tracker' ) );
-			exit();
+		if ( $edit_lead && ! wcdm_get_lead( $edit_lead ) ) {
+//			wp_safe_redirect( admin_url( 'admin.php?page=utm-source-tracker' ) );
+//			exit();
 		}
 
-		if ( $view_campaign && ! wcdm_get_campaign( $view_campaign ) ) {
-			wp_safe_redirect( admin_url( 'admin.php?page=utm-source-tracker' ) );
-			exit();
+		if ( $view_lead && ! wcdm_get_lead( $view_lead ) ) {
+//			wp_safe_redirect( admin_url( 'admin.php?page=utm-source-tracker' ) );
+//			exit();
 		}
 
-		if ( $add_campaign ) {
-			include __DIR__ . '/views/add-campaign.php';
-		} elseif ( $edit_campaign ) {
-			include __DIR__ . '/views/edit-campaign.php';
-		} elseif ( $view_campaign ) {
-			include __DIR__ . '/views/view-campaign.php';
+		if ( $add_lead ) {
+			include __DIR__ . '/views/add-lead.php';
+		} elseif ( $edit_lead ) {
+			include __DIR__ . '/views/edit-lead.php';
+		} elseif ( $view_lead ) {
+			include __DIR__ . '/views/view-lead.php';
 		} else {
-			include __DIR__ . '/views/list-campaigns.php';
+			include __DIR__ . '/views/list-lead.php';
 		}
 	}
 }
