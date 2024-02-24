@@ -30,6 +30,11 @@ class LeadsListTable extends AbstractListTable {
 			)
 		);
 		$this->screen = get_current_screen();
+		// Add screen custom pagination option.
+		add_screen_option( 'per_page', array(
+			'default' => 20,
+			'option' => 'utmst_logs_per_page',
+		) );
 		parent::__construct( $args );
 	}
 
@@ -88,6 +93,18 @@ class LeadsListTable extends AbstractListTable {
 		esc_html_e( 'No items found.', 'utm-source-tracker' );
 	}
 
+	public static function define_columns() {
+		$columns = array(
+			'cb'           => '<input type="checkbox" />',
+			'name'         => __( 'Name', 'utm-source-tracker' ),
+			'content'      => __( 'Content', 'utm-source-tracker' ),
+			'date' => __( 'Date', 'utm-source-tracker' ),
+			'status' => __( 'Status', 'utm-source-tracker' ),
+		);
+
+		return $columns;
+	}
+
 	/**
 	 * Get the table columns
 	 *
@@ -95,6 +112,8 @@ class LeadsListTable extends AbstractListTable {
 	 * @return array
 	 */
 	public function get_columns() {
+		return get_column_headers( get_current_screen() );
+
 		return array(
 			'cb'           => '<input type="checkbox" />',
 			'name'         => __( 'Name', 'utm-source-tracker' ),

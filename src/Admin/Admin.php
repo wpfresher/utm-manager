@@ -20,6 +20,13 @@ class Admin {
 	public function __construct() {
 		add_action( 'init', array( $this, 'init' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+
+		// Add screen options.
+		add_filter(
+			'manage_toplevel_page_utm-source-tracker_columns',
+			array( 'UTMSourceTracker\Admin\ListTables\LeadsListTable', 'define_columns' ),
+			10, 0
+		);
 	}
 
 	/**
