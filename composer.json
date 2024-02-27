@@ -18,6 +18,10 @@
     {
       "url": "git@github.com:wpfresher/framework-premium.git",
       "type": "github"
+    },
+    {
+      "url": "git@github.com:wpfresher/framework-data.git",
+      "type": "github"
     }
   ],
   "require": {
@@ -39,7 +43,8 @@
     "lucatume/wp-browser": "^3.1",
     "phpcompatibility/php-compatibility": "9.3.5",
     "wpfresher/framework-plugin": "dev-master",
-    "wpfresher/framework-premium": "dev-master"
+    "wpfresher/framework-premium": "dev-master",
+    "wpfresher/framework-data": "dev-master"
   },
   "config": {
     "optimize-autoloader": true,
@@ -85,7 +90,8 @@
       "delete_vendor_directories": true,
       "packages": [
         "wpfresher/framework-plugin",
-        "wpfresher/framework-premium"
+        "wpfresher/framework-premium",
+        "wpfresher/framework-data"
       ]
     }
   }

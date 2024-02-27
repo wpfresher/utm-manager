@@ -114,13 +114,13 @@ class LeadsListTable extends AbstractListTable {
 	public function get_columns() {
 		return get_column_headers( get_current_screen() );
 
-		return array(
-			'cb'           => '<input type="checkbox" />',
-			'name'         => __( 'Name', 'utm-source-tracker' ),
-			'content'      => __( 'Content', 'utm-source-tracker' ),
-			'date' => __( 'Date', 'utm-source-tracker' ),
-			'status' => __( 'Status', 'utm-source-tracker' ),
-		);
+//		return array(
+//			'cb'           => '<input type="checkbox" />',
+//			'name'         => __( 'Name', 'utm-source-tracker' ),
+//			'content'      => __( 'Content', 'utm-source-tracker' ),
+//			'date' => __( 'Date', 'utm-source-tracker' ),
+//			'status' => __( 'Status', 'utm-source-tracker' ),
+//		);
 	}
 
 	/**
