@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Lib;
+namespace UTMManager\Lib;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -107,7 +107,7 @@ abstract class Settings {
 		$current_tab = $this->get_current_tab();
 		$settings    = $this->get_settings( $current_tab );
 		if ( ! empty( $settings ) && self::save_fields( $settings ) ) {
-			add_settings_error( $class_name, 'response', __( 'Settings saved.', 'utm-source-tracker' ), 'updated' );
+			add_settings_error( $class_name, 'response', __( 'Settings saved.', 'utm-manager' ), 'updated' );
 
 			return true;
 		}
@@ -317,8 +317,8 @@ abstract class Settings {
 						'description' => '',
 						'basename'    => '',
 						'slug'        => '',
-						'badge'       => esc_html__( 'Recommended', 'utm-source-tracker' ),
-						'button'      => esc_html__( 'Install Now', 'utm-source-tracker' ),
+						'badge'       => esc_html__( 'Recommended', 'utm-manager' ),
+						'button'      => esc_html__( 'Install Now', 'utm-manager' ),
 						'installed'   => false,
 					)
 				);
@@ -377,7 +377,7 @@ abstract class Settings {
 		if ( ! empty( $support_links ) ) {
 			?>
 			<div class="pev-panel">
-				<h3><?php esc_html_e( 'Need Help?', 'utm-source-tracker' ); ?></h3>
+				<h3><?php esc_html_e( 'Need Help?', 'utm-manager' ); ?></h3>
 				<ul>
 					<?php foreach ( $support_links as $support_link ) : ?>
 						<li>
@@ -405,8 +405,8 @@ abstract class Settings {
 				'slug'        => 'plugin-slug',
 				'description' => 'Plugin description.',
 				'link'        => 'https://wordpress.org/plugins/plugin-slug/',
-				'badge'       => esc_html__( 'Recommended', 'utm-source-tracker' ),
-				'button'      => esc_html__( 'Install Now', 'utm-source-tracker' ),
+				'badge'       => esc_html__( 'Recommended', 'utm-manager' ),
+				'button'      => esc_html__( 'Install Now', 'utm-manager' ),
 			),
 		);
 	}
@@ -420,15 +420,15 @@ abstract class Settings {
 	public function get_support_links() {
 		return array(
 			'facebook'        => array(
-				'label' => __( 'Join our Community', 'utm-source-tracker' ),
+				'label' => __( 'Join our Community', 'utm-manager' ),
 				'url'   => 'https://www.facebook.com/groups/wpfresher',
 			),
 			'feature-request' => array(
-				'label' => __( 'Request a Feature', 'utm-source-tracker' ),
+				'label' => __( 'Request a Feature', 'utm-manager' ),
 				'url'   => 'https://www.wpfresher.com/contact/',
 			),
 			'bug-report'      => array(
-				'label' => __( 'Report a Bug', 'utm-source-tracker' ),
+				'label' => __( 'Report a Bug', 'utm-manager' ),
 				'url'   => 'https://www.wpfresher.com/contact/',
 			),
 		);
@@ -886,7 +886,7 @@ abstract class Settings {
 							<label><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses_post( $tooltip_html ); ?></label>
 						</th>
 						<td class="forminp">
-							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'utm-source-tracker' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); // WPCS: XSS ok. ?> <?php echo wp_kses_post( $description ); ?>
+							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'utm-manager' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); // WPCS: XSS ok. ?> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
@@ -900,7 +900,7 @@ abstract class Settings {
 						$page                = get_post( $option_value );
 						$option_display_name = sprintf(
 							/* translators: 1: page name 2: page ID */
-							__( '%1$s (ID: %2$s)', 'utm-source-tracker' ),
+							__( '%1$s (ID: %2$s)', 'utm-manager' ),
 							$page->post_title,
 							$option_value
 						);
@@ -917,7 +917,7 @@ abstract class Settings {
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								<?php echo esc_attr( preg_replace( '/"/i', '', implode( ' ', $custom_attributes ) ) ); ?>
-								data-placeholder="<?php esc_attr_e( 'Search for a page&hellip;', 'utm-source-tracker' ); ?>"
+								data-placeholder="<?php esc_attr_e( 'Search for a page&hellip;', 'utm-manager' ); ?>"
 								data-allow_clear="true"
 								data-exclude="<?php // echo wc_esce_json( wp_json_encode( $value['args']['exclude'] ) ); ?>"
 								>

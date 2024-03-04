@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Lib;
+namespace UTMManager\Lib;
 
 use ReturnTypeWillChange;
 
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit();
  *
  * @since   1.0.0
  * @version 1.0.8
- * @package WpStarterPlugin\Lib
+ * @package UTMManager\Lib
  */
 class Container implements \ArrayAccess {
 	/**

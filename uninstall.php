@@ -1,10 +1,10 @@
 <?php
 /**
- * UTM Source Tracker Uninstall
+ * UTM Manager Uninstall
  *
- * Uninstalling UTM Source Tracker deletes user roles, pages, tables, and options.
+ * Uninstalling UTM Manager deletes user roles, pages, tables, and options.
  *
- * @package UTMSourceTracker
+ * @package UTMManager
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

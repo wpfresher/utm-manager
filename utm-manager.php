@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:  UTM Source Tracker
- * Description:  UTM Source Tracker.
+ * Plugin Name:  UTM Manager
+ * Description:  UTM Manager.
  * Version:      1.0.0
- * Plugin URI:   https://urldev.com/plugins/utm-source-tracker/
+ * Plugin URI:   https://urldev.com/plugins/utm-manager/
  * Author:       UrlDev
  * Author URI:   https://urldev.com/
- * Text Domain:  utm-source-tracker
+ * Text Domain:  utm-manager
  * Domain Path: /languages/
  * Requires PHP: 5.6
  *
- * @package UTMSourceTracker
+ * @package UTMManager
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
  * GNU General Public License for more details.
  */
 
-use UTMSourceTracker\Plugin;
+use UTMManager\Plugin;
 
 defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 spl_autoload_register(
 	function ( $class_name ) {
 
-		$prefix = 'UTMSourceTracker\\';
+		$prefix = 'UTMManager\\';
 		$len    = strlen( $prefix );
 
 		// Bail out if the class name doesn't start with our prefix.
@@ -65,18 +65,18 @@ spl_autoload_register(
  * @since 1.0.0
  * @return Plugin plugin initialize class.
  */
-function utm_source_tracker() { // phpcs:ignore
+function utm_manager() { // phpcs:ignore
 	$data = array(
 		'file'             => __FILE__,
 		'item_id'          => 123456789,
-		'settings_url'     => admin_url( 'admin.php?page=utm-source-tracker' ),
+		'settings_url'     => admin_url( 'admin.php?page=utm-manager' ),
 		'support_url'      => 'https://urldev.com/support/',
-		'docs_url'         => 'https://urldev.com/docs/utm-source-tracker/',
-		'premium_url'      => 'https://urldev.com/plugins/utm-source-tracker/',
-		'premium_basename' => 'utm-source-tracker',
+		'docs_url'         => 'https://urldev.com/docs/utm-manager/',
+		'premium_url'      => 'https://urldev.com/plugins/utm-manager/',
+		'premium_basename' => 'utm-manager',
 	);
 	return Plugin::create( $data );
 }
 
 // Initialize the plugin.
-utm_source_tracker();
+utm_manager();

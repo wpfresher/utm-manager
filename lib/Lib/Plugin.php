@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Lib;
+namespace UTMManager\Lib;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * @since   1.0.0
  * @version 1.0.1
  * @author  Kawsar Ahmed <kawsarahmed@urldev.com>
- * @package WpStarterPlugin\Lib
+ * @package UTMManager\Lib
  * @subpackage Lib/Plugin
  */
 abstract class Plugin implements PluginInterface {
@@ -305,7 +305,7 @@ abstract class Plugin implements PluginInterface {
 				),
 				$this->data['premium_url'],
 			);
-			$links['go_pro'] = sprintf( '<a href="%1$s" target="_blank" style="color: #39b54a; font-weight: bold;">%2$s</a>', esc_url( $pro_link ), esc_html__( 'Go Pro', 'utm-source-tracker', 'utm-source-tracker' ) );
+			$links['go_pro'] = sprintf( '<a href="%1$s" target="_blank" style="color: #39b54a; font-weight: bold;">%2$s</a>', esc_url( $pro_link ), esc_html__( 'Go Pro', 'utm-manager', 'utm-manager' ) );
 		}
 
 		return $links;
@@ -343,27 +343,27 @@ abstract class Plugin implements PluginInterface {
 		$links = array();
 		if ( ! empty( $this->data['docs_url'] ) ) {
 			$links['docs'] = array(
-				'label' => __( 'Documentation', 'utm-source-tracker', 'utm-source-tracker' ),
+				'label' => __( 'Documentation', 'utm-manager', 'utm-manager' ),
 				'url'   => $this->data['docs_url'],
 			);
 		}
 
 		if ( ! empty( $this->data['support_url'] ) ) {
 			$links['support'] = array(
-				'label' => __( 'Support', 'utm-source-tracker', 'utm-source-tracker' ),
+				'label' => __( 'Support', 'utm-manager', 'utm-manager' ),
 				'url'   => $this->data['support_url'],
 			);
 		}
 
 		if ( ! empty( $this->data['review_url'] ) ) {
 			$links['review'] = array(
-				'label' => __( 'Review', 'utm-source-tracker', 'utm-source-tracker' ),
+				'label' => __( 'Review', 'utm-manager', 'utm-manager' ),
 				'url'   => $this->data['review_url'],
 			);
 		}
 
 		$links['plugins'] = array(
-			'label' => __( 'More Plugins', 'utm-source-tracker', 'utm-source-tracker' ),
+			'label' => __( 'More Plugins', 'utm-manager', 'utm-manager' ),
 			'url'   => $this->data['store_url'],
 		);
 
@@ -380,7 +380,7 @@ abstract class Plugin implements PluginInterface {
 		$links = array();
 		if ( ! empty( $this->data['settings_url'] ) ) {
 			$links['settings'] = array(
-				'label' => __( 'Settings', 'utm-source-tracker', 'utm-source-tracker' ),
+				'label' => __( 'Settings', 'utm-manager', 'utm-manager' ),
 				'url'   => $this->data['settings_url'],
 			);
 		}

@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Admin\ListTables;
+namespace UTMManager\Admin\ListTables;
 
 defined( 'ABSPATH' ) || exit();
 

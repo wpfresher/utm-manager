@@ -1,9 +1,9 @@
 # Copyright (C) 2024 UrlDev
-# This file is distributed under the same license as the UTM Source Tracker package.
+# This file is distributed under the same license as the UTM Manager package.
 msgid ""
 msgstr ""
-"Project-Id-Version: UTM Source Tracker 1.0.0\n"
-"Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-source-tracker/\n"
+"Project-Id-Version: UTM Manager 1.0.0\n"
+"Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-manager/\n"
 "POT-Creation-Date: 2024-02-11 14:48:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -319,7 +319,7 @@ msgid "Year(s)"
 msgstr ""
 
 #: src/Admin/Menus.php:34 src/Admin/Menus.php:35
-msgid "UTM Source"
+msgid "UTM Manager"
 msgstr ""
 
 #: src/Admin/Menus.php:45 src/Admin/Menus.php:46
@@ -849,15 +849,15 @@ msgid "Drag widgets here to remove them from the sidebar but keep their settings
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "UTM Source Tracker"
+msgid "UTM Manager"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://urldev.com/plugins/utm-source-tracker/"
+msgid "https://urldev.com/plugins/utm-manager/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "UTM Source Tracker."
+msgid "UTM Manager."
 msgstr ""
 
 #. Author of the plugin/theme

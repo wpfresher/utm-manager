@@ -1,4 +1,4 @@
-=== UTMSourceTracker ===
+=== UTMManager ===
 Contributors:      urldev
 Tags:              block
 Tested up to:      6.4

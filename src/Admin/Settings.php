@@ -1,8 +1,8 @@
 <?php
 
-namespace UTMSourceTracker\Admin;
+namespace UTMManager\Admin;
 
-use UTMSourceTracker\Lib;
+use UTMManager\Lib;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -22,11 +22,11 @@ class Settings extends Lib\Settings {
 	 */
 	public function get_tabs() {
 		$tabs = array(
-			'general'  => __( 'General', 'utm-source-tracker' ),
-			'advanced' => __( 'Advanced', 'utm-source-tracker' ),
+			'general'  => __( 'General', 'utm-manager' ),
+			'advanced' => __( 'Advanced', 'utm-manager' ),
 		);
 
-		return apply_filters( 'utm_source_tracker_settings_tabs', $tabs );
+		return apply_filters( 'utm_manager_settings_tabs', $tabs );
 	}
 
 	/**
@@ -44,21 +44,21 @@ class Settings extends Lib\Settings {
 			case 'general':
 				$settings = array(
 					array(
-						'title' => __( 'General Settings', 'utm-source-tracker' ),
+						'title' => __( 'General Settings', 'utm-manager' ),
 						'type'  => 'title',
-						'desc'  => __( 'The following options are the plugin general settings. Theses options affect how the plugin will work.', 'utm-source-tracker' ),
+						'desc'  => __( 'The following options are the plugin general settings. Theses options affect how the plugin will work.', 'utm-manager' ),
 						'id'    => 'general_options',
 						'row_class' => 'settings-row-class'
 					),
 					array(
-						'title'    => __( 'Text field', 'utm-source-tracker' ), // Required if visible directly.
-						'id'       => 'utmst_text_field', // Required.
-						'desc'     => __( 'This is the text field description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the text field description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Text field', 'utm-manager' ), // Required if visible directly.
+						'id'       => 'utmm_text_field', // Required.
+						'desc'     => __( 'This is the text field description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the text field description tip', 'utm-manager' ),
 						'type'     => 'text', // Required.
 						'placeholder'  => 'Text field (Placeholder)',
 						'default'  => 'Text field (Default)',
-						'row_class' => 'utmst-text-field',
+						'row_class' => 'utmm-text-field',
 						// 'field_name' => 'field_name', // Empty/Nothing will be overridden by 'id'.
 						'css' => 'width:300px;', // Style for the input field.
 						// 'value' => 'Text field (Value)', // Nothing will be overridden by 'default'. Note: Empty not applicable for overridden.
@@ -70,128 +70,128 @@ class Settings extends Lib\Settings {
 						// ),
 					),
 					array(
-						'title'    => __( 'Password', 'utm-source-tracker' ),
-						'id'       => 'utmst_password',
-						'desc'     => __( 'This is the password description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the password description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Password', 'utm-manager' ),
+						'id'       => 'utmm_password',
+						'desc'     => __( 'This is the password description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the password description tip', 'utm-manager' ),
 						'type'     => 'password',
 						'placeholder'  => 'Enter password',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Datetime', 'utm-source-tracker' ),
-						'id'       => 'utmst_datetime',
-						'desc'     => __( 'This is the datetime description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the datetime description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Datetime', 'utm-manager' ),
+						'id'       => 'utmm_datetime',
+						'desc'     => __( 'This is the datetime description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the datetime description tip', 'utm-manager' ),
 						'type'     => 'datetime',
 						'placeholder'  => '12/06/2024 12:00 AM',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Datetime-local', 'utm-source-tracker' ),
-						'id'       => 'utmst_datetime_local',
-						'desc'     => __( 'This is the datetime-local description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the datetime-local description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Datetime-local', 'utm-manager' ),
+						'id'       => 'utmm_datetime_local',
+						'desc'     => __( 'This is the datetime-local description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the datetime-local description tip', 'utm-manager' ),
 						'type'     => 'datetime-local',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Date', 'utm-source-tracker' ),
-						'id'       => 'utmst_date',
-						'desc'     => __( 'This is the date description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the date description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Date', 'utm-manager' ),
+						'id'       => 'utmm_date',
+						'desc'     => __( 'This is the date description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the date description tip', 'utm-manager' ),
 						'type'     => 'date',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Month', 'utm-source-tracker' ),
-						'id'       => 'utmst_month',
-						'desc'     => __( 'This is the month description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the month description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Month', 'utm-manager' ),
+						'id'       => 'utmm_month',
+						'desc'     => __( 'This is the month description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the month description tip', 'utm-manager' ),
 						'type'     => 'month',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Time', 'utm-source-tracker' ),
-						'id'       => 'utmst_time',
-						'desc'     => __( 'This is the time description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the time description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Time', 'utm-manager' ),
+						'id'       => 'utmm_time',
+						'desc'     => __( 'This is the time description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the time description tip', 'utm-manager' ),
 						'type'     => 'time',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Week', 'utm-source-tracker' ),
-						'id'       => 'utmst_week',
-						'desc'     => __( 'This is the week description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the week description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Week', 'utm-manager' ),
+						'id'       => 'utmm_week',
+						'desc'     => __( 'This is the week description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the week description tip', 'utm-manager' ),
 						'type'     => 'week',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Number', 'utm-source-tracker' ),
-						'id'       => 'utmst_number',
-						'desc'     => __( 'This is the number description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the number description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Number', 'utm-manager' ),
+						'id'       => 'utmm_number',
+						'desc'     => __( 'This is the number description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the number description tip', 'utm-manager' ),
 						'placeholder' => '123456...',
 						'type'     => 'number',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Email', 'utm-source-tracker' ),
-						'id'       => 'utmst_email',
-						'desc'     => __( 'This is the email description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the email description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Email', 'utm-manager' ),
+						'id'       => 'utmm_email',
+						'desc'     => __( 'This is the email description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the email description tip', 'utm-manager' ),
 						'placeholder' => 'admin@domain.com',
 						'type'     => 'email',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'URL', 'utm-source-tracker' ),
-						'id'       => 'utmst_url',
-						'desc'     => __( 'This is the url description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the url description tip', 'utm-source-tracker' ),
+						'title'    => __( 'URL', 'utm-manager' ),
+						'id'       => 'utmm_url',
+						'desc'     => __( 'This is the url description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the url description tip', 'utm-manager' ),
 						'placeholder' => 'https://domain.com',
 						'type'     => 'url',
 						'css' => 'width:300px;',
 					),
 					array(
-						'title'    => __( 'Tel', 'utm-source-tracker' ),
-						'id'       => 'utmst_tel',
-						'desc'     => __( 'This is the tel description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the tel description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Tel', 'utm-manager' ),
+						'id'       => 'utmm_tel',
+						'desc'     => __( 'This is the tel description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the tel description tip', 'utm-manager' ),
 						'placeholder' => '+880 1700 112233',
 						'type'     => 'tel',
 						'css' => 'width:300px;',
 					),
 					// Color filed only works with WordPress iris color picker.
 					array(
-						'title'   => __( 'Color Picker', 'utm-source-tracker' ),
-						'desc'    => __( 'Choose the color.', 'utm-source-tracker' ),
-						'id'      => 'utmst_color',
+						'title'   => __( 'Color Picker', 'utm-manager' ),
+						'desc'    => __( 'Choose the color.', 'utm-manager' ),
+						'id'      => 'utmm_color',
 						'type'    => 'color',
 						'default' => '#cccccc',
 						'css' => 'width:280px;',
 					),
 					array(
-						'title'    => __( 'Text field', 'utm-source-tracker' ),
-						'id'       => 'utmst_textarea',
-						'desc'     => __( 'This is the text field description', 'utm-source-tracker' ),
-						'desc_tip' => __( 'This is the text field description tip', 'utm-source-tracker' ),
+						'title'    => __( 'Text field', 'utm-manager' ),
+						'id'       => 'utmm_textarea',
+						'desc'     => __( 'This is the text field description', 'utm-manager' ),
+						'desc_tip' => __( 'This is the text field description tip', 'utm-manager' ),
 						'type'     => 'textarea',
 						'placeholder'  => 'Textarea field (Placeholder)',
 						'css' => 'width:300px;',
 					),
 					// Select input.
 					array(
-						'title'   => __( 'Select', 'utm-source-tracker' ),
-						'desc'    => __( 'Chose an option from the list.', 'utm-source-tracker' ),
-						'id'      => 'utmst_select',
+						'title'   => __( 'Select', 'utm-manager' ),
+						'desc'    => __( 'Chose an option from the list.', 'utm-manager' ),
+						'id'      => 'utmm_select',
 						'type'    => 'select',
 						'options' => array(
-							'default'               => __( 'Select an option', 'utm-source-tracker' ),
-							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
-							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
-							'item_3'            => __( 'Item 3 (It will display the conditional field)', 'utm-source-tracker' ),
+							'default'               => __( 'Select an option', 'utm-manager' ),
+							'item_1'               => __( 'Item 1', 'utm-manager' ),
+							'item_2'               => __( 'Item 2', 'utm-manager' ),
+							'item_3'            => __( 'Item 3 (It will display the conditional field)', 'utm-manager' ),
 						),
 						'default' => 'default',
 						'css' => 'width:300px;',
@@ -199,43 +199,43 @@ class Settings extends Lib\Settings {
 					// Bellow is the data condition field for the above select field. This only be visible if the above select field has selected value to item_3.
 					// Requirements: data-cond-id must be the dependent field id and data-cond-value must be equal to the option value.
 					array(
-						'title'             => __( 'Select conditional field', 'utm-source-tracker' ),
-						'desc'              => __( 'Enter the text. This field is visible only for "Item 3".', 'utm-source-tracker' ),
-						'id'                => 'utmst_conditional_field_for_select',
+						'title'             => __( 'Select conditional field', 'utm-manager' ),
+						'desc'              => __( 'Enter the text. This field is visible only for "Item 3".', 'utm-manager' ),
+						'id'                => 'utmm_conditional_field_for_select',
 						'default'           => 'This field is visible only for "Item 3"',
 						'type'              => 'text',
 						'css' => 'width:300px;',
 						'custom_attributes' => array(
-							'data-cond-id'    => 'utmst_select',
+							'data-cond-id'    => 'utmm_select',
 							'data-cond-value' => 'item_3',
 						),
 					),
 					// Multiselect input.
 					array(
-						'title'   => __( 'Multiselect', 'utm-source-tracker' ),
-						'desc'    => __( 'Chose multiple options from the list. Tip: Use control/command then click to select multiple options.', 'utm-source-tracker' ),
-						'id'      => 'utmst_multiselect',
+						'title'   => __( 'Multiselect', 'utm-manager' ),
+						'desc'    => __( 'Chose multiple options from the list. Tip: Use control/command then click to select multiple options.', 'utm-manager' ),
+						'id'      => 'utmm_multiselect',
 						'type'    => 'multiselect',
 						'options' => array(
-							'default'               => __( 'Select multiple options', 'utm-source-tracker' ),
-							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
-							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
-							'item_3'            => __( 'Item 3', 'utm-source-tracker' ),
+							'default'               => __( 'Select multiple options', 'utm-manager' ),
+							'item_1'               => __( 'Item 1', 'utm-manager' ),
+							'item_2'               => __( 'Item 2', 'utm-manager' ),
+							'item_3'            => __( 'Item 3', 'utm-manager' ),
 						),
 						'css' => 'width:300px;',
 					),
 					// Radio input.
 					array(
-						'title'   => __( 'Radio', 'utm-source-tracker' ),
-						'desc'    => __( 'Select radio fields.', 'utm-source-tracker' ),
-						'desc_tip'    => __( 'Select radio fields', 'utm-source-tracker' ),
-						'id'      => 'utmst_radio',
+						'title'   => __( 'Radio', 'utm-manager' ),
+						'desc'    => __( 'Select radio fields.', 'utm-manager' ),
+						'desc_tip'    => __( 'Select radio fields', 'utm-manager' ),
+						'id'      => 'utmm_radio',
 						'type'    => 'radio',
 						'options' => array(
-							'default'               => __( 'Default options', 'utm-source-tracker' ),
-							'item_1'               => __( 'Item 1', 'utm-source-tracker' ),
-							'item_2'               => __( 'Item 2', 'utm-source-tracker' ),
-							'item_3'               => __( 'Item 3', 'utm-source-tracker' ),
+							'default'               => __( 'Default options', 'utm-manager' ),
+							'item_1'               => __( 'Item 1', 'utm-manager' ),
+							'item_2'               => __( 'Item 2', 'utm-manager' ),
+							'item_3'               => __( 'Item 3', 'utm-manager' ),
 						),
 						'default' => 'default',
 						'disabled' => array(
@@ -245,29 +245,29 @@ class Settings extends Lib\Settings {
 					),
 					// Checkbox input.
 					array(
-						'title'   => __( 'Checkbox', 'utm-source-tracker' ),
-						'desc'    => __( 'Enable checkbox', 'utm-source-tracker' ),
-						'desc_tip'    => __( 'Enable checkbox description tip.', 'utm-source-tracker' ),
-						'id'      => 'utmst_checkbox',
+						'title'   => __( 'Checkbox', 'utm-manager' ),
+						'desc'    => __( 'Enable checkbox', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable checkbox description tip.', 'utm-manager' ),
+						'id'      => 'utmm_checkbox',
 						'default' => 'yes', // Or use 'no' instead.
 						'type'    => 'checkbox',
 					),
 					// Conditional field for the above Checkbox input field.
 					array(
-						'title'             => __( 'Checkbox conditional field', 'utm-source-tracker' ),
-						'desc'              => __( 'Enter the text. This field is visible only if the above checkbox is checked.', 'utm-source-tracker' ),
-						'id'                => 'utmst_conditional_field_for_checkbox',
+						'title'             => __( 'Checkbox conditional field', 'utm-manager' ),
+						'desc'              => __( 'Enter the text. This field is visible only if the above checkbox is checked.', 'utm-manager' ),
+						'id'                => 'utmm_conditional_field_for_checkbox',
 						'default'           => 'This field is visible only for "Item 3"',
 						'type'              => 'text',
 						'css' => 'width:300px;',
 						'custom_attributes' => array(
-							'data-cond-id'    => 'utmst_checkbox',
+							'data-cond-id'    => 'utmm_checkbox',
 							'data-cond-value' => 'yes',
 						),
 					),
 					// Create custom fields by using do_action.
 					array(
-						'title'   => __( 'Custom field', 'utm-source-tracker' ),
+						'title'   => __( 'Custom field', 'utm-manager' ),
 						'type'    => 'custom_field_type',
 					),
 					array(
@@ -280,16 +280,16 @@ class Settings extends Lib\Settings {
 			case 'advanced':
 				$settings = array(
 					array(
-						'title' => __( 'Advanced Settings', 'utm-source-tracker' ),
+						'title' => __( 'Advanced Settings', 'utm-manager' ),
 						'type'  => 'title',
-						'desc'  => __( 'The following options are the plugin advanced settings.', 'utm-source-tracker' ),
+						'desc'  => __( 'The following options are the plugin advanced settings.', 'utm-manager' ),
 						'id'    => 'advanced_options',
 					),
 					array(
-						'title'    => __( 'Delete plugin data', 'utm-source-tracker' ),
-						'desc'     => __( 'Delete plugin data.', 'utm-source-tracker' ),
-						'desc_tip' => __( 'Enabling this will delete all the data while uninstalling the plugin.', 'utm-source-tracker' ),
-						'id'       => 'utmst_delete_data',
+						'title'    => __( 'Delete plugin data', 'utm-manager' ),
+						'desc'     => __( 'Delete plugin data.', 'utm-manager' ),
+						'desc_tip' => __( 'Enabling this will delete all the data while uninstalling the plugin.', 'utm-manager' ),
+						'id'       => 'utmm_delete_data',
 						'default'  => 'no',
 						'type'     => 'checkbox',
 					),
@@ -309,7 +309,7 @@ class Settings extends Lib\Settings {
 		 *
 		 * @since 1.0.0
 		 */
-		return apply_filters( 'utm_source_tracker_get_settings_' . $tab, $settings );
+		return apply_filters( 'utm_manager_get_settings_' . $tab, $settings );
 	}
 
 	/**
@@ -327,7 +327,7 @@ class Settings extends Lib\Settings {
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'utm_source_tracker_settings_' . $current_tab );
+		do_action( 'utm_manager_settings_' . $current_tab );
 		parent::output_form( $settings );
 	}
 
@@ -341,8 +341,8 @@ class Settings extends Lib\Settings {
 	 */
 	public function output_tabs( $tabs ) {
 		parent::output_tabs( $tabs );
-		if ( utm_source_tracker()->get_data( 'docs_url' ) ) {
-			printf( '<a href="%s" class="nav-tab" target="_blank">%s</a>', esc_url( utm_source_tracker()->get_data( 'docs_url' ) ), esc_html__( 'Documentation', 'utm-source-tracker' ) );
+		if ( utm_manager()->get_data( 'docs_url' ) ) {
+			printf( '<a href="%s" class="nav-tab" target="_blank">%s</a>', esc_url( utm_manager()->get_data( 'docs_url' ) ), esc_html__( 'Documentation', 'utm-manager' ) );
 		}
 	}
 }

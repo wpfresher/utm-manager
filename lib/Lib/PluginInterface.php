@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Lib;
+namespace UTMManager\Lib;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * @since   1.0.0
  * @version 1.0.1
  * @author  Kawsar Ahmed <kawsarahmed@urldev.com>
- * @package WpStarterPlugin\Lib
+ * @package UTMManager\Lib
  * @subpackage Lib/Plugin
  */
 interface PluginInterface {

@@ -3,10 +3,10 @@
  * Usefully functions.
  *
  * @since 1.0.0
- * @package UTMSourceTracker
+ * @package UTMManager
  */
 
-//use UTMSourceTracker\Models\Lead;
+//use UTMManager\Models\Lead;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0.0
  * @return Lead|false The lead, or false if not found.
  */
-function utmst_get_lead( $data ) {
+function utmm_get_lead( $data ) {
 	if ( $data instanceof Lead ) {
 		return $data;
 	}
@@ -27,7 +27,7 @@ function utmst_get_lead( $data ) {
 		$data = get_post( $data );
 	}
 
-	if ( $data instanceof WP_Post && 'utmst_lead' === $data->post_type ) {
+	if ( $data instanceof WP_Post && 'utmm_lead' === $data->post_type ) {
 		return new Lead( $data );
 	}
 
@@ -43,7 +43,7 @@ function utmst_get_lead( $data ) {
  * @since 1.0.0
  * @return Lead|WP_Error|false The lead object on success, WP_Error on failure. False if $wp_error is set to false.
  */
-function utmst_create_lead( $data, $wp_error = true ) {
+function utmm_create_lead( $data, $wp_error = true ) {
 	$defaults = array(
 		'ID' => 0,
 	);
@@ -68,7 +68,7 @@ function utmst_create_lead( $data, $wp_error = true ) {
  * @since 1.0.0
  * @return Lead[]|int The leads.
  */
-function utmst_get_leads( $args = [], $count = false ) {
+function utmm_get_leads( $args = [], $count = false ) {
 	$defaults = array(
 		'post_type'      => 'post',
 		'posts_per_page' => - 1,
@@ -84,5 +84,5 @@ function utmst_get_leads( $args = [], $count = false ) {
 
 	return $query->posts;
 
-	return array_map( 'utmst_get_lead', $query->posts );
+	return array_map( 'utmm_get_lead', $query->posts );
 }

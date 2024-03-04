@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker;
+namespace UTMManager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0.0
  *
- * @package UTMSourceTracker
+ * @package UTMManager
  */
 class Plugin extends Lib\Plugin {
 	/**
@@ -73,9 +73,9 @@ class Plugin extends Lib\Plugin {
 		}
 		$notice = sprintf(
 		/* translators: 1: plugin name 2: WooCommerce */
-			__( '%1$s requires %2$s to be installed and active.', 'utm-source-tracker' ),
+			__( '%1$s requires %2$s to be installed and active.', 'utm-manager' ),
 			'<strong>' . esc_html( $this->data['name'] ) . '</strong>',
-			'<strong>' . esc_html__( 'WooCommerce', 'utm-source-tracker' ) . '</strong>'
+			'<strong>' . esc_html__( 'WooCommerce', 'utm-manager' ) . '</strong>'
 		);
 
 		echo '<div class="notice notice-error"><p>' . wp_kses_post( $notice ) . '</p></div>';
@@ -97,6 +97,6 @@ class Plugin extends Lib\Plugin {
 		}
 
 		// Init action.
-		do_action( 'utm_source_tracker_init' );
+		do_action( 'utm_manager_init' );
 	}
 }

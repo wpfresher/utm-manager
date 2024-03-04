@@ -1,0 +1,701 @@
+# Copyright (C) 2024 UrlDev
+# This file is distributed under the same license as the UTM Manager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: UTM Manager 1.0.0\n"
+"Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-manager/\n"
+"POT-Creation-Date: 2024-03-04 13:08:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: lib/Lib/Plugin.php:308
+msgid "Go Pro"
+msgstr ""
+
+#: lib/Lib/Plugin.php:346 src/Admin/Settings.php:345
+msgid "Documentation"
+msgstr ""
+
+#: lib/Lib/Plugin.php:353
+msgid "Support"
+msgstr ""
+
+#: lib/Lib/Plugin.php:360
+msgid "Review"
+msgstr ""
+
+#: lib/Lib/Plugin.php:366
+msgid "More Plugins"
+msgstr ""
+
+#: lib/Lib/Plugin.php:383 src/Admin/Menus.php:69 src/Admin/Menus.php:70
+msgid "Settings"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:31
+#. translators: %s is the plugin name.
+msgid "The item_id is missing for %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:101
+#. translators: %s: plugin name.
+msgid "Thanks for installing \"%s\"!"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:109
+#. translators: %1$s is the plugin name, %2$s is the license key, %3$s is the
+#. license status.
+msgid ""
+"Please activate your license to get updates and support. You can find your "
+"license key in your account on %1$surldev.com%2$s and in the email you "
+"received after purchase."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:120 lib/Lib/PremiumPlugin.php:232
+msgid "Enter your license key"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:121
+msgid "Activate"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:122 lib/Lib/PremiumPlugin.php:280
+msgid "Buy License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:123 lib/Lib/PremiumPlugin.php:274
+msgid "Contact Support"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:189
+msgid "license"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:190
+msgid "License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:217
+msgid "License is valid."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:220
+msgid "License is expired."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:223
+msgid "Please activate your license."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:227
+#. translators: %s: license status
+msgid "License is %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:242
+msgid "Activate License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:252
+msgid "Deactivate License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:262
+msgid "Check License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:268
+msgid "Renew License"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:363
+msgid "Invalid nonce"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:367
+msgid "Invalid operation"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:373
+msgid "License key is required"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:379
+msgid "License key is already activated"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:392
+#. translators: %s: error message
+msgid "License activation failed. %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:406
+msgid "License activated successfully."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:414
+msgid "License activation failed."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:427
+#. translators: %s: error message
+msgid "License deactivation failed. %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:440
+msgid "License deactivated successfully"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:448
+msgid "License deactivation failed"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:461
+#. translators: %s: error message
+msgid "License check was failed. %s"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:472
+msgid "Your license key is valid."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:476
+#. translators: %s: number of activations left
+msgid "You have %s activations left."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:481
+#. translators: %s: expiration date
+msgid "Your license key expires on %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:492
+msgid "License is invalid"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:501
+msgid "Invalid action"
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:591
+msgid "Please activate your license key to get the latest updates and changelog."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:683
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:691
+#. translators: %s: license key
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:697
+msgid "Your license key has been disabled. Please contact support."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:700
+msgid "Invalid license."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:704
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:709
+#. translators: %s: plugin name
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:712
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: lib/Lib/PremiumPlugin.php:715
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: lib/Lib/Settings.php:110
+msgid "Settings saved."
+msgstr ""
+
+#: lib/Lib/Settings.php:320 lib/Lib/Settings.php:408
+msgid "Recommended"
+msgstr ""
+
+#: lib/Lib/Settings.php:321 lib/Lib/Settings.php:409
+msgid "Install Now"
+msgstr ""
+
+#: lib/Lib/Settings.php:380
+msgid "Need Help?"
+msgstr ""
+
+#: lib/Lib/Settings.php:423
+msgid "Join our Community"
+msgstr ""
+
+#: lib/Lib/Settings.php:427
+msgid "Request a Feature"
+msgstr ""
+
+#: lib/Lib/Settings.php:431
+msgid "Report a Bug"
+msgstr ""
+
+#: lib/Lib/Settings.php:889
+msgid "Select a page&hellip;"
+msgstr ""
+
+#: lib/Lib/Settings.php:903
+#. translators: 1: page name 2: page ID
+msgid "%1$s (ID: %2$s)"
+msgstr ""
+
+#: lib/Lib/Settings.php:920
+msgid "Search for a page&hellip;"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:93
+msgid "No items found."
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:99
+msgid "Name"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:100
+msgid "Content"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:101 src/Admin/Settings.php:99
+msgid "Date"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:102
+msgid "Status"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:159
+#: src/Admin/ListTables/LeadsListTable.php:240
+msgid "Delete"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:194
+#. translators: %d: number of leads deleted.
+msgid "%d lead deleted."
+msgid_plural "%d leads deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/ListTables/LeadsListTable.php:239
+msgid "Edit"
+msgstr ""
+
+#: src/Admin/Menus.php:41 src/Admin/Menus.php:42
+msgid "UTM Manager"
+msgstr ""
+
+#: src/Admin/Menus.php:52 src/Admin/Menus.php:53
+msgid "UTM Logs"
+msgstr ""
+
+#: src/Admin/Settings.php:25
+msgid "General"
+msgstr ""
+
+#: src/Admin/Settings.php:26
+msgid "Advanced"
+msgstr ""
+
+#: src/Admin/Settings.php:47
+msgid "General Settings"
+msgstr ""
+
+#: src/Admin/Settings.php:49
+msgid ""
+"The following options are the plugin general settings. Theses options "
+"affect how the plugin will work."
+msgstr ""
+
+#: src/Admin/Settings.php:54 src/Admin/Settings.php:176
+msgid "Text field"
+msgstr ""
+
+#: src/Admin/Settings.php:56 src/Admin/Settings.php:178
+msgid "This is the text field description"
+msgstr ""
+
+#: src/Admin/Settings.php:57 src/Admin/Settings.php:179
+msgid "This is the text field description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:73
+msgid "Password"
+msgstr ""
+
+#: src/Admin/Settings.php:75
+msgid "This is the password description"
+msgstr ""
+
+#: src/Admin/Settings.php:76
+msgid "This is the password description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:82
+msgid "Datetime"
+msgstr ""
+
+#: src/Admin/Settings.php:84
+msgid "This is the datetime description"
+msgstr ""
+
+#: src/Admin/Settings.php:85
+msgid "This is the datetime description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:91
+msgid "Datetime-local"
+msgstr ""
+
+#: src/Admin/Settings.php:93
+msgid "This is the datetime-local description"
+msgstr ""
+
+#: src/Admin/Settings.php:94
+msgid "This is the datetime-local description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:101
+msgid "This is the date description"
+msgstr ""
+
+#: src/Admin/Settings.php:102
+msgid "This is the date description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:107
+msgid "Month"
+msgstr ""
+
+#: src/Admin/Settings.php:109
+msgid "This is the month description"
+msgstr ""
+
+#: src/Admin/Settings.php:110
+msgid "This is the month description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:115
+msgid "Time"
+msgstr ""
+
+#: src/Admin/Settings.php:117
+msgid "This is the time description"
+msgstr ""
+
+#: src/Admin/Settings.php:118
+msgid "This is the time description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:123
+msgid "Week"
+msgstr ""
+
+#: src/Admin/Settings.php:125
+msgid "This is the week description"
+msgstr ""
+
+#: src/Admin/Settings.php:126
+msgid "This is the week description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:131
+msgid "Number"
+msgstr ""
+
+#: src/Admin/Settings.php:133
+msgid "This is the number description"
+msgstr ""
+
+#: src/Admin/Settings.php:134
+msgid "This is the number description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:140
+msgid "Email"
+msgstr ""
+
+#: src/Admin/Settings.php:142
+msgid "This is the email description"
+msgstr ""
+
+#: src/Admin/Settings.php:143
+msgid "This is the email description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:149
+msgid "URL"
+msgstr ""
+
+#: src/Admin/Settings.php:151
+msgid "This is the url description"
+msgstr ""
+
+#: src/Admin/Settings.php:152
+msgid "This is the url description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:158
+msgid "Tel"
+msgstr ""
+
+#: src/Admin/Settings.php:160
+msgid "This is the tel description"
+msgstr ""
+
+#: src/Admin/Settings.php:161
+msgid "This is the tel description tip"
+msgstr ""
+
+#: src/Admin/Settings.php:168
+msgid "Color Picker"
+msgstr ""
+
+#: src/Admin/Settings.php:169
+msgid "Choose the color."
+msgstr ""
+
+#: src/Admin/Settings.php:186
+msgid "Select"
+msgstr ""
+
+#: src/Admin/Settings.php:187
+msgid "Chose an option from the list."
+msgstr ""
+
+#: src/Admin/Settings.php:191
+msgid "Select an option"
+msgstr ""
+
+#: src/Admin/Settings.php:192 src/Admin/Settings.php:221
+#: src/Admin/Settings.php:236
+msgid "Item 1"
+msgstr ""
+
+#: src/Admin/Settings.php:193 src/Admin/Settings.php:222
+#: src/Admin/Settings.php:237
+msgid "Item 2"
+msgstr ""
+
+#: src/Admin/Settings.php:194
+msgid "Item 3 (It will display the conditional field)"
+msgstr ""
+
+#: src/Admin/Settings.php:202
+msgid "Select conditional field"
+msgstr ""
+
+#: src/Admin/Settings.php:203
+msgid "Enter the text. This field is visible only for \"Item 3\"."
+msgstr ""
+
+#: src/Admin/Settings.php:215
+msgid "Multiselect"
+msgstr ""
+
+#: src/Admin/Settings.php:216
+msgid ""
+"Chose multiple options from the list. Tip: Use control/command then click "
+"to select multiple options."
+msgstr ""
+
+#: src/Admin/Settings.php:220
+msgid "Select multiple options"
+msgstr ""
+
+#: src/Admin/Settings.php:223 src/Admin/Settings.php:238
+msgid "Item 3"
+msgstr ""
+
+#: src/Admin/Settings.php:229
+msgid "Radio"
+msgstr ""
+
+#: src/Admin/Settings.php:230
+msgid "Select radio fields."
+msgstr ""
+
+#: src/Admin/Settings.php:231
+msgid "Select radio fields"
+msgstr ""
+
+#: src/Admin/Settings.php:235
+msgid "Default options"
+msgstr ""
+
+#: src/Admin/Settings.php:248
+msgid "Checkbox"
+msgstr ""
+
+#: src/Admin/Settings.php:249
+msgid "Enable checkbox"
+msgstr ""
+
+#: src/Admin/Settings.php:250
+msgid "Enable checkbox description tip."
+msgstr ""
+
+#: src/Admin/Settings.php:257
+msgid "Checkbox conditional field"
+msgstr ""
+
+#: src/Admin/Settings.php:258
+msgid "Enter the text. This field is visible only if the above checkbox is checked."
+msgstr ""
+
+#: src/Admin/Settings.php:270
+msgid "Custom field"
+msgstr ""
+
+#: src/Admin/Settings.php:283
+msgid "Advanced Settings"
+msgstr ""
+
+#: src/Admin/Settings.php:285
+msgid "The following options are the plugin advanced settings."
+msgstr ""
+
+#: src/Admin/Settings.php:289
+msgid "Delete plugin data"
+msgstr ""
+
+#: src/Admin/Settings.php:290
+msgid "Delete plugin data."
+msgstr ""
+
+#: src/Admin/Settings.php:291
+msgid "Enabling this will delete all the data while uninstalling the plugin."
+msgstr ""
+
+#: src/Admin/views/list-lead.php:19
+msgid "Leads"
+msgstr ""
+
+#: src/Admin/views/list-lead.php:21
+msgid "Add New"
+msgstr ""
+
+#: src/Admin/views/list-lead.php:30
+msgid "Search"
+msgstr ""
+
+#: src/Models/Lead.php:43
+msgid "Please enter a name for the lead."
+msgstr ""
+
+#: src/Plugin.php:76
+#. translators: 1: plugin name 2: WooCommerce
+msgid "%1$s requires %2$s to be installed and active."
+msgstr ""
+
+#: src/Plugin.php:78
+msgid "WooCommerce"
+msgstr ""
+
+#: src/PostTypes.php:38
+msgid "Add New Lead"
+msgstr ""
+
+#: src/PostTypes.php:39
+msgid "New Lead"
+msgstr ""
+
+#: src/PostTypes.php:40
+msgid "Edit Lead"
+msgstr ""
+
+#: src/PostTypes.php:41
+msgid "View Lead"
+msgstr ""
+
+#: src/PostTypes.php:42
+msgid "All Leads"
+msgstr ""
+
+#: src/PostTypes.php:43
+msgid "Search Leads"
+msgstr ""
+
+#: src/PostTypes.php:44
+msgid "Parent Leads:"
+msgstr ""
+
+#: src/PostTypes.php:45
+msgid "No tickets found."
+msgstr ""
+
+#: src/PostTypes.php:46
+msgid "No tickets found in Trash."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "UTM Manager"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://urldev.com/plugins/utm-manager/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "UTM Manager."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "UrlDev"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://urldev.com/"
+msgstr ""
+
+#: src/PostTypes.php:33
+msgctxt "post type general name"
+msgid "Leads"
+msgstr ""
+
+#: src/PostTypes.php:34
+msgctxt "post type singular name"
+msgid "Lead"
+msgstr ""
+
+#: src/PostTypes.php:35
+msgctxt "admin menu"
+msgid "Leads"
+msgstr ""
+
+#: src/PostTypes.php:36
+msgctxt "add new on admin bar"
+msgid "Lead"
+msgstr ""
+
+#: src/PostTypes.php:37
+msgctxt "ticket"
+msgid "Add New"
+msgstr ""

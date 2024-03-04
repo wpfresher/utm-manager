@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Admin;
+namespace UTMManager\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Menus class.
  *
  * @since 1.0.0
- * @package UTMSourceTracker
+ * @package UTMManager
  */
 class Menus {
 
@@ -20,11 +20,11 @@ class Menus {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'main_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
-		add_action( 'utm_source_tracker_leads_content', array( $this, 'output_leads_content' ) );
+		add_action( 'utm_manager_leads_content', array( $this, 'output_leads_content' ) );
 		// add_action( 'wc_donation_manager_leads_content', array( $this, 'render_leads_content' ) );
 		// add_action( 'wc_donation_manager_donors_content', array( $this, 'render_donors_content' ) );
 
-		add_action( utm_source_tracker()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
+		add_action( utm_manager()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
 	}
 
 	public function render_custom_field_type( $value ){
@@ -38,21 +38,21 @@ class Menus {
 	 */
 	public function main_menu() {
 		add_menu_page(
-			esc_html__( 'UTM Source', 'utm-source-tracker' ),
-			esc_html__( 'UTM Source', 'utm-source-tracker' ),
+			esc_html__( 'UTM Manager', 'utm-manager' ),
+			esc_html__( 'UTM Manager', 'utm-manager' ),
 			'manage_options',
-			'utm-source-tracker',
+			'utm-manager',
 			null,
 			'dashicons-money-alt',
 			'55.5'
 		);
 
 		add_submenu_page(
-			'utm-source-tracker',
-			esc_html__( 'UTM Logs', 'utm-source-tracker' ),
-			esc_html__( 'UTM Logs', 'utm-source-tracker' ),
+			'utm-manager',
+			esc_html__( 'UTM Logs', 'utm-manager' ),
+			esc_html__( 'UTM Logs', 'utm-manager' ),
 			'manage_options',
-			'utm-source-tracker',
+			'utm-manager',
 			array( $this, 'output_main_page' )
 		);
 	}
@@ -65,11 +65,11 @@ class Menus {
 	 */
 	public function settings_menu() {
 		add_submenu_page(
-			'utm-source-tracker',
-			__( 'Settings', 'utm-source-tracker' ),
-			__( 'Settings', 'utm-source-tracker' ),
+			'utm-manager',
+			__( 'Settings', 'utm-manager' ),
+			__( 'Settings', 'utm-manager' ),
 			'manage_options',
-			'utmst-settings',
+			'utmm-settings',
 			array( Settings::class, 'output' )
 		);
 	}
@@ -97,12 +97,12 @@ class Menus {
 		$view_lead = isset( $_GET['view_lead'] ) ? absint( wp_unslash( $_GET['view_lead'] ) ) : '';
 
 		if ( $edit_lead && ! wcdm_get_lead( $edit_lead ) ) {
-//			wp_safe_redirect( admin_url( 'admin.php?page=utm-source-tracker' ) );
+//			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
 //			exit();
 		}
 
 		if ( $view_lead && ! wcdm_get_lead( $view_lead ) ) {
-//			wp_safe_redirect( admin_url( 'admin.php?page=utm-source-tracker' ) );
+//			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
 //			exit();
 		}
 

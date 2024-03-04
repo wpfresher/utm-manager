@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Lib;
+namespace UTMManager\Lib;
 
 defined( 'ABSPATH' ) || exit;
 

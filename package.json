@@ -1,11 +1,11 @@
 {
-  "name": "utm-source-tracker",
-  "title": "UTM Source Tracker",
+  "name": "utm-manager",
+  "title": "UTM Manager",
   "version": "1.0.0",
-  "description": "UTM Source Tracker",
+  "description": "UTM Manager",
   "author": "WpFresher",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://urldev.com/plugins/utm-source-tracker/",
+  "homepage": "https://urldev.com/plugins/utm-manager/",
   "prettier": "@wordpress/prettier-config",
   "scripts": {
     "build": "wp-scripts build && grunt build",

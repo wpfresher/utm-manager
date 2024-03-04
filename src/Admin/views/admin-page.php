@@ -4,7 +4,7 @@
  *
  * @since 1.0.0
  * @subpackage Admin/Views
- * @package UTMSourceTracker
+ * @package UTMManager
  * @var string $page_hook Page hook.
  */
 
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 $current_tab  = filter_input( INPUT_GET, 'tab' );
 $current_page = filter_input( INPUT_GET, 'page' );
 $tabs         = isset( $tabs ) ? $tabs : array();
-$tabs         = apply_filters( 'utm_source_tracker_' . $page_hook . '_tabs', $tabs );
+$tabs         = apply_filters( 'utm_manager_' . $page_hook . '_tabs', $tabs );
 $current_tab  = ! empty( $current_tab ) && array_key_exists( $current_tab, $tabs ) ? $current_tab : key( $tabs );
 ?>
 	<div class="wrap pev-wrap">
@@ -38,7 +38,7 @@ $current_tab  = ! empty( $current_tab ) && array_key_exists( $current_tab, $tabs
 				 *
 				 * @since 1.0.0
 				 */
-				do_action( 'utm_source_tracker_' . $page_hook . '_nav_items', $current_tab, $tabs );
+				do_action( 'utm_manager_' . $page_hook . '_nav_items', $current_tab, $tabs );
 				?>
 			</nav>
 		<?php endif; ?>
@@ -54,7 +54,7 @@ $current_tab  = ! empty( $current_tab ) && array_key_exists( $current_tab, $tabs
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( "utm_source_tracker_{$page_hook}_{$current_tab}_content", $current_tab );
+			do_action( "utm_manager_{$page_hook}_{$current_tab}_content", $current_tab );
 		}
 
 		/**
@@ -64,7 +64,7 @@ $current_tab  = ! empty( $current_tab ) && array_key_exists( $current_tab, $tabs
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( "utm_source_tracker_{$page_hook}_content", $current_tab );
+		do_action( "utm_manager_{$page_hook}_content", $current_tab );
 		?>
 	</div>
 <?php

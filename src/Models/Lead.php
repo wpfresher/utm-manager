@@ -1,8 +1,8 @@
 <?php
 
-namespace UTMSourceTracker\Models;
+namespace UTMManager\Models;
 
-use UTMSourceTracker\Lib\Data;
+use UTMManager\Lib\Data;
 
 defined( 'ABSPATH' ) || exit();
 
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit();
  * Class Lead.
  *
  * @since 1.0.0
- * @package UTMSourceTracker\Models
+ * @package UTMManager\Models
  */
 class Lead extends Data {
 	/**
@@ -19,7 +19,7 @@ class Lead extends Data {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	protected $post_type = 'utmst_lead';
+	protected $post_type = 'utmm_lead';
 
 	/**
 	 * All data for this object. Name value pairs (name + default value).
@@ -40,7 +40,7 @@ class Lead extends Data {
 	 */
 	public function save() {
 		if ( empty( $this->get_name() ) ) {
-			return new \WP_Error( 'missing_required', __( 'Please enter a name for the lead.', 'wc-sample-plugin' ) );
+			return new \WP_Error( 'missing_required', __( 'Please enter a name for the lead.', 'utm-manager' ) );
 		}
 
 		return parent::save();

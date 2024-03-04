@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker;
+namespace UTMManager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * Responsible for registering custom post types.
  *
- * @package UTMSourceTracker
+ * @package UTMManager
  * @since 1.0.0
  */
 class PostTypes {
@@ -30,20 +30,20 @@ class PostTypes {
 	 */
 	public function register_cpt() {
 		$labels = array(
-			'name'               => _x( 'Leads', 'post type general name', 'utm-source-tracker' ),
-			'singular_name'      => _x( 'Lead', 'post type singular name', 'utm-source-tracker' ),
-			'menu_name'          => _x( 'Leads', 'admin menu', 'utm-source-tracker' ),
-			'name_admin_bar'     => _x( 'Lead', 'add new on admin bar', 'utm-source-tracker' ),
-			'add_new'            => _x( 'Add New', 'ticket', 'utm-source-tracker' ),
-			'add_new_item'       => __( 'Add New Lead', 'utm-source-tracker' ),
-			'new_item'           => __( 'New Lead', 'utm-source-tracker' ),
-			'edit_item'          => __( 'Edit Lead', 'utm-source-tracker' ),
-			'view_item'          => __( 'View Lead', 'utm-source-tracker' ),
-			'all_items'          => __( 'All Leads', 'utm-source-tracker' ),
-			'search_items'       => __( 'Search Leads', 'utm-source-tracker' ),
-			'parent_item_colon'  => __( 'Parent Leads:', 'utm-source-tracker' ),
-			'not_found'          => __( 'No tickets found.', 'utm-source-tracker' ),
-			'not_found_in_trash' => __( 'No tickets found in Trash.', 'utm-source-tracker' ),
+			'name'               => _x( 'Leads', 'post type general name', 'utm-manager' ),
+			'singular_name'      => _x( 'Lead', 'post type singular name', 'utm-manager' ),
+			'menu_name'          => _x( 'Leads', 'admin menu', 'utm-manager' ),
+			'name_admin_bar'     => _x( 'Lead', 'add new on admin bar', 'utm-manager' ),
+			'add_new'            => _x( 'Add New', 'ticket', 'utm-manager' ),
+			'add_new_item'       => __( 'Add New Lead', 'utm-manager' ),
+			'new_item'           => __( 'New Lead', 'utm-manager' ),
+			'edit_item'          => __( 'Edit Lead', 'utm-manager' ),
+			'view_item'          => __( 'View Lead', 'utm-manager' ),
+			'all_items'          => __( 'All Leads', 'utm-manager' ),
+			'search_items'       => __( 'Search Leads', 'utm-manager' ),
+			'parent_item_colon'  => __( 'Parent Leads:', 'utm-manager' ),
+			'not_found'          => __( 'No tickets found.', 'utm-manager' ),
+			'not_found_in_trash' => __( 'No tickets found in Trash.', 'utm-manager' ),
 		);
 
 		$args = array(
@@ -64,7 +64,7 @@ class PostTypes {
 			'supports'            => [],
 		);
 
-		register_post_type( 'utmst_lead', apply_filters( 'utm_source_tracker_lead_post_type_args', $args ) );
+		register_post_type( 'utmm_lead', apply_filters( 'utm_manager_lead_post_type_args', $args ) );
 	}
 
 }

@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
             addtextdomain: {
                 options: {
                     expand: true,
-                    text_domain: 'utm-source-tracker',
+                    text_domain: 'utm-manager',
                     updateDomains: [ 'framework-text-domain', 'wp-starter-plugin', 'wc-donation-manager', 'woocommerce' ],
                 },
                 plugin: {
@@ -30,7 +30,7 @@ module.exports = function( grunt ) {
             },
             checktextdomain: {
                 options: {
-                    text_domain: 'utm-source-tracker',
+                    text_domain: 'utm-manager',
                     keywords: [
                         '__:1,2d',
                         '_e:1,2d',

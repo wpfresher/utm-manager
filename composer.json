@@ -1,7 +1,7 @@
 {
-  "name": "wpfresher/utm-source-tracker",
-  "description": "UTM Source Tracker.",
-  "homepage": "https://wpfresher.com/plugins/utm-source-tracker/",
+  "name": "wpfresher/utm-manager",
+  "description": "UTM Manager.",
+  "homepage": "https://wpfresher.com/plugins/utm-manager/",
   "type": "wordpress-plugin",
   "license": "GPL-3.0-or-later",
   "prefer-stable": true,
@@ -83,10 +83,10 @@
   },
   "extra": {
     "mozart": {
-      "dep_namespace": "UTMSourceTracker\\",
+      "dep_namespace": "UTMManager\\",
       "dep_directory": "/lib/",
       "classmap_directory": "/lib/classes/",
-      "classmap_prefix": "UTMSourceTracker_",
+      "classmap_prefix": "UTMManager_",
       "delete_vendor_directories": true,
       "packages": [
         "wpfresher/framework-plugin",

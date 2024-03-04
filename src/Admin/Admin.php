@@ -1,6 +1,6 @@
 <?php
 
-namespace UTMSourceTracker\Admin;
+namespace UTMManager\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Admin class.
  *
  * @since 1.0.0
- * @package UTMSourceTracker
+ * @package UTMManager
  */
 class Admin {
 
@@ -23,8 +23,8 @@ class Admin {
 
 		// Add screen options.
 		add_filter(
-			'manage_toplevel_page_utm-source-tracker_columns',
-			array( 'UTMSourceTracker\Admin\ListTables\LeadsListTable', 'define_columns' ),
+			'manage_toplevel_page_utm-manager_columns',
+			array( 'UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
 			10, 0
 		);
 	}
@@ -35,8 +35,8 @@ class Admin {
 	 * @since 1.0.0
 	 */
 	public function init() {
-		utm_source_tracker()->services->add( Settings::instance() );
-		utm_source_tracker()->services->add( Menus::class );
+		utm_manager()->services->add( Settings::instance() );
+		utm_manager()->services->add( Menus::class );
 	}
 
 	/**

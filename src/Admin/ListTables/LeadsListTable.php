@@ -1,8 +1,8 @@
 <?php
 
-namespace UTMSourceTracker\Admin\ListTables;
+namespace UTMManager\Admin\ListTables;
 
-use UTMSourceTracker\Models\Lead;
+use UTMManager\Models\Lead;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -33,7 +33,7 @@ class LeadsListTable extends AbstractListTable {
 		// Add screen custom pagination option.
 		add_screen_option( 'per_page', array(
 			'default' => 20,
-			'option' => 'utmst_logs_per_page',
+			'option' => 'utmm_logs_per_page',
 		) );
 		parent::__construct( $args );
 	}
@@ -71,8 +71,8 @@ class LeadsListTable extends AbstractListTable {
 			$args['orderby']  = 'meta_value_num';
 		}
 
-		$this->items       = utmst_get_leads( $args );
-		$this->total_count = utmst_get_leads( $args, true );
+		$this->items       = utmm_get_leads( $args );
+		$this->total_count = utmm_get_leads( $args, true );
 
 		$this->set_pagination_args(
 			array(
@@ -90,16 +90,16 @@ class LeadsListTable extends AbstractListTable {
 	 * @return void
 	 */
 	public function no_items() {
-		esc_html_e( 'No items found.', 'utm-source-tracker' );
+		esc_html_e( 'No items found.', 'utm-manager' );
 	}
 
 	public static function define_columns() {
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
-			'name'         => __( 'Name', 'utm-source-tracker' ),
-			'content'      => __( 'Content', 'utm-source-tracker' ),
-			'date' => __( 'Date', 'utm-source-tracker' ),
-			'status' => __( 'Status', 'utm-source-tracker' ),
+			'name'         => __( 'Name', 'utm-manager' ),
+			'content'      => __( 'Content', 'utm-manager' ),
+			'date' => __( 'Date', 'utm-manager' ),
+			'status' => __( 'Status', 'utm-manager' ),
 		);
 
 		return $columns;
@@ -116,10 +116,10 @@ class LeadsListTable extends AbstractListTable {
 
 //		return array(
 //			'cb'           => '<input type="checkbox" />',
-//			'name'         => __( 'Name', 'utm-source-tracker' ),
-//			'content'      => __( 'Content', 'utm-source-tracker' ),
-//			'date' => __( 'Date', 'utm-source-tracker' ),
-//			'status' => __( 'Status', 'utm-source-tracker' ),
+//			'name'         => __( 'Name', 'utm-manager' ),
+//			'content'      => __( 'Content', 'utm-manager' ),
+//			'date' => __( 'Date', 'utm-manager' ),
+//			'status' => __( 'Status', 'utm-manager' ),
 //		);
 	}
 
@@ -156,7 +156,7 @@ class LeadsListTable extends AbstractListTable {
 	 */
 	public function get_bulk_actions() {
 		return array(
-			'delete' => __( 'Delete', 'utm-source-tracker' ),
+			'delete' => __( 'Delete', 'utm-manager' ),
 		);
 	}
 
@@ -185,13 +185,13 @@ class LeadsListTable extends AbstractListTable {
 				case 'delete':
 					$deleted = 0;
 					foreach ( $ids as $id ) {
-						$lead = utmst_get_lead( $id );
+						$lead = utmm_get_lead( $id );
 						if ( $lead && $lead->delete() ) {
 							$deleted ++;
 						}
 					}
 					// translators: %d: number of leads deleted.
-					utm_source_tracker()->add_notice( sprintf( _n( '%d lead deleted.', '%d leads deleted.', $deleted, 'utm-source-tracker' ), $deleted ) );
+					utm_manager()->add_notice( sprintf( _n( '%d lead deleted.', '%d leads deleted.', $deleted, 'utm-manager' ), $deleted ) );
 					break;
 			}
 
@@ -236,8 +236,8 @@ class LeadsListTable extends AbstractListTable {
 		$admin_url = admin_url( 'admin.php?page=wc-starter-plugin&tab=lead' );
 		$id_url    = add_query_arg( 'id', $item->ID, $admin_url );
 		$actions   = array(
-			'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-source-tracker' ) ),
-			'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-source-tracker' ) ),
+			'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-manager' ) ),
+			'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-manager' ) ),
 		);
 
 		return sprintf( '<a href="%s">%s</a> %s', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), esc_html( $item->post_title ), $this->row_actions( $actions ) );
