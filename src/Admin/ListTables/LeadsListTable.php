@@ -77,7 +77,7 @@ class LeadsListTable extends AbstractListTable {
 		$this->set_pagination_args(
 			array(
 				'total_items' => $this->total_count,
-				'per_page'    => $this->get_per_page(),
+				'per_page'    => 2, // $this->get_per_page(),
 			)
 		);
 	}

@@ -28,7 +28,7 @@ class Menus {
 	}
 
 	public function render_custom_field_type( $value ){
-		// Write your custom code here...
+		// Write your custom fields code here...
 		echo 'Title: ' . $value['title'] . ', Type: ' . $value['type'];
 	}
 
@@ -50,8 +50,8 @@ class Menus {
 
 		add_submenu_page(
 			'utm-manager',
-			esc_html__( 'UTM Logs', 'utm-manager' ),
-			esc_html__( 'UTM Logs', 'utm-manager' ),
+			esc_html__( 'UTM Leads', 'utm-manager' ),
+			esc_html__( 'UTM Leads', 'utm-manager' ),
 			'manage_options',
 			'utm-manager',
 			array( $this, 'output_main_page' )

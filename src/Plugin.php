@@ -32,12 +32,12 @@ class Plugin extends Lib\Plugin {
 	 * @return void
 	 */
 	public function define_constants() {
-		$this->define( 'WCSP_VERSION', $this->get_data( 'version' ) );
-		$this->define( 'WCSP_FILE', $this->get_data( 'file' ) );
-		$this->define( 'WCSP_PATH', $this->get_data( 'dir_path' ) );
-		$this->define( 'WCSP_URL', $this->get_data( 'dir_url' ) );
-		$this->define( 'WCSP_ASSETS_URL', $this->get_data( 'assets_url' ) );
-		$this->define( 'WCSP_ASSETS_PATH', $this->get_data( 'assets_path' ) );
+		$this->define( 'UTMM_VERSION', $this->get_data( 'version' ) );
+		$this->define( 'UTMM_FILE', $this->get_data( 'file' ) );
+		$this->define( 'UTMM_PATH', $this->get_data( 'dir_path' ) );
+		$this->define( 'UTMM_URL', $this->get_data( 'dir_url' ) );
+		$this->define( 'UTMM_ASSETS_URL', $this->get_data( 'assets_url' ) );
+		$this->define( 'UTMM_ASSETS_PATH', $this->get_data( 'assets_path' ) );
 	}
 
 	/**

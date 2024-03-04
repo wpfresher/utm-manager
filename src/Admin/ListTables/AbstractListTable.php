@@ -16,6 +16,16 @@ if ( ! class_exists( '\WP_List_Table' ) ) {
  * @package WooCommerceStarterPlugin
  */
 abstract class AbstractListTable extends \WP_List_Table {
+
+	/**
+	 * Total count.
+	 *
+	 * @var int $total_count Total count.
+	 *
+	 * @since 1.0.0
+	 */
+	protected int $total_count;
+
 	/**
 	 * Process bulk action.
 	 *

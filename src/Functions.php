@@ -6,7 +6,7 @@
  * @package UTMManager
  */
 
-//use UTMManager\Models\Lead;
+use UTMManager\Models\Lead;
 
 defined( 'ABSPATH' ) || exit;
 
