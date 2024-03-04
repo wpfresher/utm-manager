@@ -334,6 +334,113 @@ abstract class Plugin implements PluginInterface {
 	}
 
 	/**
+	 * Gets the plugin language directory.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
+	 */
+	public function get_lang_path() {
+		// generate language directory path.
+		$lang_dir = $this->get_data( 'slug' ) . rtrim( $this->get_data( 'domainpath' ), '/' );
+
+		// return language directory path.
+		return $lang_dir;
+	}
+
+	/**
+	 *
+	 * Get the plugin dir path.
+	 *
+	 * @param string $path Optional. Path relative to the plugin dir path.
+	 *
+	 * @since 1.0.2
+	 * @return string
+	 */
+	public function get_dir_path( $path = '' ) {
+		$dir_path = plugin_dir_path( $this->get_data( 'file' ) );
+
+		if ( ! empty( $path ) ) {
+			$dir_path = trailingslashit( $dir_path ) . ltrim( $path, '/' );
+		}
+
+		return $dir_path;
+	}
+
+	/**
+	 * Get the plugin dir url.
+	 *
+	 * @param string $path Optional. Path relative to the plugin dir url.
+	 *
+	 * @since 1.0.2
+	 * @return string
+	 */
+	public function get_dir_url( $path = '' ) {
+		$dir_url = plugin_dir_url( $this->get_data( 'file' ) );
+
+		if ( ! empty( $path ) ) {
+			$dir_url = trailingslashit( $dir_url ) . ltrim( $path, '/' );
+		}
+
+		return $dir_url;
+	}
+
+
+	/**
+	 * Gets the plugin path.
+	 *
+	 * @since 1.0.0
+	 * @deprecated 1.0.2
+	 *
+	 * @return string
+	 */
+	public function get_path() {
+		return $this->get_dir_path();
+	}
+
+	/**
+	 * Gets the plugin url.
+	 *
+	 * @since 1.0.0
+	 * @deprecated 1.0.2
+	 *
+	 * @return string
+	 */
+	public function get_url() {
+		return $this->get_dir_url();
+	}
+
+	/**
+	 * Get template path.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public function get_template_path() {
+		return $this->get_dir_path( 'templates/' );
+	}
+
+	/**
+	 * Get assets path.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public function get_assets_path() {
+		return $this->get_dir_path( 'assets/dist/' );
+	}
+
+	/**
+	 * Get assets url.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public function get_assets_url() {
+		return $this->get_dir_url( 'assets/dist/' );
+	}
+
+	/**
 	 * Get meta links.
 	 *
 	 * @since 1.0.0
@@ -445,5 +552,106 @@ abstract class Plugin implements PluginInterface {
 		if ( ! defined( $name ) ) {
 			define( $name, $value );
 		}
+	}
+
+	/**
+	 * Enqueue scripts helper.
+	 *
+	 * @param string $handle Name of the script. Should be unique.
+	 * @param string $src Relative path to the script from the plugin's assets directory.
+	 * @param array  $deps An array of registered script handles this script depends on. Default empty array.
+	 * @param bool   $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>. Default 'false'.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register_script( $handle, $src, $deps = array(), $in_footer = false ) {
+		// check if $src is relative or absolute.
+		if ( ! preg_match( '/^(http|https):\/\//', $src ) ) {
+			$url  = $this->get_assets_url() . ltrim( $src );
+			$path = $this->get_assets_path() . ltrim( $src );
+		} else {
+			$url  = $src;
+			$path = str_replace( $this->get_dir_url(), $this->get_dir_path(), $src );
+		}
+		$php_file = str_replace( '.js', '.asset.php', $path );
+		$asset    = $php_file && file_exists( $php_file ) ? require $php_file : array(
+			'dependencies' => array(),
+			'version'      => $this->get_data( 'version' ),
+		);
+
+		$deps = array_merge( $asset['dependencies'], $deps );
+		$ver  = $asset['version'];
+
+		wp_register_script( $handle, $url, $deps, $ver, $in_footer );
+
+		if ( array_intersect( $deps, array( 'react', 'react-dom' ) ) ) {
+			// add text domain to the script.
+			$text_domain = $this->get_data( 'text_domain' );
+			$domain_path = $this->get_data( 'domain_path' );
+			wp_set_script_translations( $handle, $text_domain, dirname( $this->get_basename() ) . $domain_path );
+		}
+	}
+
+	/**
+	 * Enqueue styles helper.
+	 *
+	 * @param string $handle Name of the stylesheet. Should be unique.
+	 * @param string $src Relative path to the stylesheet from the plugin's assets directory.
+	 * @param array  $deps An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+	 * @param string $media The media for which this stylesheet has been defined. Default 'all'.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function register_style( $handle, $src, $deps = array(), $media = 'all' ) {
+		if ( ! preg_match( '/^(http|https):\/\//', $src ) ) {
+			$url  = $this->get_assets_url() . ltrim( $src );
+			$path = $this->get_assets_path() . ltrim( $src );
+		} else {
+			$url  = $src;
+			$path = str_replace( $this->get_dir_url(), $this->get_dir_url(), $src );
+		}
+		$php_file = str_replace( '.css', '.asset.php', $path );
+		$asset    = $php_file && file_exists( $php_file ) ? require $php_file : array(
+			'dependencies' => array(),
+			'version'      => $this->get_data( 'version' ),
+		);
+		$deps     = array_merge( $asset['dependencies'], $deps );
+		$ver      = $asset['version'];
+
+		wp_register_style( $handle, $url, $deps, $ver, $media );
+	}
+
+	/**
+	 * Enqueue scripts helper.
+	 *
+	 * @param string $handle Name of the script. Should be unique.
+	 * @param string $src Relative path to the script from the plugin's assets directory.
+	 * @param array  $deps An array of registered script handles this script depends on. Default empty array.
+	 * @param bool   $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>. Default 'false'.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function enqueue_script( $handle, $src, $deps = array(), $in_footer = false ) {
+		$this->register_script( $handle, $src, $deps, $in_footer );
+		wp_enqueue_script( $handle );
+	}
+
+	/**
+	 * Enqueue styles helper.
+	 *
+	 * @param string $handle Name of the stylesheet. Should be unique.
+	 * @param string $src Relative path to the stylesheet from the plugin's assets directory.
+	 * @param array  $deps An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+	 * @param string $media The media for which this stylesheet has been defined. Default 'all'.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function enqueue_style( $handle, $src, $deps = array(), $media = 'all' ) {
+		$this->register_style( $handle, $src, $deps, $media );
+		wp_enqueue_style( $handle );
 	}
 }

@@ -40,6 +40,22 @@ class Admin {
 	}
 
 	/**
+	 * Get screen ids.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
+	public static function get_screen_ids() {
+		$screen_ids = [
+			'toplevel_page_utm-manager',
+			'admin_page_plugin-utm-manager',
+			'utm-manager_page_utmm-settings',
+		];
+
+		return apply_filters( 'utm_manager_screen_ids', $screen_ids );
+	}
+
+	/**
 	 * Enqueue admin scripts.
 	 *
 	 * @param string $hook Hook name.
@@ -47,12 +63,21 @@ class Admin {
 	 * @since 1.0.0
 	 */
 	public function admin_scripts( $hook ) {
-		wp_enqueue_script(
-			'iris',
-			admin_url( 'js/iris.min.js' ),
-			array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
-			false,
-			1
-		);
+		$screen_ids = self::get_screen_ids();
+		utm_manager()->register_style( 'utmm-admin', 'css/utmm-admin.css' );
+		// utm_manager()->register_script( 'utmm-admin', 'js/admin.js' );
+
+		if ( in_array( $hook, $screen_ids, true ) ) {
+			wp_enqueue_style( 'utmm-admin' );
+
+			wp_enqueue_script(
+				'iris',
+				admin_url( 'js/iris.min.js' ),
+				array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
+				false,
+				1
+			);
+
+		}
 	}
 }
