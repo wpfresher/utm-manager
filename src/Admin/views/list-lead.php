@@ -1,13 +1,13 @@
 <?php
 /**
- * Admin View: List Thing
+ * Admin View: List Lead
  *
  * @package UTMManager
  * @since 1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
-$list_table = new \UTMManager\Admin\ListTables\LeadsListTable(); //utmm_get_list_table( 'leads' );
+$list_table = new \UTMManager\Admin\ListTables\LeadsListTable();
 $action     = $list_table->current_action();
 $list_table->process_bulk_action( $action );
 $list_table->prepare_items();
@@ -25,7 +25,7 @@ $list_table->prepare_items();
 </div>
 <form id="leads-list-table" method="get">
 	<?php
-	$status = isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	$status = isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '';
 	$list_table->views();
 	$list_table->search_box( __( 'Search', 'utm-manager' ), 'key' );
 	$list_table->display();

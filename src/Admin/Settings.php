@@ -23,6 +23,7 @@ class Settings extends Lib\Settings {
 	public function get_tabs() {
 		$tabs = array(
 			'general'  => __( 'General', 'utm-manager' ),
+			'utm_parameters'  => __( 'UTM Parameters', 'utm-manager' ),
 			'advanced' => __( 'Advanced', 'utm-manager' ),
 		);
 
@@ -41,6 +42,91 @@ class Settings extends Lib\Settings {
 		$settings = array();
 
 		switch ( $tab ) {
+			case 'utm_parameters':
+				$settings = array(
+					array(
+						'title' => __( 'Setup UTM Parameter', 'utm-manager' ),
+						'type'  => 'title',
+						'desc'  => __( 'The following options are the utm parameter settings.', 'utm-manager' ),
+						'id'    => 'utm_parameters_options',
+						'row_class' => 'settings-row-class'
+					),
+					array(
+						'title'   => __( 'UTM id', 'utm-manager' ),
+						'desc'    => __( 'Enable utm_id', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable to track the utm_id URL parameter as a lead.', 'utm-manager' ),
+						'id'      => 'utmm_utm_id',
+						'default' => 'yes',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'UTM source', 'utm-manager' ),
+						'desc'    => __( 'Enable utm_source', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable to track the utm_source URL parameter as a lead.', 'utm-manager' ),
+						'id'      => 'utmm_utm_source',
+						'default' => 'yes',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'UTM medium', 'utm-manager' ),
+						'desc'    => __( 'Enable utm_medium', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable to track the utm_medium URL parameter as a lead.', 'utm-manager' ),
+						'id'      => 'utmm_utm_medium',
+						'default' => 'yes',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'UTM campaign', 'utm-manager' ),
+						'desc'    => __( 'Enable utm_campaign', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable to track the utm_campaign URL parameter as a lead.', 'utm-manager' ),
+						'id'      => 'utmm_utm_campaign',
+						'default' => 'yes',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'UTM term', 'utm-manager' ),
+						'desc'    => __( 'Enable utm_term', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable to track the utm_term URL parameter as a lead.', 'utm-manager' ),
+						'id'      => 'utmm_utm_term',
+						'default' => 'yes',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'UTM content', 'utm-manager' ),
+						'desc'    => __( 'Enable utm_content', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable to track the utm_content URL parameter as a lead.', 'utm-manager' ),
+						'id'      => 'utmm_utm_content',
+						'default' => 'yes',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'   => __( 'Custom parameters', 'utm-manager' ),
+						'desc'    => __( 'Enable custom URL parameters', 'utm-manager' ),
+						'desc_tip'    => __( 'Enable custom URL parameters.', 'utm-manager' ),
+						'id'      => 'utmm_custom_parameters',
+						'default' => 'no',
+						'type'    => 'checkbox',
+					),
+					array(
+						'title'    => __( 'URL parameters', 'utm-manager' ),
+						'id'       => 'utmm_url_parameters',
+						'desc'     => __( 'Enter the custom URL parameters per line or separated by comma.', 'utm-manager' ),
+						'desc_tip'     => __( 'Enter the custom URL parameters per line or separated by comma.', 'utm-manager' ),
+						'type'     => 'textarea',
+						'placeholder'  => 'custom_source,custom_medium',
+						'css' => 'width:300px;',
+						'custom_attributes' => array(
+							'data-cond-id'    => 'utmm_custom_parameters',
+							'data-cond-value' => 'yes',
+						),
+					),
+					array(
+						'type' => 'sectionend',
+						'id'   => 'utm_parameters_options',
+					),
+				);
+				break;
+
 			case 'general':
 				$settings = array(
 					array(

@@ -2,8 +2,6 @@
 
 namespace UTMManager\Admin\ListTables;
 
-use UTMManager\Models\Lead;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -33,7 +31,7 @@ class LeadsListTable extends AbstractListTable {
 		// Add screen custom pagination option.
 		add_screen_option( 'per_page', array(
 			'default' => 20,
-			'option' => 'utmm_logs_per_page',
+			'option' => 'utmm_leads_per_page',
 		) );
 		parent::__construct( $args );
 	}
@@ -77,7 +75,7 @@ class LeadsListTable extends AbstractListTable {
 		$this->set_pagination_args(
 			array(
 				'total_items' => $this->total_count,
-				'per_page'    => 2, // $this->get_per_page(),
+				'per_page'    => 20, // $this->get_per_page(),
 			)
 		);
 	}
@@ -96,8 +94,13 @@ class LeadsListTable extends AbstractListTable {
 	public static function define_columns() {
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
-			'name'         => __( 'Name', 'utm-manager' ),
-			'content'      => __( 'Content', 'utm-manager' ),
+			'name'         => __( 'IP', 'utm-manager' ),
+			'utm_id'      => __( 'UTM ID', 'utm-manager' ),
+			'utm_source'      => __( 'UTM Source', 'utm-manager' ),
+			'utm_medium'      => __( 'UTM Medium', 'utm-manager' ),
+			'utm_campaign'      => __( 'UTM Campaign', 'utm-manager' ),
+			'utm_term'      => __( 'UTM Term', 'utm-manager' ),
+			'content'      => __( 'UTM Content', 'utm-manager' ),
 			'date' => __( 'Date', 'utm-manager' ),
 			'status' => __( 'Status', 'utm-manager' ),
 		);
@@ -132,8 +135,13 @@ class LeadsListTable extends AbstractListTable {
 	public function get_sortable_columns() {
 		return array(
 			'name'         => array( 'post_title', true ),
+			'utm_id'      => array( 'utm_id', true ),
+			'utm_source'    => array( 'utm_source', true ),
+			'utm_medium'    => array( 'utm_medium', true ),
+			'utm_campaign'  => array( 'utm_campaign', true ),
+			'utm_term'      => array( 'utm_term', true ),
 			'content'      => array( 'post_content', true ),
-			'date' => array( 'post_date', true ),
+			'date'         => array( 'post_date', true ),
 		);
 	}
 
@@ -246,7 +254,7 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * This function renders most of the columns in the list table.
 	 *
-	 * @param Lead $item The current lead object.
+	 * @param Object $item The current lead object.
 	 * @param string $column_name The name of the column.
 	 *
 	 * @since 1.0.0
@@ -254,18 +262,52 @@ class LeadsListTable extends AbstractListTable {
 	public function column_default( $item, $column_name ) {
 		$value = '&mdash;';
 		switch ( $column_name ) {
-			case 'name':
-				$title = $item->post_title;
-				if ( $title ) {
-					$value = sprintf( '<time datetime="%s">%s</time>', esc_attr( $title ), esc_html( date_i18n( get_option( 'date_format' ), strtotime( $title ) ) ) );
+			case 'utm_id':
+				$utm_id = get_post_meta( $item->ID, '_utmm_utm_id', true );
+				if ( $utm_id ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_id ) );
 				}
 				break;
-			case 'date_created':
+
+			case 'utm_source':
+				$utm_source = get_post_meta( $item->ID, '_utmm_utm_source', true );
+				if ( $utm_source ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_source ) );
+				}
+				break;
+
+			case 'utm_medium':
+				$utm_medium = get_post_meta( $item->ID, '_utmm_utm_medium', true );
+				if ( $utm_medium ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_medium ) );
+				}
+				break;
+
+			case 'utm_campaign':
+				$utm_campaign = get_post_meta( $item->ID, '_utmm_utm_campaign', true );
+				if ( $utm_campaign ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_campaign ) );
+				}
+				break;
+
+			case 'utm_term':
+				$utm_term = get_post_meta( $item->ID, '_utmm_utm_term', true );
+				if ( $utm_term ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_term ) );
+				}
+				break;
+
+			case 'content':
+				$value = $item->post_content;
+				break;
+
+			case 'date':
 				$date = $item->post_date;
 				if ( $date ) {
 					$value = sprintf( '<time datetime="%s">%s</time>', esc_attr( $date ), esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ) );
 				}
 				break;
+
 			default:
 				$value = parent::column_default( $item, $column_name );
 		}

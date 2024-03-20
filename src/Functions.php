@@ -70,7 +70,7 @@ function utmm_create_lead( $data, $wp_error = true ) {
  */
 function utmm_get_leads( $args = [], $count = false ) {
 	$defaults = array(
-		'post_type'      => 'post',
+		'post_type'      => 'utmm_lead',
 		'posts_per_page' => - 1,
 		'orderby'        => 'title',
 		'order'          => 'ASC',

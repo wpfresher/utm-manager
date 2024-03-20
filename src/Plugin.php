@@ -96,6 +96,10 @@ class Plugin extends Lib\Plugin {
 			$this->services->add( Admin\Admin::class );
 		}
 
+		if ( self::is_request( 'frontend' ) ) {
+			$this->services->add( Leads::class );
+		}
+
 		// Init action.
 		do_action( 'utm_manager_init' );
 	}
