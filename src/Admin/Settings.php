@@ -99,6 +99,7 @@ class Settings extends Lib\Settings {
 						'default' => 'yes',
 						'type'    => 'checkbox',
 					),
+					// TODO: Bellow are the pro feature.
 					array(
 						'title'   => __( 'Custom parameters', 'utm-manager' ),
 						'desc'    => __( 'Enable custom URL parameters', 'utm-manager' ),
