@@ -35,6 +35,30 @@ class Leads {
 			return;
 		}
 
+		// Get UTM parameters.
+		$utm_parameters = array();
+		$utm_keys = array(
+			'utm_id',
+			'utm_source',
+			'utm_medium',
+			'utm_campaign',
+			'utm_term',
+			'utm_content',
+		);
+
+		foreach ( $utm_keys as $utm_key ) {
+			$is_utm_parameter = self::get_url_parameters( $utm_key );
+			if ( $is_utm_parameter && 'yes' === get_option( 'utmm_' . $utm_key, 'yes' ) ) {
+				$utm_parameters[$utm_key] = $is_utm_parameter;
+			}
+		}
+
+		// Return if there are no UTM parameters are found.
+		if ( empty( $utm_parameters ) ) {
+			return;
+		}
+
+		// Create lead.
 		$post_args = array(
 			'post_type'     => 'utmm_lead',
 			'post_title'    => wp_strip_all_tags( $ip ),
@@ -42,7 +66,6 @@ class Leads {
 		);
 
 		$post_exists = self::get_post_by_title( $ip );
-
 		if ( $post_exists ) {
 			$post_exists_args = array(
 				'ID' => intval( $post_exists ),
@@ -55,39 +78,18 @@ class Leads {
 		$post = wp_insert_post( $post_args );
 
 		// Update post meta.
-		if ( $post && ! is_wp_error( $post ) ) {
+		if ( $post && ! is_wp_error( $post ) && is_array( $utm_parameters ) ) {
 
-			$utm_id = self::get_url_parameters( 'utm_id' );
-			if ( $utm_id && 'yes' === get_option( 'utmm_utm_id', 'yes' ) ) {
-				update_post_meta( $post, '_utmm_utm_id', $utm_id );
-			}
+			foreach ( $utm_parameters as $key=>$utm_parameter ) {
 
-			$utm_source = self::get_url_parameters( 'utm_source' );
-			if ( $utm_source && 'yes' === get_option( 'utmm_utm_source', 'yes' ) ) {
-				update_post_meta( $post, '_utmm_utm_source', $utm_source );
-			}
+				if ( 'utm_content' === $key ) {
+					$the_post = get_post( $post );
+					$the_post->post_content = $utm_parameter;
+					wp_update_post( $the_post );
+					continue;
+				}
 
-			$utm_medium = self::get_url_parameters( 'utm_medium' );
-			if ( $utm_medium && 'yes' === get_option( 'utmm_utm_medium', 'yes' ) ) {
-				update_post_meta( $post, '_utmm_utm_medium', $utm_medium );
-			}
-
-			$utm_campaign = self::get_url_parameters( 'utm_campaign' );
-			if ( $utm_campaign && 'yes' === get_option( 'utmm_utm_campaign', 'yes' ) ) {
-				update_post_meta( $post, '_utmm_utm_campaign', $utm_campaign );
-			}
-
-			$utm_term = self::get_url_parameters( 'utm_term' );
-			if ( $utm_term && 'yes' === get_option( 'utmm_utm_term', 'yes' ) ) {
-				update_post_meta( $post, '_utmm_utm_term', $utm_term );
-			}
-
-			$utm_content = self::get_url_parameters( 'utm_content' );
-			if ( $utm_content && 'yes' === get_option( 'utmm_utm_content', 'yes' ) ) {
-				var_dump('Hello');
-				$the_post = get_post( $post );
-				$the_post->post_content = $utm_content;
-				wp_update_post( $the_post );
+				update_post_meta( $post, '_utmm_' . $key, $utm_parameter );
 			}
 		}
 	}

@@ -2,6 +2,8 @@
 
 namespace UTMManager\Admin\ListTables;
 
+use WP_Screen;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -49,9 +51,9 @@ class LeadsListTable extends AbstractListTable {
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
 		$args = array(
-//			'limit'       => $this->get_per_page(),
-//			'offset'      => $this->get_offset(),
-//			'search'      => $this->get_search(),
+			'limit'       => $this->get_per_page(),
+			'offset'      => $this->get_offset(),
+			'search'      => $this->get_search(),
 			'order'       => $this->get_order( 'ASC' ),
 			'orderby'     => $this->get_orderby( 'post_status' ),
 			'post_status' => 'any',
@@ -92,6 +94,13 @@ class LeadsListTable extends AbstractListTable {
 	}
 
 	public static function define_columns() {
+
+		// TODO: Need update this method with the screen options.
+
+//		$hidden_columns = get_hidden_columns( get_current_screen() );
+//		var_dump(get_hidden_columns( get_current_screen() ));
+//		$screen_columns =
+
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
 			'name'         => __( 'IP', 'utm-manager' ),

@@ -97,12 +97,12 @@ class Menus {
 		$edit_lead = isset( $_GET['edit_lead'] ) ? absint( wp_unslash( $_GET['edit_lead'] ) ) : '';
 		$view_lead = isset( $_GET['view_lead'] ) ? absint( wp_unslash( $_GET['view_lead'] ) ) : '';
 
-		if ( $edit_lead && ! wcdm_get_lead( $edit_lead ) ) {
+		if ( $edit_lead && ! utmm_get_lead( $edit_lead ) ) {
 //			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
 //			exit();
 		}
 
-		if ( $view_lead && ! wcdm_get_lead( $view_lead ) ) {
+		if ( $view_lead && ! utmm_get_lead( $view_lead ) ) {
 //			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
 //			exit();
 		}
