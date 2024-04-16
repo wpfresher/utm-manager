@@ -94,13 +94,6 @@ class LeadsListTable extends AbstractListTable {
 	}
 
 	public static function define_columns() {
-
-		// TODO: Need update this method with the screen options.
-
-//		$hidden_columns = get_hidden_columns( get_current_screen() );
-//		var_dump(get_hidden_columns( get_current_screen() ));
-//		$screen_columns =
-
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
 			'name'         => __( 'IP', 'utm-manager' ),
@@ -125,14 +118,6 @@ class LeadsListTable extends AbstractListTable {
 	 */
 	public function get_columns() {
 		return get_column_headers( get_current_screen() );
-
-//		return array(
-//			'cb'           => '<input type="checkbox" />',
-//			'name'         => __( 'Name', 'utm-manager' ),
-//			'content'      => __( 'Content', 'utm-manager' ),
-//			'date' => __( 'Date', 'utm-manager' ),
-//			'status' => __( 'Status', 'utm-manager' ),
-//		);
 	}
 
 	/**
@@ -161,7 +146,7 @@ class LeadsListTable extends AbstractListTable {
 	 * @return array
 	 */
 	public function get_hidden_columns() {
-		return array();
+		return get_hidden_columns( get_current_screen() );
 	}
 
 	/**
