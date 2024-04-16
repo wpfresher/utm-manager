@@ -47,7 +47,7 @@ class PostTypes {
 		);
 
 		$args = array(
-			'labels'              => apply_filters( 'wc_start_plugin_lead_post_type_labels', $labels ),
+			'labels'              => apply_filters( 'utm_manager_lead_post_type_labels', $labels ),
 			'public'              => false,
 			'publicly_queryable'  => false,
 			'exclude_from_search' => true,

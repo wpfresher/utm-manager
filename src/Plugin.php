@@ -90,7 +90,6 @@ class Plugin extends Lib\Plugin {
 	public function init() {
 
 		$this->services->add( PostTypes::class );
-		// $this->services->add( Models\Lead::class );
 
 		if ( self::is_request( 'admin' ) ) {
 			$this->services->add( Admin\Admin::class );

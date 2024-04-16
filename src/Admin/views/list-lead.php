@@ -17,10 +17,8 @@ $list_table->prepare_items();
 	<div>
 		<h1 class="wp-heading-inline">
 			<?php esc_html_e( 'Leads', 'utm-manager' ); ?>
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=utm-manager&new=1' ) ); ?>" class="page-title-action">
-				<?php esc_html_e( 'Add New', 'utm-manager' ); ?>
-			</a>
 		</h1>
+		<span><?php esc_html_e( 'The list of leads.', 'utm_manager' ); ?></span>
 	</div>
 </div>
 <form id="leads-list-table" method="get">

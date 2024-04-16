@@ -2,8 +2,6 @@
 
 namespace UTMManager\Admin\ListTables;
 
-use WP_Screen;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
