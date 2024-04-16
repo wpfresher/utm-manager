@@ -21,9 +21,8 @@ class Menus {
 		add_action( 'admin_menu', array( $this, 'main_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
 		add_action( 'utm_manager_leads_content', array( $this, 'output_leads_content' ) );
-		// add_action( 'wc_donation_manager_leads_content', array( $this, 'render_leads_content' ) );
-		// add_action( 'wc_donation_manager_donors_content', array( $this, 'render_donors_content' ) );
 
+		// Settings custom fields example.
 		add_action( utm_manager()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
 	}
 

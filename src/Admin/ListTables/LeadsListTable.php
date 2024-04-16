@@ -168,6 +168,8 @@ class LeadsListTable extends AbstractListTable {
 	 * @since 1.0.2
 	 */
 	public function process_bulk_action( $doaction ) {
+//		var_dump('bulk actions proccesed');
+//		wp_die();
 		if ( ! empty( $doaction ) && check_admin_referer( 'bulk-' . $this->_args['plural'] ) ) {
 			$id  = filter_input( INPUT_GET, 'id' );
 			$ids = filter_input( INPUT_GET, 'ids', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY );

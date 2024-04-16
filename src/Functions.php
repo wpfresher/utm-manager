@@ -6,7 +6,7 @@
  * @package UTMManager
  */
 
-use UTMManager\Models\Lead;
+//use UTMManager\Models\Lead;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -19,9 +19,11 @@ defined( 'ABSPATH' ) || exit;
  * @return Lead|false The lead, or false if not found.
  */
 function utmm_get_lead( $data ) {
-	if ( $data instanceof Lead ) {
-		return $data;
-	}
+	// TODO: need to grab Lead depending on the lead id.
+
+//	if ( $data instanceof Lead ) {
+//		return $data;
+//	}
 
 	if ( is_numeric( $data ) ) {
 		$data = get_post( $data );
