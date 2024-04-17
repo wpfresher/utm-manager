@@ -128,6 +128,10 @@ abstract class Plugin implements PluginInterface {
 
 		// Admin hooks.
 		if ( is_admin() ) {
+			add_filter( 'wp_redirect', array( $this, 'save_notices' ), 1 );
+			add_action( 'init', array( $this, 'load_notices' ), 1 );
+			add_action( 'admin_notices', array( $this, 'display_admin_notices' ) );
+//			add_action( 'admin_footer', array( $this, 'display_admin_notices' ) );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 			add_filter( 'plugin_action_links_' . plugin_basename( $this->data['file'] ), array( $this, 'plugin_action_links' ) );
 		}
@@ -255,6 +259,61 @@ abstract class Plugin implements PluginInterface {
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( $this->data['textdomain'], false, $this->data['domainpath'] );
+	}
+
+	/**
+	 * Save messages to the database.
+	 *
+	 * @param string $location the URL to redirect to.
+	 *
+	 * @since 1.0.0
+	 * @return string the URL to redirect to.
+	 */
+	public function save_notices( $location ) {
+		if ( ! empty( $this->data['notices'] ) && is_array( $this->data['notices'] ) ) {
+			$nonce = wp_create_nonce( $this->get_data('prefix') . '_notices' );
+			update_option( $this->get_data('prefix') . '_notices', $this->data['notices'] );
+			$location = add_query_arg( 'notice', $nonce, $location );
+		}
+
+		return $location;
+	}
+
+	/**
+	 * Load messages from the database.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function load_notices() {
+		$notice = isset( $_GET['notice'] ) ? sanitize_key( $_GET['notice'] ) : '';
+		if ( ! empty( $notice ) && wp_verify_nonce( $notice, $this->get_data('prefix') . '_notices' ) ) {
+			$notices = get_option( $this->get_data('prefix') . '_notices', array() );
+			if ( ! empty( $notices ) && is_array( $notices ) ) {
+				foreach ( $notices as $notice ) {
+					$this->add_notice( $notice['message'], $notice['type'] );
+				}
+
+				update_option( $this->get_data('prefix') . '_notices', array() );
+			}
+		}
+	}
+
+	/**
+	 * Render admin notices.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function display_admin_notices() {
+
+		foreach ( $this->data['notices'] as $notice ) {
+			?>
+			<div class="notice notice-<?php echo esc_attr( $notice['type'] ); ?> is-dismissible">
+				<p><?php echo wp_kses_post( $notice['message'] ); ?></p>
+			</div>
+			<?php
+		}
 	}
 
 	/**
@@ -552,6 +611,59 @@ abstract class Plugin implements PluginInterface {
 		if ( ! defined( $name ) ) {
 			define( $name, $value );
 		}
+	}
+
+	/**
+	 * Get plugin database version.
+	 *
+	 * @since 1.0.0
+	 * @return string (version)
+	 */
+	public function get_db_version() {
+		return get_option( $this->data['prefix'] . '_version', null );
+	}
+
+	/**
+	 * Update plugin database version.
+	 *
+	 * @param string $version Version.
+	 * @param bool   $update  Whether to update or not.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function update_db_version( $version = null, $update = true ) {
+		if ( empty( $version ) ) {
+			$version = $this->data['version'];
+		}
+
+		if ( $update ) {
+			update_option( $this->data['prefix'] . '_version', $version );
+
+			return;
+		}
+
+		add_option( $this->data['prefix'] . '_version', $version );
+	}
+
+	/**
+	 * Add message to the list of messages.
+	 *
+	 * @param string $notice Message to be added.
+	 * @param string $type Message type. Default 'success'.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function add_notice( $notice, $type = 'success' ) {
+		if ( empty( $notice ) && ! in_array( $type, array( 'success', 'info', 'warning', 'error' ), true ) ) {
+			$type = 'success';
+		}
+
+		$this->data['notices'][] = array(
+			'type'    => $type,
+			'message' => $notice,
+		);
 	}
 
 	/**

@@ -71,4 +71,22 @@ interface PluginInterface {
 	 * @return bool
 	 */
 	public function is_premium_active();
+
+	/**
+	 * Get plugin database version.
+	 *
+	 * @since 1.0.0
+	 * @return string (version)
+	 */
+	public function get_db_version();
+
+	/**
+	 * Update plugin database version.
+	 *
+	 * @param string $version Version.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function update_db_version( $version = null );
 }

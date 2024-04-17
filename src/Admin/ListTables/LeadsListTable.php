@@ -28,7 +28,8 @@ class LeadsListTable extends AbstractListTable {
 			)
 		);
 		$this->screen = get_current_screen();
-		// Add screen custom pagination option.
+
+		// TODO: Add screen custom pagination option.
 		add_screen_option( 'per_page', array(
 			'default' => 20,
 			'option' => 'utmm_leads_per_page',
@@ -71,6 +72,8 @@ class LeadsListTable extends AbstractListTable {
 
 		$this->items       = utmm_get_leads( $args );
 		$this->total_count = utmm_get_leads( $args, true );
+
+		var_dump($this->total_count);
 
 		$this->set_pagination_args(
 			array(
@@ -168,14 +171,12 @@ class LeadsListTable extends AbstractListTable {
 	 * @since 1.0.2
 	 */
 	public function process_bulk_action( $doaction ) {
-//		var_dump('bulk actions proccesed');
-//		wp_die();
 		if ( ! empty( $doaction ) && check_admin_referer( 'bulk-' . $this->_args['plural'] ) ) {
 			$id  = filter_input( INPUT_GET, 'id' );
 			$ids = filter_input( INPUT_GET, 'ids', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY );
 			if ( ! empty( $id ) ) {
 				$ids      = wp_parse_id_list( $id );
-				$doaction = ( - 1 !== $_REQUEST['action'] ) ? $_REQUEST['action'] : $_REQUEST['action2']; // phpcs:ignore
+				$doaction = ( - 1 !== $_REQUEST['action'] ) ? $_REQUEST['action'] : $_REQUEST['action2'];
 			} elseif ( ! empty( $ids ) ) {
 				$ids = array_map( 'absint', $ids );
 			} elseif ( wp_get_referer() ) {
@@ -188,7 +189,7 @@ class LeadsListTable extends AbstractListTable {
 					$deleted = 0;
 					foreach ( $ids as $id ) {
 						$lead = utmm_get_lead( $id );
-						if ( $lead && $lead->delete() ) {
+						if ( $lead && wp_delete_post( $lead->ID, true ) ) {
 							$deleted ++;
 						}
 					}
