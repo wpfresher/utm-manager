@@ -401,10 +401,10 @@ abstract class Settings {
 	public function get_promo_plugins() {
 		return array(
 			array(
-				'name'        => 'Plugin name',
-				'slug'        => 'plugin-slug',
-				'description' => 'Plugin description.',
-				'link'        => 'https://wordpress.org/plugins/plugin-slug/',
+				'name'        => 'Autocomplete Orders for WooCommerce',
+				'slug'        => 'autocomplete-orders-for-woocommerce',
+				'description' => 'The plugin will change the WooCommerce order status to be completed automatically upon various payment conditions.',
+				'link'        => 'https://wordpress.org/plugins/autocomplete-orders-for-woocommerce/',
 				'badge'       => esc_html__( 'Recommended', 'utm-manager' ),
 				'button'      => esc_html__( 'Install Now', 'utm-manager' ),
 			),
