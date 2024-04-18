@@ -92,25 +92,14 @@ class Menus {
 	 * @return void
 	 */
 	public function output_leads_content() {
-		$add_lead  = isset( $_GET['new'] ) ? true : false;
-		$edit_lead = isset( $_GET['edit_lead'] ) ? absint( wp_unslash( $_GET['edit_lead'] ) ) : '';
 		$view_lead = isset( $_GET['view_lead'] ) ? absint( wp_unslash( $_GET['view_lead'] ) ) : '';
 
-		if ( $edit_lead && ! utmm_get_lead( $edit_lead ) ) {
-//			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
-//			exit();
-		}
-
 		if ( $view_lead && ! utmm_get_lead( $view_lead ) ) {
-//			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
-//			exit();
+			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
+			exit();
 		}
 
-		if ( $add_lead ) {
-			include __DIR__ . '/views/add-lead.php';
-		} elseif ( $edit_lead ) {
-			include __DIR__ . '/views/edit-lead.php';
-		} elseif ( $view_lead ) {
+		if ( $view_lead ) {
 			include __DIR__ . '/views/view-lead.php';
 		} else {
 			include __DIR__ . '/views/list-lead.php';

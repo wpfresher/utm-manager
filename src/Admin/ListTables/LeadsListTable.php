@@ -8,11 +8,11 @@ defined( 'ABSPATH' ) || exit;
  * LeadsListTable class.
  *
  * @since 1.0.0
- * @package WooCommerceStarterPlugin
+ * @package UTMManager
  */
 class LeadsListTable extends AbstractListTable {
 	/**
-	 * Get Leads started
+	 * Leads constructor.
 	 *
 	 * @param array $args Optional.
 	 *
@@ -73,8 +73,6 @@ class LeadsListTable extends AbstractListTable {
 		$this->items       = utmm_get_leads( $args );
 		$this->total_count = utmm_get_leads( $args, true );
 
-		var_dump($this->total_count);
-
 		$this->set_pagination_args(
 			array(
 				'total_items' => $this->total_count,
@@ -82,7 +80,6 @@ class LeadsListTable extends AbstractListTable {
 			)
 		);
 	}
-
 
 	/**
 	 * No items found text.
@@ -218,7 +215,7 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Renders the checkbox column in the items list table.
 	 *
-	 * @param Lead $item The current lead object.
+	 * @param Object $item The current lead object.
 	 *
 	 * @since  1.0.0
 	 * @return string Displays a checkbox.
@@ -230,20 +227,21 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Renders the name column in the items list table.
 	 *
-	 * @param Lead $item The current lead object.
+	 * @param Object $item The current lead object.
 	 *
 	 * @since  1.0.0
 	 * @return string Displays the lead name.
 	 */
 	public function column_name( $item ) {
-		$admin_url = admin_url( 'admin.php?page=wc-starter-plugin&tab=lead' );
+		$admin_url = admin_url( 'admin.php?page=utm-manager' );
 		$id_url    = add_query_arg( 'id', $item->ID, $admin_url );
 		$actions   = array(
-			'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-manager' ) ),
+			'view'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), __( 'View', 'utm-manager' ) ),
+//			'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-manager' ) ),
 			'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-manager' ) ),
 		);
 
-		return sprintf( '<a href="%s">%s</a> %s', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), esc_html( $item->post_title ), $this->row_actions( $actions ) );
+		return sprintf( '<a href="%s">%s</a> %s', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), esc_html( $item->post_title ), $this->row_actions( $actions ) );
 	}
 
 	/**
