@@ -131,7 +131,6 @@ abstract class Plugin implements PluginInterface {
 			add_filter( 'wp_redirect', array( $this, 'save_notices' ), 1 );
 			add_action( 'init', array( $this, 'load_notices' ), 1 );
 			add_action( 'admin_notices', array( $this, 'display_admin_notices' ) );
-//			add_action( 'admin_footer', array( $this, 'display_admin_notices' ) );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 			add_filter( 'plugin_action_links_' . plugin_basename( $this->data['file'] ), array( $this, 'plugin_action_links' ) );
 		}
