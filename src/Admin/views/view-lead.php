@@ -14,75 +14,100 @@ $lead    = utmm_get_lead( $lead_id );
 	<?php esc_html_e( 'View Lead', 'utm-manager' ); ?>
 </h1>
 
-<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-	<div class="pev-poststuff">
-		<div class="column-1">
-			<div class="pev-card">
-				<div class="pev-card__header">
-					<h3 class="pev-card__title"><?php esc_html_e( 'Lead Details', 'utm-manager' ); ?></h3>
-					<p class="pev-card__subtitle">
-						#<?php echo esc_html( $lead->ID ); ?>
-					</p>
-				</div>
-				<div class="pev-card__body inline--fields">
-
-					<div class="pev-form-field">
-						<label>
-							<?php esc_html_e( 'Product', 'utm-manager' ); ?>
-						</label>
-					</div>
-
-					<div class="pev-form-field">
-						<label>
-							<?php esc_html_e( 'Order', 'utm-manager' ); ?>
-						</label>
-						<?php
-						$order = 'sdjfd'; //$lead->get_order();
-						if ( $order ) {
-							echo sprintf( '<a href="%s">#%d %s</a>', esc_url( get_edit_post_link( '$order->get_id()' ) ), esc_html( '$order->get_id()' ), esc_html( '$order->get_formatted_billing_full_name()' ) );
-						} else {
-							esc_html_e( 'No order assigned.', 'utm-manager' );
-						}
-						?>
-
-					</div>
-
-					<div class="pev-form-field">
-						<label>
-							<?php esc_html_e( 'Customer', 'utm-manager' ); ?>
-						</label>
-						<?php
-						$customer = 'df'; //$lead->get_customer();
-						if ( $customer ) {
-							echo sprintf( '<a href="%s">#%d %s</a>', esc_url( get_edit_post_link( '$customer->get_id()' ) ), esc_html( '$customer->get_id()' ), esc_html( '$lead->get_customer_name()' ) );
-						} else {
-							esc_html_e( 'No customer assigned.', 'utm-manager' );
-						}
-						?>
-					</div>
-
-					<div class="pev-form-field">
-						<label for="lead_name"><?php esc_html_e( 'Name', 'utm-manager' ); ?></label>
-						<input type="text" name="lead_name" id="lead_name" value="<?php echo esc_attr( '$lead->get_name()' ); ?>" class="regular-text">
-					</div>
-
-				</div>
+<div class="pev-poststuff">
+	<div class="column-1">
+		<div class="pev-card">
+			<div class="pev-card__header">
+				<h3 class="pev-card__title"><?php esc_html_e( 'Lead Details', 'utm-manager' ); ?></h3>
+				<p class="pev-card__subtitle">
+					#<?php echo esc_html( $lead->ID ); ?>
+				</p>
 			</div>
-		</div>
-		<div class="column-2">
-			<div class="pev-card">
-				<div class="pev-card__header">
-					<h3 class="pev-card__title"><?php esc_html_e( 'Actions', 'utm-manager' ); ?></h3>
+			<div class="pev-card__body inline--fields">
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'IP:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( $lead->post_title ); ?>
+					</span>
 				</div>
-				<div class="pev-card__footer">
-					<a class="del" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&id=' . $lead->ID ) ), 'bulk-leads' ) ); ?>"><?php esc_html_e( 'Delete', 'utm-manager' ); ?></a>
-					<button class="button button-primary"><?php esc_html_e( 'Save Lead', 'utm-manager' ); ?></button>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'UTM ID:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_id', true ) ); ?>
+					</span>
+				</div>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'UTM Source:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_source', true ) ); ?>
+					</span>
+				</div>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'UTM Medium:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_medium', true ) ); ?>
+					</span>
+				</div>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'UTM Campaign:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_campaign', true ) ); ?>
+					</span>
+				</div>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'UTM Term:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_term', true ) ); ?>
+					</span>
+				</div>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'UTM Content:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_content', true ) ); ?>
+					</span>
+				</div>
+
+				<div class="pev-form-field">
+					<label>
+						<?php esc_html_e( 'Date:', 'utm-manager' ); ?>
+					</label>
+					<span>
+						<?php echo esc_html( $lead->post_date ); ?>
+					</span>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<input type="hidden" name="action" value="utmm_save_lead">
-	<input type="hidden" name="lead_id" value="<?php echo esc_attr( $lead->ID ); ?>">
-	<?php wp_nonce_field( 'utmm_save_lead' ); ?>
-</form>
+	<div class="column-2">
+		<div class="pev-card">
+			<div class="pev-card__header">
+				<h3 class="pev-card__title"><?php esc_html_e( 'Actions', 'utm-manager' ); ?></h3>
+			</div>
+			<div class="pev-card__footer">
+				<a class="go-back" href="<?php echo esc_url( admin_url( 'admin.php?page=utm-manager' ) ); ?>"><?php esc_html_e( 'Go back', 'utm-manager' ); ?></a>
+				<a class="del button button-warning" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&id=' . $lead->ID ) ), 'bulk-leads' ) ); ?>"><?php esc_html_e( 'Delete', 'utm-manager' ); ?></a>
+			</div>
+		</div>
+	</div>
+</div>
