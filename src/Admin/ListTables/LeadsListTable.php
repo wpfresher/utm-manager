@@ -44,26 +44,32 @@ class LeadsListTable extends AbstractListTable {
 		$per_page              = $this->get_items_per_page( 'utmm_leads_per_page', 20 );
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
+		$order_by              = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
+		$order                 = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
+		$search                = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
+		$current_page          = isset( $_GET['paged'] ) ? sanitize_key( wp_unslash( $_GET['paged'] ) ) : 1;
+
 		$args = array(
+			'post_type'      => 'utmm_lead',
 			'posts_per_page' => $per_page,
-			'offset'      => $this->get_offset(),
-			'search'      => $this->get_search(),
-			'order'       => $this->get_order( 'ASC' ),
-			'orderby'     => $this->get_orderby( 'post_status' ),
-			'post_status' => 'any',
+			'paged'          => $current_page,
+			's'      		 => $search,
+			'orderby'        => $order_by,
+			'order'          => $order,
+			'post_status'    => 'any',
 		);
 
-		$meta_props = array(
-			'order_id'      => '_order_id',
-			'product_id'    => '_product_id',
-			'order_item_id' => '_order_item_id',
-			'customer_id'   => '_customer_id',
-		);
-		// If the orderby param is within $meta_props.
-		if ( in_array( $args['orderby'], array_keys( $meta_props ), true ) ) {
-			$args['meta_key'] = $meta_props[ $args['orderby'] ]; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-			$args['orderby']  = 'meta_value_num';
-		}
+//		$meta_props = array(
+//			'order_id'      => '_order_id',
+//			'product_id'    => '_product_id',
+//			'order_item_id' => '_order_item_id',
+//			'customer_id'   => '_customer_id',
+//		);
+//		// If the orderby param is within $meta_props.
+//		if ( in_array( $args['orderby'], array_keys( $meta_props ), true ) ) {
+//			$args['meta_key'] = $meta_props[ $args['orderby'] ]; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+//			$args['orderby']  = 'meta_value_num';
+//		}
 
 		$this->items       = utmm_get_leads( $args );
 		$this->total_count = utmm_get_leads( $args, true );

@@ -46,6 +46,10 @@ function utmm_get_leads( $args = [], $count = false ) {
 		'order'          => 'ASC',
 	);
 	$args     = wp_parse_args( $args, $defaults );
+
+	var_dump($args);
+//	wp_die();
+
 	$query    = new WP_Query( $args );
 
 	if ( $count ) {
