@@ -28,12 +28,6 @@ class LeadsListTable extends AbstractListTable {
 			)
 		);
 		$this->screen = get_current_screen();
-
-		// TODO: Add screen custom pagination option.
-		add_screen_option( 'per_page', array(
-			'default' => 20,
-			'option' => 'utmm_leads_per_page',
-		) );
 		parent::__construct( $args );
 	}
 
@@ -47,10 +41,11 @@ class LeadsListTable extends AbstractListTable {
 		$columns               = $this->get_columns();
 		$sortable              = $this->get_sortable_columns();
 		$hidden                = $this->get_hidden_columns();
+		$per_page              = $this->get_items_per_page( 'utmm_leads_per_page', 20 );
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
 		$args = array(
-			'limit'       => $this->get_per_page(),
+			'posts_per_page' => $per_page,
 			'offset'      => $this->get_offset(),
 			'search'      => $this->get_search(),
 			'order'       => $this->get_order( 'ASC' ),
@@ -76,7 +71,7 @@ class LeadsListTable extends AbstractListTable {
 		$this->set_pagination_args(
 			array(
 				'total_items' => $this->total_count,
-				'per_page'    => 20, // $this->get_per_page(),
+				'per_page'    => $per_page,
 			)
 		);
 	}

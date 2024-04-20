@@ -22,6 +22,9 @@ class Menus {
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
 		add_action( 'utm_manager_leads_content', array( $this, 'output_leads_content' ) );
 
+		// Screen options for leads.
+		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
+
 		// Settings custom fields example.
 		add_action( utm_manager()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
 	}
@@ -47,7 +50,7 @@ class Menus {
 			'55.5'
 		);
 
-		add_submenu_page(
+		$load = add_submenu_page(
 			'utm-manager',
 			esc_html__( 'UTM Leads', 'utm-manager' ),
 			esc_html__( 'UTM Leads', 'utm-manager' ),
@@ -55,6 +58,8 @@ class Menus {
 			'utm-manager',
 			array( $this, 'output_main_page' )
 		);
+
+		add_action( 'load-' . $load, array( __CLASS__, 'load_leads_page' ) );
 	}
 
 	/**
@@ -72,6 +77,40 @@ class Menus {
 			'utmm-settings',
 			array( Settings::class, 'output' )
 		);
+	}
+
+	/**
+	 * Load Leads page
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function load_leads_page() {
+		$screen = get_current_screen();
+		if ( 'toplevel_page_utm-manager' === $screen->id ) {
+			add_screen_option(
+				'per_page',
+				array(
+					'label'   => __( 'Leads per page', 'utmm-manager' ),
+					'default' => 20,
+					'option'  => 'utmm_leads_per_page',
+				)
+			);
+		}
+	}
+
+	/**
+	 * Set screen options.
+	 *
+	 * @param bool $screen_option Whether it is true or false.
+	 * @param string $option Option id.
+	 * @param string|int $value The option value.
+	 *
+	 * @since 1.0.0
+	 * @return mixed|int
+	 */
+	public static function set_screen( $screen_option, $option, $value ) {
+		return $value;
 	}
 
 	/**

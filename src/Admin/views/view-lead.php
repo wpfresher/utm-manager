@@ -23,7 +23,7 @@ $lead    = utmm_get_lead( $lead_id );
 					#<?php echo esc_html( $lead->ID ); ?>
 				</p>
 			</div>
-			<div class="pev-card__body inline--fields">
+			<div class="pev-card__body form-inline">
 
 				<div class="pev-form-field">
 					<label>

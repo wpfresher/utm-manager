@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UTM Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-manager/\n"
-"POT-Creation-Date: 2024-03-04 13:35:36+00:00\n"
+"POT-Creation-Date: 2024-04-20 15:11:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,27 +24,27 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: lib/Lib/Plugin.php:308
+#: lib/Lib/Plugin.php:366
 msgid "Go Pro"
 msgstr ""
 
-#: lib/Lib/Plugin.php:346 src/Admin/Settings.php:345
+#: lib/Lib/Plugin.php:511 src/Admin/Settings.php:432
 msgid "Documentation"
 msgstr ""
 
-#: lib/Lib/Plugin.php:353
+#: lib/Lib/Plugin.php:518
 msgid "Support"
 msgstr ""
 
-#: lib/Lib/Plugin.php:360
+#: lib/Lib/Plugin.php:525
 msgid "Review"
 msgstr ""
 
-#: lib/Lib/Plugin.php:366
+#: lib/Lib/Plugin.php:531
 msgid "More Plugins"
 msgstr ""
 
-#: lib/Lib/Plugin.php:383 src/Admin/Menus.php:70 src/Admin/Menus.php:71
+#: lib/Lib/Plugin.php:548 src/Admin/Menus.php:69 src/Admin/Menus.php:70
 msgid "Settings"
 msgstr ""
 
@@ -272,28 +272,49 @@ msgstr ""
 msgid "Search for a page&hellip;"
 msgstr ""
 
-#: src/Admin/ListTables/LeadsListTable.php:93
+#: src/Admin/ListTables/LeadsListTable.php:91
 msgid "No items found."
 msgstr ""
 
+#: src/Admin/ListTables/LeadsListTable.php:97
+msgid "IP"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:98
+msgid "UTM ID"
+msgstr ""
+
 #: src/Admin/ListTables/LeadsListTable.php:99
-msgid "Name"
+msgid "UTM Source"
 msgstr ""
 
 #: src/Admin/ListTables/LeadsListTable.php:100
-msgid "Content"
+msgid "UTM Medium"
 msgstr ""
 
-#: src/Admin/ListTables/LeadsListTable.php:101 src/Admin/Settings.php:99
-msgid "Date"
+#: src/Admin/ListTables/LeadsListTable.php:101
+msgid "UTM Campaign"
 msgstr ""
 
 #: src/Admin/ListTables/LeadsListTable.php:102
+msgid "UTM Term"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:103
+msgid "UTM Content"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:104 src/Admin/Settings.php:186
+msgid "Date"
+msgstr ""
+
+#: src/Admin/ListTables/LeadsListTable.php:105
 msgid "Status"
 msgstr ""
 
 #: src/Admin/ListTables/LeadsListTable.php:159
-#: src/Admin/ListTables/LeadsListTable.php:240
+#: src/Admin/ListTables/LeadsListTable.php:241
+#: src/Admin/views/view-lead.php:109
 msgid "Delete"
 msgstr ""
 
@@ -305,15 +326,15 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/Admin/ListTables/LeadsListTable.php:239
-msgid "Edit"
+msgid "View"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "UTM Manager"
 msgstr ""
 
-#: src/Admin/Menus.php:53 src/Admin/Menus.php:54
-msgid "UTM Logs"
+#: src/Admin/Menus.php:52 src/Admin/Menus.php:53
+msgid "UTM Leads"
 msgstr ""
 
 #: src/Admin/Settings.php:25
@@ -321,276 +342,380 @@ msgid "General"
 msgstr ""
 
 #: src/Admin/Settings.php:26
+msgid "UTM Parameters"
+msgstr ""
+
+#: src/Admin/Settings.php:27
 msgid "Advanced"
 msgstr ""
 
-#: src/Admin/Settings.php:47
+#: src/Admin/Settings.php:48
+msgid "Setup UTM Parameter"
+msgstr ""
+
+#: src/Admin/Settings.php:50
+msgid "The following options are the utm parameter settings."
+msgstr ""
+
+#: src/Admin/Settings.php:55
+msgid "UTM id"
+msgstr ""
+
+#: src/Admin/Settings.php:56
+msgid "Enable utm_id"
+msgstr ""
+
+#: src/Admin/Settings.php:57
+msgid "Enable to track the utm_id URL parameter as a lead."
+msgstr ""
+
+#: src/Admin/Settings.php:63
+msgid "UTM source"
+msgstr ""
+
+#: src/Admin/Settings.php:64
+msgid "Enable utm_source"
+msgstr ""
+
+#: src/Admin/Settings.php:65
+msgid "Enable to track the utm_source URL parameter as a lead."
+msgstr ""
+
+#: src/Admin/Settings.php:71
+msgid "UTM medium"
+msgstr ""
+
+#: src/Admin/Settings.php:72
+msgid "Enable utm_medium"
+msgstr ""
+
+#: src/Admin/Settings.php:73
+msgid "Enable to track the utm_medium URL parameter as a lead."
+msgstr ""
+
+#: src/Admin/Settings.php:79
+msgid "UTM campaign"
+msgstr ""
+
+#: src/Admin/Settings.php:80
+msgid "Enable utm_campaign"
+msgstr ""
+
+#: src/Admin/Settings.php:81
+msgid "Enable to track the utm_campaign URL parameter as a lead."
+msgstr ""
+
+#: src/Admin/Settings.php:87
+msgid "UTM term"
+msgstr ""
+
+#: src/Admin/Settings.php:88
+msgid "Enable utm_term"
+msgstr ""
+
+#: src/Admin/Settings.php:89
+msgid "Enable to track the utm_term URL parameter as a lead."
+msgstr ""
+
+#: src/Admin/Settings.php:95
+msgid "UTM content"
+msgstr ""
+
+#: src/Admin/Settings.php:96
+msgid "Enable utm_content"
+msgstr ""
+
+#: src/Admin/Settings.php:97
+msgid "Enable to track the utm_content URL parameter as a lead."
+msgstr ""
+
+#: src/Admin/Settings.php:104
+msgid "Custom parameters"
+msgstr ""
+
+#: src/Admin/Settings.php:105
+msgid "Enable custom URL parameters"
+msgstr ""
+
+#: src/Admin/Settings.php:106
+msgid "Enable custom URL parameters."
+msgstr ""
+
+#: src/Admin/Settings.php:112
+msgid "URL parameters"
+msgstr ""
+
+#: src/Admin/Settings.php:114 src/Admin/Settings.php:115
+msgid "Enter the custom URL parameters per line or separated by comma."
+msgstr ""
+
+#: src/Admin/Settings.php:134
 msgid "General Settings"
 msgstr ""
 
-#: src/Admin/Settings.php:49
+#: src/Admin/Settings.php:136
 msgid ""
 "The following options are the plugin general settings. Theses options "
 "affect how the plugin will work."
 msgstr ""
 
-#: src/Admin/Settings.php:54 src/Admin/Settings.php:176
+#: src/Admin/Settings.php:141 src/Admin/Settings.php:263
 msgid "Text field"
 msgstr ""
 
-#: src/Admin/Settings.php:56 src/Admin/Settings.php:178
+#: src/Admin/Settings.php:143 src/Admin/Settings.php:265
 msgid "This is the text field description"
 msgstr ""
 
-#: src/Admin/Settings.php:57 src/Admin/Settings.php:179
+#: src/Admin/Settings.php:144 src/Admin/Settings.php:266
 msgid "This is the text field description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:73
+#: src/Admin/Settings.php:160
 msgid "Password"
 msgstr ""
 
-#: src/Admin/Settings.php:75
+#: src/Admin/Settings.php:162
 msgid "This is the password description"
 msgstr ""
 
-#: src/Admin/Settings.php:76
+#: src/Admin/Settings.php:163
 msgid "This is the password description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:82
+#: src/Admin/Settings.php:169
 msgid "Datetime"
 msgstr ""
 
-#: src/Admin/Settings.php:84
+#: src/Admin/Settings.php:171
 msgid "This is the datetime description"
 msgstr ""
 
-#: src/Admin/Settings.php:85
+#: src/Admin/Settings.php:172
 msgid "This is the datetime description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:91
+#: src/Admin/Settings.php:178
 msgid "Datetime-local"
 msgstr ""
 
-#: src/Admin/Settings.php:93
+#: src/Admin/Settings.php:180
 msgid "This is the datetime-local description"
 msgstr ""
 
-#: src/Admin/Settings.php:94
+#: src/Admin/Settings.php:181
 msgid "This is the datetime-local description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:101
+#: src/Admin/Settings.php:188
 msgid "This is the date description"
 msgstr ""
 
-#: src/Admin/Settings.php:102
+#: src/Admin/Settings.php:189
 msgid "This is the date description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:107
+#: src/Admin/Settings.php:194
 msgid "Month"
 msgstr ""
 
-#: src/Admin/Settings.php:109
+#: src/Admin/Settings.php:196
 msgid "This is the month description"
 msgstr ""
 
-#: src/Admin/Settings.php:110
+#: src/Admin/Settings.php:197
 msgid "This is the month description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:115
+#: src/Admin/Settings.php:202
 msgid "Time"
 msgstr ""
 
-#: src/Admin/Settings.php:117
+#: src/Admin/Settings.php:204
 msgid "This is the time description"
 msgstr ""
 
-#: src/Admin/Settings.php:118
+#: src/Admin/Settings.php:205
 msgid "This is the time description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:123
+#: src/Admin/Settings.php:210
 msgid "Week"
 msgstr ""
 
-#: src/Admin/Settings.php:125
+#: src/Admin/Settings.php:212
 msgid "This is the week description"
 msgstr ""
 
-#: src/Admin/Settings.php:126
+#: src/Admin/Settings.php:213
 msgid "This is the week description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:131
+#: src/Admin/Settings.php:218
 msgid "Number"
 msgstr ""
 
-#: src/Admin/Settings.php:133
+#: src/Admin/Settings.php:220
 msgid "This is the number description"
 msgstr ""
 
-#: src/Admin/Settings.php:134
+#: src/Admin/Settings.php:221
 msgid "This is the number description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:140
+#: src/Admin/Settings.php:227
 msgid "Email"
 msgstr ""
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:229
 msgid "This is the email description"
 msgstr ""
 
-#: src/Admin/Settings.php:143
+#: src/Admin/Settings.php:230
 msgid "This is the email description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:149
+#: src/Admin/Settings.php:236
 msgid "URL"
 msgstr ""
 
-#: src/Admin/Settings.php:151
+#: src/Admin/Settings.php:238
 msgid "This is the url description"
 msgstr ""
 
-#: src/Admin/Settings.php:152
+#: src/Admin/Settings.php:239
 msgid "This is the url description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:158
+#: src/Admin/Settings.php:245
 msgid "Tel"
 msgstr ""
 
-#: src/Admin/Settings.php:160
+#: src/Admin/Settings.php:247
 msgid "This is the tel description"
 msgstr ""
 
-#: src/Admin/Settings.php:161
+#: src/Admin/Settings.php:248
 msgid "This is the tel description tip"
 msgstr ""
 
-#: src/Admin/Settings.php:168
+#: src/Admin/Settings.php:255
 msgid "Color Picker"
 msgstr ""
 
-#: src/Admin/Settings.php:169
+#: src/Admin/Settings.php:256
 msgid "Choose the color."
 msgstr ""
 
-#: src/Admin/Settings.php:186
+#: src/Admin/Settings.php:273
 msgid "Select"
 msgstr ""
 
-#: src/Admin/Settings.php:187
+#: src/Admin/Settings.php:274
 msgid "Chose an option from the list."
 msgstr ""
 
-#: src/Admin/Settings.php:191
+#: src/Admin/Settings.php:278
 msgid "Select an option"
 msgstr ""
 
-#: src/Admin/Settings.php:192 src/Admin/Settings.php:221
-#: src/Admin/Settings.php:236
+#: src/Admin/Settings.php:279 src/Admin/Settings.php:308
+#: src/Admin/Settings.php:323
 msgid "Item 1"
 msgstr ""
 
-#: src/Admin/Settings.php:193 src/Admin/Settings.php:222
-#: src/Admin/Settings.php:237
+#: src/Admin/Settings.php:280 src/Admin/Settings.php:309
+#: src/Admin/Settings.php:324
 msgid "Item 2"
 msgstr ""
 
-#: src/Admin/Settings.php:194
+#: src/Admin/Settings.php:281
 msgid "Item 3 (It will display the conditional field)"
 msgstr ""
 
-#: src/Admin/Settings.php:202
+#: src/Admin/Settings.php:289
 msgid "Select conditional field"
 msgstr ""
 
-#: src/Admin/Settings.php:203
+#: src/Admin/Settings.php:290
 msgid "Enter the text. This field is visible only for \"Item 3\"."
 msgstr ""
 
-#: src/Admin/Settings.php:215
+#: src/Admin/Settings.php:302
 msgid "Multiselect"
 msgstr ""
 
-#: src/Admin/Settings.php:216
+#: src/Admin/Settings.php:303
 msgid ""
 "Chose multiple options from the list. Tip: Use control/command then click "
 "to select multiple options."
 msgstr ""
 
-#: src/Admin/Settings.php:220
+#: src/Admin/Settings.php:307
 msgid "Select multiple options"
 msgstr ""
 
-#: src/Admin/Settings.php:223 src/Admin/Settings.php:238
+#: src/Admin/Settings.php:310 src/Admin/Settings.php:325
 msgid "Item 3"
 msgstr ""
 
-#: src/Admin/Settings.php:229
+#: src/Admin/Settings.php:316
 msgid "Radio"
 msgstr ""
 
-#: src/Admin/Settings.php:230
+#: src/Admin/Settings.php:317
 msgid "Select radio fields."
 msgstr ""
 
-#: src/Admin/Settings.php:231
+#: src/Admin/Settings.php:318
 msgid "Select radio fields"
 msgstr ""
 
-#: src/Admin/Settings.php:235
+#: src/Admin/Settings.php:322
 msgid "Default options"
 msgstr ""
 
-#: src/Admin/Settings.php:248
+#: src/Admin/Settings.php:335
 msgid "Checkbox"
 msgstr ""
 
-#: src/Admin/Settings.php:249
+#: src/Admin/Settings.php:336
 msgid "Enable checkbox"
 msgstr ""
 
-#: src/Admin/Settings.php:250
+#: src/Admin/Settings.php:337
 msgid "Enable checkbox description tip."
 msgstr ""
 
-#: src/Admin/Settings.php:257
+#: src/Admin/Settings.php:344
 msgid "Checkbox conditional field"
 msgstr ""
 
-#: src/Admin/Settings.php:258
+#: src/Admin/Settings.php:345
 msgid "Enter the text. This field is visible only if the above checkbox is checked."
 msgstr ""
 
-#: src/Admin/Settings.php:270
+#: src/Admin/Settings.php:357
 msgid "Custom field"
 msgstr ""
 
-#: src/Admin/Settings.php:283
+#: src/Admin/Settings.php:370
 msgid "Advanced Settings"
 msgstr ""
 
-#: src/Admin/Settings.php:285
+#: src/Admin/Settings.php:372
 msgid "The following options are the plugin advanced settings."
 msgstr ""
 
-#: src/Admin/Settings.php:289
+#: src/Admin/Settings.php:376
 msgid "Delete plugin data"
 msgstr ""
 
-#: src/Admin/Settings.php:290
+#: src/Admin/Settings.php:377
 msgid "Delete plugin data."
 msgstr ""
 
-#: src/Admin/Settings.php:291
+#: src/Admin/Settings.php:378
 msgid "Enabling this will delete all the data while uninstalling the plugin."
 msgstr ""
 
@@ -599,15 +724,59 @@ msgid "Leads"
 msgstr ""
 
 #: src/Admin/views/list-lead.php:21
-msgid "Add New"
+msgid "The list of leads."
 msgstr ""
 
-#: src/Admin/views/list-lead.php:30
+#: src/Admin/views/list-lead.php:28
 msgid "Search"
 msgstr ""
 
-#: src/Models/Lead.php:43
-msgid "Please enter a name for the lead."
+#: src/Admin/views/view-lead.php:14 src/PostTypes.php:41
+msgid "View Lead"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:21
+msgid "Lead Details"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:30
+msgid "IP:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:39
+msgid "UTM ID:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:48
+msgid "UTM Source:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:57
+msgid "UTM Medium:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:66
+msgid "UTM Campaign:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:75
+msgid "UTM Term:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:84
+msgid "UTM Content:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:93
+msgid "Date:"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:105
+msgid "Actions"
+msgstr ""
+
+#: src/Admin/views/view-lead.php:108
+msgid "Go back"
 msgstr ""
 
 #: src/Plugin.php:76
@@ -629,10 +798,6 @@ msgstr ""
 
 #: src/PostTypes.php:40
 msgid "Edit Lead"
-msgstr ""
-
-#: src/PostTypes.php:41
-msgid "View Lead"
 msgstr ""
 
 #: src/PostTypes.php:42
