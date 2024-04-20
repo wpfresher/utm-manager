@@ -91,7 +91,7 @@ class Menus {
 			add_screen_option(
 				'per_page',
 				array(
-					'label'   => __( 'Leads per page', 'utmm-manager' ),
+					'label'   => __( 'Leads per page', 'utm-manager' ),
 					'default' => 20,
 					'option'  => 'utmm_leads_per_page',
 				)
