@@ -20,7 +20,7 @@ class PostTypes {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		add_action( 'init', [ $this, 'register_cpt' ] );
+		add_action( 'init', array( $this, 'register_cpt' ) );
 	}
 
 	/**
@@ -61,10 +61,9 @@ class PostTypes {
 			'has_archive'         => false,
 			'hierarchical'        => false,
 			'menu_position'       => null,
-			'supports'            => [],
+			'supports'            => array(),
 		);
 
 		register_post_type( 'utmm_lead', apply_filters( 'utm_manager_lead_post_type_args', $args ) );
 	}
-
 }

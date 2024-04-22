@@ -44,32 +44,32 @@ class LeadsListTable extends AbstractListTable {
 		$per_page              = $this->get_items_per_page( 'utmm_leads_per_page', 20 );
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
-		$order_by              = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
-		$order                 = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
-		$search                = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
-		$current_page          = isset( $_GET['paged'] ) ? sanitize_key( wp_unslash( $_GET['paged'] ) ) : 1;
+		$order_by     = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
+		$order        = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
+		$search       = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
+		$current_page = isset( $_GET['paged'] ) ? sanitize_key( wp_unslash( $_GET['paged'] ) ) : 1;
 
 		$args = array(
 			'post_type'      => 'utmm_lead',
 			'posts_per_page' => $per_page,
 			'paged'          => $current_page,
-			's'      		 => $search,
+			's'              => $search,
 			'orderby'        => $order_by,
 			'order'          => $order,
 			'post_status'    => 'any',
 		);
 
-//		$meta_props = array(
-//			'order_id'      => '_order_id',
-//			'product_id'    => '_product_id',
-//			'order_item_id' => '_order_item_id',
-//			'customer_id'   => '_customer_id',
-//		);
-//		// If the orderby param is within $meta_props.
-//		if ( in_array( $args['orderby'], array_keys( $meta_props ), true ) ) {
-//			$args['meta_key'] = $meta_props[ $args['orderby'] ]; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-//			$args['orderby']  = 'meta_value_num';
-//		}
+		// $meta_props = array(
+		// 'order_id'      => '_order_id',
+		// 'product_id'    => '_product_id',
+		// 'order_item_id' => '_order_item_id',
+		// 'customer_id'   => '_customer_id',
+		// );
+		// If the orderby param is within $meta_props.
+		// if ( in_array( $args['orderby'], array_keys( $meta_props ), true ) ) {
+		// $args['meta_key'] = $meta_props[ $args['orderby'] ]; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+		// $args['orderby']  = 'meta_value_num';
+		// }
 
 		$this->items       = utmm_get_leads( $args );
 		$this->total_count = utmm_get_leads( $args, true );
@@ -96,14 +96,14 @@ class LeadsListTable extends AbstractListTable {
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
 			'name'         => __( 'IP', 'utm-manager' ),
-			'utm_id'      => __( 'UTM ID', 'utm-manager' ),
-			'utm_source'      => __( 'UTM Source', 'utm-manager' ),
-			'utm_medium'      => __( 'UTM Medium', 'utm-manager' ),
-			'utm_campaign'      => __( 'UTM Campaign', 'utm-manager' ),
-			'utm_term'      => __( 'UTM Term', 'utm-manager' ),
+			'utm_id'       => __( 'UTM ID', 'utm-manager' ),
+			'utm_source'   => __( 'UTM Source', 'utm-manager' ),
+			'utm_medium'   => __( 'UTM Medium', 'utm-manager' ),
+			'utm_campaign' => __( 'UTM Campaign', 'utm-manager' ),
+			'utm_term'     => __( 'UTM Term', 'utm-manager' ),
 			'content'      => __( 'UTM Content', 'utm-manager' ),
-			'date' => __( 'Date', 'utm-manager' ),
-			'status' => __( 'Status', 'utm-manager' ),
+			'date'         => __( 'Date', 'utm-manager' ),
+			'status'       => __( 'Status', 'utm-manager' ),
 		);
 
 		return $columns;
@@ -128,11 +128,11 @@ class LeadsListTable extends AbstractListTable {
 	public function get_sortable_columns() {
 		return array(
 			'name'         => array( 'post_title', true ),
-			'utm_id'      => array( 'utm_id', true ),
-			'utm_source'    => array( 'utm_source', true ),
-			'utm_medium'    => array( 'utm_medium', true ),
-			'utm_campaign'  => array( 'utm_campaign', true ),
-			'utm_term'      => array( 'utm_term', true ),
+			'utm_id'       => array( 'utm_id', true ),
+			'utm_source'   => array( 'utm_source', true ),
+			'utm_medium'   => array( 'utm_medium', true ),
+			'utm_campaign' => array( 'utm_campaign', true ),
+			'utm_term'     => array( 'utm_term', true ),
 			'content'      => array( 'post_content', true ),
 			'date'         => array( 'post_date', true ),
 		);
@@ -188,7 +188,7 @@ class LeadsListTable extends AbstractListTable {
 					foreach ( $ids as $id ) {
 						$lead = utmm_get_lead( $id );
 						if ( $lead && wp_delete_post( $lead->ID, true ) ) {
-							$deleted ++;
+							++$deleted;
 						}
 					}
 					// translators: %d: number of leads deleted.
@@ -237,9 +237,9 @@ class LeadsListTable extends AbstractListTable {
 		$admin_url = admin_url( 'admin.php?page=utm-manager' );
 		$id_url    = add_query_arg( 'id', $item->ID, $admin_url );
 		$actions   = array(
-			'view'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), __( 'View', 'utm-manager' ) ),
-//			'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-manager' ) ),
-			'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-manager' ) ),
+			'view'                   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), __( 'View', 'utm-manager' ) ),
+			// 'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-manager' ) ),
+							'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-manager' ) ),
 		);
 
 		return sprintf( '<a href="%s">%s</a> %s', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), esc_html( $item->post_title ), $this->row_actions( $actions ) );

@@ -38,7 +38,7 @@ function utmm_get_lead( $data ) {
  * @since 1.0.0
  * @return array|int The leads.
  */
-function utmm_get_leads( $args = [], $count = false ) {
+function utmm_get_leads( $args = array(), $count = false ) {
 	$defaults = array(
 		'post_type'      => 'utmm_lead',
 		'posts_per_page' => - 1,
@@ -47,10 +47,10 @@ function utmm_get_leads( $args = [], $count = false ) {
 	);
 	$args     = wp_parse_args( $args, $defaults );
 
-	var_dump($args);
-//	wp_die();
+	var_dump( $args );
+	// wp_die();
 
-	$query    = new WP_Query( $args );
+	$query = new WP_Query( $args );
 
 	if ( $count ) {
 		return $query->found_posts;

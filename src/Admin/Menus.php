@@ -26,10 +26,10 @@ class Menus {
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
 
 		// Settings custom fields example.
-		add_action( utm_manager()->get_data('prefix') . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
+		add_action( utm_manager()->get_data( 'prefix' ) . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
 	}
 
-	public function render_custom_field_type( $value ){
+	public function render_custom_field_type( $value ) {
 		// Write your custom fields code here...
 		echo 'Title: ' . $value['title'] . ', Type: ' . $value['type'];
 	}
@@ -102,8 +102,8 @@ class Menus {
 	/**
 	 * Set screen options.
 	 *
-	 * @param bool $screen_option Whether it is true or false.
-	 * @param string $option Option id.
+	 * @param bool       $screen_option Whether it is true or false.
+	 * @param string     $option Option id.
 	 * @param string|int $value The option value.
 	 *
 	 * @since 1.0.0

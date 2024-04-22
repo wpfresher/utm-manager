@@ -25,7 +25,8 @@ class Admin {
 		add_filter(
 			'manage_toplevel_page_utm-manager_columns',
 			array( 'UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
-			10, 0
+			10,
+			0
 		);
 	}
 
@@ -46,11 +47,11 @@ class Admin {
 	 * @return array
 	 */
 	public static function get_screen_ids() {
-		$screen_ids = [
+		$screen_ids = array(
 			'toplevel_page_utm-manager',
 			'admin_page_plugin-utm-manager',
 			'utm-manager_page_utmm-settings',
-		];
+		);
 
 		return apply_filters( 'utm_manager_screen_ids', $screen_ids );
 	}
