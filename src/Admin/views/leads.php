@@ -23,6 +23,7 @@ $list_table->prepare_items();
 </div>
 <form id="leads-list-table" method="get">
 	<?php
+	// TODO: Maybe status need to be removed if not required.
 	$status = isset( $_GET['status'] ) ? sanitize_text_field( wp_unslash( $_GET['status'] ) ) : '';
 	$list_table->views();
 	$list_table->search_box( __( 'Search', 'utm-manager' ), 'key' );

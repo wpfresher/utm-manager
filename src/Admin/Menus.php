@@ -20,18 +20,26 @@ class Menus {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'main_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
-		add_action( 'utm_manager_leads_content', array( $this, 'output_leads_content' ) );
-
+		add_action( 'utm_manager_leads_content', array( $this, 'render_leads_content' ) );
 		// Screen options for leads.
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
 
+		// TODO: Need to add the bello action to the starter plugin.
 		// Settings custom fields example.
 		add_action( utm_manager()->get_data( 'prefix' ) . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
 	}
 
+	/**
+	 * Render custom fields type.
+	 *
+	 * @param array $value Array of field values and attributes.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
 	public function render_custom_field_type( $value ) {
 		// Write your custom fields code here...
-		echo 'Title: ' . $value['title'] . ', Type: ' . $value['type'];
+		echo 'Title: ' . esc_html( $value['title'] ) . ', Type: ' . esc_attr( $value['type'] );
 	}
 
 	/**
@@ -59,14 +67,15 @@ class Menus {
 			array( $this, 'output_main_page' )
 		);
 
+		// Load screen options.
 		add_action( 'load-' . $load, array( __CLASS__, 'load_leads_page' ) );
 	}
 
 	/**
 	 * Settings menu.
 	 *
-	 * @return void
 	 * @since 1.0.0
+	 * @return void
 	 */
 	public function settings_menu() {
 		add_submenu_page(
@@ -80,7 +89,7 @@ class Menus {
 	}
 
 	/**
-	 * Load Leads page
+	 * Load leads page & set screen options.
 	 *
 	 * @since 1.0.0
 	 * @return void
@@ -130,8 +139,8 @@ class Menus {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function output_leads_content() {
-		$view_lead = isset( $_GET['view_lead'] ) ? absint( wp_unslash( $_GET['view_lead'] ) ) : '';
+	public function render_leads_content() {
+		$view_lead = isset( $_GET['view_lead'] ) ? absint( wp_unslash( $_GET['view_lead'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 		if ( $view_lead && ! utmm_get_lead( $view_lead ) ) {
 			wp_safe_redirect( admin_url( 'admin.php?page=utm-manager' ) );
@@ -141,7 +150,7 @@ class Menus {
 		if ( $view_lead ) {
 			include __DIR__ . '/views/view-lead.php';
 		} else {
-			include __DIR__ . '/views/list-lead.php';
+			include __DIR__ . '/views/leads.php';
 		}
 	}
 }
