@@ -13,8 +13,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * @param mixed $data The data.
  *
- * @since 1.0.0
  * @return WP_Post|false The lead object, or false if not found.
+ * @since 1.0.0
  */
 function utmm_get_lead( $data ) {
 
@@ -35,8 +35,8 @@ function utmm_get_lead( $data ) {
  * @param array $args The args.
  * @param bool  $count Whether to return a count.
  *
- * @since 1.0.0
  * @return array|int The leads.
+ * @since 1.0.0
  */
 function utmm_get_leads( $args = array(), $count = false ) {
 	$defaults = array(
@@ -46,11 +46,7 @@ function utmm_get_leads( $args = array(), $count = false ) {
 		'order'          => 'ASC',
 	);
 	$args     = wp_parse_args( $args, $defaults );
-
-	var_dump( $args );
-	// wp_die();
-
-	$query = new WP_Query( $args );
+	$query    = new WP_Query( $args );
 
 	if ( $count ) {
 		return $query->found_posts;
