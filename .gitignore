@@ -73,7 +73,7 @@ codeception.yml
 .env.testing
 
 # Framework
-#lib
+lib
 
 # Build
 assets/dist
