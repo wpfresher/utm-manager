@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * Class Settings.
  *
  * @since   1.0.0
- * @package WooCommerceDonationManager\Admin
+ * @package UTMManager\Admin
  */
 class Settings extends Lib\Settings {
 

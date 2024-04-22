@@ -8,10 +8,10 @@ defined( 'ABSPATH' ) || exit;
  * Class Leads.
  *
  * @since 1.0.0
- *
  * @package UTMManager
  */
 class Leads {
+
 	/**
 	 * Leads constructor.
 	 *
@@ -29,7 +29,7 @@ class Leads {
 	 */
 	public function handle_leads() {
 
-		$ip = self::get_ip() . '44';
+		$ip = self::get_ip();
 
 		if ( empty( $ip ) ) {
 			return;
@@ -58,7 +58,7 @@ class Leads {
 			return;
 		}
 
-		// Create lead.
+		// Create a lead.
 		$post_args = array(
 			'post_type'   => 'utmm_lead',
 			'post_title'  => wp_strip_all_tags( $ip ),
@@ -94,10 +94,18 @@ class Leads {
 		}
 	}
 
+	/**
+	 * Get URL parameters.
+	 *
+	 * @param string $utm_id The UTM ID.
+	 *
+	 * @since 1.0.0
+	 * @return string|null
+	 */
 	private static function get_url_parameters( $utm_id ) {
 
-		if ( isset( $_GET[ $utm_id ] ) ) {
-			return wp_unslash( $_GET[ $utm_id ] );
+		if ( isset( $_GET[ $utm_id ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			return filter_var( wp_unslash( $_GET[ $utm_id ] ), FILTER_SANITIZE_STRING ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		}
 
 		return null;
@@ -132,53 +140,36 @@ class Leads {
 	 */
 	public static function get_ip() {
 
-		if ( array_key_exists( 'HTTP_CF_CONNECTING_IP', $_SERVER ) ) {
-			$client = @$_SERVER['HTTP_CF_CONNECTING_IP'];
-			if ( filter_var( $client, FILTER_VALIDATE_IP ) ) {
-				return $client;
-			}
+		if ( array_key_exists( 'REMOTE_ADDR', $_SERVER ) && ! empty( $_SERVER['REMOTE_ADDR'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['REMOTE_ADDR'] ), FILTER_VALIDATE_IP );
 		}
 
-		if ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $_SERVER ) ) {
-			$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
-			if ( filter_var( $forward, FILTER_VALIDATE_IP ) ) {
-				return $forward;
-			}
+		if ( array_key_exists( 'SERVER_ADDR', $_SERVER ) && ! empty( $_SERVER['SERVER_ADDR'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['SERVER_ADDR'] ), FILTER_VALIDATE_IP );
 		}
 
-		if ( array_key_exists( 'HTTP_X_FORWARDED', $_SERVER ) ) {
-			$forward = @$_SERVER['HTTP_X_FORWARDED'];
-			if ( filter_var( $forward, FILTER_VALIDATE_IP ) ) {
-				return $forward;
-			}
+		if ( array_key_exists( 'HTTP_CLIENT_IP', $_SERVER ) && ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ), FILTER_VALIDATE_IP );
 		}
 
-		if ( array_key_exists( 'HTTP_FORWARDED_FOR', $_SERVER ) ) {
-			$forward = @$_SERVER['HTTP_FORWARDED_FOR'];
-			if ( filter_var( $forward, FILTER_VALIDATE_IP ) ) {
-				return $forward;
-			}
+		if ( array_key_exists( 'HTTP_FORWARDED', $_SERVER ) && ! empty( $_SERVER['HTTP_FORWARDED'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['HTTP_FORWARDED'] ), FILTER_VALIDATE_IP );
 		}
 
-		if ( array_key_exists( 'HTTP_FORWARDED', $_SERVER ) ) {
-			$forward = @$_SERVER['HTTP_FORWARDED'];
-			if ( filter_var( $forward, FILTER_VALIDATE_IP ) ) {
-				return $forward;
-			}
+		if ( array_key_exists( 'HTTP_FORWARDED_FOR', $_SERVER ) && ! empty( $_SERVER['HTTP_FORWARDED_FOR'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['HTTP_FORWARDED_FOR'] ), FILTER_VALIDATE_IP );
 		}
 
-		if ( array_key_exists( 'HTTP_CLIENT_IP', $_SERVER ) ) {
-			$client_ip = @$_SERVER['HTTP_CLIENT_IP'];
-			if ( filter_var( $client_ip, FILTER_VALIDATE_IP ) ) {
-				return $client_ip;
-			}
+		if ( array_key_exists( 'HTTP_X_FORWARDED', $_SERVER ) && ! empty( $_SERVER['HTTP_X_FORWARDED'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['HTTP_X_FORWARDED'] ), FILTER_VALIDATE_IP );
 		}
 
-		if ( array_key_exists( 'REMOTE_ADDR', $_SERVER ) ) {
-			$remote_addr = @$_SERVER['REMOTE_ADDR'];
-			if ( filter_var( $remote_addr, FILTER_VALIDATE_IP ) ) {
-				return $remote_addr;
-			}
+		if ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $_SERVER ) && ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ), FILTER_VALIDATE_IP );
+		}
+
+		if ( array_key_exists( 'HTTP_CF_CONNECTING_IP', $_SERVER ) && ! empty( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ) {
+			return filter_var( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ), FILTER_VALIDATE_IP );
 		}
 
 		return null;
