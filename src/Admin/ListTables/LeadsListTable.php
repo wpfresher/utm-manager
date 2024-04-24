@@ -34,8 +34,8 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Retrieve all the data for the table.
 	 *
-	 * @since 1.0.0
 	 * @return void
+	 * @since 1.0.0
 	 */
 	public function prepare_items() {
 		$columns               = $this->get_columns();
@@ -85,8 +85,8 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * No items found text.
 	 *
-	 * @since 1.0.0
 	 * @return void
+	 * @since 1.0.0
 	 */
 	public function no_items() {
 		esc_html_e( 'No items found.', 'utm-manager' );
@@ -112,8 +112,8 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Get the table columns
 	 *
-	 * @since 1.0.0
 	 * @return array
+	 * @since 1.0.0
 	 */
 	public function get_columns() {
 		return get_column_headers( get_current_screen() );
@@ -122,8 +122,8 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Get the table sortable columns
 	 *
-	 * @since 1.0.0
 	 * @return array
+	 * @since 1.0.0
 	 */
 	public function get_sortable_columns() {
 		return array(
@@ -141,8 +141,8 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Get the table hidden columns
 	 *
-	 * @since 1.0.0
 	 * @return array
+	 * @since 1.0.0
 	 */
 	public function get_hidden_columns() {
 		return get_hidden_columns( get_current_screen() );
@@ -188,7 +188,7 @@ class LeadsListTable extends AbstractListTable {
 					foreach ( $ids as $id ) {
 						$lead = utmm_get_lead( $id );
 						if ( $lead && wp_delete_post( $lead->ID, true ) ) {
-							++$deleted;
+							++ $deleted;
 						}
 					}
 					// translators: %d: number of leads deleted.
@@ -206,8 +206,8 @@ class LeadsListTable extends AbstractListTable {
 	/**
 	 * Define primary column.
 	 *
-	 * @since 1.0.0
 	 * @return string
+	 * @since 1.0.0
 	 */
 	public function get_primary_column_name() {
 		return 'name';
@@ -218,8 +218,8 @@ class LeadsListTable extends AbstractListTable {
 	 *
 	 * @param Object $item The current lead object.
 	 *
-	 * @since  1.0.0
 	 * @return string Displays a checkbox.
+	 * @since  1.0.0
 	 */
 	public function column_cb( $item ) {
 		return sprintf( '<input type="checkbox" name="ids[]" value="%d"/>', esc_attr( $item->ID ) );
@@ -230,16 +230,16 @@ class LeadsListTable extends AbstractListTable {
 	 *
 	 * @param Object $item The current lead object.
 	 *
-	 * @since  1.0.0
 	 * @return string Displays the lead name.
+	 * @since  1.0.0
 	 */
 	public function column_name( $item ) {
 		$admin_url = admin_url( 'admin.php?page=utm-manager' );
 		$id_url    = add_query_arg( 'id', $item->ID, $admin_url );
 		$actions   = array(
-			'view'                   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), __( 'View', 'utm-manager' ) ),
+			'view'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), __( 'View', 'utm-manager' ) ),
 			// 'edit'   => sprintf( '<a href="%s">%s</a>', esc_url( add_query_arg( 'edit_lead', $item->ID, $admin_url ) ), __( 'Edit', 'utm-manager' ) ),
-							'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-manager' ) ),
+			'delete' => sprintf( '<a href="%s">%s</a>', wp_nonce_url( add_query_arg( 'action', 'delete', $id_url ), 'bulk-leads' ), __( 'Delete', 'utm-manager' ) ),
 		);
 
 		return sprintf( '<a href="%s">%s</a> %s', esc_url( add_query_arg( 'view_lead', $item->ID, $admin_url ) ), esc_html( $item->post_title ), $this->row_actions( $actions ) );
@@ -298,7 +298,7 @@ class LeadsListTable extends AbstractListTable {
 			case 'date':
 				$date = $item->post_date;
 				if ( $date ) {
-					$value = sprintf( '<time datetime="%s">%s</time>', esc_attr( $date ), esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ) );
+					$value = sprintf( '<time datetime="%s">%s</time>', esc_attr( $date ), esc_html( date_i18n( get_option( 'date_format' ) . ' | ' . get_option( 'time_format' ), strtotime( $date ) ) ) );
 				}
 				break;
 
