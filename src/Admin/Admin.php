@@ -75,7 +75,7 @@ class Admin {
 				'iris',
 				admin_url( 'js/iris.min.js' ),
 				array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
-				false,
+				true,
 				1
 			);
 

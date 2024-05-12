@@ -188,7 +188,7 @@ class LeadsListTable extends AbstractListTable {
 					foreach ( $ids as $id ) {
 						$lead = utmm_get_lead( $id );
 						if ( $lead && wp_delete_post( $lead->ID, true ) ) {
-							++ $deleted;
+							++$deleted;
 						}
 					}
 					// translators: %d: number of leads deleted.
