@@ -7,7 +7,7 @@ module.exports = [
         entry: {
             ...defaultConfig.entry(),
             'css/utmm-admin': './assets/src/css/admin.scss',
-            // 'js/utmm-admin': './assets/src/js/admin.js',
+            'js/utmm-admin': './assets/src/js/admin.js',
         },
         output: {
             ...defaultConfig.output,

@@ -66,10 +66,11 @@ class Admin {
 	public function admin_scripts( $hook ) {
 		$screen_ids = self::get_screen_ids();
 		utm_manager()->register_style( 'utmm-admin', 'css/utmm-admin.css' );
-		// utm_manager()->register_script( 'utmm-admin', 'js/admin.js' );
+		utm_manager()->register_script( 'utmm-admin', 'js/utmm-admin.js' );
 
 		if ( in_array( $hook, $screen_ids, true ) ) {
 			wp_enqueue_style( 'utmm-admin' );
+			wp_enqueue_script( 'utmm-admin' );
 
 			wp_enqueue_script(
 				'iris',
@@ -78,7 +79,6 @@ class Admin {
 				true,
 				1
 			);
-
 		}
 	}
 }

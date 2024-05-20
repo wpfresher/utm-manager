@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UTM Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: https://urldev.com/plugins/utm-manager/\n"
-"POT-Creation-Date: 2024-04-22 19:21:51+00:00\n"
+"POT-Creation-Date: 2024-05-20 16:54:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,49 +44,36 @@ msgstr ""
 msgid "More Plugins"
 msgstr ""
 
-#: lib/Lib/Plugin.php:548 src/Admin/Menus.php:74 src/Admin/Menus.php:75
+#: lib/Lib/Plugin.php:548 src/Admin/Menus.php:83 src/Admin/Menus.php:84
 msgid "Settings"
 msgstr ""
 
-#: lib/Lib/Settings.php:110
+#: lib/Lib/Settings.php:109
 msgid "Settings saved."
 msgstr ""
 
-#: lib/Lib/Settings.php:320 lib/Lib/Settings.php:408
+#: lib/Lib/Settings.php:230 lib/Lib/Settings.php:318
 msgid "Recommended"
 msgstr ""
 
-#: lib/Lib/Settings.php:321 lib/Lib/Settings.php:409
+#: lib/Lib/Settings.php:231 lib/Lib/Settings.php:319
 msgid "Install Now"
 msgstr ""
 
-#: lib/Lib/Settings.php:380
+#: lib/Lib/Settings.php:290
 msgid "Need Help?"
 msgstr ""
 
-#: lib/Lib/Settings.php:423
+#: lib/Lib/Settings.php:333
 msgid "Join our Community"
 msgstr ""
 
-#: lib/Lib/Settings.php:427
+#: lib/Lib/Settings.php:337
 msgid "Request a Feature"
 msgstr ""
 
-#: lib/Lib/Settings.php:431
+#: lib/Lib/Settings.php:341
 msgid "Report a Bug"
-msgstr ""
-
-#: lib/Lib/Settings.php:889
-msgid "Select a page&hellip;"
-msgstr ""
-
-#: lib/Lib/Settings.php:903
-#. translators: 1: page name 2: page ID
-msgid "%1$s (ID: %2$s)"
-msgstr ""
-
-#: lib/Lib/Settings.php:920
-msgid "Search for a page&hellip;"
 msgstr ""
 
 #: src/Admin/ListTables/LeadsListTable.php:92
@@ -150,11 +137,11 @@ msgstr ""
 msgid "UTM Manager"
 msgstr ""
 
-#: src/Admin/Menus.php:55 src/Admin/Menus.php:56
+#: src/Admin/Menus.php:63 src/Admin/Menus.php:64
 msgid "UTM Leads"
 msgstr ""
 
-#: src/Admin/Menus.php:94
+#: src/Admin/Menus.php:103
 msgid "Leads per page"
 msgstr ""
 
@@ -540,15 +527,15 @@ msgstr ""
 msgid "Enabling this will delete all the data while uninstalling the plugin."
 msgstr ""
 
-#: src/Admin/views/list-lead.php:19
+#: src/Admin/views/leads.php:19
 msgid "Leads"
 msgstr ""
 
-#: src/Admin/views/list-lead.php:21
+#: src/Admin/views/leads.php:21
 msgid "The list of leads."
 msgstr ""
 
-#: src/Admin/views/list-lead.php:28
+#: src/Admin/views/leads.php:29
 msgid "Search"
 msgstr ""
 
@@ -859,7 +846,7 @@ msgstr ""
 msgid "This is a dummy theme"
 msgstr ""
 
-#: vendor/wp-cli/core-command/src/Core_Command.php:746
+#: vendor/wp-cli/core-command/src/Core_Command.php:749
 msgid "Wildcard DNS may not be configured correctly."
 msgstr ""
 
@@ -872,15 +859,15 @@ msgstr ""
 msgid "Export Error"
 msgstr ""
 
-#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:729
+#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:770
 msgid " Try again"
 msgstr ""
 
-#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:735
+#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:776
 msgid "API error. Try Again."
 msgstr ""
 
-#: vendor/wp-cli/media-command/src/Media_Command.php:145
+#: vendor/wp-cli/media-command/src/Media_Command.php:151
 msgid "image"
 msgid_plural "images"
 msgstr[0] ""
@@ -935,8 +922,8 @@ msgctxt "ticket"
 msgid "Add New"
 msgstr ""
 
-#: vendor/wp-cli/core-command/src/Core_Command.php:488
-#: vendor/wp-cli/core-command/src/Core_Command.php:562
+#: vendor/wp-cli/core-command/src/Core_Command.php:491
+#: vendor/wp-cli/core-command/src/Core_Command.php:565
 #. translators: placeholder is blog name
 #. translators: placeholder is user supplied title
 msgctxt "Default network name"

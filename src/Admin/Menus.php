@@ -24,7 +24,7 @@ class Menus {
 		// Screen options for leads.
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
 
-		// TODO: Need to add the bello action to the starter plugin.
+		// TODO: Need to add the bellow action to the starter plugin.
 		// Settings custom fields example.
 		add_action( utm_manager()->get_data( 'prefix' ) . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
 	}
