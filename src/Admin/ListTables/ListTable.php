@@ -34,7 +34,7 @@ abstract class ListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	public function process_bulk_actions( $doaction ) {
-
+		wp_verify_nonce( '_wpnonce', );
 		if ( ! empty( $_GET['_wp_http_referer'] ) || ! empty( $_GET['_wpnonce'] ) ) {
 			wp_safe_redirect(
 				remove_query_arg(

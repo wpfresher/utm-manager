@@ -92,6 +92,12 @@ class LeadsListTable extends ListTable {
 		esc_html_e( 'No items found.', 'utm-manager' );
 	}
 
+	/**
+	 * Define list table columns.
+	 *
+	 * @since 1.0.0
+	 * @return array
+	 */
 	public static function define_columns() {
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
@@ -112,8 +118,8 @@ class LeadsListTable extends ListTable {
 	/**
 	 * Get the table columns
 	 *
-	 * @return array
 	 * @since 1.0.0
+	 * @return array
 	 */
 	public function get_columns() {
 		return get_column_headers( get_current_screen() );
@@ -122,8 +128,8 @@ class LeadsListTable extends ListTable {
 	/**
 	 * Get the table sortable columns
 	 *
-	 * @return array
 	 * @since 1.0.0
+	 * @return array
 	 */
 	public function get_sortable_columns() {
 		return array(
@@ -141,18 +147,17 @@ class LeadsListTable extends ListTable {
 	/**
 	 * Get the table hidden columns
 	 *
-	 * @return array
 	 * @since 1.0.0
+	 * @return array
 	 */
 	public function get_hidden_columns() {
 		return get_hidden_columns( get_current_screen() );
 	}
 
 	/**
-	 * Get bulk actions
+	 * Get bulk actions.
 	 *
-	 * since 1.0.0
-	 *
+	 * @since 1.0.0
 	 * @return array
 	 */
 	public function get_bulk_actions() {
@@ -166,7 +171,7 @@ class LeadsListTable extends ListTable {
 	 *
 	 * @param string $doaction Action name.
 	 *
-	 * @since 1.0.2
+	 * @since 1.0.0
 	 */
 	public function process_bulk_action( $doaction ) {
 		if ( ! empty( $doaction ) && check_admin_referer( 'bulk-' . $this->_args['plural'] ) ) {
