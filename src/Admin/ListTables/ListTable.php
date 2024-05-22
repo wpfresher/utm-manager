@@ -15,7 +15,7 @@ if ( ! class_exists( '\WP_List_Table' ) ) {
  * @since 1.0.0
  * @package WooCommerceStarterPlugin
  */
-abstract class AbstractListTable extends \WP_List_Table {
+abstract class ListTable extends \WP_List_Table {
 
 	/**
 	 * Total count.
@@ -34,6 +34,7 @@ abstract class AbstractListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	public function process_bulk_actions( $doaction ) {
+
 		if ( ! empty( $_GET['_wp_http_referer'] ) || ! empty( $_GET['_wpnonce'] ) ) {
 			wp_safe_redirect(
 				remove_query_arg(

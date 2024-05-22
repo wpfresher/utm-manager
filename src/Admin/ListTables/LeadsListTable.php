@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0.0
  * @package UTMManager
  */
-class LeadsListTable extends AbstractListTable {
+class LeadsListTable extends ListTable {
 	/**
 	 * Leads constructor.
 	 *
@@ -38,16 +38,16 @@ class LeadsListTable extends AbstractListTable {
 	 * @since 1.0.0
 	 */
 	public function prepare_items() {
+		wp_verify_nonce( '_wpnonce' );
 		$columns               = $this->get_columns();
 		$sortable              = $this->get_sortable_columns();
 		$hidden                = $this->get_hidden_columns();
 		$per_page              = $this->get_items_per_page( 'utmm_leads_per_page', 20 );
 		$this->_column_headers = array( $columns, $hidden, $sortable );
-
-		$order_by     = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
-		$order        = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
-		$search       = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
-		$current_page = isset( $_GET['paged'] ) ? sanitize_key( wp_unslash( $_GET['paged'] ) ) : 1;
+		$order_by              = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
+		$order                 = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
+		$search                = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
+		$current_page          = isset( $_GET['paged'] ) ? sanitize_key( wp_unslash( $_GET['paged'] ) ) : 1;
 
 		$args = array(
 			'post_type'      => 'utmm_lead',
