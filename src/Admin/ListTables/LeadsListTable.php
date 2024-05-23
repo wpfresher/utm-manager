@@ -179,7 +179,9 @@ class LeadsListTable extends ListTable {
 			$ids = filter_input( INPUT_GET, 'ids', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY );
 			if ( ! empty( $id ) ) {
 				$ids      = wp_parse_id_list( $id );
-				$doaction = ( - 1 !== $_REQUEST['action'] ) ? $_REQUEST['action'] : $_REQUEST['action2'];
+				$action   = isset( $_REQUEST['action'] ) ? sanitize_key( wp_unslash( $_REQUEST['action'] ) ) : '';
+				$action2  = isset( $_REQUEST['action2'] ) ? sanitize_key( wp_unslash( $_REQUEST['action2'] ) ) : '';
+				$doaction = ( - 1 !== $action ) ? $action : $action2;
 			} elseif ( ! empty( $ids ) ) {
 				$ids = array_map( 'absint', $ids );
 			} elseif ( wp_get_referer() ) {

@@ -36,13 +36,19 @@ abstract class ListTable extends \WP_List_Table {
 	public function process_bulk_actions( $doaction ) {
 		wp_verify_nonce( '_wpnonce', );
 		if ( ! empty( $_GET['_wp_http_referer'] ) || ! empty( $_GET['_wpnonce'] ) ) {
+			$request_uri = esc_url( admin_url( 'admin.php?page=utm-manager' ) );
+
+			if ( array_key_exists( 'REQUEST_URI', $_SERVER ) && ! empty( $_SERVER['REQUEST_URI'] ) ) {
+				$request_uri = filter_var( wp_unslash( $_SERVER['REQUEST_URI'] ), FILTER_SANITIZE_URL );
+			}
+
 			wp_safe_redirect(
 				remove_query_arg(
 					array(
 						'_wp_http_referer',
 						'_wpnonce',
 					),
-					wp_unslash( $_SERVER['REQUEST_URI'] )
+					$request_uri,
 				)
 			);
 			exit;
