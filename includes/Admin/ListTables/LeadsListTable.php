@@ -1,16 +1,17 @@
 <?php
 
-namespace UTMManager\Admin\ListTables;
+namespace UrlDev\UTMManager\Admin\ListTables;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * LeadsListTable class.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UrlDev\UTMManager\Admin\ListTables
  */
 class LeadsListTable extends ListTable {
+
 	/**
 	 * Leads constructor.
 	 *
@@ -199,7 +200,7 @@ class LeadsListTable extends ListTable {
 						}
 					}
 					// translators: %d: number of leads deleted.
-					utm_manager()->add_notice( sprintf( _n( '%d lead deleted.', '%d leads deleted.', $deleted, 'utm-manager' ), $deleted ) );
+					utm_manager()->add_flash_notice( sprintf( _n( '%d lead deleted.', '%d leads deleted.', $deleted, 'utm-manager' ), $deleted ) );
 					break;
 			}
 

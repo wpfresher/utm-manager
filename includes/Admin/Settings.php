@@ -1,18 +1,16 @@
 <?php
 
-namespace UTMManager\Admin;
+namespace UrlDev\UTMManager\Admin;
 
-use UTMManager\Lib;
-
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Class Settings.
  *
- * @since   1.0.0
- * @package UTMManager\Admin
+ * @since 1.0.0
+ * @package UrlDev\UTMManager\Admin
  */
-class Settings extends Lib\Settings {
+class Settings {
 
 	/**
 	 * Get settings tabs.
@@ -222,7 +220,7 @@ class Settings extends Lib\Settings {
 		 * @since 1.0.0
 		 */
 		do_action( 'utm_manager_settings_' . $current_tab );
-		parent::output_form( $settings );
+		// parent::output_form( $settings );
 	}
 
 	/**
@@ -234,7 +232,7 @@ class Settings extends Lib\Settings {
 	 * @return void
 	 */
 	public function output_tabs( $tabs ) {
-		parent::output_tabs( $tabs );
+		// parent::output_tabs( $tabs );
 		if ( utm_manager()->get_data( 'docs_url' ) ) {
 			printf( '<a href="%s" class="nav-tab" target="_blank">%s</a>', esc_url( utm_manager()->get_data( 'docs_url' ) ), esc_html__( 'Documentation', 'utm-manager' ) );
 		}

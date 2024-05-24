@@ -1,16 +1,16 @@
 <?php
 
-namespace UTMManager;
+namespace UrlDev\UTMManager;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Class PostTypes.
  *
  * Responsible for registering custom post types.
  *
- * @package UTMManager
  * @since 1.0.0
+ * @package UrlDev\UTMManager
  */
 class PostTypes {
 

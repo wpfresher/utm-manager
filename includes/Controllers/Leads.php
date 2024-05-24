@@ -1,14 +1,14 @@
 <?php
 
-namespace UTMManager;
+namespace UrlDev\UTMManager\Controllers;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Class Leads.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UrlDev\UTMManager\Controllers
  */
 class Leads {
 

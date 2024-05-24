@@ -1,14 +1,14 @@
 <?php
 
-namespace UTMManager\Admin;
+namespace UrlDev\UTMManager\Admin;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Menus class.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UrlDev\UTMManager\Admin
  */
 class Menus {
 
@@ -23,23 +23,6 @@ class Menus {
 		add_action( 'utm_manager_leads_content', array( $this, 'render_leads_content' ) );
 		// Screen options for leads.
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
-
-		// TODO: Need to add the bellow action to the starter plugin.
-		// Settings custom fields example.
-		add_action( utm_manager()->get_data( 'prefix' ) . '_admin_field_custom_field_type', array( $this, 'render_custom_field_type' ) );
-	}
-
-	/**
-	 * Render custom fields type.
-	 *
-	 * @param array $value Array of field values and attributes.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function render_custom_field_type( $value ) {
-		// Write your custom fields code here...
-		echo 'Title: ' . esc_html( $value['title'] ) . ', Type: ' . esc_attr( $value['type'] );
 	}
 
 	/**

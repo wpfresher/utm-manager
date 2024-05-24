@@ -6,20 +6,7 @@
   "license": "GPL-3.0-or-later",
   "prefer-stable": true,
   "minimum-stability": "dev",
-  "repositories": [
-    {
-      "url": "git@github.com:wpfresher/wpfresher-sniffs.git",
-      "type": "github"
-    },
-    {
-      "url": "git@github.com:wpfresher/framework-plugin.git",
-      "type": "github"
-    },
-    {
-      "url": "git@github.com:wpfresher/framework-settings.git",
-      "type": "github"
-    }
-  ],
+  "repositories": [],
   "require": {
     "php": ">=7.4"
   },
@@ -37,9 +24,7 @@
     "coenjacobs/mozart": "^0.7.1",
     "level-level/wp-browser-woocommerce": "^0.1.8",
     "lucatume/wp-browser": "^3.1",
-    "phpcompatibility/php-compatibility": "9.3.5",
-    "wpfresher/framework-plugin": "dev-master",
-    "wpfresher/framework-settings": "dev-master"
+    "phpcompatibility/php-compatibility": "9.3.5"
   },
   "config": {
     "optimize-autoloader": true,
@@ -83,10 +68,7 @@
       "classmap_directory": "/lib/classes/",
       "classmap_prefix": "UTMManager_",
       "delete_vendor_directories": true,
-      "packages": [
-        "wpfresher/framework-plugin",
-        "wpfresher/framework-settings"
-      ]
+      "packages": []
     }
   }
 }

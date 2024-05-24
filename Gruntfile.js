@@ -15,7 +15,7 @@ module.exports = function( grunt ) {
                 options: {
                     expand: true,
                     text_domain: 'utm-manager',
-                    updateDomains: [ 'framework-text-domain', 'wp-starter-plugin', 'wc-donation-manager', 'woocommerce' ],
+                    updateDomains: [ 'framework-text-domain', 'wp-starter-plugin', 'woocommerce' ],
                 },
                 plugin: {
                     files: {
@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
                             '*.php',
                             '**/*.php',
                             '!node_modules/**',
+							'!tests/**',
                             '!vendor/**',
                         ],
                     },
@@ -53,6 +54,7 @@ module.exports = function( grunt ) {
                         '**/*.php',
                         '!packages/**',
                         '!node_modules/**',
+						'!tests/**',
                         '!vendor/**',
                     ],
                     expand: true,

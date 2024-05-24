@@ -3,9 +3,9 @@
   "title": "UTM Manager",
   "version": "1.0.0",
   "description": "UTM Manager",
-  "author": "WpFresher",
-  "license": "GPL-2.0-or-later",
+  "author": "urldev",
   "homepage": "https://urldev.com/plugins/utm-manager/",
+  "license": "GPL-3.0+",
   "prettier": "@wordpress/prettier-config",
   "scripts": {
     "build": "wp-scripts build && grunt build",
@@ -21,12 +21,15 @@
     "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze-bundles": "cross-env WP_BUNDLE_ANALYZER=1 npm run build",
+    "reformat-files": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,json,ts,tsx}\""
   },
   "devDependencies": {
+    "@wordpress/browserslist-config": "^4.1.0",
     "@lodder/time-grunt": "^4.0.0",
     "@wordpress/prettier-config": "^2.19.0",
-    "@wordpress/scripts": "^26.17.0",
+    "@wordpress/scripts": "^26.6.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "grunt": "^1.6.1",
@@ -38,7 +41,8 @@
     "load-grunt-tasks": "^5.1.0",
     "mini-css-extract-plugin": "^2.7.6",
     "webpack-remove-empty-scripts": "^0.8.4",
-    "wp-prettier": "^2.8.5"
+    "wp-prettier": "^2.8.5",
+    "postcss-editor-styles": "^0.3.0"
   },
   "stylelint": {
     "extends": "@wordpress/stylelint-config",
@@ -50,8 +54,6 @@
     ]
   },
   "browserslist": [
-    "> 0.1%",
-    "ie 8",
-    "ie 9"
+    "extends @wordpress/browserslist-config"
   ]
 }

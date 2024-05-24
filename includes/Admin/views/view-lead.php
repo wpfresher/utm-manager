@@ -3,10 +3,12 @@
  * Admin views: View Lead.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @subpackage Admin/Views
+ * @package UrlDev\UTMManager\Admin
  */
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 $lead_id = filter_input( INPUT_GET, 'view_lead', FILTER_SANITIZE_NUMBER_INT );
 $lead    = utmm_get_lead( $lead_id );
 ?>

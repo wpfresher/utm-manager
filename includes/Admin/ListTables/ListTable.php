@@ -1,8 +1,8 @@
 <?php
 
-namespace UTMManager\Admin\ListTables;
+namespace UrlDev\UTMManager\Admin\ListTables;
 
-defined( 'ABSPATH' ) || exit();
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 // Load WP_List_Table if not loaded.
 if ( ! class_exists( '\WP_List_Table' ) ) {
@@ -13,7 +13,7 @@ if ( ! class_exists( '\WP_List_Table' ) ) {
  * List table class.
  *
  * @since 1.0.0
- * @package WooCommerceStarterPlugin
+ * @package UrlDev\UTMManager\Admin\ListTables
  */
 abstract class ListTable extends \WP_List_Table {
 
@@ -34,7 +34,8 @@ abstract class ListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	public function process_bulk_actions( $doaction ) {
-		wp_verify_nonce( '_wpnonce', );
+//		var_dump( wp_get_referer() );
+//		wp_verify_nonce( '_wpnonce', );
 		if ( ! empty( $_GET['_wp_http_referer'] ) || ! empty( $_GET['_wpnonce'] ) ) {
 			$request_uri = esc_url( admin_url( 'admin.php?page=utm-manager' ) );
 

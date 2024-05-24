@@ -2,12 +2,14 @@
 /**
  * Admin View: List Lead
  *
- * @package UTMManager
  * @since 1.0.0
+ * @subpackage Admin/Views
+ * @package UrlDev\UTMManager\Admin
  */
 
-defined( 'ABSPATH' ) || exit;
-$list_table = new \UTMManager\Admin\ListTables\LeadsListTable();
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
+$list_table = new \UrlDev\UTMManager\Admin\ListTables\LeadsListTable();
 $action     = $list_table->current_action();
 $list_table->process_bulk_action( $action );
 $list_table->prepare_items();

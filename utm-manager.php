@@ -23,15 +23,16 @@
  * GNU General Public License for more details.
  */
 
-use UTMManager\Plugin;
+//namespace UrlDev\UTMManager;
+
+use UrlDev\UTMManager\Plugin;
 
 defined( 'ABSPATH' ) || exit(); // Exit if accessed directly.
 
 // Autoload function.
 spl_autoload_register(
 	function ( $class_name ) {
-
-		$prefix = 'UTMManager\\';
+		$prefix = 'UrlDev\\UTMManager\\';
 		$len    = strlen( $prefix );
 
 		// Bail out if the class name doesn't start with our prefix.
@@ -44,10 +45,9 @@ spl_autoload_register(
 		// Replace the namespace separator with the directory separator.
 		$file = str_replace( '\\', DIRECTORY_SEPARATOR, $relative_class ) . '.php';
 
-		// Look for the file in the inc and lib directories.
+		// Look for the file in the src and lib directories.
 		$file_paths = array(
-			__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $file,
-			__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $file,
+			__DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . $file,
 		);
 
 		foreach ( $file_paths as $file_path ) {
@@ -65,17 +65,8 @@ spl_autoload_register(
  * @since 1.0.0
  * @return Plugin plugin initialize class.
  */
-function utm_manager() { // phpcs:ignore
-	$data = array(
-		'file'             => __FILE__,
-		'item_id'          => 123456789,
-		'settings_url'     => admin_url( 'admin.php?page=utm-manager' ),
-		'support_url'      => 'https://urldev.com/support/',
-		'docs_url'         => 'https://urldev.com/docs/utm-manager/',
-		'premium_url'      => 'https://urldev.com/plugins/utm-manager/',
-		'premium_basename' => 'utm-manager',
-	);
-	return Plugin::create( $data );
+function utm_manager() {
+	return Plugin::create( __FILE__ );
 }
 
 // Initialize the plugin.

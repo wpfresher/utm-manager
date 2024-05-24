@@ -2,13 +2,14 @@
 /**
  * View: Admin Page
  *
+ * @var string $page_hook Page hook.
+ *
  * @since 1.0.0
  * @subpackage Admin/Views
- * @package UTMManager
- * @var string $page_hook Page hook.
+ * @package UrlDev\UTMManager\Admin
  */
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 $current_tab  = filter_input( INPUT_GET, 'tab' );
 $current_page = filter_input( INPUT_GET, 'page' );

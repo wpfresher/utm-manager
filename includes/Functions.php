@@ -3,18 +3,18 @@
  * Usefully functions.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UrlDev\UTMManager
  */
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Get lead.
  *
  * @param mixed $data The data.
  *
- * @return WP_Post|false The lead object, or false if not found.
  * @since 1.0.0
+ * @return WP_Post|false The lead object, or false if not found.
  */
 function utmm_get_lead( $data ) {
 

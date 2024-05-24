@@ -1,14 +1,14 @@
 <?php
 
-namespace UTMManager\Admin;
+namespace UrlDev\UTMManager\Admin;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Admin class.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UrlDev\UTMManager\Admin
  */
 class Admin {
 
@@ -24,7 +24,7 @@ class Admin {
 		// Add screen options.
 		add_filter(
 			'manage_toplevel_page_utm-manager_columns',
-			array( 'UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
+			array( 'UrlDev\UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
 			10,
 			0
 		);
@@ -36,8 +36,11 @@ class Admin {
 	 * @since 1.0.0
 	 */
 	public function init() {
-		utm_manager()->services->add( Settings::instance() );
-		utm_manager()->services->add( Menus::class );
+		// utm_manager()->services->add( Settings::instance() );
+		// utm_manager()->services->add( Menus::class );
+
+		new Menus();
+//		$settings = new Settings();
 	}
 
 	/**
@@ -65,8 +68,8 @@ class Admin {
 	 */
 	public function admin_scripts( $hook ) {
 		$screen_ids = self::get_screen_ids();
-		utm_manager()->register_style( 'utmm-admin', 'css/utmm-admin.css' );
-		utm_manager()->register_script( 'utmm-admin', 'js/utmm-admin.js' );
+		// utm_manager()->register_style( 'utmm-admin', 'css/utmm-admin.css' );
+		// utm_manager()->register_script( 'utmm-admin', 'js/utmm-admin.js' );
 
 		if ( in_array( $hook, $screen_ids, true ) ) {
 			wp_enqueue_style( 'utmm-admin' );
