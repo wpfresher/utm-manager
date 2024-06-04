@@ -18,10 +18,7 @@ $list_table->prepare_items();
 			<?php esc_html_e( 'Add new lead', 'utm-manager' ); ?>
 		</a>
 	</h1>
-	<p>Here is the example list table updated at March 26, 2024</p>
-
 	<hr class="wp-header-end">
-
 	<form id="utmm_lead_list_table" method="get">
 		<?php
 		$list_table->views();

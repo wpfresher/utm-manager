@@ -101,7 +101,6 @@ class Plugin {
 	private function init_hooks() {
 		register_activation_hook( UTMM_FILE, array( $this, 'activate' ) );
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_action( 'admin_notices', array( $this, 'dependencies_notices' ) );
 		add_action( 'admin_notices', array( $this, 'display_flash_notices' ), 12 );
 		add_action( 'init', array( $this, 'init' ), 0 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -147,47 +146,6 @@ class Plugin {
 		}
 
 		return in_array( $plugin, $active_plugins, true ) || array_key_exists( $plugin, $active_plugins );
-	}
-
-	/**
-	 * Missing dependencies notice.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function dependencies_notices() {
-		if ( self::is_plugin_active( 'woocommerce' ) || ! current_user_can( 'activate_plugins' ) ) {
-			return;
-		}
-
-		$plugin            = 'woocommerce/woocommerce.php';
-		$installed_plugins = get_plugins();
-		if ( isset( $installed_plugins[ $plugin ] ) ) {
-			$notice = sprintf(
-			/* translators: 1: plugin name 2: WooCommerce */
-				__( '%1$s requires %2$s to be activated. %3$s', 'utm-manager' ),
-				'<strong>' . esc_html__( 'UTM Manager', 'utm-manager' ) . '</strong>',
-				'<strong>' . esc_html__( 'WooCommerce', 'utm-manager' ) . '</strong>',
-				sprintf(
-					'<a href="%s">%s</a>',
-					esc_url( wp_nonce_url( self_admin_url( 'plugins.php?action=activate&plugin=' . $plugin ), 'activate-plugin_' . $plugin ) ),
-					esc_html__( 'Activate WooCommerce', 'utm-manager' )
-				)
-			);
-		} else {
-			$notice = sprintf(
-			/* translators: 1: plugin name 2: WooCommerce */
-				__( '%1$s requires %2$s to be installed and activated. %3$s', 'utm-manager' ),
-				'<strong>' . esc_html__( 'UTM Manager', 'utm-manager' ) . '</strong>',
-				'<strong>' . esc_html__( 'WooCommerce', 'utm-manager' ) . '</strong>',
-				sprintf(
-					'<a href="%s">%s</a>',
-					esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=woocommerce' ), 'install-plugin_woocommerce' ) ),
-					esc_html__( 'Install WooCommerce', 'utm-manager' )
-				)
-			);
-		}
-		echo '<div class="error"><p>' . wp_kses_post( $notice ) . '</p></div>';
 	}
 
 	/**

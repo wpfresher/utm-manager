@@ -62,6 +62,7 @@ class Actions {
 	public static function handle_settings() {
 		wp_verify_nonce( '_nonce' );
 
+		$utm_id = $_POST['utmm_utm_id'];
 		// TODO: Do something.
 
 		utm_manager()->add_flash_notice( __( 'Settings saved successfully.', 'utm-manager' ) );

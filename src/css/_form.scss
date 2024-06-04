@@ -10,13 +10,19 @@
 		border-bottom: 1px solid #ddd;
 		display: flex;
 		flex-direction: row;
-		padding: 10px;
+		padding: 10px 20px;
 		.field-label{
 			display: flex;
 			width: 200px;
 		}
-		label{
+		label,
+		strong{
 			align-self: center;
+		}
+		.field{
+			.description{
+				margin-top: 5px;
+			}
 		}
 		.field-submit-btn{
 			width: 100%;

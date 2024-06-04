@@ -229,8 +229,6 @@ class LeadsListTable extends \WP_List_Table {
 					++$deleted;
 				}
 			}
-			utm_manager()->add_flash_notice( sprintf( /* translators: %d: number of master keys deleted. */  _n( '%d lead deleted.', '%d leads deleted.', $deleted, 'utm-manager' ), $deleted ) );
-			wp_safe_redirect( $referer );
 		}
 	}
 
