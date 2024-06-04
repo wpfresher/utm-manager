@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Class Leads.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package WpFreshers\UTMManager
  */
 class Leads {
 

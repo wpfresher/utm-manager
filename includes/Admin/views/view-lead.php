@@ -86,7 +86,7 @@
 				<strong><?php esc_html_e( 'UTM Content:', 'utm-manager' ); ?></strong>
 			</div>
 			<div class="field">
-				<p><?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_content', true ) ); ?></p>
+				<p><?php echo wp_kses_post( $lead->post_content ); ?></p>
 			</div>
 		</div>
 
