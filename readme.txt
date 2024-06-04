@@ -51,5 +51,5 @@ Yes! The plugin will track all the UTM parameters as configured in plugin settin
 
 == Changelog ==
 
-= 1.0.0 (02 March 2024) =
+= 1.0.0 (05 June 2024) =
 * Initial Release
