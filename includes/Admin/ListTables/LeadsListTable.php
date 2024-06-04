@@ -43,25 +43,29 @@ class LeadsListTable extends \WP_List_Table {
 	 * Paper items.
 	 */
 	public function prepare_items() {
+		wp_verify_nonce( '_wpnonce' );
 		$per_page              = $this->get_items_per_page( 'utmm_leads_per_page', 20 );
 		$columns               = $this->get_columns();
 		$hidden                = $this->get_hidden_columns();
 		$sortable              = $this->get_sortable_columns();
 		$this->_column_headers = array( $columns, $hidden, $sortable );
+		$order_by              = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : '';
+		$order                 = isset( $_GET['order'] ) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : '';
+		$search                = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
 
 		/**
-		 * Optional. You can handle your bulk actions however you see fit. In this
-		 * case, we'll handle them within our package just to keep leads clean.
+		 * Processing bulk action.
 		 */
 		$this->process_bulk_action();
 
 		$args = array(
 			'post_type'      => 'utmm_lead',
-			'paged'          => $this->get_pagenum(),
 			'posts_per_page' => $per_page,
+			'paged'          => $this->get_pagenum(),
+			's'              => $search,
+			'orderby'        => $order_by,
+			'order'          => $order,
 			'post_status'    => 'any',
-			'orderby'        => 'date',
-			'order'          => 'DESC',
 		);
 
 		$this->items       = utmm_get_leads( $args );
@@ -93,10 +97,15 @@ class LeadsListTable extends \WP_List_Table {
 	 */
 	public static function define_columns() {
 		$columns = array(
-			'cb'          => '<input type="checkbox" />',
-			'title'       => __( 'Title', 'utm-manager' ),
-			'description' => __( 'Description', 'utm-manager' ),
-			'date'        => __( 'Date', 'utm-manager' ),
+			'cb'           => '<input type="checkbox" />',
+			'name'         => __( 'IP', 'utm-manager' ),
+			'utm_id'       => __( 'UTM ID', 'utm-manager' ),
+			'utm_source'   => __( 'UTM Source', 'utm-manager' ),
+			'utm_medium'   => __( 'UTM Medium', 'utm-manager' ),
+			'utm_campaign' => __( 'UTM Campaign', 'utm-manager' ),
+			'utm_term'     => __( 'UTM Term', 'utm-manager' ),
+			'content'      => __( 'UTM Content', 'utm-manager' ),
+			'date'         => __( 'Date', 'utm-manager' ),
 		);
 
 		return $columns;
@@ -123,14 +132,14 @@ class LeadsListTable extends \WP_List_Table {
 	 * Get sortable columns.
 	 */
 	public function get_sortable_columns() {
-		return array( 'title' => array( 'title', false ) );
+		return array( 'name' => array( 'post_title', true ) );
 	}
 
 	/**
 	 * Get primary columns name. or define the primary column name.
 	 */
 	public function get_primary_column_name() {
-		return 'title';
+		return 'name';
 	}
 
 	/**
@@ -154,7 +163,7 @@ class LeadsListTable extends \WP_List_Table {
 	 * @return string Displays the Master key.
 	 * @since  1.0.0
 	 */
-	public function column_title( $item ) {
+	public function column_name( $item ) {
 		$edit_url   = add_query_arg( array( 'edit' => $item->ID ), admin_url( 'admin.php?page=utm-manager' ) );
 		$delete_url = add_query_arg(
 			array(
@@ -239,15 +248,54 @@ class LeadsListTable extends \WP_List_Table {
 
 		switch ( $column_name ) {
 
+			case 'utm_id':
+				$utm_id = get_post_meta( $item->ID, '_utmm_utm_id', true );
+				if ( $utm_id ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_id ) );
+				}
+				break;
+
+			case 'utm_source':
+				$utm_source = get_post_meta( $item->ID, '_utmm_utm_source', true );
+				if ( $utm_source ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_source ) );
+				}
+				break;
+
+			case 'utm_medium':
+				$utm_medium = get_post_meta( $item->ID, '_utmm_utm_medium', true );
+				if ( $utm_medium ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_medium ) );
+				}
+				break;
+
+			case 'utm_campaign':
+				$utm_campaign = get_post_meta( $item->ID, '_utmm_utm_campaign', true );
+				if ( $utm_campaign ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_campaign ) );
+				}
+				break;
+
+			case 'utm_term':
+				$utm_term = get_post_meta( $item->ID, '_utmm_utm_term', true );
+				if ( $utm_term ) {
+					$value = sprintf( '<span>%s</span>', esc_html( $utm_term ) );
+				}
+				break;
+
+			case 'content':
+				$utm_content = $item->post_content;
+				if ( $utm_content ) {
+					$value = wp_kses_post( $utm_content );
+				}
+				break;
+
 			case 'date':
 				$date = $item->post_date;
 				if ( $date ) {
 					$value = sprintf( '<time datetime="%s">%s</time>', esc_attr( $date ), esc_html( date_i18n( get_option( 'date_format' ) . ' | ' . get_option( 'time_format' ), strtotime( $date ) ) ) );
 				}
 				break;
-
-			// default: Need to be implemented by creating parent class.
-			// The default value passed to its parent method: $value = parent::column_default( $item, $column_name );.
 		}
 
 		return $value;

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UTM Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wpfreshers.com/plugins/utm-manager/\n"
-"POT-Creation-Date: 2024-06-04 04:37:48+00:00\n"
+"POT-Creation-Date: 2024-06-04 05:34:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,51 +28,71 @@ msgstr ""
 msgid "UTM Manager"
 msgstr ""
 
-#: includes/Admin/Admin.php:43 includes/Admin/Admin.php:44
+#: includes/Admin/Admin.php:46 includes/Admin/Admin.php:47
 msgid "Leads"
 msgstr ""
 
-#: includes/Admin/Admin.php:61 includes/Admin/Admin.php:62
+#: includes/Admin/Admin.php:64 includes/Admin/Admin.php:65
 #: includes/Admin/views/settings.php:13
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:88
+#: includes/Admin/Admin.php:91
 msgid "Leads per page"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:82
+#: includes/Admin/ListTables/LeadsListTable.php:89
 msgid "No items found."
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:94
-msgid "Title"
+#: includes/Admin/ListTables/LeadsListTable.php:101
+msgid "IP"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:95
-msgid "Description"
+#: includes/Admin/ListTables/LeadsListTable.php:102
+msgid "UTM ID"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:96
+#: includes/Admin/ListTables/LeadsListTable.php:103
+msgid "UTM Source"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:104
+msgid "UTM Medium"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:105
+msgid "UTM Campaign"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:106
+msgid "UTM Term"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:107
+msgid "UTM Content"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:108
 msgid "Date"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:165
+#: includes/Admin/ListTables/LeadsListTable.php:177
 #. translators: %d: key id.
 msgid "ID: %d"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:166
+#: includes/Admin/ListTables/LeadsListTable.php:178
 msgid "Edit"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:167
-#: includes/Admin/ListTables/LeadsListTable.php:181
+#: includes/Admin/ListTables/LeadsListTable.php:179
+#: includes/Admin/ListTables/LeadsListTable.php:193
 #: includes/Admin/views/edit-lead.php:44
 msgid "Delete"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:220
+#: includes/Admin/ListTables/LeadsListTable.php:232
 #. translators: %d: number of master keys deleted.
 msgid "%d lead deleted."
 msgid_plural "%d leads deleted."
@@ -123,57 +143,61 @@ msgstr ""
 msgid "Bellow are the example fields to add settings"
 msgstr ""
 
-#: includes/Admin/views/settings.php:22
+#: includes/Admin/views/settings.php:21
+msgid "General Settings"
+msgstr ""
+
+#: includes/Admin/views/settings.php:25
 msgid "Option name:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:24
+#: includes/Admin/views/settings.php:27
 msgid "Enter the option name"
 msgstr ""
 
-#: includes/Admin/views/settings.php:29
+#: includes/Admin/views/settings.php:32
 msgid "Option content:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:31
+#: includes/Admin/views/settings.php:34
 msgid "Enter the option content"
 msgstr ""
 
-#: includes/Admin/views/settings.php:37
-msgid "Update Settings"
+#: includes/Admin/views/settings.php:39
+msgid "Save Changes"
 msgstr ""
 
-#: includes/Controllers/Actions.php:46
+#: includes/Controllers/Actions.php:49
 msgid "Lead updated successfully."
 msgstr ""
 
-#: includes/Controllers/Actions.php:48
+#: includes/Controllers/Actions.php:51
 msgid "There has been an issue while updating the lead."
 msgstr ""
 
-#: includes/Controllers/Actions.php:64
+#: includes/Controllers/Actions.php:67
 msgid "Settings saved successfully."
 msgstr ""
 
-#: includes/Plugin.php:167
+#: includes/Plugin.php:168
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be activated. %3$s"
 msgstr ""
 
-#: includes/Plugin.php:169 includes/Plugin.php:181
+#: includes/Plugin.php:170 includes/Plugin.php:182
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/Plugin.php:173
+#: includes/Plugin.php:174
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/Plugin.php:179
+#: includes/Plugin.php:180
 #. translators: 1: plugin name 2: WooCommerce
 msgid "%1$s requires %2$s to be installed and activated. %3$s"
 msgstr ""
 
-#: includes/Plugin.php:185
+#: includes/Plugin.php:186
 msgid "Install WooCommerce"
 msgstr ""
 

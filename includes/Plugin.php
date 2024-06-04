@@ -250,6 +250,7 @@ class Plugin {
 	 */
 	public function init() {
 		new PostTypes();
+		new Leads();
 		new Admin\Admin();
 		new Controllers\Actions();
 	}

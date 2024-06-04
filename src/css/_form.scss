@@ -3,27 +3,33 @@
 	width: 100%;
 	border: 1px solid #ddd;
 	background: #fff;
+	h3, p{
+		margin: 0;
+	}
 	.field-group{
 		border-bottom: 1px solid #ddd;
 		display: flex;
 		flex-direction: row;
+		padding: 10px;
 		.field-label{
 			display: flex;
 			width: 200px;
-			padding: 0 0 0 10px;
 		}
 		label{
 			align-self: center;
 		}
 		.field-submit-btn{
 			width: 100%;
-			margin: 10px;
 		}
 		&.is-last-item{
 			border-bottom: none;
 			a{
 				align-self: center;
 			}
+		}
+		&.filed-section{
+			flex-direction: column;
+			gap: 10px;
 		}
 	}
 	input[type=text],
@@ -36,7 +42,6 @@
 	input[type=month],
 	textarea {
 		width: 100%;
-		margin: 10px;
 		padding: 5px 8px;
 		border: 1px solid #ddd;
 	}

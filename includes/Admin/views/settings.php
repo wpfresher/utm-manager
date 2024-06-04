@@ -12,11 +12,14 @@
 	<h1 class="wp-heading-inline">
 		<?php esc_html_e( 'Settings', 'utm-manager' ); ?>
 	</h1>
-	<p><?php esc_html_e( 'Bellow are the example fields to add settings', 'utm-manager' ); ?></p>
 
 	<hr class="wp-header-end">
 
 	<form id="utmm-form" method="post" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
+		<div class="field-group filed-section">
+			<h3><?php esc_html_e( 'General Settings', 'utm-manager' ); ?></h3>
+			<p><?php esc_html_e( 'The following options are the plugin general settings.', 'utm-manager' ); ?></p>
+		</div>
 		<div class="field-group">
 			<div class="field-label">
 				<label for="option_name"><?php esc_html_e( 'Option name:', 'utm-manager' ); ?></label>
@@ -32,9 +35,8 @@
 		</div>
 
 		<div class="field-group is-last-item">
-			<div class="field-label"></div>
 			<div class="field-submit-btn">
-				<button class="button button-primary"><?php esc_html_e( 'Update Settings', 'utm-manager' ); ?></button>
+				<button class="button button-primary"><?php esc_html_e( 'Save Changes', 'utm-manager' ); ?></button>
 			</div>
 		</div>
 
