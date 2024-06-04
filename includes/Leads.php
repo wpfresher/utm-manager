@@ -62,10 +62,11 @@ class Leads {
 		$post_args = array(
 			'post_type'   => 'utmm_lead',
 			'post_title'  => wp_strip_all_tags( $ip ),
+			'post_name'   => sanitize_title( $ip ),
 			'post_status' => 'publish',
 		);
 
-		$post_exists = self::get_post_by_title( $ip );
+		$post_exists = utmm_get_post_by_title( $ip );
 		if ( $post_exists ) {
 			$post_exists_args = array(
 				'ID' => intval( $post_exists ),
@@ -107,27 +108,6 @@ class Leads {
 
 		if ( isset( $_GET[ $utm_key ] ) ) {
 			return filter_var( wp_unslash( $_GET[ $utm_key ] ), FILTER_SANITIZE_STRING );
-		}
-
-		return null;
-	}
-
-	/**
-	 * Get the post by title.
-	 *
-	 * @param string $post_title The post title.
-	 *
-	 * @since 1.0.0
-	 * @return string|null
-	 */
-	public static function get_post_by_title( $post_title ) {
-		global $wpdb;
-
-		// Query posts by title.
-		$post = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type='utmm_lead'", $post_title ) );
-
-		if ( $post ) {
-			return $post;
 		}
 
 		return null;

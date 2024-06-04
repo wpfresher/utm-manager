@@ -12,29 +12,15 @@
 	<h1 class="wp-heading-inline">
 		<?php esc_html_e( 'Settings', 'utm-manager' ); ?>
 	</h1>
+	<p><?php esc_html_e( 'The following options are the plugin general settings.', 'utm-manager' ); ?></p>
+	<p><strong><?php esc_html_e( 'Example URL:', 'utm-manager' ); ?></strong></p>
+	<p><?php echo esc_html( 'https://domain.com/?utm_id=12345&utm_source=google&utm_medium=advertising&utm_campaign=black-friday-sale&utm_term=campaign-term&utm_content=campaign-content' ); ?></p>
 	<hr class="wp-header-end">
 	<form id="utmm-form" method="post" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
-		<div class="field-group filed-section">
-			<h3><?php esc_html_e( 'General Settings', 'utm-manager' ); ?></h3>
-			<p><?php esc_html_e( 'The following options are the plugin general settings.', 'utm-manager' ); ?></p>
-		</div>
-
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'Delete leads:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<label for="utmm_is_auto_delete_leads">
-					<input name="utmm_is_auto_delete_leads" id="utmm_is_auto_delete_leads" type="checkbox" value="yes" <?php checked( get_option( 'utmm_is_auto_delete_leads' ), 'yes' ); ?>>
-					<?php esc_html_e( ' Delete older leads automatically', 'utm-manager' ); ?>
-				</label>
-				<p class="description"><?php esc_html_e( 'Enable to automatically delete the older leads.', 'utm-manager' ); ?></p>
-			</div>
-		</div>
 
 		<div class="field-group filed-section">
 			<h3><?php esc_html_e( 'Setup UTM Parameter(s)', 'utm-manager' ); ?></h3>
-			<p><?php esc_html_e( 'The following options are the utm parameter settings.', 'utm-manager' ); ?></p>
+			<p><?php esc_html_e( 'The following options are the utm parameter settings. Al least an option needs to be checked to track the URL parameters.', 'utm-manager' ); ?></p>
 		</div>
 
 		<div class="field-group">

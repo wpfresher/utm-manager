@@ -233,11 +233,9 @@ class Plugin {
 		);
 
 		wp_register_style( 'utmm-admin', UTMM_URL . 'assets/dist/css/utmm-admin.css', array(), '1.0.0' );
-		wp_register_script( 'utmm-admin', UTMM_URL . 'assets/dist/js/utmm-admin.js', array( 'jquery' ), '1.0.0', true );
 
 		if ( in_array( $hook, $screens, true ) ) {
 			wp_enqueue_style( 'utmm-admin' );
-			wp_enqueue_script( 'utmm-admin' );
 		}
 	}
 }

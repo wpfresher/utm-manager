@@ -1,5 +1,5 @@
-=== Autocomplete Orders for WooCommerce ===
-Contributors: urldev
+=== UTM Manager ===
+Contributors: wpfreshers
 Tags: utm manager, utm tracker, utm insights, analytics, insights
 Requires at least: 5.0
 Tested up to: 6.5
@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Whether you're a marketer, blogger, store owner or business owner, UTM Manager is the essential tool for enhancing your website's analytics and driving growth.
+UTM Manager is the essential tool for enhancing website's analytics and driving growth.
 
 == Description ==
 UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.

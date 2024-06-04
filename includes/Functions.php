@@ -49,3 +49,30 @@ function utmm_get_leads( $args = array(), $count = false ) {
 
 	return array_map( 'utmm_get_lead', $query->posts );
 }
+
+/**
+ * Get the post by title.
+ *
+ * @param string $post_title The post title.
+ *
+ * @since 1.0.0
+ * @return string|null
+ */
+function utmm_get_post_by_title( $post_title ) {
+
+	$query = new WP_Query(
+		array(
+			'title'          => $post_title,
+			'post_type'      => 'utmm_lead',
+			'posts_per_page' => 1,
+		)
+	);
+
+	$post = $query->post;
+
+	if ( $post instanceof WP_Post && 'utmm_lead' === $post->post_type ) {
+		return $post->ID;
+	}
+
+	return null;
+}
