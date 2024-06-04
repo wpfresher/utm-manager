@@ -1,0 +1,43 @@
+#utmm-form{
+	max-width: 678px;
+	width: 100%;
+	border: 1px solid #ddd;
+	background: #fff;
+	.field-group{
+		border-bottom: 1px solid #ddd;
+		display: flex;
+		flex-direction: row;
+		.field-label{
+			display: flex;
+			width: 200px;
+			padding: 0 0 0 10px;
+		}
+		label{
+			align-self: center;
+		}
+		.field-submit-btn{
+			width: 100%;
+			margin: 10px;
+		}
+		&.is-last-item{
+			border-bottom: none;
+			a{
+				align-self: center;
+			}
+		}
+	}
+	input[type=text],
+	input[type=email],
+	input[type=password],
+	input[type=number],
+	input[type=date],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=month],
+	textarea {
+		width: 100%;
+		margin: 10px;
+		padding: 5px 8px;
+		border: 1px solid #ddd;
+	}
+}

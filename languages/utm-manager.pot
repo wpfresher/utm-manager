@@ -1,0 +1,514 @@
+# Copyright (C) 2024 wpfreshers
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: UTM Manager 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wpfreshers.com/plugins/utm-manager/\n"
+"POT-Creation-Date: 2024-06-04 04:37:48+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#. Plugin Name of the plugin/theme
+msgid "UTM Manager"
+msgstr ""
+
+#: includes/Admin/Admin.php:43 includes/Admin/Admin.php:44
+msgid "Leads"
+msgstr ""
+
+#: includes/Admin/Admin.php:61 includes/Admin/Admin.php:62
+#: includes/Admin/views/settings.php:13
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/Admin.php:88
+msgid "Leads per page"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:82
+msgid "No items found."
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:94
+msgid "Title"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:95
+msgid "Description"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:96
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:165
+#. translators: %d: key id.
+msgid "ID: %d"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:166
+msgid "Edit"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:167
+#: includes/Admin/ListTables/LeadsListTable.php:181
+#: includes/Admin/views/edit-lead.php:44
+msgid "Delete"
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:220
+#. translators: %d: number of master keys deleted.
+msgid "%d lead deleted."
+msgid_plural "%d leads deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/views/edit-lead.php:13 includes/PostTypes.php:40
+msgid "Edit Lead"
+msgstr ""
+
+#: includes/Admin/views/edit-lead.php:16
+msgid "Add Another"
+msgstr ""
+
+#: includes/Admin/views/edit-lead.php:19
+msgid "Go Back"
+msgstr ""
+
+#: includes/Admin/views/edit-lead.php:22
+msgid "Here is the example list table updated at March 26, 2024"
+msgstr ""
+
+#: includes/Admin/views/edit-lead.php:29
+msgid "Lead name:"
+msgstr ""
+
+#: includes/Admin/views/edit-lead.php:36
+msgid "Lead content:"
+msgstr ""
+
+#: includes/Admin/views/edit-lead.php:48
+msgid "Save lead"
+msgstr ""
+
+#: includes/Admin/views/leads.php:15
+msgid "Leads List Table"
+msgstr ""
+
+#: includes/Admin/views/leads.php:18
+msgid "Add new lead"
+msgstr ""
+
+#: includes/Admin/views/leads.php:28
+msgid "Search"
+msgstr ""
+
+#: includes/Admin/views/settings.php:15
+msgid "Bellow are the example fields to add settings"
+msgstr ""
+
+#: includes/Admin/views/settings.php:22
+msgid "Option name:"
+msgstr ""
+
+#: includes/Admin/views/settings.php:24
+msgid "Enter the option name"
+msgstr ""
+
+#: includes/Admin/views/settings.php:29
+msgid "Option content:"
+msgstr ""
+
+#: includes/Admin/views/settings.php:31
+msgid "Enter the option content"
+msgstr ""
+
+#: includes/Admin/views/settings.php:37
+msgid "Update Settings"
+msgstr ""
+
+#: includes/Controllers/Actions.php:46
+msgid "Lead updated successfully."
+msgstr ""
+
+#: includes/Controllers/Actions.php:48
+msgid "There has been an issue while updating the lead."
+msgstr ""
+
+#: includes/Controllers/Actions.php:64
+msgid "Settings saved successfully."
+msgstr ""
+
+#: includes/Plugin.php:167
+#. translators: 1: plugin name 2: WooCommerce
+msgid "%1$s requires %2$s to be activated. %3$s"
+msgstr ""
+
+#: includes/Plugin.php:169 includes/Plugin.php:181
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/Plugin.php:173
+msgid "Activate WooCommerce"
+msgstr ""
+
+#: includes/Plugin.php:179
+#. translators: 1: plugin name 2: WooCommerce
+msgid "%1$s requires %2$s to be installed and activated. %3$s"
+msgstr ""
+
+#: includes/Plugin.php:185
+msgid "Install WooCommerce"
+msgstr ""
+
+#: includes/PostTypes.php:38
+msgid "Add New Lead"
+msgstr ""
+
+#: includes/PostTypes.php:39
+msgid "New Lead"
+msgstr ""
+
+#: includes/PostTypes.php:41
+msgid "View Lead"
+msgstr ""
+
+#: includes/PostTypes.php:42
+msgid "All Leads"
+msgstr ""
+
+#: includes/PostTypes.php:43
+msgid "Search Leads"
+msgstr ""
+
+#: includes/PostTypes.php:44
+msgid "Parent Leads:"
+msgstr ""
+
+#: includes/PostTypes.php:45
+msgid "No leads found."
+msgstr ""
+
+#: includes/PostTypes.php:46
+msgid "No leads found in Trash."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/internationalized-plugin.php:11
+msgid "This is a dummy plugin"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:42
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:72
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:80
+msgid "There was an error when reading this WXR file"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:43
+msgid ""
+"Details are shown above. The importer will now try again with a different "
+"parser..."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:84
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:89
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:306
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:495
+msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:132
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:141
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:192
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:196
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:205
+msgid "Sorry, there has been an error."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:133
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
+msgid "All done."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
+msgid "Have fun!"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:177
+msgid "Remember to update the passwords and roles of imported users."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:197
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:213
+msgid ""
+"This WXR file (version %s) may not be supported by this version of the "
+"importer. Please consider updating."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:238
+msgid ""
+"Failed to import author %s. Their posts will be attributed to the current "
+"user."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:264
+msgid "Assign Authors"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:265
+msgid ""
+"To make it easier for you to edit and save the imported content, you may "
+"want to reassign the author of the imported item to an existing user of "
+"this site. For example, you may want to import all the entries as "
+"<code>admin</code>s entries."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:267
+msgid ""
+"If a new user is created by WordPress, a new password will be randomly "
+"generated and the new user&#8217;s role will be set as %s. Manually "
+"changing the new user&#8217;s details will be necessary."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:277
+msgid "Import Attachments"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:280
+msgid "Download and import file attachments"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:284
+msgid "Submit"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:297
+msgid "Import author:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:308
+msgid "or create new user with login name:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:311
+msgid "as a new user:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:319
+msgid "assign posts to an existing user:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:321
+msgid "or assign posts to an existing user:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:322
+msgid "- Select -"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:372
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:424
+msgid "Failed to import category %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:467
+msgid "Failed to import post tag %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:516
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:738
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:605
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:642
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:704
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:869
+msgid "Menu item skipped due to missing menu slug"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:876
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:939
+msgid "Fetching attachments is not enabled"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:952
+msgid "Invalid file type"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:996
+msgid "Remote server did not respond"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1002
+msgid "Remote server returned error response %1$d %2$s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1009
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1014
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1020
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1119
+msgid "Import WordPress"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1126
+msgid ""
+"A new version of this importer is available. Please update to version %s to "
+"ensure compatibility with newer export files."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1141
+msgid ""
+"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
+"the posts, pages, comments, custom fields, categories, and tags into this "
+"site."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1142
+msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1216
+msgid ""
+"Import <strong>posts, pages, comments, custom fields, categories, and "
+"tags</strong> from a WordPress export file."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/themedir1/internationalized-theme/functions.php:7
+msgid "This is a dummy theme"
+msgstr ""
+
+#: vendor/wp-cli/core-command/src/Core_Command.php:749
+msgid "Wildcard DNS may not be configured correctly."
+msgstr ""
+
+#: vendor/wp-cli/entity-command/src/Site_Command.php:157
+msgid "Uncategorized"
+msgstr ""
+
+#: vendor/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:20
+#: vendor/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:25
+msgid "Export Error"
+msgstr ""
+
+#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:770
+msgid " Try again"
+msgstr ""
+
+#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:776
+msgid "API error. Try Again."
+msgstr ""
+
+#: vendor/wp-cli/media-command/src/Media_Command.php:151
+msgid "image"
+msgid_plural "images"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:247
+msgid "Inactive Widgets"
+msgstr ""
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:250
+msgid "Drag widgets here to remove them from the sidebar but keep their settings."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://wpfreshers.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "UTM Manager will help to track visitors as a lead."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "wpfreshers"
+msgstr ""
+
+#: includes/PostTypes.php:33
+msgctxt "post type general name"
+msgid "Leads"
+msgstr ""
+
+#: includes/PostTypes.php:34
+msgctxt "post type singular name"
+msgid "Lead"
+msgstr ""
+
+#: includes/PostTypes.php:35
+msgctxt "admin menu"
+msgid "Leads"
+msgstr ""
+
+#: includes/PostTypes.php:36
+msgctxt "add new on admin bar"
+msgid "Lead"
+msgstr ""
+
+#: includes/PostTypes.php:37
+msgctxt "ticket"
+msgid "Add New"
+msgstr ""
+
+#: vendor/wp-cli/core-command/src/Core_Command.php:491
+#: vendor/wp-cli/core-command/src/Core_Command.php:565
+#. translators: placeholder is blog name
+#. translators: placeholder is user supplied title
+msgctxt "Default network name"
+msgid "%s Sites"
+msgstr ""
+
+#: vendor/wp-cli/entity-command/src/Site_Command.php:160
+#. translators: Default category slug
+msgctxt "Default category slug"
+msgid "Uncategorized"
+msgstr ""
