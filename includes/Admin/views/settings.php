@@ -21,11 +21,11 @@
 
 		<div class="field-group">
 			<div class="field-label">
-				<strong><?php esc_html_e( 'Delete leads automatically:', 'utm-manager' ); ?></strong>
+				<strong><?php esc_html_e( 'Delete leads:', 'utm-manager' ); ?></strong>
 			</div>
 			<div class="field">
 				<label for="utmm_is_auto_delete_leads">
-					<input name="utmm_is_auto_delete_leads" id="utmm_is_auto_delete_leads" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_is_auto_delete_leads" id="utmm_is_auto_delete_leads" type="checkbox" value="yes" <?php checked( get_option( 'utmm_is_auto_delete_leads' ), 'yes' ); ?>>
 					<?php esc_html_e( ' Delete older leads automatically', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to automatically delete the older leads.', 'utm-manager' ); ?></p>
@@ -43,7 +43,7 @@
 			</div>
 			<div class="field">
 				<label for="utmm_utm_id">
-					<input name="utmm_utm_id" id="utmm_utm_id" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_utm_id" id="utmm_utm_id" type="checkbox" value="yes" <?php checked( get_option( 'utmm_utm_id' ), 'yes' ); ?>>
 					<?php esc_html_e( 'Enable utm_id', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to track the utm_id URL parameter as a lead.', 'utm-manager' ); ?></p>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="field">
 				<label for="utmm_utm_source">
-					<input name="utmm_utm_source" id="utmm_utm_source" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_utm_source" id="utmm_utm_source" type="checkbox" value="yes" <?php checked( get_option( 'utmm_utm_source' ), 'yes' ); ?>>
 					<?php esc_html_e( 'Enable utm_source', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to track the utm_source URL parameter as a lead.', 'utm-manager' ); ?></p>
@@ -69,7 +69,7 @@
 			</div>
 			<div class="field">
 				<label for="utmm_utm_medium">
-					<input name="utmm_utm_medium" id="utmm_utm_medium" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_utm_medium" id="utmm_utm_medium" type="checkbox" value="yes" <?php checked( get_option( 'utmm_utm_medium' ), 'yes' ); ?>>
 					<?php esc_html_e( 'Enable utm_medium', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to track the utm_medium URL parameter as a lead.', 'utm-manager' ); ?></p>
@@ -82,7 +82,7 @@
 			</div>
 			<div class="field">
 				<label for="utmm_utm_campaign">
-					<input name="utmm_utm_campaign" id="utmm_utm_campaign" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_utm_campaign" id="utmm_utm_campaign" type="checkbox" value="yes" <?php checked( get_option( 'utmm_utm_campaign' ), 'yes' ); ?>>
 					<?php esc_html_e( 'Enable utm_campaign', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to track the utm_campaign URL parameter as a lead.', 'utm-manager' ); ?></p>
@@ -95,7 +95,7 @@
 			</div>
 			<div class="field">
 				<label for="utmm_utm_term">
-					<input name="utmm_utm_term" id="utmm_utm_term" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_utm_term" id="utmm_utm_term" type="checkbox" value="yes" <?php checked( get_option( 'utmm_utm_term' ), 'yes' ); ?>>
 					<?php esc_html_e( 'Enable utm_term', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to track the utm_term URL parameter as a lead.', 'utm-manager' ); ?></p>
@@ -108,7 +108,7 @@
 			</div>
 			<div class="field">
 				<label for="utmm_utm_content">
-					<input name="utmm_utm_content" id="utmm_utm_content" type="checkbox" class="" value="1" checked="checked">
+					<input name="utmm_utm_content" id="utmm_utm_content" type="checkbox" value="yes" <?php checked( get_option( 'utmm_utm_content' ), 'yes' ); ?>>
 					<?php esc_html_e( 'Enable utm_content', 'utm-manager' ); ?>
 				</label>
 				<p class="description"><?php esc_html_e( 'Enable to track the utm_content URL parameter as a lead.', 'utm-manager' ); ?></p>

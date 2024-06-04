@@ -13,10 +13,6 @@ $list_table->prepare_items();
 	<div id="icon-users" class="icon32"></div>
 	<h1 class="wp-heading-inline">
 		<?php esc_html_e( 'Leads List Table', 'utm-manager' ); ?>
-		<!-- Add new lead -->
-		<a href="<?php echo esc_attr( admin_url( 'admin.php?page=utm-manager&add=1' ) ); ?>" class="page-title-action">
-			<?php esc_html_e( 'Add new lead', 'utm-manager' ); ?>
-		</a>
 	</h1>
 	<hr class="wp-header-end">
 	<form id="utmm_lead_list_table" method="get">

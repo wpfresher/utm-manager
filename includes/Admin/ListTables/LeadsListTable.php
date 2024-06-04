@@ -164,7 +164,7 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since  1.0.0
 	 */
 	public function column_name( $item ) {
-		$edit_url   = add_query_arg( array( 'edit' => $item->ID ), admin_url( 'admin.php?page=utm-manager' ) );
+		$view_url   = add_query_arg( array( 'view' => $item->ID ), admin_url( 'admin.php?page=utm-manager' ) );
 		$delete_url = add_query_arg(
 			array(
 				'id'     => $item->ID,
@@ -172,10 +172,10 @@ class LeadsListTable extends \WP_List_Table {
 			),
 			admin_url( 'admin.php?page=utm-manager' )
 		);
-		$item_title = sprintf( '<a href="%1$s">%2$s</a>', $edit_url, esc_html( $item->post_title ) );
+		$item_title = sprintf( '<a href="%1$s">%2$s</a>', $view_url, esc_html( $item->post_title ) );
 		// translators: %d: key id.
 		$actions['id']     = sprintf( __( 'ID: %d', 'utm-manager' ), esc_html( $item->ID ) );
-		$actions['edit']   = sprintf( '<a href="%1$s">%2$s</a>', $edit_url, __( 'Edit', 'utm-manager' ) );
+		$actions['view']   = sprintf( '<a href="%1$s">%2$s</a>', $view_url, __( 'View', 'utm-manager' ) );
 		$actions['delete'] = sprintf( '<a href="%1$s">%2$s</a>', wp_nonce_url( $delete_url, 'bulk-utmm_lead' ), __( 'Delete', 'utm-manager' ) );
 
 		return sprintf( '%1$s %2$s', $item_title, $this->row_actions( $actions ) );

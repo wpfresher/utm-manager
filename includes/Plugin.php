@@ -114,6 +114,12 @@ class Plugin {
 	 */
 	public function activate() {
 		update_option( 'utmm_version', UTMM_VERSION );
+		update_option( 'utmm_utm_id', 'yes' );
+		update_option( 'utmm_utm_source', 'yes' );
+		update_option( 'utmm_utm_medium', 'yes' );
+		update_option( 'utmm_utm_campaign', 'yes' );
+		update_option( 'utmm_utm_term', 'yes' );
+		update_option( 'utmm_utm_content', 'yes' );
 	}
 
 	/**

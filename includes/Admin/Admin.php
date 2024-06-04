@@ -115,19 +115,19 @@ class Admin {
 	 */
 	public function render_page() {
 		wp_verify_nonce( '_nonce' );
-		$edit = isset( $_GET['edit'] ) ? absint( $_GET['edit'] ) : 0;
+		$view = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0;
 
-		if ( $edit ) {
-			$lead = utmm_get_lead( $edit );
+		if ( $view ) {
+			$lead = utmm_get_lead( $view );
 
 			if ( ! $lead instanceof \WP_Post ) {
-				wp_safe_redirect( remove_query_arg( 'edit' ) );
+				wp_safe_redirect( remove_query_arg( 'view' ) );
 				exit();
 			}
 		}
 
-		if ( $edit ) {
-			include __DIR__ . '/views/edit-lead.php';
+		if ( $view ) {
+			include __DIR__ . '/views/view-lead.php';
 		} else {
 			include __DIR__ . '/views/leads.php';
 		}

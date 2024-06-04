@@ -16,44 +16,7 @@ class Actions {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'admin_post_utmm_edit_lead', array( __CLASS__, 'handle_edit_lead' ) );
 		add_action( 'admin_post_utmm_update_settings', array( __CLASS__, 'handle_settings' ) );
-	}
-
-	/**
-	 * Edit lead.
-	 */
-	public static function handle_edit_lead() {
-		wp_verify_nonce( '_nonce' );
-		$lead_id      = isset( $_POST['id'] ) ? intval( wp_unslash( $_POST['id'] ) ) : '';
-		$lead_name    = isset( $_POST['lead_name'] ) ? sanitize_text_field( wp_unslash( $_POST['lead_name'] ) ) : '';
-		$lead_content = isset( $_POST['lead_content'] ) ? sanitize_textarea_field( wp_unslash( $_POST['lead_content'] ) ) : '';
-
-		if ( ! $lead_id ) {
-			wp_safe_redirect( wp_get_referer() );
-			exit;
-		}
-
-		// Lead args.
-		$args = array(
-			'ID'           => $lead_id,
-			'post_type'    => 'utmm_lead',
-			'post_title'   => $lead_name,
-			'post_content' => $lead_content,
-		);
-
-		// Update lead.
-		$lead = wp_update_post( $args );
-
-		if ( ! is_wp_error( $lead ) ) {
-			utm_manager()->add_flash_notice( __( 'Lead updated successfully.', 'utm-manager' ) );
-		} else {
-			utm_manager()->add_flash_notice( __( 'There has been an issue while updating the lead.', 'utm-manager' ) );
-		}
-
-		$redirect_to = admin_url( 'admin.php?page=utm-manager&edit=' . intval( $lead ) );
-		wp_safe_redirect( $redirect_to );
-		exit;
 	}
 
 	/**
@@ -62,8 +25,21 @@ class Actions {
 	public static function handle_settings() {
 		wp_verify_nonce( '_nonce' );
 
-		$utm_id = $_POST['utmm_utm_id'];
-		// TODO: Do something.
+		$is_auto_delete = isset( $_POST['utmm_is_auto_delete_leads'] ) ? sanitize_key( wp_unslash( $_POST['utmm_is_auto_delete_leads'] ) ) : '';
+		$utm_id         = isset( $_POST['utmm_utm_id'] ) ? sanitize_key( wp_unslash( $_POST['utmm_utm_id'] ) ) : '';
+		$utm_source     = isset( $_POST['utmm_utm_source'] ) ? sanitize_key( wp_unslash( $_POST['utmm_utm_source'] ) ) : '';
+		$utm_medium     = isset( $_POST['utmm_utm_medium'] ) ? sanitize_key( wp_unslash( $_POST['utmm_utm_medium'] ) ) : '';
+		$utm_campaign   = isset( $_POST['utmm_utm_campaign'] ) ? sanitize_key( wp_unslash( $_POST['utmm_utm_campaign'] ) ) : '';
+		$utm_term       = isset( $_POST['utmm_utm_term'] ) ? sanitize_key( wp_unslash( $_POST['utmm_utm_term'] ) ) : '';
+		$utm_content    = isset( $_POST['utmm_utm_content'] ) ? sanitize_key( wp_unslash( $_POST['utmm_utm_content'] ) ) : '';
+
+		update_option( 'utmm_is_auto_delete_leads', $is_auto_delete );
+		update_option( 'utmm_utm_id', $utm_id );
+		update_option( 'utmm_utm_source', $utm_source );
+		update_option( 'utmm_utm_medium', $utm_medium );
+		update_option( 'utmm_utm_campaign', $utm_campaign );
+		update_option( 'utmm_utm_term', $utm_term );
+		update_option( 'utmm_utm_content', $utm_content );
 
 		utm_manager()->add_flash_notice( __( 'Settings saved successfully.', 'utm-manager' ) );
 		wp_safe_redirect( wp_get_referer() );

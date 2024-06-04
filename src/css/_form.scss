@@ -13,7 +13,7 @@
 		padding: 10px 20px;
 		.field-label{
 			display: flex;
-			width: 200px;
+			width: 180px;
 		}
 		label,
 		strong{
@@ -36,6 +36,7 @@
 		&.filed-section{
 			flex-direction: column;
 			gap: 10px;
+			background: #dddddd;
 		}
 	}
 	input[type=text],
