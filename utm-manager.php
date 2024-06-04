@@ -1,15 +1,28 @@
 <?php
 /**
  * Plugin Name: UTM Manager
- * Description: UTM Manager will help to track visitors as a lead.
- * Plugin URI:  https://wpfreshers.com
- * Author:      wpfreshers
- * Author URI:  https://wpfreshers.com
+ * Description: UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.
  * Version:     1.0.0
+ * Plugin URI:  https://wpfreshers.com/plugins/utm-manager/
+ * Author:      WpFreshers
+ * Author URI:  https://wpfreshers.com
  * Textdomain:  utm-manager
- * License:     GPL2
+ * Domain Path: /languages/
+ * License:     GPL-2.0-or-later
+ * Requires PHP: 5.6
+ * Tested up to: 6.5
  *
  * @package WpFreshers\UTMManager
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  */
 
 use WpFreshers\UTMManager\Plugin;
@@ -32,7 +45,7 @@ spl_autoload_register(
 		// Replace the namespace separator with the directory separator.
 		$file = str_replace( '\\', DIRECTORY_SEPARATOR, $relative_class ) . '.php';
 
-		// Look for the file in the src and lib directories.
+		// Look for the file in the includes directories.
 		$file_paths = array(
 			__DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . $file,
 		);
