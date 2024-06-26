@@ -27,20 +27,31 @@ class LeadsListTable extends \WP_List_Table {
 
 	/**
 	 * Leads list table constructor.
+	 *
+	 * @param array $args An associative array of arguments.
+	 *
+	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @since 1.0.0
 	 */
-	public function __construct() {
-		$this->screen = get_current_screen();
+	public function __construct( $args = array() ) {
 		parent::__construct(
-			array(
-				'singular' => 'lead',
-				'plural'   => 'leads',
-				'ajax'     => false,
-			)
+			wp_parse_args(
+				$args,
+				array(
+					'singular' => 'lead',
+					'plural'   => 'leads',
+					'screen'   => get_current_screen(),
+					'args'     => array(),
+				),
+			),
 		);
 	}
 
 	/**
 	 * Paper items.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function prepare_items() {
 		wp_verify_nonce( '_wpnonce' );
@@ -82,8 +93,8 @@ class LeadsListTable extends \WP_List_Table {
 	/**
 	 * No items found text.
 	 *
-	 * @return void
 	 * @since 1.0.0
+	 * @return void
 	 */
 	public function no_items() {
 		esc_html_e( 'No items found.', 'utm-manager' );
@@ -112,10 +123,10 @@ class LeadsListTable extends \WP_List_Table {
 	}
 
 	/**
-	 * Get the table columns
+	 * Get the table columns.
 	 *
-	 * @return array
 	 * @since 1.0.0
+	 * @return array
 	 */
 	public function get_columns() {
 		return get_column_headers( get_current_screen() );
@@ -123,6 +134,9 @@ class LeadsListTable extends \WP_List_Table {
 
 	/**
 	 * Get hidden columns.
+	 *
+	 * @since 1.0.0
+	 * @return array
 	 */
 	public function get_hidden_columns() {
 		return get_hidden_columns( get_current_screen() );
@@ -130,6 +144,9 @@ class LeadsListTable extends \WP_List_Table {
 
 	/**
 	 * Get sortable columns.
+	 *
+	 * @since 1.0.0
+	 * @return array
 	 */
 	public function get_sortable_columns() {
 		return array( 'name' => array( 'post_title', true ) );
@@ -137,6 +154,9 @@ class LeadsListTable extends \WP_List_Table {
 
 	/**
 	 * Get primary columns name. or define the primary column name.
+	 *
+	 * @since 1.0.0
+	 * @return string
 	 */
 	public function get_primary_column_name() {
 		return 'name';
@@ -147,8 +167,8 @@ class LeadsListTable extends \WP_List_Table {
 	 *
 	 * @param Object $item The current master key object.
 	 *
-	 * @return string Displays a checkbox.
 	 * @since  1.0.0
+	 * @return string Displays a checkbox.
 	 */
 	public function column_cb( $item ) {
 		return sprintf( '<input type="checkbox" name="ids[]" value="%d"/>', esc_attr( $item->ID ) );
@@ -160,8 +180,8 @@ class LeadsListTable extends \WP_List_Table {
 	 *
 	 * @param Object $item The current master key object.
 	 *
-	 * @return string Displays the Master key.
 	 * @since  1.0.0
+	 * @return string Displays the Master key.
 	 */
 	public function column_name( $item ) {
 		$view_url   = add_query_arg( array( 'view' => $item->ID ), admin_url( 'admin.php?page=utm-manager' ) );
@@ -182,10 +202,9 @@ class LeadsListTable extends \WP_List_Table {
 	}
 
 	/**
-	 * Get bulk actions
+	 * Get bulk actions.
 	 *
-	 * since 1.0.0
-	 *
+	 * @since 1.0.0
 	 * @return array
 	 */
 	public function get_bulk_actions() {
@@ -202,6 +221,9 @@ class LeadsListTable extends \WP_List_Table {
 	 * clean and organized.
 	 *
 	 * @see $this->prepare_items()
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	protected function process_bulk_action() {
 
@@ -239,6 +261,7 @@ class LeadsListTable extends \WP_List_Table {
 	 * @param string $column_name The name of the column.
 	 *
 	 * @since 1.0.0
+	 * @return mixed | string
 	 */
 	public function column_default( $item, $column_name ) {
 
