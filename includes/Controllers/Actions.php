@@ -1,14 +1,14 @@
 <?php
 
-namespace WpFreshers\UTMManager\Controllers;
+namespace UTMManager\Controllers;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Actions Class.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager\Controllers
+ * @package UTMManager\Controllers
  */
 class Actions {
 
@@ -21,6 +21,9 @@ class Actions {
 
 	/**
 	 * Updating settings.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public static function handle_settings() {
 		wp_verify_nonce( '_nonce' );

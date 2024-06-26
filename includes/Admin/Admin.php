@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager\Admin;
+namespace UTMManager\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Class Admin.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager\Admin
+ * @package UTMManager\Admin
  */
 class Admin {
 
@@ -21,7 +21,7 @@ class Admin {
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
 		add_filter(
 			'manage_toplevel_page_utm-manager_columns',
-			array( 'WpFreshers\UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
+			array( 'UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
 			10,
 			0
 		);
@@ -29,6 +29,9 @@ class Admin {
 
 	/**
 	 * Add menu page.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function add_menu() {
 		add_menu_page(
@@ -57,6 +60,9 @@ class Admin {
 
 	/**
 	 * Add settings submenu.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function settings_menu() {
 		add_submenu_page(
@@ -71,6 +77,9 @@ class Admin {
 
 	/**
 	 * Render settings page.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function settings_page() {
 		include __DIR__ . '/views/settings.php';
@@ -112,6 +121,9 @@ class Admin {
 
 	/**
 	 * Render menu page content.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function render_page() {
 		wp_verify_nonce( '_nonce' );

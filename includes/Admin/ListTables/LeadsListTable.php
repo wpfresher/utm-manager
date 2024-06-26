@@ -1,8 +1,8 @@
 <?php
 
-namespace WpFreshers\UTMManager\Admin\ListTables;
+namespace UTMManager\Admin\ListTables;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 // WP_List_Table is not loaded automatically, so we need to load it in our application.
 if ( ! class_exists( 'WP_List_Table' ) ) {
@@ -13,7 +13,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
  * Class Leads List Table.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager\Admin\ListTables
+ * @package UTMManager\Admin\ListTables
  */
 class LeadsListTable extends \WP_List_Table {
 

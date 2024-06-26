@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager;
+namespace UTMManager;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
  * The main plugin class.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 class Plugin {
 
@@ -89,7 +89,7 @@ class Plugin {
 	 * @return void
 	 */
 	public function includes() {
-		require_once __DIR__ . '/Functions.php';
+		require_once __DIR__ . '/functions.php';
 	}
 
 	/**

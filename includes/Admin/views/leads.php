@@ -3,14 +3,15 @@
  * Leads list table.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 
-$list_table = new WpFreshers\UTMManager\Admin\ListTables\LeadsListTable();
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
+$list_table = new UTMManager\Admin\ListTables\LeadsListTable();
 $list_table->prepare_items();
 ?>
 <div class="wrap">
-	<div id="icon-users" class="icon32"></div>
 	<h1 class="wp-heading-inline">
 		<?php esc_html_e( 'Leads List Table', 'utm-manager' ); ?>
 	</h1>

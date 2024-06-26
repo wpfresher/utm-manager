@@ -14,7 +14,7 @@
  * Tested up to: 6.5
  * Requires at least: 5.2
  *
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,14 +27,14 @@
  *  GNU General Public License for more details.
  */
 
-use WpFreshers\UTMManager\Plugin;
+use UTMManager\Plugin;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 // Autoload function.
 spl_autoload_register(
 	function ( $class_name ) {
-		$prefix = 'WpFreshers\\UTMManager\\';
+		$prefix = 'UTMManager\\';
 		$len    = strlen( $prefix );
 
 		// Bail out if the class name doesn't start with our prefix.
