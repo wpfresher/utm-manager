@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 	</h1>
 	<p><?php esc_html_e( 'The following options are the plugin general settings.', 'utm-manager' ); ?></p>
 	<p><strong><?php esc_html_e( 'Example URL:', 'utm-manager' ); ?></strong></p>
-	<p><?php echo esc_html( 'https://domain.com/?utm_id=12345&utm_source=google&utm_medium=advertising&utm_campaign=black-friday-sale&utm_term=campaign-term&utm_content=campaign-content' ); ?></p>
+	<p><?php echo esc_html( 'https://your-domain.com/?utm_id=12345&utm_source=google&utm_medium=advertising&utm_campaign=black-friday-sale&utm_term=campaign-term&utm_content=campaign-content' ); ?></p>
 	<hr class="wp-header-end">
 	<form id="utmm-form" method="post" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
 
