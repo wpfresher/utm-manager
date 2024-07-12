@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 			<?php esc_html_e( 'Go Back', 'utm-manager' ); ?>
 		</a>
 	</h1>
-	<p><?php esc_html_e( 'Here is the example list table updated at March 26, 2024', 'utm-manager' ); ?></p>
+	<p><?php esc_html_e( 'The following details provide the lead information:', 'utm-manager' ); ?></p>
 
 	<hr class="wp-header-end">
 

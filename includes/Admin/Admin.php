@@ -133,7 +133,7 @@ class Admin {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			utm_manager()->add_flash_notice( esc_html__( 'You do not have permission to perform this action.', 'utm-manager' ), 'error' );
-			$redirect_url = remove_query_arg( array( 'action', 'ids', '_wpnonce' ) );
+			$redirect_url = remove_query_arg( array( 'action', 'action2', 'ids', '_wpnonce', '_wp_http_referer' ) );
 			wp_safe_redirect( $redirect_url );
 			exit;
 		}
@@ -162,7 +162,7 @@ class Admin {
 
 			if ( ! headers_sent() ) {
 				// Redirect to avoid resubmission.
-				$redirect_url = remove_query_arg( array( 'action', 'ids', '_wpnonce' ) );
+				$redirect_url = remove_query_arg( array( 'action', 'action2', 'ids', '_wpnonce', '_wp_http_referer' ) );
 				wp_safe_redirect( $redirect_url );
 				exit;
 			}

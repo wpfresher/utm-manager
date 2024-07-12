@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 ?>
 <div class="wrap">
 	<h1 class="wp-heading-inline">
-		<?php esc_html_e( 'Leads List Table', 'utm-manager' ); ?>
+		<?php esc_html_e( 'Leads', 'utm-manager' ); ?>
 	</h1>
 	<hr class="wp-header-end">
 	<form id="utmm-leads-table" method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>">
