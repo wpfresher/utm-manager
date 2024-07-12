@@ -2,7 +2,7 @@
 
 namespace UTMManager;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Class PostTypes.
