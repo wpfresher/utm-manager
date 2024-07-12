@@ -12,7 +12,6 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 ?>
 <div class="wrap utmm-wrap">
-	<div id="icon-users" class="icon32"></div>
 	<h1 class="wp-heading-inline">
 		<?php esc_html_e( 'View Lead', 'utm-manager' ); ?>
 		<a href="<?php echo esc_attr( admin_url( 'admin.php?page=utm-manager' ) ); ?>" class="page-title-action">
