@@ -49,18 +49,25 @@ class Admin {
 	 * Render things menu.
 	 */
 	public function render_things_list_table_page() {
-		$things_list_table = new \WpFreshers\UTMManager\Admin\ListTables\ThingsListTable();
-		$things_list_table->prepare_items();
-		?>
-		<div class="wrap">
-			<h1 class="wp-heading-inline">Custom List Table</h1>
-			<form method="post">
-				<?php
-				$things_list_table->display();
-				?>
-			</form>
-		</div>
-		<?php
+		wp_verify_nonce( '_nonce' );
+		$view = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0;
+
+		if ( $view ) {
+			$lead = utmm_get_lead( $view );
+
+			if ( ! $lead instanceof \WP_Post ) {
+				wp_safe_redirect( remove_query_arg( 'view' ) );
+				exit();
+			}
+		}
+
+		if ( $view ) {
+			include __DIR__ . '/views/view-thing.php';
+		} else {
+			$list_table = new \WpFreshers\UTMManager\Admin\ListTables\ThingsListTable();
+			$list_table->prepare_items();
+			include __DIR__ . '/views/things.php';
+		}
 	}
 
 	/**
