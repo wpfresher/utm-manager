@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager\Admin\ListTables;
+namespace UTMManager\Admin\ListTables;
 
 use PhpParser\Node\Expr\Cast\Object_;
 
@@ -15,7 +15,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
  * Class ThingsListTable List Table.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager\Admin\ListTables
+ * @package UTMManager\Admin\ListTables
  */
 class LeadsListTable extends \WP_List_Table {
 

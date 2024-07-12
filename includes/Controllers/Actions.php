@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager\Controllers;
+namespace UTMManager\Controllers;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Actions Class.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager\Controllers
+ * @package UTMManager\Controllers
  */
 class Actions {
 

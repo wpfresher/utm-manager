@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager;
+namespace UTMManager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Class Leads.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 class Leads {
 

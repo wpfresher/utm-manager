@@ -3,7 +3,7 @@
  * Settings.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 
 ?>

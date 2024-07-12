@@ -1,14 +1,14 @@
 <?php
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
- * Get master key.
+ * Get lead.
  *
  * @param mixed $data The data.
  *
- * @return WP_Post|false The lead object, or false if not found.
  * @since 1.0.0
+ * @return WP_Post|false The lead object, or false if not found.
  */
 function utmm_get_lead( $data ) {
 
@@ -29,8 +29,8 @@ function utmm_get_lead( $data ) {
  * @param array $args The args.
  * @param bool  $count Whether to return a count.
  *
- * @return array|int The leads.
  * @since 1.0.0
+ * @return array|int The leads.
  */
 function utmm_get_leads( $args = array(), $count = false ) {
 	$defaults = array(

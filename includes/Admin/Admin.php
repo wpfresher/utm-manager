@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager\Admin;
+namespace UTMManager\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Class Admin.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager\Admin
+ * @package UTMManager\Admin
  */
 class Admin {
 
@@ -19,6 +19,7 @@ class Admin {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
 		add_action( 'load-toplevel_page_utm-manager', array( $this, 'handle_list_table_actions' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -108,7 +109,7 @@ class Admin {
 		if ( $view ) {
 			include __DIR__ . '/views/view-lead.php';
 		} else {
-			$list_table = new \WpFreshers\UTMManager\Admin\ListTables\LeadsListTable();
+			$list_table = new \UTMManager\Admin\ListTables\LeadsListTable();
 			$list_table->prepare_items();
 			include __DIR__ . '/views/leads.php';
 		}
@@ -118,7 +119,7 @@ class Admin {
 	 * Handle leads list table.
 	 */
 	public function handle_list_table_actions() {
-		$wp_list_table = new \WpFreshers\UTMManager\Admin\ListTables\LeadsListTable();
+		$wp_list_table = new \UTMManager\Admin\ListTables\LeadsListTable();
 		$wp_list_table->process_bulk_action();
 
 		if ( 'delete' === $wp_list_table->current_action() ) {
@@ -148,6 +149,26 @@ class Admin {
 				wp_safe_redirect( $redirect_url );
 				exit;
 			}
+		}
+	}
+
+	/**
+	 * Enqueue admin scripts.
+	 *
+	 * @param string $hook Hook name.
+	 *
+	 * @since 1.0.0
+	 */
+	public function enqueue_scripts( $hook ) {
+		$screens = array(
+			'toplevel_page_utm-manager',
+			'utm-manager_page_utmm-settings',
+		);
+
+		wp_register_style( 'utmm-admin', UTMM_URL . 'assets/dist/css/utmm-admin.css', array(), '1.0.0' );
+
+		if ( in_array( $hook, $screens, true ) ) {
+			wp_enqueue_style( 'utmm-admin' );
 		}
 	}
 }

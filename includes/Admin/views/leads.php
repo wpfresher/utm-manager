@@ -3,7 +3,7 @@
  * Leads list table.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  *
  * @var object $list_table Leads list table.
  */

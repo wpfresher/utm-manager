@@ -3,7 +3,7 @@
  * View lead.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
