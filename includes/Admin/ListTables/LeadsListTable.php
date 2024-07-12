@@ -64,7 +64,7 @@ class LeadsListTable extends \WP_List_Table {
 		 *
 		 * @since 1.0.0
 		 */
-		$args = apply_filters( 'utm_manager_leads_table_query_args', $args );
+		$args = apply_filters( 'utmm_leads_table_query_args', $args );
 
 		$this->items = utmm_get_leads( $args );
 		$total       = utmm_get_leads( $args, true );

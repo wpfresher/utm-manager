@@ -49,7 +49,7 @@ class Admin {
 			__( 'Leads', 'utm-manager' ),
 			'manage_options',
 			'utm-manager',
-			array( $this, 'render_page' ),
+			array( $this, 'render_leads_page' ),
 		);
 
 		// Load screen options.
@@ -58,6 +58,9 @@ class Admin {
 
 	/**
 	 * Add settings submenu.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function settings_menu() {
 		add_submenu_page(
@@ -72,13 +75,16 @@ class Admin {
 
 	/**
 	 * Render settings page.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function settings_page() {
 		include __DIR__ . '/views/settings.php';
 	}
 
 	/**
-	 * Load master keys page & set screen options.
+	 * Load leads page & set screen options.
 	 *
 	 * @since 1.0.0
 	 * @return void
@@ -103,7 +109,7 @@ class Admin {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function render_page() {
+	public function render_leads_page() {
 		wp_verify_nonce( '_nonce' );
 		$view = isset( $_GET['view'] ) ? absint( wp_unslash( $_GET['view'] ) ) : 0;
 

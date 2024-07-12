@@ -114,7 +114,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 		<div class="field-group is-last-item">
 			<div class="field-label">
 			<?php if ( $lead->ID ) : ?>
-				<a class="del button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&id=' . $lead->ID ) ), 'bulk-leads' ) ); ?>"><?php esc_html_e( 'Delete lead', 'utm-manager' ); ?></a>
+				<a class="del button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&ids=' . $lead->ID ) ), 'bulk-leads' ) ); ?>"><?php esc_html_e( 'Delete lead', 'utm-manager' ); ?></a>
 			<?php endif; ?>
 			</div>
 			<div class="field-submit-btn"></div>
