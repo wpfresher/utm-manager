@@ -4,6 +4,8 @@
  *
  * @since 1.0.0
  * @package UTMManager
+ *
+ * @var object $lead Lead post object.
  */
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
@@ -98,10 +100,12 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 			</div>
 			<div class="field">
 				<?php
-				printf(
-					'<time datetime="%s">%s</time>',
-					esc_attr( $lead->post_date ),
-					esc_html( date_i18n( get_option( 'date_format' ) . ' | ' . get_option( 'time_format' ), strtotime( $lead->post_date ) ) )
+				echo wp_kses_post(
+					sprintf(
+						'<time datetime="%s">%s</time>',
+						esc_attr( $lead->post_date ),
+						esc_html( date_i18n( get_option( 'date_format' ) . ' | ' . get_option( 'time_format' ), strtotime( $lead->post_date ) ) )
+					)
 				);
 				?>
 			</div>
@@ -110,7 +114,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 		<div class="field-group is-last-item">
 			<div class="field-label">
 			<?php if ( $lead->ID ) : ?>
-				<a class="del button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&id=' . $lead->ID ) ), 'bulk-utmm_lead' ) ); ?>"><?php esc_html_e( 'Delete lead', 'utm-manager' ); ?></a>
+				<a class="del button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&id=' . $lead->ID ) ), 'bulk-leads' ) ); ?>"><?php esc_html_e( 'Delete lead', 'utm-manager' ); ?></a>
 			<?php endif; ?>
 			</div>
 			<div class="field-submit-btn"></div>

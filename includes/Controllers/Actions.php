@@ -2,7 +2,7 @@
 
 namespace UTMManager\Controllers;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Actions Class.

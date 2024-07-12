@@ -78,11 +78,12 @@ class Plugin {
 	 */
 	private function define_constants() {
 		$constants = array(
-			'UTMM_VERSION'    => $this->version,
-			'UTMM_FILE'       => $this->file,
-			'UTMM_PATH'       => plugin_dir_path( $this->file ),
-			'UTMM_URL'        => plugin_dir_url( $this->file ),
-			'UTMM_ASSETS_URL' => plugin_dir_url( $this->file ) . 'assets/',
+			'UTMM_VERSION'     => $this->version,
+			'UTMM_FILE'        => $this->file,
+			'UTMM_PATH'        => plugin_dir_path( $this->file ),
+			'UTMM_URL'         => plugin_dir_url( $this->file ),
+			'UTMM_ASSETS_PATH' => plugin_dir_path( $this->file ) . 'assets/',
+			'UTMM_ASSETS_URL'  => plugin_dir_url( $this->file ) . 'assets/',
 		);
 
 		foreach ( $constants as $name => $value ) {
