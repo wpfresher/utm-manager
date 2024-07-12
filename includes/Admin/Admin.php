@@ -144,10 +144,10 @@ class Admin {
 			exit;
 		}
 
-		$wp_list_table = new LeadsListTable();
-		$wp_list_table->process_bulk_action();
+		$list_table = new LeadsListTable();
+		$list_table->process_bulk_action();
 
-		if ( 'delete' === $wp_list_table->current_action() ) {
+		if ( 'delete' === $list_table->current_action() ) {
 			check_admin_referer( 'bulk-leads' );
 
 			$ids       = isset( $_GET['ids'] ) ? map_deep( wp_unslash( $_GET['ids'] ), 'intval' ) : array();
