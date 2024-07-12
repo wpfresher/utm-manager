@@ -189,7 +189,7 @@ class Admin {
 			'utm-manager_page_utmm-settings',
 		);
 
-		wp_register_style( 'utmm-admin', UTMM_ASSETS_URL . 'dist/css/utmm-admin.css', array(), UTMM_VERSION );
+		wp_register_style( 'utmm-admin', UTMM_ASSETS_URL . 'css/utmm-admin.css', array(), UTMM_VERSION );
 
 		if ( in_array( $hook, $screens, true ) ) {
 			wp_enqueue_style( 'utmm-admin' );

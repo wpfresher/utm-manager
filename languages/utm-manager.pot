@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UTM Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wpfreshers.com/plugins/utm-manager/\n"
-"POT-Creation-Date: 2024-06-04 20:38:15+00:00\n"
+"POT-Creation-Date: 2024-07-12 18:31:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,204 +28,210 @@ msgstr ""
 msgid "UTM Manager"
 msgstr ""
 
-#: includes/Admin/Admin.php:46 includes/Admin/Admin.php:47
+#: includes/Admin/Admin.php:48 includes/Admin/Admin.php:49
+#: includes/Admin/views/leads.php:16
 msgid "Leads"
 msgstr ""
 
-#: includes/Admin/Admin.php:64 includes/Admin/Admin.php:65
-#: includes/Admin/views/settings.php:13
+#: includes/Admin/Admin.php:68 includes/Admin/Admin.php:69
+#: includes/Admin/views/settings.php:14
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:91
+#: includes/Admin/Admin.php:98
 msgid "Leads per page"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:89
-msgid "No items found."
+#: includes/Admin/Admin.php:141 includes/Controllers/Actions.php:33
+msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:101
+#: includes/Admin/Admin.php:166
+#. translators: %s: number of accounts.
+msgid "%s item(s) deleted successfully."
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:87 includes/PostTypes.php:45
+msgid "No leads found."
+msgstr ""
+
+#: includes/Admin/ListTables/LeadsListTable.php:100
 msgid "IP"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:102
+#: includes/Admin/ListTables/LeadsListTable.php:101
 msgid "UTM ID"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:103
+#: includes/Admin/ListTables/LeadsListTable.php:102
 msgid "UTM Source"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:104
+#: includes/Admin/ListTables/LeadsListTable.php:103
 msgid "UTM Medium"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:105
+#: includes/Admin/ListTables/LeadsListTable.php:104
 msgid "UTM Campaign"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:106
+#: includes/Admin/ListTables/LeadsListTable.php:105
 msgid "UTM Term"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:107
+#: includes/Admin/ListTables/LeadsListTable.php:106
 msgid "UTM Content"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:108
+#: includes/Admin/ListTables/LeadsListTable.php:107
 msgid "Date"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:177
+#: includes/Admin/ListTables/LeadsListTable.php:165
 #. translators: %d: key id.
 msgid "ID: %d"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:178
+#: includes/Admin/ListTables/LeadsListTable.php:166
 msgid "View"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:179
-#: includes/Admin/ListTables/LeadsListTable.php:193
+#: includes/Admin/ListTables/LeadsListTable.php:167
+#: includes/Admin/ListTables/LeadsListTable.php:180
 msgid "Delete"
 msgstr ""
 
-#: includes/Admin/views/leads.php:15
-msgid "Leads List Table"
-msgstr ""
-
-#: includes/Admin/views/leads.php:21
+#: includes/Admin/views/leads.php:22
 msgid "Search"
 msgstr ""
 
-#: includes/Admin/views/settings.php:15
+#: includes/Admin/views/settings.php:16
 msgid "The following options are the plugin general settings."
 msgstr ""
 
-#: includes/Admin/views/settings.php:16
+#: includes/Admin/views/settings.php:17
 msgid "Example URL:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:22
+#: includes/Admin/views/settings.php:23
 msgid "Setup UTM Parameter(s)"
 msgstr ""
 
-#: includes/Admin/views/settings.php:23
+#: includes/Admin/views/settings.php:24
 msgid ""
 "The following options are the utm parameter settings. Al least an option "
 "needs to be checked to track the URL parameters."
 msgstr ""
 
-#: includes/Admin/views/settings.php:28 includes/Admin/views/view-lead.php:41
+#: includes/Admin/views/settings.php:29 includes/Admin/views/view-lead.php:44
 msgid "UTM ID:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:33
+#: includes/Admin/views/settings.php:34
 msgid "Enable utm_id"
 msgstr ""
 
-#: includes/Admin/views/settings.php:35
+#: includes/Admin/views/settings.php:36
 msgid "Enable to track the utm_id URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:41 includes/Admin/views/view-lead.php:50
+#: includes/Admin/views/settings.php:42 includes/Admin/views/view-lead.php:53
 msgid "UTM Source:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:46
+#: includes/Admin/views/settings.php:47
 msgid "Enable utm_source"
 msgstr ""
 
-#: includes/Admin/views/settings.php:48
+#: includes/Admin/views/settings.php:49
 msgid "Enable to track the utm_source URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:54 includes/Admin/views/view-lead.php:59
+#: includes/Admin/views/settings.php:55 includes/Admin/views/view-lead.php:62
 msgid "UTM Medium:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:59
+#: includes/Admin/views/settings.php:60
 msgid "Enable utm_medium"
 msgstr ""
 
-#: includes/Admin/views/settings.php:61
+#: includes/Admin/views/settings.php:62
 msgid "Enable to track the utm_medium URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:67 includes/Admin/views/view-lead.php:68
+#: includes/Admin/views/settings.php:68 includes/Admin/views/view-lead.php:71
 msgid "UTM Campaign:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:72
+#: includes/Admin/views/settings.php:73
 msgid "Enable utm_campaign"
 msgstr ""
 
-#: includes/Admin/views/settings.php:74
+#: includes/Admin/views/settings.php:75
 msgid "Enable to track the utm_campaign URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:80 includes/Admin/views/view-lead.php:77
+#: includes/Admin/views/settings.php:81 includes/Admin/views/view-lead.php:80
 msgid "UTM Term:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:85
+#: includes/Admin/views/settings.php:86
 msgid "Enable utm_term"
 msgstr ""
 
-#: includes/Admin/views/settings.php:87
+#: includes/Admin/views/settings.php:88
 msgid "Enable to track the utm_term URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:93 includes/Admin/views/view-lead.php:86
+#: includes/Admin/views/settings.php:94 includes/Admin/views/view-lead.php:89
 msgid "UTM Content:"
 msgstr ""
 
-#: includes/Admin/views/settings.php:98
+#: includes/Admin/views/settings.php:99
 msgid "Enable utm_content"
 msgstr ""
 
-#: includes/Admin/views/settings.php:100
+#: includes/Admin/views/settings.php:101
 msgid "Enable to track the utm_content URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:106
+#: includes/Admin/views/settings.php:107
 msgid "Save Changes"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:13 includes/PostTypes.php:41
+#: includes/Admin/views/view-lead.php:16 includes/PostTypes.php:41
 msgid "View Lead"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:15
+#: includes/Admin/views/view-lead.php:18
 msgid "Go Back"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:18
-msgid "Here is the example list table updated at March 26, 2024"
+#: includes/Admin/views/view-lead.php:21
+msgid "The following details provide the lead information:"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:24
+#: includes/Admin/views/view-lead.php:27
 msgid "Lead Details:"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:25
+#: includes/Admin/views/view-lead.php:28
 msgid "The following options are the lead information(s)."
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:30
+#: includes/Admin/views/view-lead.php:33
 msgid "IP Address:"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:95
+#: includes/Admin/views/view-lead.php:98
 msgid "Date:"
 msgstr ""
 
-#: includes/Admin/views/view-lead.php:111
+#: includes/Admin/views/view-lead.php:116
 msgid "Delete lead"
 msgstr ""
 
-#: includes/Controllers/Actions.php:41
+#: includes/Controllers/Actions.php:52
 msgid "Settings saved successfully."
 msgstr ""
 
@@ -253,12 +259,261 @@ msgstr ""
 msgid "Parent Leads:"
 msgstr ""
 
-#: includes/PostTypes.php:45
-msgid "No leads found."
-msgstr ""
-
 #: includes/PostTypes.php:46
 msgid "No leads found in Trash."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/internationalized-plugin.php:11
+msgid "This is a dummy plugin"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:42
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:72
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:80
+msgid "There was an error when reading this WXR file"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:43
+msgid ""
+"Details are shown above. The importer will now try again with a different "
+"parser..."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:84
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:89
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:306
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:495
+msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:132
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:141
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:192
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:196
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:205
+msgid "Sorry, there has been an error."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:133
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
+msgid "All done."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
+msgid "Have fun!"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:177
+msgid "Remember to update the passwords and roles of imported users."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:197
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:213
+msgid ""
+"This WXR file (version %s) may not be supported by this version of the "
+"importer. Please consider updating."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:238
+msgid ""
+"Failed to import author %s. Their posts will be attributed to the current "
+"user."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:264
+msgid "Assign Authors"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:265
+msgid ""
+"To make it easier for you to edit and save the imported content, you may "
+"want to reassign the author of the imported item to an existing user of "
+"this site. For example, you may want to import all the entries as "
+"<code>admin</code>s entries."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:267
+msgid ""
+"If a new user is created by WordPress, a new password will be randomly "
+"generated and the new user&#8217;s role will be set as %s. Manually "
+"changing the new user&#8217;s details will be necessary."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:277
+msgid "Import Attachments"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:280
+msgid "Download and import file attachments"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:284
+msgid "Submit"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:297
+msgid "Import author:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:308
+msgid "or create new user with login name:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:311
+msgid "as a new user:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:319
+msgid "assign posts to an existing user:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:321
+msgid "or assign posts to an existing user:"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:322
+msgid "- Select -"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:372
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:424
+msgid "Failed to import category %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:467
+msgid "Failed to import post tag %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:516
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:738
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:605
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:642
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:704
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:869
+msgid "Menu item skipped due to missing menu slug"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:876
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:939
+msgid "Fetching attachments is not enabled"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:952
+msgid "Invalid file type"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:996
+msgid "Remote server did not respond"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1002
+msgid "Remote server returned error response %1$d %2$s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1009
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1014
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1020
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1119
+msgid "Import WordPress"
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1126
+msgid ""
+"A new version of this importer is available. Please update to version %s to "
+"ensure compatibility with newer export files."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1141
+msgid ""
+"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
+"the posts, pages, comments, custom fields, categories, and tags into this "
+"site."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1142
+msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1216
+msgid ""
+"Import <strong>posts, pages, comments, custom fields, categories, and "
+"tags</strong> from a WordPress export file."
+msgstr ""
+
+#: vendor/lucatume/wp-browser/src/data/themedir1/internationalized-theme/functions.php:7
+msgid "This is a dummy theme"
+msgstr ""
+
+#: vendor/wp-cli/core-command/src/Core_Command.php:749
+msgid "Wildcard DNS may not be configured correctly."
+msgstr ""
+
+#: vendor/wp-cli/entity-command/src/Site_Command.php:157
+msgid "Uncategorized"
+msgstr ""
+
+#: vendor/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:20
+#: vendor/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:25
+msgid "Export Error"
+msgstr ""
+
+#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:770
+msgid " Try again"
+msgstr ""
+
+#: vendor/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:776
+msgid "API error. Try Again."
+msgstr ""
+
+#: vendor/wp-cli/media-command/src/Media_Command.php:159
+msgid "image"
+msgid_plural "images"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:247
+msgid "Inactive Widgets"
+msgstr ""
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:250
+msgid "Drag widgets here to remove them from the sidebar but keep their settings."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -305,4 +560,18 @@ msgstr ""
 #: includes/PostTypes.php:37
 msgctxt "ticket"
 msgid "Add New"
+msgstr ""
+
+#: vendor/wp-cli/core-command/src/Core_Command.php:491
+#: vendor/wp-cli/core-command/src/Core_Command.php:565
+#. translators: placeholder is blog name
+#. translators: placeholder is user supplied title
+msgctxt "Default network name"
+msgid "%s Sites"
+msgstr ""
+
+#: vendor/wp-cli/entity-command/src/Site_Command.php:160
+#. translators: Default category slug
+msgctxt "Default category slug"
+msgid "Uncategorized"
 msgstr ""
