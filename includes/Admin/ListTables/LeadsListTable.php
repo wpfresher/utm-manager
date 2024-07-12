@@ -60,7 +60,7 @@ class LeadsListTable extends \WP_List_Table {
 			's'              => $search,
 			'orderby'        => $order_by,
 			'order'          => $order,
-			'post_status'    => $this->get_request_status(),
+			'post_status'    => 'any',
 		);
 
 		/**
