@@ -22,6 +22,7 @@ class Admin {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
+		add_filter( 'set-screen-option', array( $this, 'screen_option' ), 10, 3 );
 		add_action( 'load-toplevel_page_utm-manager', array( $this, 'handle_list_table_actions' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
@@ -81,6 +82,30 @@ class Admin {
 	 */
 	public function settings_page() {
 		include __DIR__ . '/views/settings.php';
+	}
+
+	/**
+	 * Set screen option.
+	 *
+	 * @param mixed  $status Screen option value. Default false.
+	 * @param string $option Option name.
+	 * @param mixed  $value New option value.
+	 *
+	 * @since 1.0.0
+	 * @return mixed
+	 */
+	public function screen_option( $status, $option, $value ) {
+		$options = apply_filters(
+			'utmm_set_screen_options',
+			array(
+				'utmm_leads_per_page',
+			)
+		);
+		if ( in_array( $option, $options, true ) ) {
+			return $value;
+		}
+
+		return $status;
 	}
 
 	/**
