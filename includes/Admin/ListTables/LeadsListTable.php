@@ -20,7 +20,9 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 class LeadsListTable extends \WP_List_Table {
 
 	/**
-	 * Class constructor.
+	 * Constructor.
+	 *
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 		$this->screen = get_current_screen();
@@ -35,6 +37,9 @@ class LeadsListTable extends \WP_List_Table {
 
 	/**
 	 * Prepare items.
+	 *
+	 * @since 1.0.0
+	 * @return void
 	 */
 	public function prepare_items() {
 		$columns               = $this->get_columns();
