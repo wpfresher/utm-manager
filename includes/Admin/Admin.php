@@ -18,14 +18,7 @@ class Admin {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
-		add_filter( 'set-screen-option', array( __CLASS__, 'set_screen' ), 10, 3 );
-		add_filter(
-			'manage_toplevel_page_utm-manager_columns',
-			array( 'WpFreshers\UTMManager\Admin\ListTables\LeadsListTable', 'define_columns' ),
-			10,
-			0
-		);
-		add_action( 'load-toplevel_page_things-list-table', array( $this, 'things_custom_bulk_action' ) );
+		add_action( 'load-toplevel_page_things-list-table', array( $this, 'handle_list_table_actions' ) );
 	}
 
 	/**
@@ -33,8 +26,8 @@ class Admin {
 	 */
 	public function add_menu() {
 		add_menu_page(
-			'Things List Table',
-			'Things List Table',
+			'UTM Manager',
+			'UTM Manager',
 			'manage_options',
 			'things-list-table',
 			null,
@@ -42,33 +35,13 @@ class Admin {
 			'100',
 		);
 
-		add_submenu_page(
-			'things-list-table',
-			'Things',
-			'Things',
-			'manage_options',
-			'things-list-table',
-			array( $this, 'render_things_list_table_page' ),
-		);
-
-		add_menu_page(
-			__( 'UTM Manager', 'utm-manager' ),
-			__( 'UTM Manager', 'utm-manager' ),
-			'manage_options',
-			'utm-manager',
-			null,
-			'dashicons-admin-links',
-			'55.9',
-		);
-
 		$load = add_submenu_page(
-			'utm-manager',
-			__( 'Leads', 'utm-manager' ),
-			__( 'Leads', 'utm-manager' ),
+			'things-list-table',
+			'Things',
+			'Things',
 			'manage_options',
-			'utm-manager',
+			'things-list-table',
 			array( $this, 'render_page' ),
-			1
 		);
 
 		// Load screen options.
@@ -104,59 +77,25 @@ class Admin {
 	 */
 	public static function load_leads_page() {
 		$screen = get_current_screen();
-		if ( 'toplevel_page_utm-manager' === $screen->id ) {
+//		if ( 'toplevel_page_utm-manager' === $screen->id ) {
+		if ( 'toplevel_page_things-list-table' === $screen->id ) {
 			add_screen_option(
 				'per_page',
 				array(
-					'label'   => __( 'Leads per page', 'utm-manager' ),
+					// 'label'   => __( 'Leads per page', 'utm-manager' ),
+					'label'   => __( 'Things per page', 'utm-manager' ),
 					'default' => 20,
-					'option'  => 'utmm_leads_per_page',
+					'option'  => 'utmm_things_per_page',
+					// 'option'  => 'utmm_leads_per_page',
 				)
 			);
 		}
 	}
 
 	/**
-	 * Set screen options.
-	 *
-	 * @param bool       $screen_option Whether it is true or false.
-	 * @param string     $option Option id.
-	 * @param string|int $value The option value.
-	 *
-	 * @since 1.0.0
-	 * @return mixed|int
-	 */
-	public static function set_screen( $screen_option, $option, $value ) {
-		return $value;
-	}
-
-	/**
-	 * Render menu page content.
-	 */
-	public function render_page() {
-		wp_verify_nonce( '_nonce' );
-		$view = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0;
-
-		if ( $view ) {
-			$lead = utmm_get_lead( $view );
-
-			if ( ! $lead instanceof \WP_Post ) {
-				wp_safe_redirect( remove_query_arg( 'view' ) );
-				exit();
-			}
-		}
-
-		if ( $view ) {
-			include __DIR__ . '/views/view-lead.php';
-		} else {
-			include __DIR__ . '/views/leads.php';
-		}
-	}
-
-	/**
 	 * Render things menu.
 	 */
-	public function render_things_list_table_page() {
+	public function render_page() {
 		wp_verify_nonce( '_nonce' );
 		$view = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0;
 
@@ -181,7 +120,7 @@ class Admin {
 	/**
 	 * Handle things list table.
 	 */
-	public function things_custom_bulk_action() {
+	public function handle_list_table_actions() {
 		$wp_list_table = new \WpFreshers\UTMManager\Admin\ListTables\ThingsListTable();
 		$wp_list_table->process_bulk_action();
 
