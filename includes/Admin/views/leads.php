@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 	<form id="utmm-leads-table" method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>">
 		<?php
 		$list_table->views();
-		$list_table->search_box( __( 'Search', 'utm-manager' ), 'search_lead' );
+		$list_table->search_box( __( 'Search', 'utm-manager' ), 'search' );
 		$list_table->display();
 		?>
 		<input type="hidden" name="page" value="utm-manager">
