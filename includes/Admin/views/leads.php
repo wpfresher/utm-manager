@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 		<?php esc_html_e( 'Leads List Table', 'utm-manager' ); ?>
 	</h1>
 	<hr class="wp-header-end">
-	<form id="utmm_lead_list_table" method="post">
+	<form id="utmm-leads-table" method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>">
 		<?php
 		$list_table->views();
 		$list_table->search_box( __( 'Search', 'utm-manager' ), 'search_lead' );
