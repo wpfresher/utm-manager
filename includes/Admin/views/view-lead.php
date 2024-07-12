@@ -6,6 +6,8 @@
  * @package WpFreshers\UTMManager
  */
 
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 ?>
 <div class="wrap utmm-wrap">
 	<div id="icon-users" class="icon32"></div>
