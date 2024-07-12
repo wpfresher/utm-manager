@@ -12,7 +12,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 }
 
 /**
- * Class ThingsListTable List Table.
+ * Class LeadsListTable.
  *
  * @since 1.0.0
  * @package UTMManager\Admin\ListTables
