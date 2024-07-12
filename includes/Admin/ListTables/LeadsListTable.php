@@ -42,15 +42,16 @@ class LeadsListTable extends \WP_List_Table {
 	 * @return void
 	 */
 	public function prepare_items() {
+		wp_verify_nonce( '_wpnonce' );
 		$columns               = $this->get_columns();
 		$hidden                = $this->get_hidden_columns();
 		$sortable              = $this->get_sortable_columns();
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 		$per_page              = $this->get_items_per_page( 'utmm_leads_per_page', 20 );
 		$paged                 = $this->get_pagenum();
-		$search                = $this->get_request_search();
-		$order_by              = $this->get_request_orderby( 'order_id' );
-		$order                 = $this->get_request_order();
+		$order_by              = isset( $_GET['orderby'] ) ? sanitize_text_field( wp_unslash( $_GET['orderby'] ) ) : '';
+		$order                 = isset( $_GET['order'] ) ? sanitize_text_field( wp_unslash( $_GET['order'] ) ) : '';
+		$search                = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
 
 		$args = array(
 			'post_type'      => 'utmm_lead',
