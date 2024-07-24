@@ -1,14 +1,14 @@
 <?php
 
-namespace WpFreshers\UTMManager;
+namespace UTMManager;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Class Leads.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 class Leads {
 
@@ -107,7 +107,7 @@ class Leads {
 		wp_verify_nonce( '_nonce' );
 
 		if ( isset( $_GET[ $utm_key ] ) ) {
-			return filter_var( wp_unslash( $_GET[ $utm_key ] ), FILTER_SANITIZE_STRING );
+			return sanitize_text_field( wp_unslash( $_GET[ $utm_key ] ) );
 		}
 
 		return null;
@@ -120,37 +120,24 @@ class Leads {
 	 * @return string|null
 	 */
 	public static function get_ip() {
+		$keys = array(
+			'REMOTE_ADDR',
+			'SERVER_ADDR',
+			'HTTP_CLIENT_IP',
+			'HTTP_FORWARDED',
+			'HTTP_FORWARDED_FOR',
+			'HTTP_X_FORWARDED',
+			'HTTP_X_FORWARDED_FOR',
+			'HTTP_CF_CONNECTING_IP',
+		);
 
-		if ( array_key_exists( 'REMOTE_ADDR', $_SERVER ) && ! empty( $_SERVER['REMOTE_ADDR'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['REMOTE_ADDR'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'SERVER_ADDR', $_SERVER ) && ! empty( $_SERVER['SERVER_ADDR'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['SERVER_ADDR'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'HTTP_CLIENT_IP', $_SERVER ) && ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'HTTP_FORWARDED', $_SERVER ) && ! empty( $_SERVER['HTTP_FORWARDED'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['HTTP_FORWARDED'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'HTTP_FORWARDED_FOR', $_SERVER ) && ! empty( $_SERVER['HTTP_FORWARDED_FOR'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['HTTP_FORWARDED_FOR'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'HTTP_X_FORWARDED', $_SERVER ) && ! empty( $_SERVER['HTTP_X_FORWARDED'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['HTTP_X_FORWARDED'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $_SERVER ) && ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ), FILTER_VALIDATE_IP );
-		}
-
-		if ( array_key_exists( 'HTTP_CF_CONNECTING_IP', $_SERVER ) && ! empty( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ) {
-			return filter_var( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ), FILTER_VALIDATE_IP );
+		foreach ( $keys as $key ) {
+			if ( array_key_exists( $key, $_SERVER ) && ! empty( $_SERVER[ $key ] ) ) {
+				$ip = filter_var( wp_unslash( $_SERVER[ $key ] ), FILTER_VALIDATE_IP );
+				if ( $ip ) {
+					return $ip;
+				}
+			}
 		}
 
 		return null;

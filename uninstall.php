@@ -2,7 +2,7 @@
 /**
  * UTM Manager Uninstall.
  *
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

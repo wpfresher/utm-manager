@@ -1,9 +1,9 @@
 === UTM Manager ===
 Contributors: wpfreshers
 Tags: utm manager, utm tracker, utm insights, analytics, insights
-Requires at least: 5.0
-Tested up to: 6.5
-Requires PHP: 5.6
+Requires at least: 5.2
+Tested up to: 6.6
+Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -40,16 +40,17 @@ Install UTM Manager from the WordPress plugin repository and take control of you
 Yes! The plugin will track all the UTM parameters as configured in plugin settings page.
 
 = Minimum requirements =
-* WordPress 5.0 or greater
-* PHP version 5.6 or greater
+* WordPress 5.2 or greater
+* PHP version 7.4 or greater
 * MySQL version 5.6 or greater
 * MariaDB version 10 or later
 
 == Screenshots ==
 1. Leads
-2. Settings Page
+2. View Lead
+3. Settings Page
 
 == Changelog ==
 
-= 1.0.0 (05 June 2024) =
+= 1.0.0 (25 July 2024) =
 * Initial Release

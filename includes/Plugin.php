@@ -1,6 +1,6 @@
 <?php
 
-namespace WpFreshers\UTMManager;
+namespace UTMManager;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
  * The main plugin class.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 class Plugin {
 
@@ -16,6 +16,7 @@ class Plugin {
 	 * Plugin file path.
 	 *
 	 * @var string
+	 * @since 1.0.0
 	 */
 	protected $file;
 
@@ -23,14 +24,15 @@ class Plugin {
 	 * Plugin version.
 	 *
 	 * @var string
+	 * @since 1.0.0
 	 */
 	protected $version = '1.0.0';
 
 	/**
 	 * The single instance of the class.
 	 *
-	 * @since 1.0.0
 	 * @var self
+	 * @since 1.0.0
 	 */
 	public static $instance;
 
@@ -75,11 +77,20 @@ class Plugin {
 	 * @return void
 	 */
 	private function define_constants() {
-		define( 'UTMM_VERSION', $this->version );
-		define( 'UTMM_FILE', $this->file );
-		define( 'UTMM_PATH', plugin_dir_path( $this->file ) );
-		define( 'UTMM_URL', plugin_dir_url( $this->file ) );
-		define( 'UTMM_ASSETS_URL', UTMM_URL . 'assets/' );
+		$constants = array(
+			'UTMM_VERSION'     => $this->version,
+			'UTMM_FILE'        => $this->file,
+			'UTMM_PATH'        => plugin_dir_path( $this->file ),
+			'UTMM_URL'         => plugin_dir_url( $this->file ),
+			'UTMM_ASSETS_PATH' => plugin_dir_path( $this->file ) . 'assets/',
+			'UTMM_ASSETS_URL'  => plugin_dir_url( $this->file ) . 'assets/',
+		);
+
+		foreach ( $constants as $name => $value ) {
+			if ( ! defined( $name ) ) {
+				define( $name, $value );
+			}
+		}
 	}
 
 	/**
@@ -89,7 +100,7 @@ class Plugin {
 	 * @return void
 	 */
 	public function includes() {
-		require_once __DIR__ . '/Functions.php';
+		require_once __DIR__ . '/functions.php';
 	}
 
 	/**
@@ -103,7 +114,6 @@ class Plugin {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'admin_notices', array( $this, 'display_flash_notices' ), 12 );
 		add_action( 'init', array( $this, 'init' ), 0 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -133,28 +143,6 @@ class Plugin {
 	}
 
 	/**
-	 * Check if the plugin is active.
-	 *
-	 * @param string $plugin The plugin slug or basename.
-	 *
-	 * @since 1.0.0
-	 * @return bool
-	 */
-	public function is_plugin_active( $plugin ) {
-		// Check if the $plugin is a basename or a slug. If it's a slug, convert it to a basename.
-		if ( false === strpos( $plugin, '/' ) ) {
-			$plugin = $plugin . '/' . $plugin . '.php';
-		}
-
-		$active_plugins = (array) get_option( 'active_plugins', array() );
-		if ( is_multisite() ) {
-			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
-		}
-
-		return in_array( $plugin, $active_plugins, true ) || array_key_exists( $plugin, $active_plugins );
-	}
-
-	/**
 	 * Add a flash notice.
 	 *
 	 * @param string  $notice Notice message.
@@ -172,8 +160,8 @@ class Plugin {
 		array_push(
 			$notices,
 			array(
-				'notice'      => $notice,
-				'type'        => $type,
+				'notice'      => wp_kses_post( $notice ),
+				'type'        => sanitize_key( $type ),
 				'dismissible' => $dismissible_text,
 			)
 		);
@@ -192,11 +180,13 @@ class Plugin {
 		$notices = get_option( 'utmm_flash_notices', array() );
 
 		foreach ( $notices as $notice ) {
-			printf(
-				'<div class="notice notice-%1$s %2$s"><p>%3$s</p></div>',
-				esc_attr( $notice['type'] ),
-				esc_attr( $notice['dismissible'] ),
-				esc_html( $notice['notice'] ),
+			echo wp_kses_post(
+				sprintf(
+					'<div class="notice notice-%1$s %2$s"><p>%3$s</p></div>',
+					esc_attr( $notice['type'] ),
+					esc_attr( $notice['dismissible'] ),
+					esc_html( $notice['notice'] ),
+				)
 			);
 		}
 
@@ -215,27 +205,10 @@ class Plugin {
 	public function init() {
 		new PostTypes();
 		new Leads();
-		new Admin\Admin();
-		new Controllers\Actions();
-	}
 
-	/**
-	 * Enqueue admin scripts.
-	 *
-	 * @param string $hook Hook name.
-	 *
-	 * @since 1.0.0
-	 */
-	public function enqueue_scripts( $hook ) {
-		$screens = array(
-			'toplevel_page_utm-manager',
-			'utm-manager_page_utmm-settings',
-		);
-
-		wp_register_style( 'utmm-admin', UTMM_URL . 'assets/dist/css/utmm-admin.css', array(), '1.0.0' );
-
-		if ( in_array( $hook, $screens, true ) ) {
-			wp_enqueue_style( 'utmm-admin' );
+		if ( is_admin() ) {
+			new Admin\Admin();
+			new Controllers\Actions();
 		}
 	}
 }

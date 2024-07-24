@@ -51,4 +51,4 @@ codeception.yml
 lib
 
 # Build
-assets/dist
+assets/

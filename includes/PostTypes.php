@@ -1,8 +1,8 @@
 <?php
 
-namespace WpFreshers\UTMManager;
+namespace UTMManager;
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 /**
  * Class PostTypes.
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * Responsible for registering custom post types.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
  */
 class PostTypes {
 
@@ -47,7 +47,7 @@ class PostTypes {
 		);
 
 		$args = array(
-			'labels'              => apply_filters( 'utm_manager_lead_post_type_labels', $labels ),
+			'labels'              => apply_filters( 'utmm_lead_post_type_labels', $labels ),
 			'public'              => false,
 			'publicly_queryable'  => false,
 			'exclude_from_search' => true,
@@ -64,6 +64,6 @@ class PostTypes {
 			'supports'            => array(),
 		);
 
-		register_post_type( 'utmm_lead', apply_filters( 'utm_manager_lead_post_type_args', $args ) );
+		register_post_type( 'utmm_lead', apply_filters( 'utmm_lead_post_type_args', $args ) );
 	}
 }

@@ -12,7 +12,7 @@ module.exports = [
         output: {
             ...defaultConfig.output,
             filename: '[name].js',
-            path: __dirname + '/assets/dist/',
+            path: __dirname + '/assets/',
         },
         plugins: [
             ...defaultConfig.plugins,

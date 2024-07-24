@@ -3,19 +3,22 @@
  * View lead.
  *
  * @since 1.0.0
- * @package WpFreshers\UTMManager
+ * @package UTMManager
+ *
+ * @var object $lead Lead post object.
  */
+
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 ?>
 <div class="wrap utmm-wrap">
-	<div id="icon-users" class="icon32"></div>
 	<h1 class="wp-heading-inline">
 		<?php esc_html_e( 'View Lead', 'utm-manager' ); ?>
 		<a href="<?php echo esc_attr( admin_url( 'admin.php?page=utm-manager' ) ); ?>" class="page-title-action">
 			<?php esc_html_e( 'Go Back', 'utm-manager' ); ?>
 		</a>
 	</h1>
-	<p><?php esc_html_e( 'Here is the example list table updated at March 26, 2024', 'utm-manager' ); ?></p>
+	<p><?php esc_html_e( 'The following details provide the lead information:', 'utm-manager' ); ?></p>
 
 	<hr class="wp-header-end">
 
@@ -96,10 +99,12 @@
 			</div>
 			<div class="field">
 				<?php
-				printf(
-					'<time datetime="%s">%s</time>',
-					esc_attr( $lead->post_date ),
-					esc_html( date_i18n( get_option( 'date_format' ) . ' | ' . get_option( 'time_format' ), strtotime( $lead->post_date ) ) )
+				echo wp_kses_post(
+					sprintf(
+						'<time datetime="%s">%s</time>',
+						esc_attr( $lead->post_date ),
+						esc_html( date_i18n( get_option( 'date_format' ) . ' | ' . get_option( 'time_format' ), strtotime( $lead->post_date ) ) )
+					)
 				);
 				?>
 			</div>
@@ -108,7 +113,7 @@
 		<div class="field-group is-last-item">
 			<div class="field-label">
 			<?php if ( $lead->ID ) : ?>
-				<a class="del button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&id=' . $lead->ID ) ), 'bulk-utmm_lead' ) ); ?>"><?php esc_html_e( 'Delete lead', 'utm-manager' ); ?></a>
+				<a class="del button" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'action', 'delete', admin_url( 'admin.php?page=utm-manager&ids=' . $lead->ID ) ), 'bulk-leads' ) ); ?>"><?php esc_html_e( 'Delete lead', 'utm-manager' ); ?></a>
 			<?php endif; ?>
 			</div>
 			<div class="field-submit-btn"></div>
