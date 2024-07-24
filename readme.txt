@@ -4,7 +4,7 @@ Tags: utm manager, utm tracker, utm insights, analytics, insights
 Requires at least: 5.2
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,10 @@ Yes! The plugin will track all the UTM parameters as configured in plugin settin
 3. Settings Page
 
 == Changelog ==
+
+= 1.0.1 (25 July 2024) =
+* Fix: Few known issues
+* Remove: Extra assets
 
 = 1.0.0 (25 July 2024) =
 * Initial Release
