@@ -1,0 +1,112 @@
+name: Release WordPress Plugin to SVN
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Matches version tags like v1.0.0, v2.1.3, etc.
+
+jobs:
+  build-and-release:
+    name: Build and Release The Plugin to SVN
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'  # Adjust this to your PHP version if necessary
+          tools: composer
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Adjust this to your Node.js version if necessary. Latest node v21.7.1
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Install PHP dependencies
+        run: |
+          composer config --global github-protocols ssh
+          composer install
+          composer update --no-dev --no-scripts
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Run build script
+        run: npm run build
+
+      - name: Checkout SVN repository
+        run: svn checkout ${{ secrets.SVN_REPOSITORY_URL }} svn
+
+      - name: Sync files to SVN trunk
+        run: |
+          rsync -r --delete --exclude-from='.distignore' --exclude='svn/' ./ svn/trunk/
+          cd svn
+          svn add --force trunk
+          svn commit -m "Release version ${{ github.ref }}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --no-auth-cache --non-interactive
+
+      - name: Sync assets to SVN assets
+        run: |
+          mkdir -p svn/assets
+          rsync -r --delete --include '*/' --include '*.png' --include '*.jpg' --include '*.jpeg' --include '*.gif' --include '*.svg' --exclude '*' .wordpress-org/ svn/assets/
+          cd svn
+          svn add --force assets
+          svn commit -m "Update assets for version ${{ github.ref }}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --no-auth-cache --non-interactive
+
+      - name: Create SVN tag # For removing tag: svn delete ${{ secrets.SVN_REPOSITORY_URL }}/tags/${TAG_NAME} -m "Removing unwanted tag ${TAG_NAME}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --non-interactive
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          TAG_NAME=${TAG_NAME#v}
+          cd svn
+          svn copy ${{ secrets.SVN_REPOSITORY_URL }}/trunk ${{ secrets.SVN_REPOSITORY_URL }}/tags/${TAG_NAME} -m "Tagging version ${TAG_NAME}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --no-auth-cache --non-interactive
+
+  notifications:
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Send Slack notification on success
+        if: success()
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          payload: |
+            {
+              "channel": "#announcements",
+              "text": "The release of version ${{ github.ref }} was successful.",
+              "attachments": [
+                {
+                  "color": "good",
+                  "text": "Release version ${{ github.ref }} has been successfully deployed."
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Send Slack notification on failure
+        if: failure()
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          payload: |
+            {
+              "channel": "#announcements",
+              "text": "The release of version ${{ github.ref }} failed.",
+              "attachments": [
+                {
+                  "color": "danger",
+                  "text": "There was an error in releasing version ${{ github.ref }}. Please check the GitHub Actions logs for details."
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

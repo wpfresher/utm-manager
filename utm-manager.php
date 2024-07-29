@@ -1,18 +1,17 @@
 <?php
 /**
  * Plugin Name:       UTM Manager
- * Description:       UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.
- * Version:           1.0.1
  * Plugin URI:        https://wpfreshers.com/plugins/utm-manager/
- * Author:            WpFreshers
- * Author URI:        https://wpfreshers.com
- * Text Domain:       utm-manager
- * Domain Path:       /languages/
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Description:       UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.
+ * Version:           1.1.0
  * Requires at least: 5.2
  * Requires PHP:      7.4
- * Tested up to:      6.6
+ * Author:            WpFreshers
+ * Author URI:        https://wpfreshers.com
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       utm-manager
+ * Domain Path:       /languages
  *
  * @package UTMManager
  *
