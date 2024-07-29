@@ -1,11 +1,11 @@
-=== UTM Manager ===
+=== UTM Manager - The Best UTM Leads Tracker ===
 Contributors: wpfreshers
-Tags: utm manager, utm tracker, utm insights, analytics, insights
+Tags: utm manager, utm tracker, utm, analytics, insights
 Requires at least: 5.2
 Tested up to: 6.6
+Stable tag: 1.1.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
-License: GPL-2.0-or-later
+License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 UTM Manager is the essential tool for enhancing website's analytics and driving growth.
@@ -51,6 +51,10 @@ Yes! The plugin will track all the UTM parameters as configured in plugin settin
 3. Settings Page
 
 == Changelog ==
+= 1.1.0 (29 July 2024) =
+* Compatibility: Compatible with the WordPress latest version
+* Fix: Plugin banner image is not displaying on the wordpress.org page.
+* Enhance: Add the plugin banner image
 
 = 1.0.1 (25 July 2024) =
 * Fix: Few known issues
