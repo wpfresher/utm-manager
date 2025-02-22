@@ -23,7 +23,6 @@ module.exports = function( grunt ) {
                             '*.php',
                             '**/*.php',
                             '!node_modules/**',
-                            '!tests/**',
                             '!vendor/**',
                         ],
                     },
@@ -54,7 +53,6 @@ module.exports = function( grunt ) {
                         '**/*.php',
                         '!packages/**',
                         '!node_modules/**',
-                        '!tests/**',
                         '!vendor/**',
                     ],
                     expand: true,
@@ -68,20 +66,12 @@ module.exports = function( grunt ) {
                         mainFile: '<%= package.name %>.php',
                         potFilename: '<%= package.name %>.pot',
                         potHeaders: {
-                            'report-msgid-bugs-to': '<%= package.homepage %>',
-                            'project-id-version': '<%= package.title %> <%= package.version %>',
+							'report-msgid-bugs-to': 'https://wpfresher.com/support',
                             poedit: true,
-                            'x-poedit-keywordslist': true,
+							'x-poedit-keywordslist': true,
                         },
                         type: 'wp-plugin',
                         updateTimestamp: false,
-                    },
-                },
-            },
-            wp_readme_to_markdown: {
-                your_target: {
-                    files: {
-                        'readme.md': 'readme.txt',
                     },
                 },
             },
