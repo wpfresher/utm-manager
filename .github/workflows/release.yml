@@ -36,13 +36,16 @@ jobs:
         run: |
           composer config --global github-protocols ssh
           composer install
-          composer update --no-dev --no-scripts
+          composer install --no-dev --no-scripts
 
       - name: Install Node.js dependencies
         run: npm install
 
       - name: Run build script
         run: npm run build
+
+      - name: Install Subversion
+        run: sudo apt-get install -y subversion
 
       - name: Checkout SVN repository
         run: svn checkout ${{ secrets.SVN_REPOSITORY_URL }} svn
@@ -58,9 +61,17 @@ jobs:
         run: |
           mkdir -p svn/assets
           rsync -r --delete --include '*/' --include '*.png' --include '*.jpg' --include '*.jpeg' --include '*.gif' --include '*.svg' --exclude '*' .wordpress-org/ svn/assets/
+          mkdir -p svn/assets/blueprints
+          cp blueprint.json svn/assets/blueprints/blueprint.json
           cd svn
           svn add --force assets
           svn commit -m "Update assets for version ${{ github.ref }}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --no-auth-cache --non-interactive
+
+      - name: Delete existing SVN tag if it exists
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          TAG_NAME=${TAG_NAME#v}
+          svn delete ${{ secrets.SVN_REPOSITORY_URL }}/tags/${TAG_NAME} -m "Deleting existing tag ${TAG_NAME}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --no-auth-cache --non-interactive || true
 
       - name: Create SVN tag # For removing tag: svn delete ${{ secrets.SVN_REPOSITORY_URL }}/tags/${TAG_NAME} -m "Removing unwanted tag ${TAG_NAME}" --username ${{ secrets.SVN_USERNAME }} --password ${{ secrets.SVN_PASSWORD }} --non-interactive
         run: |
@@ -82,11 +93,11 @@ jobs:
           payload: |
             {
               "channel": "#announcements",
-              "text": "The release of version ${{ github.ref }} was successful.",
+              "text": "UTM Mnager: The release of version ${{ github.ref }} was successful.",
               "attachments": [
                 {
                   "color": "good",
-                  "text": "Release version ${{ github.ref }} has been successfully deployed."
+                  "text": "UTM Mnager: Release version ${{ github.ref }} has been successfully deployed."
                 }
               ]
             }

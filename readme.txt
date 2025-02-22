@@ -1,9 +1,9 @@
 === UTM Manager - The Best UTM Leads Tracker ===
 Contributors: wpfreshers
 Tags: utm manager, utm tracker, utm, analytics, insights
-Requires at least: 5.2
-Tested up to: 6.6
-Stable tag: 1.1.0
+Requires at least: 5.0
+Tested up to: 6.7
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -39,8 +39,20 @@ Install UTM Manager from the WordPress plugin repository and take control of you
 = Is the plugin track UTM Parameters? =
 Yes! The plugin will track all the UTM parameters as configured in plugin settings page.
 
+= Can I view the UTM data in my WordPress dashboard? =
+Absolutely! You can view detailed reports on UTM data directly from your WordPress dashboard.
+
+= Is UTM Manager GDPR compliant? =
+Yes, UTM Manager is designed with privacy in mind and ensures that all UTM tracking complies with GDPR and other data protection regulations.
+
+= Can I customize the UTM tracking settings? =
+Of course! You can easily configure which UTM parameters to track and manage, tailoring the plugin to fit your specific needs.
+
+= How can I integrate UTM Manager with other analytics tools? =
+UTM Manager is integration-ready and compatible with popular analytics tools, allowing you to sync and enhance your data analysis.
+
 = Minimum requirements =
-* WordPress 5.2 or greater
+* WordPress 5.0 or greater
 * PHP version 7.4 or greater
 * MySQL version 5.6 or greater
 * MariaDB version 10 or later
@@ -51,14 +63,23 @@ Yes! The plugin will track all the UTM parameters as configured in plugin settin
 3. Settings Page
 
 == Changelog ==
+= 1.2.0 (23 February 2025) =
+* New: Update the plugin framework.
+* Enhance: Enhance optimized autoloader for better performance.
+* Compatibility: Compatible with the WordPress latest version.
+
 = 1.1.0 (29 July 2024) =
 * Compatibility: Compatible with the WordPress latest version
 * Fix: Plugin banner image is not displaying on the wordpress.org page.
-* Enhance: Add the plugin banner image
+* Enhance: Add the plugin banner image.
 
 = 1.0.1 (25 July 2024) =
-* Fix: Few known issues
-* Remove: Extra assets
+* Fix: Few known issues.
+* Remove: Extra assets.
 
 = 1.0.0 (25 July 2024) =
-* Initial Release
+* Initial Release.
+
+== Upgrade Notice ==
+= 1.2.0 =
+* Update the plugin framework for better performance. Ensure to update the plugin to the latest version.
