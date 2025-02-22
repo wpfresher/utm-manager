@@ -5,4 +5,4 @@
  * @package UTMManager
  */
 
-defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
+defined( 'WP_UNINSTALL_PLUGIN' ) || exit; // Exit if accessed directly.
