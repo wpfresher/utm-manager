@@ -75,9 +75,7 @@ Thumbs.db
 *.*.map
 
 # Build related files
-src
-/src/js
-/src/css
+/src
 lib
 development.md
 blueprint.json
