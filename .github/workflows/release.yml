@@ -36,7 +36,7 @@ jobs:
         run: |
           composer config --global github-protocols ssh
           composer install
-          composer install --no-dev --no-scripts
+          composer update --no-dev --no-scripts
 
       - name: Install Node.js dependencies
         run: npm install
