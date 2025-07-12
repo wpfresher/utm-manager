@@ -17,13 +17,13 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'  # Adjust this to your PHP version if necessary
+          php-version: '8.2'  # Adjust this to your PHP version if necessary
           tools: composer
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'  # Adjust this to your Node.js version if necessary. Latest node v21.7.1
+          node-version: '20'  # Adjust this to your Node.js version if necessary. Latest node v21.7.1
 
       - name: Install SSH key
         run: |
