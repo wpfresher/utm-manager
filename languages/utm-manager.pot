@@ -1,10 +1,10 @@
-# Copyright (C) 2025 WpFreshers
+# Copyright (C) 2025 UrlDev
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UTM Manager 1.2.0\n"
+"Project-Id-Version: UTM Manager 1.2.3\n"
 "Report-Msgid-Bugs-To: https://wpfresher.com/support\n"
-"POT-Creation-Date: 2025-02-22 20:52:06+00:00\n"
+"POT-Creation-Date: 2025-07-12 05:03:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -264,7 +264,7 @@ msgid "No leads found in Trash."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://wpfreshers.com/plugins/utm-manager/"
+msgid "https://urldev.com/plugins/utm-manager/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -277,11 +277,11 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "WpFreshers"
+msgid "UrlDev"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://wpfreshers.com"
+msgid "https://urldev.com"
 msgstr ""
 
 #: includes/PostTypes.php:33

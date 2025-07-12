@@ -1,11 +1,11 @@
 {
   "name": "utm-manager",
   "title": "UTM Manager",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.",
-  "homepage": "https://wpfreshers.com/plugins/utm-manager/",
+  "homepage": "https://urldev.com/plugins/utm-manager/",
   "license": "GPL-v2.0-or-later",
-  "author": "WpFreshers",
+  "author": "UrlDev",
   "prettier": "@wordpress/prettier-config",
   "scripts": {
     "build": "wp-scripts build && grunt build",
@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "@lodder/time-grunt": "^4.0.0",
-    "@wordpress/scripts": "^28.5.0",
+    "@wordpress/scripts": "^30.19.0",
     "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^13.0.0",
     "grunt": "^1.6.1",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-wp-i18n": "^1.0.3",

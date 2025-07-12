@@ -1,7 +1,7 @@
 {
   "name": "wpfresher/utm-manager",
   "description": "UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.",
-  "homepage": "https://wpfresher.com/plugins/utm-manager/",
+  "homepage": "https://urldev.com/plugins/utm-manager/",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "prefer-stable": true,
