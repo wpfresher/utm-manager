@@ -66,7 +66,7 @@ module.exports = function( grunt ) {
                         mainFile: '<%= package.name %>.php',
                         potFilename: '<%= package.name %>.pot',
                         potHeaders: {
-							'report-msgid-bugs-to': 'https://wpfresher.com/support',
+							'report-msgid-bugs-to': 'https://urldev.com/support',
                             poedit: true,
 							'x-poedit-keywordslist': true,
                         },
