@@ -2,9 +2,9 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UTM Manager 1.2.3\n"
+"Project-Id-Version: UTM Manager 1.2.4\n"
 "Report-Msgid-Bugs-To: https://urldev.com/support\n"
-"POT-Creation-Date: 2025-07-12 05:03:51+00:00\n"
+"POT-Creation-Date: 2025-07-15 16:47:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,53 +51,53 @@ msgstr ""
 msgid "%s item(s) deleted successfully."
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:93 includes/PostTypes.php:45
+#: includes/Admin/ListTables/LeadsListTable.php:91 includes/PostTypes.php:45
 msgid "No leads found."
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:106
+#: includes/Admin/ListTables/LeadsListTable.php:104
 msgid "IP"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:107
+#: includes/Admin/ListTables/LeadsListTable.php:105
 msgid "UTM ID"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:108
+#: includes/Admin/ListTables/LeadsListTable.php:106
 msgid "UTM Source"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:109
+#: includes/Admin/ListTables/LeadsListTable.php:107
 msgid "UTM Medium"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:110
+#: includes/Admin/ListTables/LeadsListTable.php:108
 msgid "UTM Campaign"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:111
+#: includes/Admin/ListTables/LeadsListTable.php:109
 msgid "UTM Term"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:112
+#: includes/Admin/ListTables/LeadsListTable.php:110
 msgid "UTM Content"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:113
+#: includes/Admin/ListTables/LeadsListTable.php:111
 msgid "Date"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:171
+#: includes/Admin/ListTables/LeadsListTable.php:169
 #. translators: %d: key id.
 msgid "ID: %d"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:172
+#: includes/Admin/ListTables/LeadsListTable.php:170
 msgid "View"
 msgstr ""
 
-#: includes/Admin/ListTables/LeadsListTable.php:173
-#: includes/Admin/ListTables/LeadsListTable.php:186
+#: includes/Admin/ListTables/LeadsListTable.php:171
+#: includes/Admin/ListTables/LeadsListTable.php:184
 msgid "Delete"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Enable to track the utm_content URL parameter as a lead."
 msgstr ""
 
-#: includes/Admin/views/settings.php:107
+#: includes/Admin/views/settings.php:110
 msgid "Save Changes"
 msgstr ""
 

@@ -26,7 +26,7 @@ class Actions {
 	 * @return void
 	 */
 	public static function handle_settings() {
-		wp_verify_nonce( '_nonce' );
+		check_admin_referer( 'utmm_update_settings' );
 		$referer = wp_get_referer();
 
 		if ( ! current_user_can( 'manage_options' ) ) {
