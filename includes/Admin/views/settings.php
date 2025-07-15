@@ -102,14 +102,14 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 			</div>
 		</div>
 
+		<input type="hidden" name="action" value="utmm_update_settings">
+		<?php wp_nonce_field( 'utmm_update_settings' ); ?>
+
 		<div class="field-group is-last-item">
 			<div class="field-submit-btn">
 				<button class="button button-primary"><?php esc_html_e( 'Save Changes', 'utm-manager' ); ?></button>
 			</div>
 		</div>
-
-		<input type="hidden" name="action" value="utmm_update_settings">
-		<?php wp_nonce_field( 'utmm_update_settings' ); ?>
 	</form>
 </div>
 <?php

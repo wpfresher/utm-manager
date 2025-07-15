@@ -6,15 +6,8 @@
   "license": "GPL-2.0-or-later",
   "prefer-stable": true,
   "minimum-stability": "dev",
-  "repositories": [
-    {
-      "url": "git@github.com:wpfresher/wpfresher-sniffs.git",
-      "type": "github"
-    }
-  ],
-  "require-dev": {
-    "wpfresher/wpfresher-sniffs": "dev-master"
-  },
+  "repositories": [],
+  "require-dev": {},
   "require": {
     "php": ">=7.4"
   },
@@ -38,9 +31,7 @@
     ],
     "post-update-cmd": [
       "composer dump-autoload"
-    ],
-    "phpcs": "@php ./vendor/bin/phpcs --standard=phpcs.xml -s -v",
-    "phpcbf": "@php ./vendor/bin/phpcbf --standard=phpcs.xml -v"
+    ]
   },
   "extra": {}
 }

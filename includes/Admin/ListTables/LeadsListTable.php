@@ -2,8 +2,6 @@
 
 namespace UTMManager\Admin\ListTables;
 
-use PhpParser\Node\Expr\Cast\Object_;
-
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 // WP_List_Table is not loaded automatically, so we need to load it in our application.

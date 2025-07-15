@@ -12,7 +12,7 @@ readme.md
 README.md
 
 # Composer related files
-composer.*
+composer.lock
 
 # NPM related files
 npm-debug.log
@@ -76,6 +76,5 @@ Thumbs.db
 
 # Build related files
 /src
-lib
 development.md
 blueprint.json
