@@ -13,7 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "UTMManager\\": ["includes/"]
+      "UTMManager\\": "includes/"
     }
   },
   "config": {
@@ -21,10 +21,9 @@
     "sort-packages": true,
     "allow-plugins": {
       "composer/*": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "dealerdirect/phpcodesniffer-composer-installer": false
     }
   },
-  "autoload-dev": {},
   "scripts": {
     "post-install-cmd": [
       "composer dump-autoload"
@@ -32,6 +31,5 @@
     "post-update-cmd": [
       "composer dump-autoload"
     ]
-  },
-  "extra": {}
+  }
 }

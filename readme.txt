@@ -1,4 +1,4 @@
-=== UTM Manager ===
+=== UTM Manager – UTM Tracking & Lead Analytics ===
 Contributors: urldev, kawsarahmedr
 Tags: utm manager, utm tracker, utm, analytics, insights
 Tested up to: 6.9
@@ -6,18 +6,44 @@ Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-UTM Manager is the essential tool for enhancing website's analytics and driving growth.
+UTM Manager helps you track UTM parameters, analyze campaigns, and generate leads with detailed analytics inside WordPress.
 
 == Description ==
-UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.
+
+UTM Manager is a powerful yet easy-to-use WordPress plugin that helps you track UTM parameters and URL parameters, analyze marketing campaigns, and capture visitors as leads with full attribution.
+
+Whether you’re running ads on Google, Facebook, email campaigns, or affiliate promotions, UTM Manager ensures that every visit is tracked, recorded, and linked to the correct traffic source—all directly inside your WordPress dashboard.
+
+With UTM Manager, you can automatically capture UTM parameters such as utm_source, utm_medium, utm_campaign, utm_term, and utm_content, along with any custom URL parameters, and store them as structured lead data. This makes it easy to understand where your leads come from, which campaigns perform best, and how users interact with your site.
 
 === ✨ Features of UTM Manager ===
-* Automatic UTM Tracking: Seamlessly capture and store UTM parameters from incoming URLs, ensuring you never miss critical campaign data.
-* Detailed Analytics: View comprehensive reports on UTM data directly from your WordPress dashboard, including source, medium, campaign, term, and content.
-* Customizable Settings: Easily configure which UTM parameters to track and manage, and tailor the plugin to fit your specific needs.
-* User-Friendly Interface: Intuitive and easy-to-navigate interface makes tracking and analyzing UTM data straightforward, even for beginners.
-* Integration Ready: Compatible with popular analytics tools, allowing you to sync and enhance your data analysis.
-* GDPR Compliant: Designed with privacy in mind, ensuring that all UTM tracking complies with GDPR and other data protection regulations.
+
+* **Automatic UTM Tracking**: Seamlessly capture and store UTM parameters from incoming URLs, ensuring you never miss critical campaign data.
+* **Detailed Analytics**: View comprehensive reports on UTM data directly from your WordPress dashboard, including source, medium, campaign, term, and content.
+* **Customizable Settings**: Easily configure which UTM parameters to track and manage, and tailor the plugin to fit your specific needs.
+* **User-Friendly Interface**: Intuitive and easy-to-navigate interface makes tracking and analyzing UTM data straightforward, even for beginners.
+* **Integration Ready**: Compatible with popular analytics tools, allowing you to sync and enhance your data analysis.
+* **GDPR Compliant**: Designed with privacy in mind, ensuring that all UTM tracking complies with GDPR and other data protection regulations.
+
+=== 🚀 Key Benefits of UTM Manager ===
+
+* **📊 Track UTM Parameters Accurately**: Capture all standard UTM parameters and custom URL parameters from incoming traffic.
+* **🎯 Convert Visits into Leads**: Automatically generate leads when users land on your site with UTM or tracking parameters.
+* **🔍 Campaign Performance Insights**: Analyze traffic sources, campaigns, mediums, and content to measure real marketing impact.
+* **🧠 Centralized Lead Analytics**: View, manage, and analyze captured leads in a clean and intuitive WordPress admin interface.
+* **⚡ Works Seamlessly with WordPress**: No third-party dashboards required—everything stays inside your WordPress site.
+* **🛠️ Developer & Marketer Friendly**: Lightweight, flexible, and built with modern WordPress best practices.
+
+=== 🎯 Who Should Use UTM Manager? ===
+* Small to medium-sized businesses running digital marketing campaigns
+* E-commerce stores tracking customer acquisition sources
+* Digital marketers tracking paid campaigns
+* SaaS and product websites measuring conversions
+* Affiliate marketers and content creators
+* Agencies managing multiple traffic sources
+* Anyone who wants reliable UTM tracking with lead attribution
+
+If you rely on UTM parameters to measure campaign success and want a clear connection between traffic sources and leads, UTM Manager gives you the insights you need to grow smarter and faster.
 
 == Why Choose UTM Manager? ==
 * Boost Campaign Performance: Gain deep insights into which campaigns drive the most traffic and conversions, enabling you to make data-driven decisions.

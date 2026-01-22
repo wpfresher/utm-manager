@@ -4,7 +4,7 @@
   "version": "1.2.6",
   "description": "UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.",
   "homepage": "https://urldev.com/plugins/utm-manager/",
-  "license": "GPL-v2.0-or-later",
+  "license": "GPL-2.0-or-later",
   "author": "UrlDev",
   "prettier": "@wordpress/prettier-config",
   "scripts": {
@@ -35,7 +35,6 @@
   },
   "browserslist": [
     "> 0.1%",
-    "ie 8",
-    "ie 9"
+    "not ie <= 11"
   ]
 }

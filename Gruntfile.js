@@ -68,7 +68,7 @@ module.exports = function( grunt ) {
                         potHeaders: {
 							'report-msgid-bugs-to': 'https://urldev.com/support',
                             poedit: true,
-							'x-poedit-keywordslist': true,
+                            'x-poedit-keywordslist': true,
                         },
                         type: 'wp-plugin',
                         updateTimestamp: false,
