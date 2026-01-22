@@ -76,5 +76,7 @@ Thumbs.db
 
 # Build related files
 /src
-development.md
-blueprint.json
+/blueprint.json
+
+# Plugin specific files
+/development.md

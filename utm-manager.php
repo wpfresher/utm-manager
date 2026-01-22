@@ -3,7 +3,7 @@
  * Plugin Name:       UTM Manager
  * Plugin URI:        https://urldev.com/plugins/utm-manager/
  * Description:       UTM Manager is a powerful and user-friendly WordPress plugin designed to help you efficiently track and manage UTM parameters across your website. With UTM Manager, you can effortlessly monitor the performance of your marketing campaigns, understand the source of your traffic, and gain valuable insights to optimize your strategies.
- * Version:           1.2.5
+ * Version:           1.2.6
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            UrlDev
@@ -12,19 +12,22 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       utm-manager
  * Domain Path:       /languages
- * Tested up to:      6.8
+ * Tested up to:      6.9
  *
  * @package UTMManager
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
+ * UTM Manager is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * UTM Manager is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with UTM Manager. If not, see https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 use UTMManager\Plugin;
@@ -38,10 +41,10 @@ require_once __DIR__ . '/vendor/autoload.php';
  * Get the plugin instance.
  *
  * @since 1.0.0
- * @return Plugin
+ * @return Plugin plugin initialize class.
  */
 function utm_manager() {
-	return Plugin::create( __FILE__, '1.2.5' );
+	return Plugin::create( __FILE__, '1.2.6' );
 }
 
 // Initialize the plugin.

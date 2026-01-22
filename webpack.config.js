@@ -18,7 +18,7 @@ module.exports = [
         },
         plugins: [
             ...defaultConfig.plugins,
-			// Copy images to the build folder.
+			// Copy images to the assets folder.
 			// new CopyWebpackPlugin({
 			// 	patterns: [
 			// 		{

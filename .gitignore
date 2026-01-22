@@ -41,14 +41,11 @@ npm-debug.log
 .husky
 *.lock
 
-# Tests
+# Tests and code coverage
 codeception.yml
 .env
 /tests/_data/dump.sql
 .env.testing
 
-# Framework
-lib
-
-# Build
-assets/
+# Build related files
+/assets
