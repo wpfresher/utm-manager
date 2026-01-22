@@ -42,10 +42,10 @@ class Installer {
 	 * @return array Modified cron schedules.
 	 */
 	public static function add_cron_intervals( $schedules ) {
-		if ( ! isset( $schedules['five_minutes'] ) ) {
-			$schedules['utmm_two_minutes'] = array(
+		if ( ! isset( $schedules['utmm_every_minutes'] ) ) {
+			$schedules['utmm_every_minutes'] = array(
 				'interval' => 60,
-				'display'  => __( 'Every Minute', 'utm-manager' ),
+				'display'  => __( 'Every Minutes', 'utm-manager' ),
 			);
 		}
 
@@ -126,7 +126,7 @@ class Installer {
 
 		// On install, Schedule the migration cron job (runs per two minutes).
 		if ( ! wp_next_scheduled( 'utmm_migrate_data' ) && empty( $is_migrated ) ) {
-			wp_schedule_event( time(), 'utmm_two_minutes', 'utmm_migrate_data' );
+			wp_schedule_event( time(), 'utmm_every_minutes', 'utmm_migrate_data' );
 		}
 
 		// Set installation options.

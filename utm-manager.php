@@ -16,9 +16,7 @@
  *
  * @package UTMManager
  *
- * UTM Manager is a plugin that helps you generate content for your website using the power of AI.
- *
- * UTM Manager is a free software: you can redistribute it and/or modify
+ * UTM Manager is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
  * any later version.
