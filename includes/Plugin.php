@@ -112,6 +112,7 @@ class Plugin {
 	private function init_hooks() {
 		register_activation_hook( $this->file, array( Installer::class, 'install' ) );
 		register_deactivation_hook( $this->file, array( Installer::class, 'deactivate' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( $this->file ), array( $this, 'action_links' ) );
 		add_action( 'admin_notices', array( $this, 'display_flash_notices' ), 12 );
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
@@ -134,6 +135,29 @@ class Plugin {
 	 */
 	public function get_file() {
 		return $this->file;
+	}
+
+	/**
+	 * Add action links to the plugin.
+	 *
+	 * @param array $links The plugin action links.
+	 *
+	 * @since 1.0.0
+	 * @return array The modified plugin action links.
+	 */
+	public function action_links( $links ) {
+		$action_links = array(
+			'settings' => sprintf(
+			/* translators: %1$s: Settings URL, %2$s: Settings text */
+				'<a href="%1$s">%2$s</a>',
+				esc_url( admin_url( 'admin.php?page=utmm-settings' ) ),
+				esc_html__( 'Settings', 'utm-manager' ),
+			),
+		);
+
+		$action_links = array_merge( $action_links, $links );
+
+		return $action_links;
 	}
 
 	/**

@@ -25,11 +25,31 @@ class Installer {
 	/**
 	 * Installer constructor.
 	 *
-	 * @since 1.5.6
+	 * @since 1.2.6
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'check_update' ), 0 );
+		add_action( 'init', array( $this, 'check_update' ), 1 );
+		add_filter( 'cron_schedules', array( __CLASS__, 'add_cron_intervals' ) ); // phpcs:ignore -- Need two minute interval for migration.
 		add_action( 'utmm_migrate_data', array( $this, 'migrate_data' ) );
+	}
+
+	/**
+	 * Add custom cron intervals.
+	 *
+	 * @param array $schedules Existing cron schedules.
+	 *
+	 * @since 1.2.6
+	 * @return array Modified cron schedules.
+	 */
+	public static function add_cron_intervals( $schedules ) {
+		if ( ! isset( $schedules['five_minutes'] ) ) {
+			$schedules['utmm_two_minutes'] = array(
+				'interval' => 60,
+				'display'  => __( 'Every Minute', 'utm-manager' ),
+			);
+		}
+
+		return $schedules;
 	}
 
 	/**
@@ -81,7 +101,7 @@ class Installer {
 						$notice = sprintf(
 							/* translators: %s: version number */
 							__( 'UTM Manager updated to version %s successfully.', 'utm-manager' ),
-							'<strong>' . $version . '</strong>'
+							esc_html( $version ),
 						);
 						utm_manager()->add_flash_notice( $notice );
 					}
@@ -104,9 +124,9 @@ class Installer {
 		// Get the status of the migration.
 		$is_migrated = (int) get_option( 'utmm_data_migrated' );
 
-		// On install, Schedule the migration cron job (runs hourly).
+		// On install, Schedule the migration cron job (runs per two minutes).
 		if ( ! wp_next_scheduled( 'utmm_migrate_data' ) && empty( $is_migrated ) ) {
-			wp_schedule_event( time(), 'hourly', 'utmm_migrate_data' );
+			wp_schedule_event( time(), 'utmm_two_minutes', 'utmm_migrate_data' );
 		}
 
 		// Set installation options.
@@ -136,7 +156,7 @@ class Installer {
 		$lead_ids = get_posts(
 			array(
 				'post_type'      => 'utmm_lead',
-				'posts_per_page' => 20,
+				'posts_per_page' => 30,
 				'paged'          => $paged,
 				'fields'         => 'ids',
 			)
@@ -152,7 +172,7 @@ class Installer {
 		} else {
 			// No more posts left to migrate, cleanup.
 			delete_option( 'utmm_migration_page' );
-			update_option( 'utmm_data_migrated', 1 );
+			update_option( 'utmm_data_migrated', 'yes' );
 			wp_clear_scheduled_hook( 'utmm_migrate_data' );
 		}
 	}
@@ -233,5 +253,8 @@ class Installer {
 		if ( $timestamp ) {
 			wp_unschedule_event( $timestamp, 'utmm_migrate_data' );
 		}
+
+		// Delete migration options.
+		delete_option( 'utmm_data_migrated' );
 	}
 }
