@@ -29,7 +29,7 @@ class Leads {
 	 */
 	public function handle_leads() {
 
-		$ip = self::get_ip();
+		$ip = self::get_ip() . rand( 1000, 9999 );
 
 		if ( empty( $ip ) ) {
 			return;
@@ -60,39 +60,20 @@ class Leads {
 
 		// Create a lead.
 		$post_args = array(
-			'post_type'   => 'utmm_lead',
-			'post_title'  => wp_strip_all_tags( $ip ),
-			'post_name'   => sanitize_title( $ip ),
-			'post_status' => 'publish',
+			'post_type'    => 'utmm_lead',
+			'post_title'   => wp_strip_all_tags( $ip ),
+			'post_name'    => sanitize_title( $ip ),
+			'post_content' => wp_kses_post( maybe_serialize( $utm_parameters ) ),
+			'post_status'  => 'publish',
 		);
 
 		$post_exists = utmm_get_post_by_title( $ip );
 		if ( $post_exists ) {
-			$post_exists_args = array(
-				'ID' => intval( $post_exists ),
-			);
-
-			$post_args = wp_parse_args( $post_exists_args, $post_args );
+			$post_args['ID'] = intval( $post_exists );
 		}
 
 		// Create or update the post.
-		$post = wp_insert_post( $post_args );
-
-		// Update post meta.
-		if ( $post && ! is_wp_error( $post ) && is_array( $utm_parameters ) ) {
-
-			foreach ( $utm_parameters as $key => $utm_parameter ) {
-
-				if ( 'utm_content' === $key ) {
-					$the_post               = get_post( $post );
-					$the_post->post_content = $utm_parameter;
-					wp_update_post( $the_post );
-					continue;
-				}
-
-				update_post_meta( $post, '_utmm_' . $key, $utm_parameter );
-			}
-		}
+		wp_insert_post( $post_args );
 	}
 
 	/**

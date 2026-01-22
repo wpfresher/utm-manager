@@ -71,11 +71,10 @@ class LeadsListTable extends \WP_List_Table {
 		$args = apply_filters( 'utmm_leads_table_query_args', $args );
 
 		$this->items = utmm_get_leads( $args );
-		$total       = utmm_get_leads( $args, true );
 
 		$this->set_pagination_args(
 			array(
-				'total_items' => $total,
+				'total_items' => utmm_get_leads( $args, true ),
 				'per_page'    => $per_page,
 			)
 		);
@@ -193,10 +192,11 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	protected function column_utm_id( $item ) {
-		$value  = '&mdash;';
-		$utm_id = get_post_meta( $item->ID, '_utmm_utm_id', true );
-		if ( $utm_id ) {
-			$value = sprintf( '<span>%s</span>', esc_html( $utm_id ) );
+		$value   = '&mdash;';
+		$content = maybe_unserialize( $item->post_content );
+
+		if ( is_array( $content ) && isset( $content['utm_id'] ) ) {
+			$value = sprintf( '<span>%s</span>', esc_html( $content['utm_id'] ) );
 		}
 
 		return $value;
@@ -210,10 +210,11 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	protected function column_utm_source( $item ) {
-		$value      = '&mdash;';
-		$utm_source = get_post_meta( $item->ID, '_utmm_utm_source', true );
-		if ( $utm_source ) {
-			$value = sprintf( '<span>%s</span>', esc_html( $utm_source ) );
+		$value   = '&mdash;';
+		$content = maybe_unserialize( $item->post_content );
+
+		if ( is_array( $content ) && isset( $content['utm_source'] ) ) {
+			$value = sprintf( '<span>%s</span>', esc_html( $content['utm_source'] ) );
 		}
 
 		return $value;
@@ -227,10 +228,11 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	protected function column_utm_medium( $item ) {
-		$value      = '&mdash;';
-		$utm_medium = get_post_meta( $item->ID, '_utmm_utm_medium', true );
-		if ( $utm_medium ) {
-			$value = sprintf( '<span>%s</span>', esc_html( $utm_medium ) );
+		$value   = '&mdash;';
+		$content = maybe_unserialize( $item->post_content );
+
+		if ( is_array( $content ) && isset( $content['utm_medium'] ) ) {
+			$value = sprintf( '<span>%s</span>', esc_html( $content['utm_medium'] ) );
 		}
 
 		return $value;
@@ -244,10 +246,11 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	protected function column_utm_campaign( $item ) {
-		$value        = '&mdash;';
-		$utm_campaign = get_post_meta( $item->ID, '_utmm_utm_campaign', true );
-		if ( $utm_campaign ) {
-			$value = sprintf( '<span>%s</span>', esc_html( $utm_campaign ) );
+		$value   = '&mdash;';
+		$content = maybe_unserialize( $item->post_content );
+
+		if ( is_array( $content ) && isset( $content['utm_campaign'] ) ) {
+			$value = sprintf( '<span>%s</span>', esc_html( $content['utm_campaign'] ) );
 		}
 
 		return $value;
@@ -261,10 +264,11 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	protected function column_utm_term( $item ) {
-		$value    = '&mdash;';
-		$utm_term = get_post_meta( $item->ID, '_utmm_utm_term', true );
-		if ( $utm_term ) {
-			$value = sprintf( '<span>%s</span>', esc_html( $utm_term ) );
+		$value   = '&mdash;';
+		$content = maybe_unserialize( $item->post_content );
+
+		if ( is_array( $content ) && isset( $content['utm_term'] ) ) {
+			$value = sprintf( '<span>%s</span>', esc_html( $content['utm_term'] ) );
 		}
 
 		return $value;
@@ -278,10 +282,11 @@ class LeadsListTable extends \WP_List_Table {
 	 * @since 1.0.0
 	 */
 	protected function column_content( $item ) {
-		$value       = '&mdash;';
-		$utm_content = $item->post_content;
-		if ( $utm_content ) {
-			$value = wp_kses_post( $utm_content );
+		$value   = '&mdash;';
+		$content = maybe_unserialize( $item->post_content );
+
+		if ( is_array( $content ) && isset( $content['utm_content'] ) ) {
+			$value = sprintf( '<span>%s</span>', esc_html( $content['utm_content'] ) );
 		}
 
 		return $value;
