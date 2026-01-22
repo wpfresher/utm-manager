@@ -5,10 +5,12 @@
  * @since 1.0.0
  * @package UTMManager
  *
- * @var object $lead Lead post object.
+ * @var \WP_Post $lead Lead post object.
  */
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
+$content = maybe_unserialize( $lead->post_content );
 
 ?>
 <div class="wrap utmm-wrap">
@@ -39,59 +41,18 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 			</div>
 		</div>
 
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'UTM ID:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<p><?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_id', true ) ); ?></p>
-			</div>
-		</div>
-
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'UTM Source:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<p><?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_source', true ) ); ?></p>
-			</div>
-		</div>
-
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'UTM Medium:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<p><?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_medium', true ) ); ?></p>
-			</div>
-		</div>
-
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'UTM Campaign:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<p><?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_campaign', true ) ); ?></p>
-			</div>
-		</div>
-
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'UTM Term:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<p><?php echo esc_html( get_post_meta( $lead->ID, '_utmm_utm_term', true ) ); ?></p>
-			</div>
-		</div>
-
-		<div class="field-group">
-			<div class="field-label">
-				<strong><?php esc_html_e( 'UTM Content:', 'utm-manager' ); ?></strong>
-			</div>
-			<div class="field">
-				<p><?php echo wp_kses_post( $lead->post_content ); ?></p>
-			</div>
-		</div>
+		<?php if ( $content && is_array( $content ) ) : ?>
+			<?php foreach ( $content as $key => $value ) : ?>
+				<div class="field-group">
+					<div class="field-label">
+						<strong><?php echo esc_html( ucwords( str_replace( '_', ' ', $key ) ) ); ?>:</strong>
+					</div>
+					<div class="field">
+						<p><?php echo esc_html( $value ); ?></p>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		<?php endif; ?>
 
 		<div class="field-group">
 			<div class="field-label">

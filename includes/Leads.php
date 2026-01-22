@@ -63,7 +63,7 @@ class Leads {
 			'post_type'    => 'utmm_lead',
 			'post_title'   => wp_strip_all_tags( $ip ),
 			'post_name'    => sanitize_title( $ip ),
-			'post_content' => wp_kses_post( maybe_serialize( $utm_parameters ) ),
+			'post_content' => maybe_serialize( $utm_parameters ),
 			'post_status'  => 'publish',
 		);
 
