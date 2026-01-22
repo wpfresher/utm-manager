@@ -29,7 +29,7 @@ class Leads {
 	 */
 	public function handle_leads() {
 
-		$ip = self::get_ip() . rand( 1000, 9999 );
+		$ip = self::get_ip();
 
 		if ( empty( $ip ) ) {
 			return;

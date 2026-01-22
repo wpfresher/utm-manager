@@ -110,36 +110,30 @@ class Plugin {
 	 * @return void
 	 */
 	private function init_hooks() {
-		register_activation_hook( UTMM_FILE, array( $this, 'activate' ) );
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+		register_activation_hook( $this->file, array( Installer::class, 'install' ) );
+		register_deactivation_hook( $this->file, array( Installer::class, 'deactivate' ) );
 		add_action( 'admin_notices', array( $this, 'display_flash_notices' ), 12 );
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
 
 	/**
-	 * Plugin activation hook.
+	 * Get the plugin version.
 	 *
 	 * @since 1.0.0
-	 * @return void
+	 * @return string The plugin version.
 	 */
-	public function activate() {
-		update_option( 'utmm_version', UTMM_VERSION );
-		update_option( 'utmm_utm_id', 'yes' );
-		update_option( 'utmm_utm_source', 'yes' );
-		update_option( 'utmm_utm_medium', 'yes' );
-		update_option( 'utmm_utm_campaign', 'yes' );
-		update_option( 'utmm_utm_term', 'yes' );
-		update_option( 'utmm_utm_content', 'yes' );
+	public function get_version() {
+		return $this->version;
 	}
 
 	/**
-	 * Load plugin textdomain.
+	 * Get the plugin file path.
 	 *
 	 * @since 1.0.0
-	 * @return void
+	 * @return string The plugin file path.
 	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'utm-manager', false, dirname( plugin_basename( UTMM_FILE ) ) . '/languages/' );
+	public function get_file() {
+		return $this->file;
 	}
 
 	/**
@@ -203,6 +197,7 @@ class Plugin {
 	 * @return void
 	 */
 	public function init() {
+		new Installer();
 		new PostTypes();
 		new Leads();
 
