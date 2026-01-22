@@ -1,10 +1,8 @@
 === UTM Manager ===
 Contributors: urldev, kawsarahmedr
 Tags: utm manager, utm tracker, utm, analytics, insights
-Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 1.2.5
-Requires PHP: 7.4
+Tested up to: 6.9
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,14 +61,19 @@ UTM Manager is integration-ready and compatible with popular analytics tools, al
 3. Settings Page
 
 == Changelog ==
-= 1.2.5 (17 October, 2025) =
+= 1.2.6 (22 January 2026) =
+* New: Added new feature to search UTM leads by every column.
+* Fix: Fixed minor bugs and improved overall performance.
+* Compatibility: Compatible with the latest version of WordPress 6.9.
+
+= 1.2.5 (17 October 2025) =
 * Fix: Fixed minor bugs and improved overall performance.
 
-= 1.2.4 (15 July, 2025) =
+= 1.2.4 (15 July 2025) =
 * Fix: Fixed few known issues.
 * Security: Improved security measures to protect against potential vulnerabilities.
 
-= 1.2.3 (12 July, 2025) =
+= 1.2.3 (12 July 2025) =
 * Update: Update the plugin name to match the plugin slug.
 * Compatibility: Compatible with the WordPress latest version.
 
