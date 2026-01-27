@@ -20,6 +20,7 @@
 			align-self: center;
 		}
 		.field{
+			width: 100%;
 			.description{
 				margin-top: 5px;
 			}
@@ -33,10 +34,14 @@
 				align-self: center;
 			}
 		}
-		&.filed-section{
+		&.field-section{
 			flex-direction: column;
 			gap: 10px;
 			background: #dddddd;
+		}
+		&.has-spinner{
+			flex-direction: row;
+			justify-content: space-between;
 		}
 	}
 	input[type=text],
@@ -47,9 +52,14 @@
 	input[type=datetime],
 	input[type=datetime-local],
 	input[type=month],
+	select,
 	textarea {
 		width: 100%;
 		padding: 5px 8px;
 		border: 1px solid #ddd;
+	}
+
+	select{
+		max-width: 100%;
 	}
 }

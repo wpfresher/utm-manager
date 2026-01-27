@@ -21,6 +21,7 @@ class Admin {
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
+		add_action( 'admin_menu', array( $this, 'tools_menu' ), 90 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 100 );
 		add_filter( 'set-screen-option', array( $this, 'screen_option' ), 10, 3 );
 		add_action( 'load-toplevel_page_utm-manager', array( $this, 'handle_list_table_actions' ) );
@@ -55,6 +56,33 @@ class Admin {
 
 		// Load screen options.
 		add_action( 'load-' . $load, array( __CLASS__, 'load_leads_page' ) );
+	}
+
+	/**
+	 * Add tools submenu.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function tools_menu() {
+		add_submenu_page(
+			'utm-manager',
+			__( 'Tools', 'utm-manager' ),
+			__( 'Tools', 'utm-manager' ),
+			'manage_options',
+			'utmm-tools',
+			array( $this, 'tools_page' ),
+		);
+	}
+
+	/**
+	 * Render tools page.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function tools_page() {
+		include __DIR__ . '/views/tools.php';
 	}
 
 	/**
@@ -211,13 +239,13 @@ class Admin {
 	public function enqueue_scripts( $hook ) {
 		$screens = array(
 			'toplevel_page_utm-manager',
+			'utm-manager_page_utmm-tools',
 			'utm-manager_page_utmm-settings',
 		);
 
-		wp_register_style( 'utmm-admin', UTMM_ASSETS_URL . 'css/utmm-admin.css', array(), UTMM_VERSION );
-
 		if ( in_array( $hook, $screens, true ) ) {
-			wp_enqueue_style( 'utmm-admin' );
+			wp_enqueue_style( 'utmm-admin', UTMM_ASSETS_URL . 'css/admin.css', array(), UTMM_VERSION );
+			wp_enqueue_script( 'utmm-admin', UTMM_ASSETS_URL . 'js/admin.js', array( 'jquery' ), UTMM_VERSION, true );
 		}
 	}
 }

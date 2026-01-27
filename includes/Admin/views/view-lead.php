@@ -3,7 +3,7 @@
  * View lead.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UTMManager\Admin\Views
  *
  * @var \WP_Post $lead Lead post object.
  */

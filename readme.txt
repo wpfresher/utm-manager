@@ -2,7 +2,7 @@
 Contributors: urldev, kawsarahmedr
 Tags: utm manager, utm tracker, utm, analytics, insights
 Tested up to: 6.9
-Stable tag: 1.2.6
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,11 @@ UTM Manager is integration-ready and compatible with popular analytics tools, al
 3. Settings Page
 
 == Changelog ==
+= 1.3.0 (27 January 2026) =
+* New: Added new feature to export UTM leads in CSV format. This can handle exporting unlimited leads.
+* Fix: Fixed few known issues.
+* Enhance: Improved overall performance and stability.
+
 = 1.2.6 (22 January 2026) =
 * New: Added new feature to search UTM leads by every column.
 * Fix: Fixed minor bugs and improved overall performance.
@@ -127,5 +132,5 @@ UTM Manager is integration-ready and compatible with popular analytics tools, al
 * Initial Release.
 
 == Upgrade Notice ==
-= 1.2.0 =
-* Update the plugin framework for better performance. Ensure to update the plugin to the latest version.
+= 1.3.0 =
+* This is a major update & added a new feature to export UTM leads in CSV format. This can handle exporting unlimited leads.
