@@ -8,8 +8,8 @@ module.exports = [
         ...defaultConfig,
         entry: {
             ...defaultConfig.entry(),
-            'css/utmm-admin': './src/css/admin.scss',
-            // 'js/utmm-admin': './src/js/admin.js',
+            'css/admin': './src/css/admin.scss',
+            'js/admin': './src/js/admin.js',
         },
         output: {
             ...defaultConfig.output,

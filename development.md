@@ -29,5 +29,5 @@ Here is the structure of the plugin:
 - `package.json` - Contains the npm dependencies and scripts.
 - `phpcs.xml.dist` - Contains the phpcs configurations.
 - `uninstall.php` - Contains the uninstallation code for the plugin.
-- `wc-donation-manager.php` - Contains the main plugin file.
+- `utm-manager.php` - Contains the main plugin file.
 - `webpack.config.js` - Contains the webpack configurations.

@@ -3,7 +3,7 @@
  * Settings.
  *
  * @since 1.0.0
- * @package UTMManager
+ * @package UTMManager\Admin\Views
  */
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 	<hr class="wp-header-end">
 	<form id="utmm-form" method="post" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
 
-		<div class="field-group filed-section">
+		<div class="field-group field-section">
 			<h3><?php esc_html_e( 'Setup UTM Parameter(s)', 'utm-manager' ); ?></h3>
 			<p><?php esc_html_e( 'The following options are the utm parameter settings. Al least an option needs to be checked to track the URL parameters.', 'utm-manager' ); ?></p>
 		</div>
