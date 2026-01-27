@@ -25,7 +25,7 @@ $content = maybe_unserialize( $lead->post_content );
 	<hr class="wp-header-end">
 
 	<div id="utmm-form">
-		<div class="field-group filed-section">
+		<div class="field-group field-section">
 			<h3><?php esc_html_e( 'Lead Details:', 'utm-manager' ); ?> #<?php echo esc_html( $lead->ID ); ?></h3>
 			<p><?php esc_html_e( 'The following options are the lead information(s).', 'utm-manager' ); ?></p>
 		</div>

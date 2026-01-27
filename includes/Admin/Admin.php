@@ -61,7 +61,7 @@ class Admin {
 	/**
 	 * Add tools submenu.
 	 *
-	 * @since 1.0.0
+	 * @since 1.3.0
 	 * @return void
 	 */
 	public function tools_menu() {
@@ -78,7 +78,7 @@ class Admin {
 	/**
 	 * Render tools page.
 	 *
-	 * @since 1.0.0
+	 * @since 1.3.0
 	 * @return void
 	 */
 	public function tools_page() {
