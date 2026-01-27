@@ -86,6 +86,10 @@ Unlike complex analytics platforms, UTM Manager focuses on one thing and does it
 
 Your marketing data stays on your server, under your control. Whether you need a quick overview of recent leads or want to export months of data for detailed analysis, UTM Manager delivers the insights you need without the complexity.
 
+== Get Started Today ==
+
+Install UTM Manager from the WordPress plugin repository and take control of your marketing analytics. Unlock the power of precise UTM tracking to elevate your digital marketing strategy.
+
 == Installation ==
 
 = Automatic Installation =
