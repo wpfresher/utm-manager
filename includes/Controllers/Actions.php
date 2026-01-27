@@ -206,19 +206,19 @@ class Actions {
 						$row[] = isset( $lead_content['utm_id'] ) ? $lead_content['utm_id'] : '';
 						break;
 					case 'utm_source':
-						$row[] = isset( $lead_content['utm_source'] ) ? esc_html( $lead_content['utm_source'] ) : '';
+						$row[] = isset( $lead_content['utm_source'] ) ? $lead_content['utm_source'] : '';
 						break;
 					case 'utm_medium':
-						$row[] = isset( $lead_content['utm_medium'] ) ? esc_html( $lead_content['utm_medium'] ) : '';
+						$row[] = isset( $lead_content['utm_medium'] ) ? $lead_content['utm_medium'] : '';
 						break;
 					case 'utm_campaign':
-						$row[] = isset( $lead_content['utm_campaign'] ) ? esc_html( $lead_content['utm_campaign'] ) : '';
+						$row[] = isset( $lead_content['utm_campaign'] ) ? $lead_content['utm_campaign'] : '';
 						break;
 					case 'utm_term':
-						$row[] = isset( $lead_content['utm_term'] ) ? esc_html( $lead_content['utm_term'] ) : '';
+						$row[] = isset( $lead_content['utm_term'] ) ? $lead_content['utm_term'] : '';
 						break;
 					case 'utm_content':
-						$row[] = isset( $lead_content['utm_content'] ) ? esc_html( $lead_content['utm_content'] ) : '';
+						$row[] = isset( $lead_content['utm_content'] ) ? $lead_content['utm_content'] : '';
 						break;
 					case 'date':
 						$row[] = esc_html( $lead->post_modified );
