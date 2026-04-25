@@ -1,8 +1,8 @@
 === UTM Manager – UTM Tracking, Lead Attribution & Campaign Analytics ===
-Contributors: urldev, kawsarahmedr
+Contributors: urldev, beautifulplugins, kawsarahmedr
 Tags: utm, analytics, insights, utm tracker, leads
 Tested up to: 6.9
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -155,6 +155,8 @@ Yes, the export tool lets you select exactly which fields to include: IP Address
 4. **Export Tool** – Export leads to CSV with date range filtering and field selection
 
 == Changelog ==
+= 1.3.1 (25 April 2026) =
+* Fix: Few minor known issues are resolved.
 
 = 1.3.0 (27 January 2026) =
 * New: Added CSV export tool for unlimited lead exports
