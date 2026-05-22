@@ -1,8 +1,8 @@
 === UTM Manager – UTM Tracking, Lead Attribution & Campaign Analytics ===
 Contributors: beautifulplugins, urldev, kawsarahmedr
 Tags: utm, analytics, insights, utm tracker, leads
-Tested up to: 6.9
-Stable tag: 1.3.2
+Tested up to: 7.0
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -155,6 +155,10 @@ Yes, the export tool lets you select exactly which fields to include: IP Address
 4. **Export Tool** – Export leads to CSV with date range filtering and field selection
 
 == Changelog ==
+= 1.3.3 (22 May 2026) =
+* Compatibility: Tested with WordPress 7.0
+* Fix: Resolved minor known issues
+
 = 1.3.2 (26 April 2026) =
 * Ownership: Plugin ownership transferred to BeautifulPlugins
 * Upcoming: New features & improvements in development
